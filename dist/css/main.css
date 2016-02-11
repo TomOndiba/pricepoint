@@ -236,9 +236,13 @@ h6 {
 .container {
   padding: 20px 0;
 }
+.sidebar {
+  margin-bottom: 20px;
+}
 @media (min-width: 750px) {
   .sidebar {
     width: 200px;
+    margin-bottom: 0;
     float: left;
   }
 }
@@ -751,12 +755,12 @@ input[type="submit"].button-icon:focus .icon:after {
   }
 }
 .profile .inform {
-  padding-bottom: 40px;
   text-align: center;
 }
 @media (min-width: 750px) {
   .profile .inform {
     margin-left: 220px;
+    padding-bottom: 40px;
     text-align: left;
   }
 }
@@ -984,9 +988,14 @@ input[type="submit"].button-icon:focus .icon:after {
   opacity: 1;
 }
 .tab {
-  padding: 18px 28px;
+  padding: 14px;
   background: #fff;
   border: 1px solid #e5e5e5;
+}
+@media (min-width: 750px) {
+  .tab {
+    padding: 18px 28px;
+  }
 }
 .tab.tab-hidden {
   display: none;
@@ -1030,12 +1039,16 @@ input[type="submit"].button-icon:focus .icon:after {
   margin: 0 -6px;
   padding: 0;
   list-style: none;
-  display: inline-block;
 }
 .gallery ul:after {
   display: table;
   content: '\0020';
   clear: both;
+}
+@media (min-width: 750px) {
+  .gallery ul {
+    display: inline-block;
+  }
 }
 .gallery ul li {
   width: 20%;
@@ -1047,7 +1060,8 @@ input[type="submit"].button-icon:focus .icon:after {
 }
 .gallery ul li img {
   width: 100%;
-  height: auto margin: 0 auto;
+  height: auto;
+  margin: 0 auto;
   display: block;
 }
 /* ==========================================================================
@@ -1089,8 +1103,14 @@ input[type="submit"].button-icon:focus .icon:after {
   list-style: none;
 }
 .gifts ul li {
+  margin-bottom: 10px;
   display: inline-block;
   vertical-align: middle;
+}
+@media (min-width: 750px) {
+  .gifts ul li {
+    margin-bottom: 0;
+  }
 }
 .gifts ul li a {
   display: block;

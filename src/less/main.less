@@ -226,8 +226,11 @@ h6 {&:extend(.h6); }
   padding: 20px 0;
 }
 .sidebar {
+  margin-bottom: 20px;
+
   @media @sm {
     width: 200px;
+    margin-bottom: 0;
     float: left;
   }
 }
@@ -631,11 +634,11 @@ textarea {
   }
 
   .inform {
-    padding-bottom: 40px;
     text-align: center;
 
     @media @sm {
       margin-left: 220px;
+      padding-bottom: 40px;
       text-align: left;
     }
 
@@ -857,9 +860,13 @@ textarea {
   }
 }
 .tab {
-  padding: 18px 28px;
+  padding: 14px;
   background: @color-white;
   border: 1px solid @color-beige;
+
+  @media @sm {
+    padding: 18px 28px;
+  }
   
   &.tab-hidden { display: none; }
 }
@@ -895,10 +902,13 @@ textarea {
     margin: 0 -6px;
     padding: 0;
     list-style: none;
-    display: inline-block;
 
     &:after { .clearfix; }
-    
+
+    @media @sm {
+      display: inline-block;
+    }
+
     li {
       width: 20%;
       float: left;
@@ -908,7 +918,8 @@ textarea {
 
       img {
         width: 100%;
-        height: auto margin: 0 auto;
+        height: auto;
+        margin: 0 auto;
         display: block;
       }
     }
@@ -948,8 +959,13 @@ textarea {
     list-style: none;
 
     li {
+      margin-bottom: 10px;
       display: inline-block;
       vertical-align: middle;
+
+      @media @sm {
+        margin-bottom: 0;
+      }
       
       a { display: block; }
       img { max-width: 100%; height: auto; display: block; }
