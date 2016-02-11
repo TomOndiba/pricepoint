@@ -89,7 +89,6 @@ video {
 .h4,
 .h5,
 .h6,
-.profile .inform .name,
 h1,
 h2,
 h3,
@@ -214,6 +213,9 @@ h6 {
   display: table;
   content: '\0020';
   clear: both;
+}
+.container {
+  padding: 20px 0;
 }
 /* PureCSS styles */
 .pure-g {
@@ -340,10 +342,10 @@ input[type="submit"].button-black:focus {
 .button.button-icon .icon,
 button.button-icon .icon,
 input[type="submit"].button-icon .icon {
-  width: 15px;
-  height: 15px;
+  width: 14px;
+  height: 14px;
   display: inline-block;
-  vertical-align: middle;
+  vertical-align: top;
   position: relative;
 }
 .button.button-icon .icon:before,
@@ -356,8 +358,8 @@ input[type="submit"].button-icon .icon:after {
   content: '\0020';
   overflow: hidden;
   clear: both;
-  width: 15px;
-  height: 15px;
+  width: 14px;
+  height: 14px;
   background-image: url("../img/sprite.png");
   background-repeat: no-repeat;
   background-size: 150px auto;
@@ -549,7 +551,6 @@ input[type="submit"].button-icon:focus .icon:after {
    _TOP
    ========================================================================== */
 .top {
-  margin-bottom: 20px;
   padding: 8px 0;
   background: #fff;
   border-bottom: 1px solid #e5e5e5;
@@ -557,7 +558,6 @@ input[type="submit"].button-icon:focus .icon:after {
 }
 @media (min-width: 750px) {
   .top {
-    margin-bottom: 0;
     text-align: left;
   }
 }
@@ -590,6 +590,7 @@ input[type="submit"].button-icon:focus .icon:after {
 @media (min-width: 750px) {
   .top .links-group li {
     width: auto;
+    margin: 0;
     padding: 0 1px;
     display: inline-block;
     float: none;
@@ -690,6 +691,9 @@ input[type="submit"].button-icon:focus .icon:after {
 /* ==========================================================================
    _PROFILE
    ========================================================================== */
+.profile {
+  position: relative;
+}
 .profile .photo {
   margin: 0 0 10px;
 }
@@ -702,6 +706,8 @@ input[type="submit"].button-icon:focus .icon:after {
 @media (min-width: 750px) {
   .profile .photo {
     margin-bottom: 0;
+    width: 200px;
+    float: left;
   }
 }
 .profile .inform {
@@ -709,32 +715,33 @@ input[type="submit"].button-icon:focus .icon:after {
 }
 @media (min-width: 750px) {
   .profile .inform {
+    margin-left: 220px;
     text-align: left;
   }
 }
 .profile .inform .name {
-  margin: 14px 0 14px;
+  margin: 0;
   font-size: 22px;
-  font-style: normal;
+  line-height: 22px;
   color: #e74b90;
   font-weight: normal;
 }
 @media (min-width: 750px) {
   .profile .inform .name {
     font-size: 24px;
-    margin: 18px 0 18px;
   }
 }
 .profile .inform .name .small {
   font-size: 15px;
 }
 .profile .inform .location {
+  margin: 0 0 21px;
   font-size: 13px;
 }
 .profile .inform .location .link {
   min-height: 20px;
-  margin-left: 15px;
-  padding-left: 16px;
+  margin-left: 8px;
+  padding-left: 18px;
   display: inline-block;
   vertical-align: middle;
   font-weight: 500;
@@ -745,24 +752,90 @@ input[type="submit"].button-icon:focus .icon:after {
   display: block;
   content: '\0020';
   overflow: hidden;
-  width: 20px;
-  height: 20px;
-  background: url("../img/sprite.png") -100px -65px no-repeat;
-  background-size: 150px auto;
+  width: 16px;
+  height: 16px;
+  background: url("../img/sprite.png") -80px -52px no-repeat;
+  background-size: 120px auto;
   position: absolute;
-  left: 0;
-  top: 0;
+  left: 2px;
+  top: 2px;
+}
+.profile .inform .status {
+  margin-bottom: 21px;
 }
 .profile .inform .activity {
+  font-size: 13px;
   font-weight: 300;
   font-style: italic;
 }
+@media (min-width: 750px) {
+  .profile .inform .activity {
+    margin: 0;
+    position: absolute;
+    right: 18px;
+    top: 16px;
+  }
+}
 .profile .inform .actions {
-  padding-top: 13px;
+  padding: 13px 0 0;
   border-top: 1px solid #e5e5e5;
+  position: relative;
+}
+@media (min-width: 750px) {
+  .profile .inform .actions {
+    padding-right: 90px;
+    padding-bottom: 13px;
+  }
+}
+.profile .inform .actions .button {
+  margin-bottom: 14px;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+@media (min-width: 750px) {
+  .profile .inform .actions .button {
+    margin-bottom: 0;
+  }
+}
+.profile .inform .actions .reports {
+  max-width: 320px;
+  margin: 0 auto;
+}
+.profile .inform .actions .reports:after {
+  display: table;
+  content: '\0020';
+  clear: both;
+}
+@media (min-width: 750px) {
+  .profile .inform .actions .reports {
+    width: 80px;
+    position: absolute;
+    top: 5px;
+    right: 0;
+  }
 }
 .profile .inform .actions .reports .link {
+  width: 50%;
+  padding: 1px 10px;
+  margin: 0 auto;
+  display: block;
+  float: left;
+  text-align: center;
   font-size: 12px;
   font-weight: 500;
   color: #707a85;
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 2px;
+  transition: border-color 0.2s ease;
+}
+.profile .inform .actions .reports .link:hover {
+  text-decoration: none;
+  border-color: #707a85;
+}
+@media (min-width: 750px) {
+  .profile .inform .actions .reports .link {
+    width: auto;
+    float: none;
+  }
 }
