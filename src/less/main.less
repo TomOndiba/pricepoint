@@ -279,6 +279,58 @@ textarea {
     background-color: transparent;
     text-decoration: none;
   }
+
+  &.button-black {
+    color: @color-white;
+    background: @color-sea;
+    border-color: @color-sea;
+
+    &:hover, &:focus {
+      color: @color-sea;
+      background-color: transparent;
+      text-decoration: none;
+    }
+  }
+
+  &.button-icon {
+
+    .icon {
+      width: 15px;
+      height: 15px;
+      display: inline-block;
+      vertical-align: middle;
+      position: relative;
+
+      &:before, &:after {
+        .before;
+        clear: both;
+        width: 15px;
+        height: 15px;
+        background-image: url("@{images}/sprite.png");
+        background-repeat: no-repeat;
+        background-size: 150px auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: opacity @duration;
+      }
+
+      &:before { background-position: 0 0; opacity: 1; }
+      &:after { background-position: 0 -20px; opacity: 0; }
+
+      &.icon-fav {
+        &:before { background-position: 0 0; opacity: 1; }
+        &:after { background-position: 0 -20px; opacity: 0; }
+      }
+    }
+
+    &:hover, &:focus {
+      .icon {
+        &:before { opacity: 0; }
+        &:after { opacity: 1; }
+      }
+    }
+  }
 }
 /* ==========================================================================
    _HEADER
@@ -353,8 +405,8 @@ textarea {
         transition: opacity @duration;
       }
 
-      &:before { background-position: 0 0; opacity: 1; }
-      &:after { background-position: 0 -24px; opacity: 0; }
+      &:before { background-position: 0 -63px; opacity: 1; }
+      &:after { background-position: 0 -86px; opacity: 0; }
 
       &:hover, &:focus, &:active {
         text-decoration: none;
@@ -376,7 +428,8 @@ textarea {
           top: 3px;
           background-size: 150px auto;
         }
-        &:after { background-position: 0 -35px; }
+        &:before { background-position: 0 -95px; }
+        &:after { background-position: 0 -130px; }
         .credits { display: block; }
       }
     }
@@ -401,29 +454,44 @@ textarea {
    _TOP
    ========================================================================== */
 .top {
+  margin-bottom: 20px;
   padding: 8px 0;
   background: @color-white;
   border-bottom: 1px solid @color-beige;
+  text-align: center;
+
+  @media @sm {
+    margin-bottom: 0;
+    text-align: left;
+  }
 
   .links-group {
-    margin: 0;
+    max-width: 324px;
+    margin: 0 -2px;
     padding: 0;
+    display: inline-block;
     list-style: none;
     line-height: 21px;
 
+    &:after { .clearfix; }
+
     @media @sm {
+      max-width: none;
       margin: 0 -1px;
       float: left;
     }
     
     li {
-      max-width: 320px;
       margin: 0 auto 10px;
+      width: 50%;
+      padding: 0 2px;
+      float: left;
       
       @media @sm {
-        max-width: none;
-        margin: 0 1px;
+        width: auto;
+        padding: 0 1px;
         display: inline-block;
+        float: none;
       }
       
       a {
@@ -457,27 +525,27 @@ textarea {
             transition: opacity @duration;
           }
 
-          &:before { background-position: 0 -95px; opacity: 1; }
-          &:after { background-position: 0 -70px; opacity: 0; }
+          &:before { background-position: 0 -65px; opacity: 1; }
+          &:after { background-position: 0 -40px; opacity: 0; }
 
           &.icon-search {
-            &:before { background-position: 0 -95px; }
-            &:after { background-position: 0 -70px; }
+            &:before { background-position: 0 -65px; }
+            &:after { background-position: 0 -40px; }
           }
 
           &.icon-offers {
-            &:before { background-position: -25px -95px; }
-            &:after { background-position: -25px -70px; }
+            &:before { background-position: -25px -65px; }
+            &:after { background-position: -25px -40px; }
           }
 
           &.icon-messages {
-            &:before { background-position: -50px -95px; }
-            &:after { background-position: -50px -70px; }
+            &:before { background-position: -50px -65px; }
+            &:after { background-position: -50px -40px; }
           }
 
           &.icon-date {
-            &:before { background-position: -75px -95px; }
-            &:after { background-position: -75px -70px; }
+            &:before { background-position: -75px -65px; }
+            &:after { background-position: -75px -40px; }
           }
         }
 
@@ -502,6 +570,87 @@ textarea {
 
     @media @sm {
       float: right;
+    }
+  }
+}
+/* ==========================================================================
+   _PROFILE
+   ========================================================================== */
+.profile {
+  .photo {
+    margin: 0 0 10px;
+    
+    img {
+      width: 200px;
+      height: 200px;
+      margin: 0 auto;
+      display: block;
+    }
+
+    @media @sm {
+      margin-bottom: 0;
+    }
+  }
+
+  .inform {
+    text-align: center;
+
+    @media @sm {
+      text-align: left;
+    }
+
+    .name {
+      .h2;
+      color: @color-rosy;
+      font-weight: normal;
+
+      .small {
+        font-size: 15px;
+      }
+    }
+
+    .location {
+      font-size: 13px;
+
+      .link {
+        min-height: 20px;
+        margin-left: 15px;
+        padding-left: 16px;
+        display: inline-block;
+        vertical-align: middle;
+        font-weight: 500;
+        color: @color-font;
+        position: relative;
+
+        &:before {
+          .before;
+          width: 20px;
+          height: 20px;
+          background: url("@{images}/sprite.png") -100px -65px no-repeat;
+          background-size: 150px auto;
+          position: absolute;
+          left: 0;
+          top: 0;
+        }
+      }
+    }
+
+    .activity {
+      font-weight: 300;
+      font-style: italic;
+    }
+
+    .actions {
+      padding-top: 13px;
+      border-top: 1px solid @color-beige;
+
+      .reports {
+        .link {
+          font-size: 12px;
+          font-weight: 500;
+          color: @color-font;
+        }
+      }
     }
   }
 }

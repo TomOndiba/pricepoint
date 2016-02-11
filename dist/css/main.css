@@ -89,6 +89,7 @@ video {
 .h4,
 .h5,
 .h6,
+.profile .inform .name,
 h1,
 h2,
 h3,
@@ -319,6 +320,92 @@ input[type="submit"]:focus {
   background-color: transparent;
   text-decoration: none;
 }
+.button.button-black,
+button.button-black,
+input[type="submit"].button-black {
+  color: #fff;
+  background: #333a42;
+  border-color: #333a42;
+}
+.button.button-black:hover,
+button.button-black:hover,
+input[type="submit"].button-black:hover,
+.button.button-black:focus,
+button.button-black:focus,
+input[type="submit"].button-black:focus {
+  color: #333a42;
+  background-color: transparent;
+  text-decoration: none;
+}
+.button.button-icon .icon,
+button.button-icon .icon,
+input[type="submit"].button-icon .icon {
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+}
+.button.button-icon .icon:before,
+button.button-icon .icon:before,
+input[type="submit"].button-icon .icon:before,
+.button.button-icon .icon:after,
+button.button-icon .icon:after,
+input[type="submit"].button-icon .icon:after {
+  display: block;
+  content: '\0020';
+  overflow: hidden;
+  clear: both;
+  width: 15px;
+  height: 15px;
+  background-image: url("../img/sprite.png");
+  background-repeat: no-repeat;
+  background-size: 150px auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 0.2s ease;
+}
+.button.button-icon .icon:before,
+button.button-icon .icon:before,
+input[type="submit"].button-icon .icon:before {
+  background-position: 0 0;
+  opacity: 1;
+}
+.button.button-icon .icon:after,
+button.button-icon .icon:after,
+input[type="submit"].button-icon .icon:after {
+  background-position: 0 -20px;
+  opacity: 0;
+}
+.button.button-icon .icon.icon-fav:before,
+button.button-icon .icon.icon-fav:before,
+input[type="submit"].button-icon .icon.icon-fav:before {
+  background-position: 0 0;
+  opacity: 1;
+}
+.button.button-icon .icon.icon-fav:after,
+button.button-icon .icon.icon-fav:after,
+input[type="submit"].button-icon .icon.icon-fav:after {
+  background-position: 0 -20px;
+  opacity: 0;
+}
+.button.button-icon:hover .icon:before,
+button.button-icon:hover .icon:before,
+input[type="submit"].button-icon:hover .icon:before,
+.button.button-icon:focus .icon:before,
+button.button-icon:focus .icon:before,
+input[type="submit"].button-icon:focus .icon:before {
+  opacity: 0;
+}
+.button.button-icon:hover .icon:after,
+button.button-icon:hover .icon:after,
+input[type="submit"].button-icon:hover .icon:after,
+.button.button-icon:focus .icon:after,
+button.button-icon:focus .icon:after,
+input[type="submit"].button-icon:focus .icon:after {
+  opacity: 1;
+}
 /* ==========================================================================
    _HEADER
    ========================================================================== */
@@ -394,11 +481,11 @@ input[type="submit"]:focus {
   transition: opacity 0.2s ease;
 }
 .header .username a:before {
-  background-position: 0 0;
+  background-position: 0 -63px;
   opacity: 1;
 }
 .header .username a:after {
-  background-position: 0 -24px;
+  background-position: 0 -86px;
   opacity: 0;
 }
 .header .username a:hover,
@@ -432,8 +519,11 @@ input[type="submit"]:focus {
     top: 3px;
     background-size: 150px auto;
   }
+  .header .username a:before {
+    background-position: 0 -95px;
+  }
   .header .username a:after {
-    background-position: 0 -35px;
+    background-position: 0 -130px;
   }
   .header .username a .credits {
     display: block;
@@ -459,31 +549,50 @@ input[type="submit"]:focus {
    _TOP
    ========================================================================== */
 .top {
+  margin-bottom: 20px;
   padding: 8px 0;
   background: #fff;
   border-bottom: 1px solid #e5e5e5;
+  text-align: center;
+}
+@media (min-width: 750px) {
+  .top {
+    margin-bottom: 0;
+    text-align: left;
+  }
 }
 .top .links-group {
-  margin: 0;
+  max-width: 324px;
+  margin: 0 -2px;
   padding: 0;
+  display: inline-block;
   list-style: none;
   line-height: 21px;
 }
+.top .links-group:after {
+  display: table;
+  content: '\0020';
+  clear: both;
+}
 @media (min-width: 750px) {
   .top .links-group {
+    max-width: none;
     margin: 0 -1px;
     float: left;
   }
 }
 .top .links-group li {
-  max-width: 320px;
   margin: 0 auto 10px;
+  width: 50%;
+  padding: 0 2px;
+  float: left;
 }
 @media (min-width: 750px) {
   .top .links-group li {
-    max-width: none;
-    margin: 0 1px;
+    width: auto;
+    padding: 0 1px;
     display: inline-block;
+    float: none;
   }
 }
 .top .links-group li a {
@@ -520,36 +629,36 @@ input[type="submit"]:focus {
   transition: opacity 0.2s ease;
 }
 .top .links-group li a .icon:before {
-  background-position: 0 -95px;
+  background-position: 0 -65px;
   opacity: 1;
 }
 .top .links-group li a .icon:after {
-  background-position: 0 -70px;
+  background-position: 0 -40px;
   opacity: 0;
 }
 .top .links-group li a .icon.icon-search:before {
-  background-position: 0 -95px;
+  background-position: 0 -65px;
 }
 .top .links-group li a .icon.icon-search:after {
-  background-position: 0 -70px;
+  background-position: 0 -40px;
 }
 .top .links-group li a .icon.icon-offers:before {
-  background-position: -25px -95px;
+  background-position: -25px -65px;
 }
 .top .links-group li a .icon.icon-offers:after {
-  background-position: -25px -70px;
+  background-position: -25px -40px;
 }
 .top .links-group li a .icon.icon-messages:before {
-  background-position: -50px -95px;
+  background-position: -50px -65px;
 }
 .top .links-group li a .icon.icon-messages:after {
-  background-position: -50px -70px;
+  background-position: -50px -40px;
 }
 .top .links-group li a .icon.icon-date:before {
-  background-position: -75px -95px;
+  background-position: -75px -65px;
 }
 .top .links-group li a .icon.icon-date:after {
-  background-position: -75px -70px;
+  background-position: -75px -40px;
 }
 .top .links-group li a:hover,
 .top .links-group li a:focus,
@@ -577,4 +686,83 @@ input[type="submit"]:focus {
   .top .buy {
     float: right;
   }
+}
+/* ==========================================================================
+   _PROFILE
+   ========================================================================== */
+.profile .photo {
+  margin: 0 0 10px;
+}
+.profile .photo img {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  display: block;
+}
+@media (min-width: 750px) {
+  .profile .photo {
+    margin-bottom: 0;
+  }
+}
+.profile .inform {
+  text-align: center;
+}
+@media (min-width: 750px) {
+  .profile .inform {
+    text-align: left;
+  }
+}
+.profile .inform .name {
+  margin: 14px 0 14px;
+  font-size: 22px;
+  font-style: normal;
+  color: #e74b90;
+  font-weight: normal;
+}
+@media (min-width: 750px) {
+  .profile .inform .name {
+    font-size: 24px;
+    margin: 18px 0 18px;
+  }
+}
+.profile .inform .name .small {
+  font-size: 15px;
+}
+.profile .inform .location {
+  font-size: 13px;
+}
+.profile .inform .location .link {
+  min-height: 20px;
+  margin-left: 15px;
+  padding-left: 16px;
+  display: inline-block;
+  vertical-align: middle;
+  font-weight: 500;
+  color: #707a85;
+  position: relative;
+}
+.profile .inform .location .link:before {
+  display: block;
+  content: '\0020';
+  overflow: hidden;
+  width: 20px;
+  height: 20px;
+  background: url("../img/sprite.png") -100px -65px no-repeat;
+  background-size: 150px auto;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.profile .inform .activity {
+  font-weight: 300;
+  font-style: italic;
+}
+.profile .inform .actions {
+  padding-top: 13px;
+  border-top: 1px solid #e5e5e5;
+}
+.profile .inform .actions .reports .link {
+  font-size: 12px;
+  font-weight: 500;
+  color: #707a85;
 }
