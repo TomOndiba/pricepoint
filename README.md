@@ -16,7 +16,6 @@
 * jQuery.browser
 * Fastlick
 * PureCSS
-* Font Awesome
 
 
 ###Installation

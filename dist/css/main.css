@@ -5,6 +5,7 @@
 /* ==========================================================================
    _FONTS
    ========================================================================== */
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300italic,700);
 /* ==========================================================================
    _GENERAL STYLES
    ========================================================================== */
@@ -17,17 +18,24 @@ html {
   height: 100%;
   padding: 0;
   margin: 0;
-  font: 11px 'Roboto', Arial, sans-serif;
-  color: #000;
-  background: #fff;
+  font: 14px/18px 'Roboto', Arial, sans-serif;
+  color: #707a85;
+  background: #f4f4f4;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 body {
   width: 100%;
   min-width: 320px;
-  height: 100%;
-  background: #fff;
+  min-height: 100%;
+  padding: 40px 0;
+  background: #f4f4f4;
+  position: relative;
+}
+@media (min-width: 750px) {
+  body {
+    padding: 60px 0 168px;
+  }
 }
 /* ==========================================================================
    _TEXT STYLES
@@ -35,16 +43,27 @@ body {
 p {
   margin: 0 0 14px;
 }
+@media (min-width: 750px) {
+  p {
+    margin: 0 0 18px;
+  }
+}
 ul,
 ol {
   padding: 0 0 0 14px;
   margin: 0 0 14px;
 }
+@media (min-width: 750px) {
+  ul,
+  ol {
+    margin: 0 0 18px;
+  }
+}
 :focus {
   outline: -webkit-focus-ring-color auto 0;
 }
 a {
-  color: #000;
+  color: #e74b90;
   outline: none;
   text-decoration: none;
   transition: color 0.2s ease;
@@ -78,9 +97,8 @@ h5,
 h6 {
   margin: 0;
   line-height: normal;
-  font-weight: 300;
-  color: #000;
-  text-transform: uppercase;
+  font-weight: bold;
+  color: #707a85;
 }
 .h1,
 h1 {
@@ -88,95 +106,44 @@ h1 {
   font-size: 24px;
   font-style: normal;
 }
-.h1.h-inline {
-  line-height: 34px;
-}
 @media (min-width: 750px) {
   .h1,
   h1 {
-    font-size: 46px;
+    font-size: 30px;
     margin: 18px 0 18px;
-  }
-  .h1.h-inline {
-    line-height: 58px;
-  }
-}
-@media (min-width: 1560px) {
-  .h1,
-  h1 {
-    font-size: 60px;
-    margin: 24px 0 24px;
-  }
-  .h1.h-inline {
-    line-height: 80px;
   }
 }
 .h2,
 h2 {
   margin: 14px 0 14px;
-  font-size: 21px;
+  font-size: 22px;
   font-style: normal;
-}
-.h2.h-inline {
-  line-height: 30px;
 }
 @media (min-width: 750px) {
   .h2,
   h2 {
-    font-size: 32px;
+    font-size: 24px;
     margin: 18px 0 18px;
-  }
-  .h2.h-inline {
-    line-height: 44px;
-  }
-}
-@media (min-width: 1560px) {
-  .h2,
-  h2 {
-    font-size: 42px;
-    margin: 24px 0 24px;
-  }
-  .h2.h-inline {
-    line-height: 56px;
   }
 }
 .h3,
 h3 {
   margin: 14px 0 14px;
-  font-size: 21px;
+  font-size: 20px;
   font-style: normal;
-}
-.h3.h-inline {
-  line-height: 30px;
 }
 @media (min-width: 750px) {
   .h3,
   h3 {
-    font-size: 26px;
+    font-size: 22px;
     margin: 18px 0 18px;
-  }
-  .h3.h-inline {
-    line-height: 38px;
-  }
-}
-@media (min-width: 1560px) {
-  .h3,
-  h3 {
-    font-size: 36px;
-    margin: 24px 0 24px;
-  }
-  .h3.h-inline {
-    line-height: 44px;
   }
 }
 .h4,
 h4 {
   margin: 14px 0 14px;
-  font-size: 14px;
+  font-size: 18px;
   font-style: normal;
-}
-.h4.h-inline {
-  line-height: 26px;
 }
 @media (min-width: 750px) {
   .h4,
@@ -184,58 +151,31 @@ h4 {
     font-size: 20px;
     margin: 18px 0 18px;
   }
-  .h4.h-inline {
-    line-height: 32px;
-  }
-}
-@media (min-width: 1560px) {
-  .h4,
-  h4 {
-    font-size: 21px;
-    margin: 24px 0 24px;
-  }
-  .h4.h-inline {
-    line-height: 30px;
-  }
 }
 .h5,
 h5 {
-  margin: 14px 0 14px;
-  font-size: 12px;
-  font-style: normal;
-}
-@media (min-width: 750px) {
-  .h5,
-  h5 {
-    font-size: 12px;
-    margin: 18px 0 18px;
-  }
-}
-@media (min-width: 1560px) {
-  .h5,
-  h5 {
-    font-size: 18px;
-    margin: 24px 0 24px;
-  }
-}
-.h6,
-h6 {
   margin: 14px 0 14px;
   font-size: 16px;
   font-style: normal;
 }
 @media (min-width: 750px) {
-  .h6,
-  h6 {
-    font-size: 14px;
+  .h5,
+  h5 {
+    font-size: 18px;
     margin: 18px 0 18px;
   }
 }
-@media (min-width: 1560px) {
+.h6,
+h6 {
+  margin: 14px 0 14px;
+  font-size: 14px;
+  font-style: normal;
+}
+@media (min-width: 750px) {
   .h6,
   h6 {
     font-size: 16px;
-    margin: 24px 0 24px;
+    margin: 18px 0 18px;
   }
 }
 /* ==========================================================================
@@ -266,18 +206,12 @@ h6 {
 .wrapper {
   width: 100%;
   max-width: 970px;
-  padding: 0 15px;
   margin: 0 auto;
 }
 .wrapper:after {
   display: table;
   content: '\0020';
   clear: both;
-}
-@media (min-width: 1560px) {
-  .wrapper {
-    max-width: 1560px;
-  }
 }
 /* PureCSS styles */
 .pure-g {
@@ -298,3 +232,104 @@ fieldset {
 /* ==========================================================================
    _HEADER
    ========================================================================== */
+.header {
+  height: 40px;
+  color: #fff;
+  background: #333a42;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+@media (min-width: 750px) {
+  .header {
+    height: 60px;
+  }
+}
+.header .wrapper {
+  height: 100%;
+  position: relative;
+}
+.header .logo {
+  margin: 0;
+  position: absolute;
+  left: 0;
+  top: 13px;
+}
+.header .logo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.header .username {
+  min-height: 30px;
+  margin: 0;
+  font-size: 13px;
+  text-align: right;
+  letter-spacing: -0.03em;
+  position: absolute;
+  right: -12px;
+  top: 12px;
+}
+.header .username a {
+  display: block;
+  padding-right: 40px;
+  color: #fff;
+  position: relative;
+}
+.header .username a:before,
+.header .username a:after {
+  display: block;
+  content: '\0020';
+  overflow: hidden;
+  width: 30px;
+  height: 30px;
+  clear: both;
+  background-image: url("../img/sprite.png");
+  background-repeat: no-repeat;
+  background-size: 100px auto;
+  position: absolute;
+  right: 0;
+  top: 3px;
+  transition: opacity 0.2s ease;
+}
+.header .username a:before {
+  background-position: 0 0;
+  opacity: 1;
+}
+.header .username a:after {
+  background-position: 0 -35px;
+  opacity: 0;
+}
+.header .username a:hover,
+.header .username a:focus,
+.header .username a:active {
+  text-decoration: none;
+  color: #e74b90;
+}
+.header .username a:hover:before,
+.header .username a:focus:before,
+.header .username a:active:before {
+  opacity: 0;
+}
+.header .username a:hover:after,
+.header .username a:focus:after,
+.header .username a:active:after {
+  opacity: 1;
+}
+/* ==========================================================================
+   _FOOTER
+   ========================================================================== */
+.footer {
+  height: 40px;
+  background: #333a42;
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+@media (min-width: 750px) {
+  .footer {
+    height: 168px;
+  }
+}
