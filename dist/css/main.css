@@ -79,6 +79,23 @@ img,
 video {
   vertical-align: middle;
 }
+dl {
+  margin-top: 0;
+}
+dl dt {
+  font-weight: bold;
+}
+dl dd {
+  margin-left: 0;
+  margin-bottom: 14px;
+  font-weight: 300;
+  font-style: italic;
+}
+@media (min-width: 750px) {
+  dl dd {
+    margin-bottom: 18px;
+  }
+}
 /* ==========================================================================
    _HEADINGS
    ========================================================================== */
@@ -89,6 +106,8 @@ video {
 .h4,
 .h5,
 .h6,
+.gallery .heading,
+.gifts .heading,
 h1,
 h2,
 h3,
@@ -174,7 +193,7 @@ h6 {
 @media (min-width: 750px) {
   .h6,
   h6 {
-    font-size: 16px;
+    font-size: 15px;
     margin: 18px 0 18px;
   }
 }
@@ -223,8 +242,12 @@ h6 {
     float: left;
   }
 }
+.content {
+  min-height: 100%;
+}
 @media (min-width: 750px) {
   .content {
+    margin-top: -46px;
     margin-left: 220px;
   }
 }
@@ -703,7 +726,7 @@ input[type="submit"].button-icon:focus .icon:after {
    _PROFILE
    ========================================================================== */
 .profile {
-  margin-bottom: 20px;
+  margin-bottom: 14px;
   position: relative;
 }
 .profile:after {
@@ -728,6 +751,7 @@ input[type="submit"].button-icon:focus .icon:after {
   }
 }
 .profile .inform {
+  padding-bottom: 40px;
   text-align: center;
 }
 @media (min-width: 750px) {
@@ -874,7 +898,6 @@ input[type="submit"].button-icon:focus .icon:after {
 }
 .description dt {
   padding-top: 6px;
-  font-weight: bold;
   border-top: 1px solid #ddd;
 }
 .description dt:first-of-type {
@@ -883,6 +906,197 @@ input[type="submit"].button-icon:focus .icon:after {
 }
 .description dd {
   margin: 0 0 6px;
-  font-weight: 300;
-  font-style: italic;
+}
+/* ==========================================================================
+   _TABS
+   ========================================================================== */
+.tabs {
+  margin: 0 0 -1px;
+  padding: 0;
+  list-style: none;
+  font-weight: 500;
+  position: relative;
+  z-index: 2;
+}
+.tabs li {
+  display: inline-block;
+}
+.tabs li a {
+  padding: 0 26px 4px;
+  display: block;
+  color: #707a85;
+  border: 1px solid #e5e5e5;
+}
+.tabs li a:hover,
+.tabs li a:focus,
+.tabs li a:active {
+  text-decoration: none;
+}
+.tabs li a .icon {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  display: inline-block;
+}
+.tabs li a .icon:before,
+.tabs li a .icon:after {
+  display: block;
+  content: '\0020';
+  overflow: hidden;
+  clear: both;
+  width: 20px;
+  height: 20px;
+  background-image: url("../img/sprite.png");
+  background-repeat: no-repeat;
+  background-size: 150px auto;
+  position: absolute;
+  left: 0;
+  top: 4px;
+  transition: opacity 0.2s ease;
+}
+.tabs li a .icon:before {
+  opacity: 1;
+}
+.tabs li a .icon:after {
+  opacity: 0;
+}
+.tabs li a .icon.icon-about:before {
+  background-position: -95px 0;
+}
+.tabs li a .icon.icon-about:after {
+  background-position: -70px 0;
+}
+.tabs li a .icon.icon-history:before {
+  background-position: -45px 0;
+}
+.tabs li a .icon.icon-history:after {
+  background-position: -20px 0;
+}
+.tabs li.active a {
+  color: #e74b90;
+  background: #fff;
+  border-bottom-color: #fff;
+}
+.tabs li.active a .icon:before {
+  opacity: 0;
+}
+.tabs li.active a .icon:after {
+  opacity: 1;
+}
+.tab {
+  padding: 18px 28px;
+  background: #fff;
+  border: 1px solid #e5e5e5;
+}
+.tab.tab-hidden {
+  display: none;
+}
+/* ==========================================================================
+   _GALLERY
+   ========================================================================== */
+.gallery {
+  margin-bottom: 8px;
+}
+.gallery .heading {
+  margin: 14px 0 14px;
+  font-size: 14px;
+  font-style: normal;
+  margin-bottom: 6px !important;
+}
+@media (min-width: 750px) {
+  .gallery .heading {
+    font-size: 15px;
+    margin: 18px 0 18px;
+  }
+}
+.gallery .heading a {
+  padding: 4px 4px 4px 20px;
+  display: block;
+  position: relative;
+}
+.gallery .heading a:before {
+  display: block;
+  content: '\0020';
+  overflow: hidden;
+  width: 20px;
+  height: 20px;
+  background: url("../img/sprite.png") -125px -40px no-repeat;
+  background-size: 150px auto;
+  position: absolute;
+  left: 0;
+  top: 4px;
+}
+.gallery ul {
+  margin: 0 -6px;
+  padding: 0;
+  list-style: none;
+  display: inline-block;
+}
+.gallery ul:after {
+  display: table;
+  content: '\0020';
+  clear: both;
+}
+.gallery ul li {
+  width: 20%;
+  float: left;
+  padding: 6px;
+}
+.gallery ul li a {
+  display: block;
+}
+.gallery ul li img {
+  width: 100%;
+  height: auto margin: 0 auto;
+  display: block;
+}
+/* ==========================================================================
+   _GIFTS
+   ========================================================================== */
+.gifts .heading {
+  margin: 14px 0 14px;
+  font-size: 14px;
+  font-style: normal;
+  margin-bottom: 6px !important;
+}
+@media (min-width: 750px) {
+  .gifts .heading {
+    font-size: 15px;
+    margin: 18px 0 18px;
+  }
+}
+.gifts .heading a {
+  padding: 4px 4px 4px 20px;
+  display: block;
+  position: relative;
+}
+.gifts .heading a:before {
+  display: block;
+  content: '\0020';
+  overflow: hidden;
+  width: 20px;
+  height: 20px;
+  background: url("../img/sprite.png") -100px -40px no-repeat;
+  background-size: 150px auto;
+  position: absolute;
+  left: 0;
+  top: 4px;
+}
+.gifts ul {
+  margin: 0;
+  padding: 0;
+  cursor: default;
+  list-style: none;
+}
+.gifts ul li {
+  display: inline-block;
+  vertical-align: middle;
+}
+.gifts ul li a {
+  display: block;
+}
+.gifts ul li img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }

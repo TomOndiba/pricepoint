@@ -107,6 +107,21 @@ a {
   &:hover, &:focus { outline: none; text-decoration: underline; }
 }
 audio, canvas, img, video { vertical-align: middle; }
+dl {
+  margin-top: 0;
+
+  dt { font-weight: bold; }
+  dd {
+    margin-left: 0;
+    margin-bottom: @margin-sm;
+    font-weight: 300;
+    font-style: italic;
+
+    @media @sm {
+      margin-bottom: @margin-md;
+    }
+  }
+}
 /* ==========================================================================
    _HEADINGS
    ========================================================================== */
@@ -181,7 +196,7 @@ audio, canvas, img, video { vertical-align: middle; }
   font-style: normal;
 
   @media @sm {
-    font-size: 16px;
+    font-size: 15px;
     margin: @margin-md 0 @margin-md;
   }
 
@@ -217,7 +232,10 @@ h6 {&:extend(.h6); }
   }
 }
 .content {
+  min-height: 100%;
+
   @media @sm {
+    margin-top: -46px;
     margin-left: 220px;
   }
 }
@@ -590,10 +608,10 @@ textarea {
    _PROFILE
    ========================================================================== */
 .profile {
-  margin-bottom: 20px;
+  margin-bottom: 14px;
   position: relative;
 
-  &:after {.clearfix; }
+  &:after { .clearfix; }
 
   .photo {
     margin: 0 0 10px;
@@ -613,6 +631,7 @@ textarea {
   }
 
   .inform {
+    padding-bottom: 40px;
     text-align: center;
 
     @media @sm {
@@ -759,14 +778,181 @@ textarea {
 
   dt {
     padding-top: 6px;
-    font-weight: bold;
     border-top: 1px solid #ddd;
 
-    &:first-of-type { padding-top: 0;border-top: none;}
+    &:first-of-type { padding-top: 0; border-top: none; }
   }
   dd {
     margin: 0 0 6px;
-    font-weight: 300;
-    font-style: italic;
+  }
+}
+/* ==========================================================================
+   _TABS
+   ========================================================================== */
+.tabs {
+  margin: 0 0 -1px;
+  padding: 0;
+  list-style: none;
+  font-weight: 500;
+  position: relative;
+  z-index: 2;
+
+  li {
+    display: inline-block;
+    
+    a {
+      padding: 0 26px 4px;
+      display: block;
+      color: @color-font;
+      border: 1px solid @color-beige;
+
+      &:hover, &:focus, &:active {text-decoration: none;}
+      
+      .icon {
+        width: 20px;
+        height: 20px;
+        position: relative;
+        display: inline-block;
+        
+        &:before, &:after {
+          .before;
+          clear: both;
+          width: 20px;
+          height: 20px;
+          background-image: url("@{images}/sprite.png");
+          background-repeat: no-repeat;
+          background-size: 150px auto;
+          position: absolute;
+          left: 0;
+          top: 4px;
+          transition: opacity @duration;
+        }
+
+        &:before { opacity: 1; }
+        &:after { opacity: 0; }
+        
+        &.icon-about {
+          &:before {background-position: -95px 0;}
+          &:after {background-position: -70px 0;}
+        }
+        &.icon-history {
+          &:before {background-position: -45px 0;}
+          &:after {background-position: -20px 0;}
+        }
+      }
+    }
+    
+    &.active {
+      a {
+        color: @color-rosy;
+        background: @color-white;
+        border-bottom-color: @color-white;
+
+        .icon {
+          &:before { opacity: 0; }
+          &:after { opacity: 1; }
+        }
+      }
+    }
+  }
+}
+.tab {
+  padding: 18px 28px;
+  background: @color-white;
+  border: 1px solid @color-beige;
+  
+  &.tab-hidden { display: none; }
+}
+/* ==========================================================================
+   _GALLERY
+   ========================================================================== */
+.gallery {
+  margin-bottom: 8px;
+
+  .heading {
+    .h6;
+    margin-bottom: 6px !important;
+
+    a {
+      padding: 4px 4px 4px 20px;
+      display: block;
+      position: relative;
+
+      &:before {
+        .before;
+        width: 20px;
+        height: 20px;
+        background: url("@{images}/sprite.png") -125px -40px no-repeat;
+        background-size: 150px auto;
+        position: absolute;
+        left: 0;
+        top: 4px;
+      }
+    }
+  }
+
+  ul {
+    margin: 0 -6px;
+    padding: 0;
+    list-style: none;
+    display: inline-block;
+
+    &:after { .clearfix; }
+    
+    li {
+      width: 20%;
+      float: left;
+      padding: 6px;
+      
+      a { display: block; }
+
+      img {
+        width: 100%;
+        height: auto margin: 0 auto;
+        display: block;
+      }
+    }
+  }
+}
+/* ==========================================================================
+   _GIFTS
+   ========================================================================== */
+.gifts {
+
+  .heading {
+    .h6;
+    margin-bottom: 6px !important;
+
+    a {
+      padding: 4px 4px 4px 20px;
+      display: block;
+      position: relative;
+
+      &:before {
+        .before;
+        width: 20px;
+        height: 20px;
+        background: url("@{images}/sprite.png") -100px -40px no-repeat;
+        background-size: 150px auto;
+        position: absolute;
+        left: 0;
+        top: 4px;
+      }
+    }
+  }
+  
+  ul {
+    margin: 0;
+    padding: 0;
+    cursor: default;
+    list-style: none;
+
+    li {
+      display: inline-block;
+      vertical-align: middle;
+      
+      a { display: block; }
+      img { max-width: 100%; height: auto; display: block; }
+    }
   }
 }
