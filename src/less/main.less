@@ -25,6 +25,7 @@
 @color-sky: #a5ceec;
 @color-blue: #4c9eda;
 @color-sea: #333a42;
+@color-gray: #e9e9e9;
 
 @margin-sm: 14px;
 @margin-md: 18px;
@@ -208,6 +209,17 @@ h6 {&:extend(.h6); }
 }
 .container {
   padding: 20px 0;
+}
+.sidebar {
+  @media @sm {
+    width: 200px;
+    float: left;
+  }
+}
+.content {
+  @media @sm {
+    margin-left: 220px;
+  }
 }
 /* PureCSS styles */
 .pure-g {
@@ -578,7 +590,10 @@ textarea {
    _PROFILE
    ========================================================================== */
 .profile {
+  margin-bottom: 20px;
   position: relative;
+
+  &:after {.clearfix; }
 
   .photo {
     margin: 0 0 10px;
@@ -725,5 +740,33 @@ textarea {
         }
       }
     }
+  }
+}
+/* ==========================================================================
+   _DESCRIPTION
+   ========================================================================== */
+.description {
+  max-width: 320px;
+  margin: 0 auto;
+  padding: 6px 10px;
+  background: @color-gray;
+  border: 1px solid #ddd;
+  font-size: 13px;
+
+  @media @sm {
+    max-width: none;
+  }
+
+  dt {
+    padding-top: 6px;
+    font-weight: bold;
+    border-top: 1px solid #ddd;
+
+    &:first-of-type { padding-top: 0;border-top: none;}
+  }
+  dd {
+    margin: 0 0 6px;
+    font-weight: 300;
+    font-style: italic;
   }
 }

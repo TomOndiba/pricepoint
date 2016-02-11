@@ -217,6 +217,17 @@ h6 {
 .container {
   padding: 20px 0;
 }
+@media (min-width: 750px) {
+  .sidebar {
+    width: 200px;
+    float: left;
+  }
+}
+@media (min-width: 750px) {
+  .content {
+    margin-left: 220px;
+  }
+}
 /* PureCSS styles */
 .pure-g {
   font-family: inherit;
@@ -692,7 +703,13 @@ input[type="submit"].button-icon:focus .icon:after {
    _PROFILE
    ========================================================================== */
 .profile {
+  margin-bottom: 20px;
   position: relative;
+}
+.profile:after {
+  display: table;
+  content: '\0020';
+  clear: both;
 }
 .profile .photo {
   margin: 0 0 10px;
@@ -838,4 +855,34 @@ input[type="submit"].button-icon:focus .icon:after {
     width: auto;
     float: none;
   }
+}
+/* ==========================================================================
+   _DESCRIPTION
+   ========================================================================== */
+.description {
+  max-width: 320px;
+  margin: 0 auto;
+  padding: 6px 10px;
+  background: #e9e9e9;
+  border: 1px solid #ddd;
+  font-size: 13px;
+}
+@media (min-width: 750px) {
+  .description {
+    max-width: none;
+  }
+}
+.description dt {
+  padding-top: 6px;
+  font-weight: bold;
+  border-top: 1px solid #ddd;
+}
+.description dt:first-of-type {
+  padding-top: 0;
+  border-top: none;
+}
+.description dd {
+  margin: 0 0 6px;
+  font-weight: 300;
+  font-style: italic;
 }
