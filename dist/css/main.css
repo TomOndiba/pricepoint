@@ -28,13 +28,13 @@ body {
   width: 100%;
   min-width: 320px;
   min-height: 100%;
-  padding: 40px 0;
+  padding: 40px 0 120px;
   background: #f4f4f4;
   position: relative;
 }
 @media (min-width: 750px) {
   body {
-    padding: 60px 0 168px;
+    padding: 60px 0 186px;
   }
 }
 /* ==========================================================================
@@ -107,7 +107,6 @@ dl dd {
 .h5,
 .h6,
 .gallery .heading,
-.gifts .heading,
 h1,
 h2,
 h3,
@@ -457,6 +456,7 @@ input[type="submit"].button-icon:focus .icon:after {
   top: 0;
   left: 0;
   right: 0;
+  cursor: default;
 }
 @media (min-width: 750px) {
   .header {
@@ -473,7 +473,7 @@ input[type="submit"].button-icon:focus .icon:after {
   margin: 0;
   position: absolute;
   left: 10px;
-  top: 11px;
+  top: 10px;
 }
 @media (min-width: 750px) {
   .header .logo {
@@ -495,7 +495,12 @@ input[type="submit"].button-icon:focus .icon:after {
   letter-spacing: -0.03em;
   position: absolute;
   right: 10px;
-  top: 12px;
+  top: 10px;
+}
+@media (min-width: 750px) {
+  .header .username {
+    top: 12px;
+  }
 }
 .header .username a {
   min-height: 20px;
@@ -573,17 +578,67 @@ input[type="submit"].button-icon:focus .icon:after {
    _FOOTER
    ========================================================================== */
 .footer {
-  height: 40px;
+  height: 120px;
+  padding: 20px 0;
+  color: #fff;
   background: #333a42;
+  font-size: 12px;
   position: absolute;
   right: 0;
   left: 0;
   bottom: 0;
+  cursor: default;
+}
+.footer .wrapper {
+  min-height: 100%;
+  position: relative;
 }
 @media (min-width: 750px) {
   .footer {
     height: 168px;
+    font-size: 14px;
   }
+}
+.footer .copyright {
+  margin: 0;
+  text-align: center;
+}
+@media (min-width: 750px) {
+  .footer .copyright {
+    margin-top: -9px;
+    position: absolute;
+    left: 10px;
+    top: 50%;
+  }
+}
+.footer .links {
+  margin: 0 0 14px;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+}
+@media (min-width: 750px) {
+  .footer .links {
+    margin: -9px 0 0 0;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+  }
+}
+@media (min-width: 750px) {
+  .footer .links li {
+    padding: 0 0 0 20px;
+    display: inline-block;
+  }
+}
+.footer .links li a {
+  color: #fff;
+}
+.footer .links li a:hover,
+.footer .links li a:focus,
+.footer .links li a:active {
+  text-decoration: none;
+  color: #e74b90;
 }
 /* ==========================================================================
    _TOP
@@ -1019,7 +1074,7 @@ input[type="submit"].button-icon:focus .icon:after {
   }
 }
 .gallery .heading a {
-  padding: 4px 4px 4px 20px;
+  padding: 4px 4px 4px 22px;
   display: block;
   position: relative;
 }
@@ -1068,19 +1123,12 @@ input[type="submit"].button-icon:focus .icon:after {
    _GIFTS
    ========================================================================== */
 .gifts .heading {
-  margin: 14px 0 14px;
   font-size: 14px;
-  font-style: normal;
-  margin-bottom: 6px !important;
-}
-@media (min-width: 750px) {
-  .gifts .heading {
-    font-size: 15px;
-    margin: 18px 0 18px;
-  }
+  margin-bottom: 6px;
+  font-weight: 500;
 }
 .gifts .heading a {
-  padding: 4px 4px 4px 20px;
+  padding: 4px 4px 4px 22px;
   display: block;
   position: relative;
 }

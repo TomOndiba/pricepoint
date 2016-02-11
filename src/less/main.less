@@ -74,12 +74,12 @@ body {
   width: 100%;
   min-width: @min-width;
   min-height: 100%;
-  padding: 40px 0;
+  padding: 40px 0 120px;
   background: @color-beige-light;
   position: relative;
   
   @media @sm {
-    padding: 60px 0 168px;
+    padding: 60px 0 186px;
   }
 }
 /* ==========================================================================
@@ -378,6 +378,7 @@ textarea {
   top: 0;
   left: 0;
   right: 0;
+  cursor: default;
 
   @media @sm {
     height: 60px;
@@ -394,7 +395,7 @@ textarea {
     margin: 0;
     position: absolute;
     left: 10px;
-    top: 11px;
+    top: 10px;
 
     @media @sm {
       width: 246px;
@@ -417,7 +418,11 @@ textarea {
     letter-spacing: -.03em;
     position: absolute;
     right: 10px;
-    top: 12px;
+    top: 10px;
+
+    @media @sm {
+      top: 12px;
+    }
 
     a {
       min-height: 20px;
@@ -474,15 +479,68 @@ textarea {
    _FOOTER
    ========================================================================== */
 .footer {
-  height: 40px;
+  height: 120px;
+  padding: 20px 0;
+  color: @color-white;
   background: @color-sea;
+  font-size: 12px;
   position: absolute;
   right: 0;
   left: 0;
   bottom: 0;
+  cursor: default;
+
+  .wrapper {
+    min-height: 100%;
+    position: relative;
+  }
 
   @media @sm {
     height: 168px;
+    font-size: 14px;
+  }
+
+  .copyright {
+    margin: 0;
+    text-align: center;
+
+    @media @sm {
+      margin-top: -9px;
+      position: absolute;
+      left: 10px;
+      top: 50%;
+    }
+  }
+
+  .links {
+    margin: 0 0 14px;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+
+    @media @sm {
+      margin: -9px 0 0 0;
+      position: absolute;
+      right: 10px;
+      top: 50%;
+    }
+    
+    li {
+      
+      @media @sm {
+        padding: 0 0 0 20px;
+        display: inline-block;
+      }
+
+      a {
+        color: @color-white;
+
+        &:hover, &:focus, &:active {
+          text-decoration: none;
+          color: @color-rosy;
+        }
+      }
+    }
   }
 }
 /* ==========================================================================
@@ -809,7 +867,7 @@ textarea {
       color: @color-font;
       border: 1px solid @color-beige;
 
-      &:hover, &:focus, &:active {text-decoration: none;}
+      &:hover, &:focus, &:active { text-decoration: none; }
       
       .icon {
         width: 20px;
@@ -835,12 +893,12 @@ textarea {
         &:after { opacity: 0; }
         
         &.icon-about {
-          &:before {background-position: -95px 0;}
-          &:after {background-position: -70px 0;}
+          &:before { background-position: -95px 0; }
+          &:after { background-position: -70px 0; }
         }
         &.icon-history {
-          &:before {background-position: -45px 0;}
-          &:after {background-position: -20px 0;}
+          &:before { background-position: -45px 0; }
+          &:after { background-position: -20px 0; }
         }
       }
     }
@@ -881,7 +939,7 @@ textarea {
     margin-bottom: 6px !important;
 
     a {
-      padding: 4px 4px 4px 20px;
+      padding: 4px 4px 4px 22px;
       display: block;
       position: relative;
 
@@ -931,11 +989,12 @@ textarea {
 .gifts {
 
   .heading {
-    .h6;
-    margin-bottom: 6px !important;
+    font-size: 14px;
+    margin-bottom: 6px;
+    font-weight: 500;
 
     a {
-      padding: 4px 4px 4px 20px;
+      padding: 4px 4px 4px 22px;
       display: block;
       position: relative;
 
