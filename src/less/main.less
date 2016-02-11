@@ -19,8 +19,11 @@
 @color-black: #000;
 @color-white: #fff;
 @color-font: #707a85;
-@color-beige: #f4f4f4;
+@color-beige-light: #f4f4f4;
+@color-beige: #e5e5e5;
 @color-rosy: #e74b90;
+@color-sky: #a5ceec;
+@color-blue: #4c9eda;
 @color-sea: #333a42;
 
 @margin-sm: 14px;
@@ -62,7 +65,7 @@ html {
   margin: 0;
   font: 14px/18px @font-family;
   color: @color-font;
-  background: @color-beige;
+  background: @color-beige-light;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -71,7 +74,7 @@ body {
   min-width: @min-width;
   min-height: 100%;
   padding: 40px 0;
-  background: @color-beige;
+  background: @color-beige-light;
   position: relative;
   
   @media @sm {
@@ -214,6 +217,69 @@ h6 {&:extend(.h6); }
    _FORMS
    ========================================================================== */
 fieldset { padding: 0; margin: 0; border: none; }
+/* INPUT & TEXTAREA */
+input {
+  height: 24px;
+  padding: 5px 10px;
+  border: 1px solid @color-sea;
+  border-radius: 2px;
+  color: @color-font;
+  font: 13px/16px @font-family;
+  background: @color-white;
+  transition: background-color @duration, border-color @duration;
+  -webkit-appearance: none;
+
+  @media @sm {
+    height: 32px;
+  }
+
+  &:focus { border-color: @color-font; }
+  .form-line & { width: 100%; }
+}
+textarea {
+  &:extend(input);
+  height: 116px;
+  display: block;
+  resize: none;
+
+  @media @sm {
+    height: 170px;
+  }
+
+  &:focus { border-color: @color-font; }
+  .form-line & { width: 100%; }
+}
+::-webkit-input-placeholder { color: @color-font; }
+:-moz-placeholder { color: @color-font; }
+::-moz-placeholder { color: @color-font; }
+:-ms-input-placeholder { color: @color-font; }
+/* BUTTONS */
+.button, button, input[type="submit"] {
+  max-width: 320px;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+  padding: 8px 28px;
+  font: bold 13px/14px @font-family;
+  color: @color-white;
+  text-align: center;
+  text-decoration: none;
+  background: @color-rosy;
+  border: 1px solid @color-rosy;
+  border-radius: 2px;
+  transition: background-color @duration, border-color @duration, color @duration;
+  
+  @media @sm {
+    max-width: none;
+    display: inline-block;
+  }
+
+  &:hover, &:focus {
+    color: @color-rosy;
+    background-color: transparent;
+    text-decoration: none;
+  }
+}
 /* ==========================================================================
    _HEADER
    ========================================================================== */
@@ -247,6 +313,7 @@ fieldset { padding: 0; margin: 0; border: none; }
       width: 246px;
       height: 36px;
       top: 13px;
+      left: 7px;
     }
 
     img {
@@ -265,10 +332,6 @@ fieldset { padding: 0; margin: 0; border: none; }
     right: 10px;
     top: 12px;
 
-    @media @md {
-      right: -12px;
-    }
-
     a {
       min-height: 20px;
       display: block;
@@ -283,21 +346,21 @@ fieldset { padding: 0; margin: 0; border: none; }
         clear: both;
         background-image: url("@{images}/sprite.png");
         background-repeat: no-repeat;
-        background-size: 67px auto;
+        background-size: 100px auto;
         position: absolute;
         right: 0;
         top: 0;
         transition: opacity @duration;
       }
 
-      &:before { background-position: 0 0; opacity: 1;}
+      &:before { background-position: 0 0; opacity: 1; }
       &:after { background-position: 0 -24px; opacity: 0; }
 
       &:hover, &:focus, &:active {
         text-decoration: none;
         color: @color-rosy;
 
-        &:before { opacity: 0;}
+        &:before { opacity: 0; }
         &:after { opacity: 1; }
       }
       
@@ -311,11 +374,9 @@ fieldset { padding: 0; margin: 0; border: none; }
           width: 30px;
           height: 30px;
           top: 3px;
-          background-size: 100px auto;
+          background-size: 150px auto;
         }
-
         &:after { background-position: 0 -35px; }
-
         .credits { display: block; }
       }
     }
@@ -334,5 +395,113 @@ fieldset { padding: 0; margin: 0; border: none; }
 
   @media @sm {
     height: 168px;
+  }
+}
+/* ==========================================================================
+   _TOP
+   ========================================================================== */
+.top {
+  padding: 8px 0;
+  background: @color-white;
+  border-bottom: 1px solid @color-beige;
+
+  .links-group {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    line-height: 21px;
+
+    @media @sm {
+      margin: 0 -1px;
+      float: left;
+    }
+    
+    li {
+      max-width: 320px;
+      margin: 0 auto 10px;
+      
+      @media @sm {
+        max-width: none;
+        margin: 0 1px;
+        display: inline-block;
+      }
+      
+      a {
+        padding: 4px 12px;
+        display: block;
+        text-align: center;
+        color: @color-blue;
+        border: 1px solid @color-sky;
+        border-radius: 2px;
+        transition: background-color @duration, border-color @duration, color @duration;
+
+        .icon {
+          width: 20px;
+          height: 20px;
+          margin: 0 3px;
+          display: inline-block;
+          vertical-align: middle;
+          position: relative;
+
+          &:before, &:after {
+            .before;
+            clear: both;
+            width: 20px;
+            height: 20px;
+            background-image: url("@{images}/sprite.png");
+            background-repeat: no-repeat;
+            background-size: 150px auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: opacity @duration;
+          }
+
+          &:before { background-position: 0 -95px; opacity: 1; }
+          &:after { background-position: 0 -70px; opacity: 0; }
+
+          &.icon-search {
+            &:before { background-position: 0 -95px; }
+            &:after { background-position: 0 -70px; }
+          }
+
+          &.icon-offers {
+            &:before { background-position: -25px -95px; }
+            &:after { background-position: -25px -70px; }
+          }
+
+          &.icon-messages {
+            &:before { background-position: -50px -95px; }
+            &:after { background-position: -50px -70px; }
+          }
+
+          &.icon-date {
+            &:before { background-position: -75px -95px; }
+            &:after { background-position: -75px -70px; }
+          }
+        }
+
+        &:hover, &:focus, &:active {
+          color: @color-white;
+          background-color: @color-blue;
+          border-color: @color-blue;
+          text-decoration: none;
+
+          .icon {
+            &:before { opacity: 0; }
+            &:after { opacity: 1; }
+          }
+        }
+      }
+    }
+  }
+
+  .buy {
+    margin: 0;
+    text-transform: uppercase;
+
+    @media @sm {
+      float: right;
+    }
   }
 }
