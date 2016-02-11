@@ -1,0 +1,249 @@
+/*
+ * Project: Price Point Dating
+ * File: Main styles
+ */
+
+// ==========================================================================
+// _VARIABLES
+// ==========================================================================
+@min-width: 320px;
+@md-width: 970px;
+@lg-width: 1560px;
+
+@xs: ~"(min-width: 568px)";
+@sm: ~"(min-width: 750px)";
+@md: ~"(min-width: 970px)";
+@lg: ~"(min-width: 1280px)";
+@xl: ~"(min-width: 1560px)";
+
+@font-family: 'Roboto', Arial, sans-serif;
+@font-awesome: 'FontAwesome', sans-serif;
+
+@color-black: #000;
+@color-white: #fff;
+
+@margin-sm: 14px;
+@margin-md: 18px;
+@margin-lg: 24px;
+
+@duration: .2s ease;
+@images: '../img';
+
+// ==========================================================================
+// _MIXINS
+// ========================================================================== */
+// COLORS
+.color-white(@opacity) { @color: rgba(255, 255, 255, @opacity); }
+.color-black(@opacity) { @color: rgba(0, 0, 0, @opacity); }
+// ROTATE
+.rotate(@deg) {
+  -webkit-transform: rotate(@deg);
+  -moz-transform: rotate(@deg);
+  -ms-transform: rotate(@deg);
+  -o-transform: rotate(@deg);
+  transform: rotate(@deg);
+  -webkit-backface-visibility: hidden;
+}
+/* ==========================================================================
+   _FONTS
+   ========================================================================== */
+
+/* ==========================================================================
+   _GENERAL STYLES
+   ========================================================================== */
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+html {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  font: 11px @font-family;
+  color: @color-black;
+  background: @color-white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+body {
+  width: 100%;
+  min-width: @min-width;
+  height: 100%;
+  background: @color-white;
+}
+/* ==========================================================================
+   _TEXT STYLES
+   ========================================================================== */
+p {
+  margin: 0 0 @margin-sm;
+}
+ul, ol {
+  padding: 0 0 0 @margin-sm;
+  margin: 0 0 @margin-sm;
+}
+:focus { outline: -webkit-focus-ring-color auto 0; }
+a {
+  color: @color-black;
+  outline: none;
+  text-decoration: none;
+  transition: color @duration;
+  &:hover, &:focus { outline: none; text-decoration: underline; }
+}
+audio, canvas, img, video { vertical-align: middle; }
+/* ==========================================================================
+   _HEADINGS
+   ========================================================================== */
+.heading-default {
+  margin: 0;
+  line-height: normal;
+  font-weight: 300;
+  color: @color-black;
+  text-transform: uppercase;
+}
+.h1 {
+  &:extend(.heading-default);
+  margin: @margin-sm 0 @margin-sm;
+  font-size: 24px;
+  font-style: normal;
+  &.h-inline { line-height: 34px; }
+
+  @media @sm {
+    font-size: 46px;
+    margin: @margin-md 0 @margin-md;
+    &.h-inline { line-height: 58px; }
+  }
+
+  @media @xl {
+    font-size: 60px;
+    margin: @margin-lg 0 @margin-lg;
+    &.h-inline { line-height: 80px; }
+  }
+}
+.h2 {
+  &:extend(.heading-default);
+  margin: @margin-sm 0 @margin-sm;
+  font-size: 21px;
+  font-style: normal;
+  &.h-inline { line-height: 30px; }
+
+  @media @sm {
+    font-size: 32px;
+    margin: @margin-md 0 @margin-md;
+    &.h-inline { line-height: 44px; }
+  }
+
+  @media @xl {
+    font-size: 42px;
+    margin: @margin-lg 0 @margin-lg;
+    &.h-inline { line-height: 56px; }
+  }
+}
+.h3 {
+  &:extend(.heading-default);
+  margin: @margin-sm 0 @margin-sm;
+  font-size: 21px;
+  font-style: normal;
+  &.h-inline { line-height: 30px; }
+
+  @media @sm {
+    font-size: 26px;
+    margin: @margin-md 0 @margin-md;
+    &.h-inline { line-height: 38px; }
+  }
+
+  @media @xl {
+    font-size: 36px;
+    margin: @margin-lg 0 @margin-lg;
+    &.h-inline { line-height: 44px; }
+  }
+}
+.h4 {
+  &:extend(.heading-default);
+  margin: @margin-sm 0 @margin-sm;
+  font-size: 14px;
+  font-style: normal;
+  &.h-inline { line-height: 26px; }
+
+  @media @sm {
+    font-size: 20px;
+    margin: @margin-md 0 @margin-md;
+    &.h-inline { line-height: 32px; }
+  }
+
+  @media @xl {
+    font-size: 21px;
+    margin: @margin-lg 0 @margin-lg;
+    &.h-inline { line-height: 30px; }
+  }
+}
+.h5 {
+  &:extend(.heading-default);
+  margin: @margin-sm 0 @margin-sm;
+  font-size: 12px;
+  font-style: normal;
+
+  @media @sm {
+    font-size: 12px;
+    margin: @margin-md 0 @margin-md;
+  }
+
+  @media @xl {
+    font-size: 18px;
+    margin: @margin-lg 0 @margin-lg;
+  }
+}
+.h6 {
+  &:extend(.heading-default);
+  margin: @margin-sm 0 @margin-sm;
+  font-size: 16px;
+  font-style: normal;
+
+  @media @sm {
+    font-size: 14px;
+    margin: @margin-md 0 @margin-md;
+  }
+
+  @media @xl {
+    font-size: 16px;
+    margin: @margin-lg 0 @margin-lg;
+  }
+}
+h1 {&:extend(.h1); }
+h2 {&:extend(.h2); }
+h3 {&:extend(.h3); }
+h4 {&:extend(.h4); }
+h5 {&:extend(.h5); }
+h6 {&:extend(.h6); }
+/* ==========================================================================
+   _CONTAINERS
+   ========================================================================== */
+.clearfix { display: table; content: '\0020'; clear: both; }
+.before { display: block; content: '\0020'; overflow: hidden; }
+.hidden { display: none; }
+.unselectable { -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: -moz-none; -ms-user-select: none; -o-user-select: none; user-select: none; }
+/* Wrapper */
+.wrapper {
+  width: 100%;
+  max-width: @md-width;
+  padding: 0 15px;
+  margin: 0 auto;
+  &:after { .clearfix; }
+
+  @media @xl {
+    max-width: @lg-width;
+  }
+}
+/* PureCSS styles */
+.pure-g {
+  font-family: inherit;
+  letter-spacing: inherit;
+  [class *="pure-u"] { font-family: inherit; }
+}
+/* ==========================================================================
+   _FORMS
+   ========================================================================== */
+fieldset { padding: 0; margin: 0; border: none; }
+/* ==========================================================================
+   _HEADER
+   ========================================================================== */
