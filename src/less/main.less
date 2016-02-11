@@ -7,12 +7,11 @@
 // _VARIABLES
 // ==========================================================================
 @min-width: 320px;
-@md-width: 970px;
-@lg-width: 1560px;
+@md-width: 1000px;
 
 @xs: ~"(min-width: 568px)";
 @sm: ~"(min-width: 750px)";
-@md: ~"(min-width: 980px)";
+@md: ~"(min-width: 1000px)";
 
 @font-family: 'Roboto', Arial, sans-serif;
 @font-awesome: 'FontAwesome', sans-serif;
@@ -201,6 +200,7 @@ h6 {&:extend(.h6); }
   width: 100%;
   max-width: @md-width;
   margin: 0 auto;
+  padding: 0 10px;
   &:after { .clearfix; }
 
 }
@@ -236,11 +236,19 @@ fieldset { padding: 0; margin: 0; border: none; }
   }
 
   .logo {
+    width: 146px;
+    height: 21px;
     margin: 0;
     position: absolute;
-    left: 0;
-    top: 13px;
-    
+    left: 10px;
+    top: 11px;
+
+    @media @sm {
+      width: 246px;
+      height: 36px;
+      top: 13px;
+    }
+
     img {
       width: 100%;
       height: auto;
@@ -249,37 +257,41 @@ fieldset { padding: 0; margin: 0; border: none; }
   }
 
   .username {
-    min-height: 30px;
     margin: 0;
     font-size: 13px;
     text-align: right;
     letter-spacing: -.03em;
     position: absolute;
-    right: -12px;
+    right: 10px;
     top: 12px;
 
+    @media @md {
+      right: -12px;
+    }
+
     a {
+      min-height: 20px;
       display: block;
-      padding-right: 40px;
+      padding-right: 25px;
       color: @color-white;
       position: relative;
 
       &:before, &:after {
         .before;
-        width: 30px;
-        height: 30px;
+        width: 20px;
+        height: 20px;
         clear: both;
         background-image: url("@{images}/sprite.png");
         background-repeat: no-repeat;
-        background-size: 100px auto;
+        background-size: 67px auto;
         position: absolute;
         right: 0;
-        top: 3px;
+        top: 0;
         transition: opacity @duration;
       }
 
       &:before { background-position: 0 0; opacity: 1;}
-      &:after { background-position: 0 -35px; opacity: 0; }
+      &:after { background-position: 0 -24px; opacity: 0; }
 
       &:hover, &:focus, &:active {
         text-decoration: none;
@@ -287,6 +299,24 @@ fieldset { padding: 0; margin: 0; border: none; }
 
         &:before { opacity: 0;}
         &:after { opacity: 1; }
+      }
+      
+      .credits { display: none; }
+
+      @media @sm {
+        min-height: 30px;
+        padding-right: 40px;
+
+        &:before, &:after {
+          width: 30px;
+          height: 30px;
+          top: 3px;
+          background-size: 100px auto;
+        }
+
+        &:after { background-position: 0 -35px; }
+
+        .credits { display: block; }
       }
     }
   }
