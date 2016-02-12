@@ -17,10 +17,6 @@
     "tests"
   ],
   "dependencies": {
-    "html5shiv": "~3.7.3",
-    "jquery": "~2.1.4",
-    "jquery.browser": "~0.0.8",
-    "fastclick": "~1.0.6",
     "pure": "~0.6.0"
   }
 }

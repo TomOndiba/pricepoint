@@ -37,25 +37,10 @@ module.exports = function (grunt) {
 
     clean: {
       pre: [dist.root, src.css, src.js + 'vendor'],
-      after: [src.js + 'vendor/fastclick.js', src.css + 'temp'],
+      after: [src.css + 'temp'],
       dist: [dist.js + 'custom.js']
     },
     copy: {
-      dev: {
-        files: [
-          {
-            expand: true,
-            flatten: true,
-            src: [
-              src.vendor + 'html5shiv/dist/html5shiv.min.js',
-              src.vendor + 'jquery/dist/jquery.min.js',
-              src.vendor + 'jquery.browser/dist/jquery.browser.min.js',
-              src.vendor + 'fastclick/lib/fastclick.js'
-            ],
-            dest: src.js + 'vendor'
-          }
-        ]
-      },
       dist: {
         files: [
           {
@@ -79,23 +64,9 @@ module.exports = function (grunt) {
         separator: '\n\n\n'
       },
       dist: {
-        files: [
-          {
+        files: [{
             src: [
-              src.js + 'custom.js',
-              src.js + 'vendor/jquery.browser.min.js',
-              src.js + 'vendor/fastclick.min.js'
-            ],
-            dest: src.js + 'plugins.js'
-          }, {
-            src: [
-              src.css + 'vendor/*.min.css'
-            ],
-            dest: src.css + 'plugins.css'
-          }, {
-            src: [
-              src.vendor + 'pure/pure-min.css',
-              src.vendor + 'pure/grids-responsive-min.css'
+              src.vendor + 'pure/pure-min.css'
             ],
             dest: src.css + 'pure.css'
           }
@@ -132,17 +103,6 @@ module.exports = function (grunt) {
         }]
       }
     },
-    uglify: {
-      dev: {
-        files: [{
-          expand: true,
-          cwd: src.js + 'vendor',
-          src: 'fastclick.js',
-          dest: src.js + 'vendor',
-          ext: '.min.js'
-        }]
-      }
-    },
     watch: {
       options: {
         livereload: true
@@ -176,6 +136,6 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks("grunt-contrib-watch");
   grunt.loadNpmTasks("grunt-newer");
 
-  grunt.registerTask("default", ["clean:pre", "less", "copy:dev", "uglify:dev", "cssmin", "concat", "clean:after", "copy:dist", "clean:dist", "watch"]);
+  grunt.registerTask("default", ["clean:pre", "less", "cssmin", "concat", "clean:after", "copy:dist", "clean:dist", "watch"]);
   grunt.registerTask("process", ["newer:less", "newer:copy:dist"]);
 };

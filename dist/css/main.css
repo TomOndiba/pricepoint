@@ -1298,9 +1298,19 @@ input[type="submit"].button-icon:focus .icon:after {
   }
 }
 .gallery ul li {
-  width: 20%;
+  width: 50%;
   float: left;
   padding: 6px;
+}
+@media (min-width: 568px) {
+  .gallery ul li {
+    width: 33.3%;
+  }
+}
+@media (min-width: 750px) {
+  .gallery ul li {
+    width: 20%;
+  }
 }
 .gallery ul li a {
   display: block;
@@ -1334,7 +1344,7 @@ input[type="submit"].button-icon:focus .icon:after {
   background-size: 120px auto;
   position: absolute;
   left: 0;
-  top: 4px;
+  top: 2px;
 }
 @media (min-width: 750px) {
   .gifts .heading a {
