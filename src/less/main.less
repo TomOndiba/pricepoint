@@ -9,6 +9,7 @@
 @min-width: 320px;
 @md-width: 1000px;
 
+@xxs: ~"(min-width: 375px)";
 @xs: ~"(min-width: 400px)";
 @sm: ~"(min-width: 568px)";
 @md: ~"(min-width: 750px)";
@@ -234,6 +235,12 @@ h6 {&:extend(.h6); }
     display: none;
   }
 }
+.mobile-hidden {
+  display: none;
+  @media @md {
+    display: block;
+  }
+}
 /* Wrapper */
 .wrapper {
   width: 100%;
@@ -243,7 +250,7 @@ h6 {&:extend(.h6); }
   &:after { .clearfix; }
 }
 .container {
-  padding: 20px 0;
+  padding: 8px 0;
 }
 .sidebar {
   margin-bottom: 20px;
@@ -252,6 +259,7 @@ h6 {&:extend(.h6); }
   min-height: 100%;
 }
 @media @md {
+  .container { padding: 20px 0; }
   .sidebar {
     width: 200px;
     margin-bottom: 0;
@@ -473,12 +481,16 @@ textarea {
 
   .label {
     height: 30px;
-    margin: 0 36px 0 25px;
+    margin: 0 40px 0 10px;
     color: @color-white;
     font-size: 13px;
     font-weight: bold;
     line-height: 30px;
     letter-spacing: .02em;
+
+    @media @sm {
+      padding-left: 25px;
+    }
   }
 
   .button {
@@ -491,6 +503,7 @@ textarea {
     &:after {
       border-width: 5px;
       border-top-color: @color-white;
+      transition: opacity @duration;
     }
   }
 
@@ -499,7 +512,8 @@ textarea {
 
     .button {
       &:after {
-        border-top-color: @color-beige;
+        border-top-color: @color-white;
+        opacity: .8;
       }
     }
   }
@@ -518,6 +532,8 @@ textarea {
   }
 
   li {
+    padding-top: 5px;
+    padding-bottom: 5px;
     color: @color-font;
     border-top-color: @color-beige-light;
     border-bottom-color: @color-beige-light;
@@ -728,15 +744,13 @@ textarea {
   }
   
   .links-group {
-    max-width: 404px;
-    margin: 0 -2px;
+    margin: 0;
     padding: 0;
-    display: inline-block;
     list-style: none;
     line-height: 21px;
-    
+
     &:after { .clearfix; }
-    
+
     @media @md {
       max-width: none;
       margin: 0 -1px;
@@ -744,29 +758,20 @@ textarea {
     }
     
     li {
-      margin: 0 auto;
-      width: 50%;
-      padding: 0 2px;
+      margin: 0 3px 0 0;
       float: left;
-      
-      &:nth-last-child(n+3) {
-        margin-bottom: 10px;
-      }
-      
+
+      &:last-of-type { margin-right: 0;}
+
       @media @md {
-        width: auto;
         margin: 0;
         padding: 0 1px;
         display: inline-block;
         float: none;
-
-        &:nth-last-child(n+3) {
-          margin-bottom: 0;
-        }
       }
       
       a {
-        padding: 4px 12px;
+        padding: 4px 6px;
         display: block;
         text-align: center;
         color: @color-blue;
@@ -774,66 +779,83 @@ textarea {
         border-radius: 2px;
         transition: background-color @duration, border-color @duration, color @duration;
         
-        .icon {
-          width: 16px;
-          height: 16px;
-          margin: 0 3px;
-          display: inline-block;
-          vertical-align: middle;
-          position: relative;
-          top: -1px;
-          
-          &:before, &:after {
-            .before;
-            clear: both;
-            width: 16px;
-            height: 16px;
-            background-image: url("@{images}/sprite.png");
-            background-repeat: no-repeat;
-            background-size: 200px auto;
-            position: absolute;
-            top: 0;
-            left: 0;
-            transition: opacity @duration;
-          }
-
-          &:before { background-position: 0 -52px; opacity: 1; }
-          &:after { background-position: 0 -16px; opacity: 0; }
-
-          &.icon-search {
-            &:before { background-position: 0 -52px; }
-            &:after { background-position: 0 -32px; }
-          }
-
-          &.icon-offers {
-            &:before { background-position: -20px -52px; }
-            &:after { background-position: -20px -32px; }
-          }
-
-          &.icon-messages {
-            &:before { background-position: -40px -52px; }
-            &:after { background-position: -40px -32px; }
-          }
-
-          &.icon-date {
-            &:before { background-position: -60px -52px; }
-            &:after { background-position: -60px -32px; }
-          }
-        }
-        
         &:hover, &:focus, &:active {
           color: @color-white;
           background-color: @color-blue;
           border-color: @color-blue;
           text-decoration: none;
-          
+        }
+
+        @media @xxs {
+
           .icon {
-            &:before { opacity: 0; }
-            &:after { opacity: 1; }
+            width: 16px;
+            height: 16px;
+            margin: 0 1px 0 0;
+            display: inline-block;
+            vertical-align: middle;
+            position: relative;
+            top: -1px;
+
+            &:before, &:after {
+              .before;
+              clear: both;
+              width: 16px;
+              height: 16px;
+              background-image: url("@{images}/sprite.png");
+              background-repeat: no-repeat;
+              background-size: 200px auto;
+              position: absolute;
+              top: 0;
+              left: 0;
+              transition: opacity @duration;
+            }
+
+            &:before { background-position: 0 -52px; opacity: 1; }
+            &:after { background-position: 0 -32px; opacity: 0;}
+
+            &.icon-search {
+              &:before { background-position: 0 -52px; }
+              &:after { background-position: 0 -32px; }
+            }
+
+            &.icon-offers {
+              &:before { background-position: -20px -52px; }
+              &:after { background-position: -20px -32px; }
+            }
+
+            &.icon-messages {
+              &:before { background-position: -40px -52px; }
+              &:after { background-position: -40px -32px; }
+            }
+
+            &.icon-date {
+              &:before { background-position: -60px -52px; }
+              &:after { background-position: -60px -32px; }
+            }
+          }
+
+          &:hover {
+
+            .icon {
+              &:before { opacity: 0; }
+              &:after { opacity: 1; }
+            }
+          }
+        }
+
+        @media @sm {
+          padding-left: 12px;
+          padding-right: 12px;
+
+          .icon {
+            margin: 0 3px;
           }
         }
 
         @media @md {
+          .mobile-hidden { display: inline;}
+
           .icon {
             width: 20px;
             height: 20px;
@@ -895,7 +917,7 @@ textarea {
   
   .photo {
     margin: 0;
-    width: 110px;
+    width: 134px;
     float: left;
 
     @media @md {
@@ -913,14 +935,16 @@ textarea {
   .inform {
 
     .text {
-      min-height: 110px;
-      margin-left: 120px;
-      margin-bottom: 12px;
+      min-height: 134px;
+      margin-left: 144px;
+      margin-bottom: 10px;
+      padding-top: 5px;
     }
 
     @media @md {
       margin-left: 220px;
       padding-bottom: 40px;
+      padding-top: 0;
 
       .text {
         min-height: 0;
@@ -930,7 +954,7 @@ textarea {
     }
     
     .name {
-      margin: 0;
+      margin: 0 0 4px;
       font-size: 18px;
       line-height: 18px;
       color: @color-rosy;
@@ -941,6 +965,7 @@ textarea {
       }
       
       @media @md {
+        margin: 0;
         font-size: 24px;
         line-height: 22px;
 
@@ -951,11 +976,9 @@ textarea {
     .location {
       margin: 0 0 16px;
       font-size: 11px;
-      position: relative;
-      padding-right: 75px;
 
-      @media @sm {
-        padding-right: 0;
+      @media @xxs {
+        margin: 0 0 34px;
       }
 
       @media @md {
@@ -970,10 +993,8 @@ textarea {
         vertical-align: middle;
         font-weight: 500;
         color: @color-font;
-        position: absolute;
-        right: 0;
-        top: 0;
-        
+        position: relative;
+
         &:before {
           .before;
           width: 16px;
@@ -987,9 +1008,6 @@ textarea {
 
         @media @sm {
           margin-left: 8px;
-          position: relative;
-          right: auto;
-          top: auto;
         }
       }
     }
@@ -1009,15 +1027,18 @@ textarea {
       }
     }
 
+    .status {
+      margin: 0;
+      font-weight: bold;
+    }
+
     .actions {
       margin: 0 auto;
-      padding: 13px 0 0;
-      border-top: 1px solid @color-beige;
       position: relative;
 
       @media @md {
-        padding-right: 90px;
-        padding-bottom: 13px;
+        padding: 13px 90px 13px 0;
+        border-top: 1px solid @color-beige;
       }
 
       .list {
@@ -1026,13 +1047,16 @@ textarea {
         padding: 0;
         list-style: none;
 
-        @media @md {
+        @media @xs {
           max-width: none;
+        }
+
+        @media @md {
           display: inline-block;
         }
 
         li {
-          margin-bottom: 14px;
+          margin-bottom: 10px;
           &:after { .clearfix; }
 
           &:last-child {
@@ -1050,7 +1074,7 @@ textarea {
             }
           }
 
-          @media @md {
+          @media @xs {
             margin: 0;
             display: inline-block;
 
@@ -1069,6 +1093,10 @@ textarea {
         .button {
           padding-left: 24px;
           padding-right: 24px;
+          
+          @media @xs {
+            display: inline-block;
+          }
         }
       }
 
@@ -1089,6 +1117,7 @@ textarea {
 
         .button {
           width: 50%;
+          height: 22px;
           padding: 3px 10px;
           margin: 0 auto;
           display: block;
@@ -1579,7 +1608,7 @@ textarea {
 
     .type {
       margin-bottom: 4px;
-      padding: 6px 54px 6px 20px;
+      padding: 6px 54px 6px 10px;
       display: block;
       font-size: 12px;
       font-weight: 500;
@@ -1592,6 +1621,7 @@ textarea {
       @media @sm {
         margin-left: 1px;
         margin-right: 1px;
+        padding-left: 20px;
         display: inline-block;
         vertical-align: middle;
       }
@@ -1637,3 +1667,6 @@ textarea {
     }
   }
 }
+/* ==========================================================================
+   _SORT
+   ========================================================================== */
