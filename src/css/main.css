@@ -346,7 +346,6 @@ textarea:focus {
 button,
 input[type="submit"] {
   max-width: 400px;
-  height: 32px;
   margin: 0 auto;
   display: block;
   padding: 8px 12px;
@@ -595,7 +594,7 @@ input[type="submit"].button-icon:focus .icon:after {
 }
 .selectric .label {
   height: 30px;
-  margin: 0 40px 0 10px;
+  margin: 0 36px 0 10px;
   color: #fff;
   font-size: 13px;
   font-weight: bold;
@@ -604,7 +603,7 @@ input[type="submit"].button-icon:focus .icon:after {
 }
 @media (min-width: 568px) {
   .selectric .label {
-    padding-left: 25px;
+    margin-left: 25px;
   }
 }
 .selectric .button {
@@ -920,13 +919,19 @@ input[type="submit"].button-icon:focus .icon:after {
 }
 @media (min-width: 375px) {
   .top .links-group li a .icon {
-    width: 16px;
-    height: 16px;
-    margin: 0 1px 0 0;
+    width: 20px;
+    height: 20px;
+    margin: 0 -1px 0 -2px;
     display: inline-block;
     vertical-align: middle;
     position: relative;
     top: -1px;
+    -webkit-transform: scale(0.7);
+    -moz-transform: scale(0.7);
+    -ms-transform: scale(0.7);
+    -o-transform: scale(0.7);
+    transform: scale(0.7);
+    -webkit-backface-visibility: hidden;
   }
   .top .links-group li a .icon:before,
   .top .links-group li a .icon:after {
@@ -934,84 +939,23 @@ input[type="submit"].button-icon:focus .icon:after {
     content: '\0020';
     overflow: hidden;
     clear: both;
-    width: 16px;
-    height: 16px;
+    width: 20px;
+    height: 20px;
     background-image: url("../img/sprite.png");
     background-repeat: no-repeat;
-    background-size: 200px auto;
+    background-size: 250px auto;
     position: absolute;
     top: 0;
     left: 0;
     transition: opacity 0.2s ease;
   }
   .top .links-group li a .icon:before {
-    background-position: 0 -52px;
-    opacity: 1;
-  }
-  .top .links-group li a .icon:after {
-    background-position: 0 -32px;
-    opacity: 0;
-  }
-  .top .links-group li a .icon.icon-search:before {
-    background-position: 0 -52px;
-  }
-  .top .links-group li a .icon.icon-search:after {
-    background-position: 0 -32px;
-  }
-  .top .links-group li a .icon.icon-offers:before {
-    background-position: -20px -52px;
-  }
-  .top .links-group li a .icon.icon-offers:after {
-    background-position: -20px -32px;
-  }
-  .top .links-group li a .icon.icon-messages:before {
-    background-position: -40px -52px;
-  }
-  .top .links-group li a .icon.icon-messages:after {
-    background-position: -40px -32px;
-  }
-  .top .links-group li a .icon.icon-date:before {
-    background-position: -60px -52px;
-  }
-  .top .links-group li a .icon.icon-date:after {
-    background-position: -60px -32px;
-  }
-  .top .links-group li a:hover .icon:before {
-    opacity: 0;
-  }
-  .top .links-group li a:hover .icon:after {
-    opacity: 1;
-  }
-}
-@media (min-width: 568px) {
-  .top .links-group li a {
-    padding-left: 12px;
-    padding-right: 12px;
-  }
-  .top .links-group li a .icon {
-    margin: 0 3px;
-  }
-}
-@media (min-width: 750px) {
-  .top .links-group li a .mobile-hidden {
-    display: inline;
-  }
-  .top .links-group li a .icon {
-    width: 20px;
-    height: 20px;
-    top: auto;
-  }
-  .top .links-group li a .icon:before,
-  .top .links-group li a .icon:after {
-    width: 20px;
-    height: 20px;
-    background-size: 250px auto;
-  }
-  .top .links-group li a .icon:before {
     background-position: 0 -65px;
+    opacity: 1;
   }
   .top .links-group li a .icon:after {
     background-position: 0 -40px;
+    opacity: 0;
   }
   .top .links-group li a .icon.icon-search:before {
     background-position: 0 -65px;
@@ -1036,6 +980,35 @@ input[type="submit"].button-icon:focus .icon:after {
   }
   .top .links-group li a .icon.icon-date:after {
     background-position: -75px -40px;
+  }
+  .top .links-group li a:hover .icon:before {
+    opacity: 0;
+  }
+  .top .links-group li a:hover .icon:after {
+    opacity: 1;
+  }
+}
+@media (min-width: 568px) {
+  .top .links-group li a {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  .top .links-group li a .icon {
+    margin: 0 3px;
+  }
+}
+@media (min-width: 750px) {
+  .top .links-group li a .mobile-hidden {
+    display: inline;
+  }
+  .top .links-group li a .icon {
+    top: auto;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+    -webkit-backface-visibility: hidden;
   }
 }
 .top .buy {
@@ -1221,7 +1194,7 @@ input[type="submit"].button-icon:focus .icon:after {
   padding: 0 2px;
   float: left;
 }
-@media (min-width: 400px) {
+@media (min-width: 568px) {
   .profile .inform .actions .list li {
     margin: 0;
     display: inline-block;
@@ -1236,10 +1209,11 @@ input[type="submit"].button-icon:focus .icon:after {
   }
 }
 .profile .inform .actions .list .button {
+  max-width: none;
   padding-left: 24px;
   padding-right: 24px;
 }
-@media (min-width: 400px) {
+@media (min-width: 568px) {
   .profile .inform .actions .list .button {
     display: inline-block;
   }
@@ -1265,7 +1239,6 @@ input[type="submit"].button-icon:focus .icon:after {
 }
 .profile .inform .actions .report .button {
   width: 50%;
-  height: 22px;
   padding: 3px 10px;
   margin: 0 auto;
   display: block;
@@ -1570,7 +1543,7 @@ input[type="submit"].button-icon:focus .icon:after {
   }
 }
 .catalog .item {
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 .catalog .item .space {
   padding: 7px 10px;
@@ -1596,7 +1569,7 @@ input[type="submit"].button-icon:focus .icon:after {
     padding-right: 20px;
   }
 }
-@media (min-width: 750px) {
+@media (min-width: 1000px) {
   .catalog .item {
     width: 33.3%;
     padding: 0 10px;
@@ -1609,7 +1582,7 @@ input[type="submit"].button-icon:focus .icon:after {
   }
 }
 .catalog .photo {
-  margin: -7px -11px 12px;
+  margin: -7px -11px 11px;
   overflow: hidden;
 }
 @media (min-width: 568px) {
@@ -1681,6 +1654,8 @@ input[type="submit"].button-icon:focus .icon:after {
   }
 }
 .catalog .info .location .link {
+  padding-left: 18px;
+  position: relative;
   font-weight: 500;
   float: right;
   color: #707a85;
@@ -1695,13 +1670,11 @@ input[type="submit"].button-icon:focus .icon:after {
   background-size: 200px auto;
   position: absolute;
   left: 2px;
-  top: 0;
+  top: 2px;
 }
 @media (min-width: 568px) {
   .catalog .info .location .link {
     margin-left: 8px;
-    padding-left: 18px;
-    position: relative;
     right: auto;
     top: auto;
   }
@@ -1774,7 +1747,7 @@ input[type="submit"].button-icon:focus .icon:after {
    _SORT
    ========================================================================== */
 .sort {
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 .sort:after {
   display: table;
@@ -1872,5 +1845,33 @@ input[type="submit"].button-icon:focus .icon:after {
   }
 }
 /* ==========================================================================
-   _SORT
+   _WARNING
    ========================================================================== */
+.warning {
+  margin-bottom: 20px;
+  padding: 16px 16px 20px;
+  text-align: center;
+  background: #fff;
+  border: 1px solid #e5e5e5;
+}
+.warning p {
+  margin-bottom: 2px;
+}
+.warning .color {
+  color: #4c9eda;
+}
+.warning .link {
+  display: inline-block;
+  padding: 2px 24px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #707a85;
+  background: #e5e5e5;
+  border-radius: 2px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.warning .link:hover {
+  text-decoration: none;
+  color: #fff;
+  background-color: #4c9eda;
+}
