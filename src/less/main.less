@@ -9,9 +9,10 @@
 @min-width: 320px;
 @md-width: 1000px;
 
-@xs: ~"(min-width: 568px)";
-@sm: ~"(min-width: 750px)";
-@md: ~"(min-width: 1000px)";
+@xs: ~"(min-width: 400px)";
+@sm: ~"(min-width: 568px)";
+@md: ~"(min-width: 750px)";
+@lg: ~"(min-width: 1000px)";
 
 @font-family: 'Roboto', Arial, sans-serif;
 @font-awesome: 'FontAwesome', sans-serif;
@@ -87,7 +88,7 @@ body {
   background: @color-beige-light;
   position: relative;
 }
-@media @sm {
+@media @md {
   html {
     font-size: 14px;
     line-height: 18px;
@@ -101,14 +102,14 @@ body {
    ========================================================================== */
 p {
   margin: 0 0 @margin-sm;
-  @media @sm {
+  @media @md {
     margin: 0 0 @margin-md;
   }
 }
 ul, ol {
   padding: 0 0 0 @margin-sm;
   margin: 0 0 @margin-sm;
-  @media @sm {
+  @media @md {
     margin: 0 0 @margin-md;
   }
 }
@@ -131,7 +132,7 @@ dl {
     font-weight: 300;
     font-style: italic;
     
-    @media @sm {
+    @media @md {
       margin-bottom: @margin-md;
     }
   }
@@ -151,7 +152,7 @@ dl {
   font-size: 24px;
   font-style: normal;
   
-  @media @sm {
+  @media @md {
     font-size: 30px;
     margin: @margin-md 0 @margin-md;
   }
@@ -163,7 +164,7 @@ dl {
   font-size: 22px;
   font-style: normal;
   
-  @media @sm {
+  @media @md {
     font-size: 24px;
     margin: @margin-md 0 @margin-md;
   }
@@ -174,7 +175,7 @@ dl {
   font-size: 20px;
   font-style: normal;
   
-  @media @sm {
+  @media @md {
     font-size: 22px;
     margin: @margin-md 0 @margin-md;
   }
@@ -185,7 +186,7 @@ dl {
   font-size: 18px;
   font-style: normal;
   
-  @media @sm {
+  @media @md {
     font-size: 20px;
     margin: @margin-md 0 @margin-md;
   }
@@ -197,7 +198,7 @@ dl {
   font-size: 16px;
   font-style: normal;
   
-  @media @sm {
+  @media @md {
     font-size: 18px;
     margin: @margin-md 0 @margin-md;
   }
@@ -209,7 +210,7 @@ dl {
   font-size: 14px;
   font-style: normal;
   
-  @media @sm {
+  @media @md {
     font-size: 15px;
     margin: @margin-md 0 @margin-md;
   }
@@ -229,7 +230,7 @@ h6 {&:extend(.h6); }
 .hidden { display: none; }
 .unselectable { -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: -moz-none; -ms-user-select: none; -o-user-select: none; user-select: none; }
 .mobile-visible {
-  @media @sm {
+  @media @md {
     display: none;
   }
 }
@@ -250,7 +251,7 @@ h6 {&:extend(.h6); }
 .content {
   min-height: 100%;
 }
-@media @sm {
+@media @md {
   .sidebar {
     width: 200px;
     margin-bottom: 0;
@@ -283,7 +284,7 @@ input {
   transition: background-color @duration, border-color @duration;
   -webkit-appearance: none;
   
-  @media @sm {
+  @media @md {
     height: 32px;
   }
   
@@ -296,7 +297,7 @@ textarea {
   display: block;
   resize: none;
   
-  @media @sm {
+  @media @md {
     height: 170px;
   }
   
@@ -323,7 +324,7 @@ textarea {
   border-radius: 2px;
   transition: background-color @duration, border-color @duration, color @duration;
   
-  @media @sm {
+  @media @md {
     max-width: none;
     display: inline-block;
     font-size: 13px;
@@ -381,6 +382,8 @@ textarea {
   }
   
   &.button-icon {
+    padding-left: 4px;
+    padding-right: 4px;
     
     .icon {
       width: 14px;
@@ -440,13 +443,13 @@ textarea {
     float: left;
   }
   
-  @media @xs {
+  @media @sm {
     max-width: 400px;
     margin-left: auto;
     margin-right: auto;
   }
 
-  @media @sm {
+  @media @md {
     max-width: none;
 
     .line {
@@ -470,7 +473,7 @@ textarea {
   right: 0;
   cursor: default;
   
-  @media @sm {
+  @media @md {
     height: 60px;
   }
   
@@ -487,7 +490,7 @@ textarea {
     left: 10px;
     top: 10px;
     
-    @media @sm {
+    @media @md {
       width: 246px;
       height: 36px;
       top: 13px;
@@ -512,7 +515,7 @@ textarea {
     right: 10px;
     top: 8px;
     
-    @media @sm {
+    @media @md {
       top: 12px;
       font-size: 13px;
       line-height: 18px;
@@ -552,7 +555,7 @@ textarea {
       
       .credits { display: block; }
       
-      @media @sm {
+      @media @md {
         min-height: 30px;
         padding-right: 40px;
         
@@ -588,7 +591,7 @@ textarea {
     position: relative;
   }
   
-  @media @sm {
+  @media @md {
     height: 168px;
     font-size: 14px;
   }
@@ -597,7 +600,7 @@ textarea {
     margin: 0;
     text-align: center;
     
-    @media @sm {
+    @media @md {
       margin-top: -9px;
       position: absolute;
       left: 10px;
@@ -611,7 +614,7 @@ textarea {
     list-style: none;
     text-align: center;
     
-    @media @sm {
+    @media @md {
       margin: -9px 0 0 0;
       position: absolute;
       right: 10px;
@@ -620,7 +623,7 @@ textarea {
     
     li {
       
-      @media @sm {
+      @media @md {
         padding: 0 0 0 20px;
         display: inline-block;
       }
@@ -645,7 +648,7 @@ textarea {
   border-bottom: 1px solid @color-beige;
   text-align: center;
   
-  @media @sm {
+  @media @md {
     text-align: left;
   }
   
@@ -659,7 +662,7 @@ textarea {
     
     &:after { .clearfix; }
     
-    @media @sm {
+    @media @md {
       max-width: none;
       margin: 0 -1px;
       float: left;
@@ -675,7 +678,7 @@ textarea {
         margin-bottom: 10px;
       }
       
-      @media @sm {
+      @media @md {
         width: auto;
         margin: 0;
         padding: 0 1px;
@@ -755,7 +758,7 @@ textarea {
           }
         }
 
-        @media @sm {
+        @media @md {
           .icon {
             width: 20px;
             height: 20px;
@@ -800,7 +803,7 @@ textarea {
     text-transform: uppercase;
     display: none;
     
-    @media @sm {
+    @media @md {
       display: block;
       float: right;
     }
@@ -820,7 +823,7 @@ textarea {
     width: 110px;
     float: left;
 
-    @media @sm {
+    @media @md {
       width: 200px;
     }
 
@@ -840,7 +843,7 @@ textarea {
       margin-bottom: 12px;
     }
 
-    @media @sm {
+    @media @md {
       margin-left: 220px;
       padding-bottom: 40px;
 
@@ -862,7 +865,7 @@ textarea {
         font-size: 13px;
       }
       
-      @media @sm {
+      @media @md {
         font-size: 24px;
         line-height: 22px;
 
@@ -876,11 +879,11 @@ textarea {
       position: relative;
       padding-right: 75px;
 
-      @media @xs {
+      @media @sm {
         padding-right: 0;
       }
 
-      @media @sm {
+      @media @md {
         margin: 0 0 21px;
         font-size: 13px;
       }
@@ -907,7 +910,7 @@ textarea {
           top: 2px;
         }
 
-        @media @xs {
+        @media @sm {
           margin-left: 8px;
           position: relative;
           right: auto;
@@ -922,7 +925,7 @@ textarea {
       font-weight: 300;
       font-style: italic;
       
-      @media @sm {
+      @media @md {
         margin: 0;
         font-size: 13px;
         position: absolute;
@@ -937,7 +940,7 @@ textarea {
       border-top: 1px solid @color-beige;
       position: relative;
 
-      @media @sm {
+      @media @md {
         padding-right: 90px;
         padding-bottom: 13px;
       }
@@ -948,7 +951,7 @@ textarea {
         padding: 0;
         list-style: none;
 
-        @media @sm {
+        @media @md {
           max-width: none;
           display: inline-block;
         }
@@ -972,7 +975,7 @@ textarea {
             }
           }
 
-          @media @sm {
+          @media @md {
             margin: 0;
             display: inline-block;
 
@@ -1001,7 +1004,7 @@ textarea {
 
         &:after { .clearfix; }
 
-        @media @sm {
+        @media @md {
           width: 80px;
           display: block;
           position: absolute;
@@ -1018,7 +1021,7 @@ textarea {
           font-size: 12px;
           font-weight: 500;
 
-          @media @sm {
+          @media @md {
             width: auto;
             float: none;
           }
@@ -1033,7 +1036,7 @@ textarea {
 .description {
   display: none;
   
-  @media @sm {
+  @media @md {
     display: block;
     margin: 0 auto;
     padding: 6px 10px;
@@ -1127,7 +1130,7 @@ textarea {
   background: @color-white;
   border: 1px solid @color-beige;
   
-  @media @sm {
+  @media @md {
     padding: 18px 28px;
   }
   
@@ -1159,7 +1162,7 @@ textarea {
         top: 4px;
       }
 
-      @media @sm {
+      @media @md {
         padding-left: 22px;
 
         &:before {
@@ -1179,7 +1182,7 @@ textarea {
     
     &:after { .clearfix; }
     
-    @media @sm {
+    @media @md {
       display: inline-block;
     }
     
@@ -1188,11 +1191,11 @@ textarea {
       float: left;
       padding: 6px;
 
-      @media @xs {
+      @media @sm {
         width: 33.3%;
       }
 
-      @media @sm {
+      @media @md {
         width: 20%;
       }
       
@@ -1233,7 +1236,7 @@ textarea {
         top: 2px;
       }
 
-      @media @sm {
+      @media @md {
         padding-left: 22px;
 
         &:before {
@@ -1260,7 +1263,7 @@ textarea {
       a { display: block; }
       img { max-width: 40px; height: auto; display: block; }
 
-      @media @sm {
+      @media @md {
         margin-bottom: 0;
 
         img { max-width: 50px; }
@@ -1276,11 +1279,16 @@ textarea {
   &:after { .clearfix; }
 
   @media @xs {
+    margin-left: -1px;
+    margin-right: -1px;
+  }
+
+  @media @sm {
     margin-left: -5px;
     margin-right: -5px;
   }
 
-  @media @sm {
+  @media @md {
     margin-left: -10px;
     margin-right: -10px;
   }
@@ -1288,27 +1296,46 @@ textarea {
   .item {
     margin-bottom: 20px;
 
+    .space {
+      padding: 7px 10px;
+      background: @color-white;
+      border: 1px solid @color-beige;
+    }
+
     @media @xs {
       width: 50%;
-      padding: 0 5px;
+      padding: 0 1px;
       float: left;
+
+      &:nth-of-type(2n+1) {clear: left;}
     }
 
     @media @sm {
-      width: 33.3%;
-      padding: 0 10px;
+      padding: 0 5px;
+
+      .space {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
     }
 
-    .space {
-      padding: 7px 20px;
-      background: @color-white;
-      border: 1px solid @color-beige;
+    @media @md {
+      width: 33.3%;
+      padding: 0 10px;
+
+      &:nth-of-type(2n+1) {clear: none;}
+      &:nth-of-type(3n+1) {clear: left;}
     }
   }
   
   .photo {
-    margin: -7px -20px 12px;
+    margin: -7px -10px 12px;
     overflow: hidden;
+
+    @media @sm {
+      margin-left: -20px;
+      margin-right: -20px;
+    }
 
     a {
       display: block;
@@ -1330,7 +1357,7 @@ textarea {
       }
 
       img {
-        max-width: 100%;
+        width: 100%;
         height: auto;
         margin: 0 auto;
         display: block;
@@ -1353,7 +1380,7 @@ textarea {
       line-height: normal;
       color: @color-rosy;
 
-      @media @sm {
+      @media @md {
         font-size: 24px;
       }
     }
@@ -1361,7 +1388,7 @@ textarea {
     .location {
       margin-bottom: 10px;
 
-      @media @sm {
+      @media @md {
         font-size: 13px;
       }
 
@@ -1381,7 +1408,7 @@ textarea {
           top: 0;
         }
 
-        @media @xs {
+        @media @sm {
           margin-left: 8px;
           padding-left: 18px;
           position: relative;
@@ -1417,7 +1444,35 @@ textarea {
 
         &:nth-of-type(2) { padding-right: 0; padding-left: 2px;}
         
-        .button { display: block; padding-left: 8px; padding-right: 8px; }
+        .button { display: block; }
+      }
+
+      @media @xs {
+        display: block;
+        
+        .cell {
+          width: 100%;
+          display: block;
+          margin-bottom: 4px;
+          padding: 0;
+          line-height: 32px;
+
+          &:nth-of-type(2) { padding-left: 0;}
+        }
+      }
+
+      @media @sm {
+        display: table;
+
+        .cell {
+          width: 50%;
+          margin-bottom: 0;
+          padding: 0 2px 0 0;
+          display: table-cell;
+          line-height: inherit;
+
+          &:nth-of-type(2) { padding-right: 0; padding-left: 2px; }
+        }
       }
     }
   }
