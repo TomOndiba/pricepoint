@@ -460,6 +460,78 @@ textarea {
     }
   }
 }
+/* Seletric */
+.selectric {
+  border-color: @color-font;
+  background: @color-font;
+  border-radius: 2px;
+
+  .label {
+    height: 30px;
+    margin: 0 36px 0 25px;
+    color: @color-white;
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 30px;
+    letter-spacing: .02em;
+  }
+
+  .button {
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    text-align: left;
+    background: transparent;
+    border: none;
+
+    &:after {
+      margin: auto 0;
+      border-width: 5px;
+      border-top-color: @color-white;
+    }
+  }
+
+  .selectric-hover &, .selectric-open & {
+    border-color: @color-font;
+
+    .button {
+      &:after {
+        border-top-color: @color-beige;
+      }
+    }
+  }
+}
+.selectric-items {
+  margin-top: -1px;
+  background: @color-white;
+  border-color: @color-beige;
+  border-radius: 0 0 2px 2px;
+  box-shadow: none;
+
+  .selectric-above & {
+    margin-top: 0;
+    margin-bottom: -1px;
+    border-radius: 2px 2px 0 0;
+  }
+
+  li {
+    color: @color-font;
+    border-top-color: @color-beige-light;
+    border-bottom-color: @color-beige-light;
+
+    &:hover {
+      color: @color-font;
+      background: @color-beige-light;
+    }
+
+    &.selected {
+      background: @color-beige;
+      border-top-color: @color-beige;
+      border-bottom-color: @color-beige;
+      color: @color-sea;
+    }
+  }
+}
 /* ==========================================================================
    _HEADER
    ========================================================================== */
@@ -1307,7 +1379,7 @@ textarea {
       padding: 0 1px;
       float: left;
 
-      &:nth-of-type(2n+1) {clear: left;}
+      &:nth-of-type(2n+1) { clear: left; }
     }
 
     @media @sm {
@@ -1323,8 +1395,8 @@ textarea {
       width: 33.3%;
       padding: 0 10px;
 
-      &:nth-of-type(2n+1) {clear: none;}
-      &:nth-of-type(3n+1) {clear: left;}
+      &:nth-of-type(2n+1) { clear: none; }
+      &:nth-of-type(3n+1) { clear: left; }
     }
   }
   
@@ -1366,8 +1438,8 @@ textarea {
       }
 
       &:hover {
-        &:before {opacity: 1;}
-        img {.scale(1);}
+        &:before { opacity: 1; }
+        img { .scale(1); }
       }
     }
   }
@@ -1442,7 +1514,7 @@ textarea {
         display: table-cell;
         vertical-align: middle;
 
-        &:nth-of-type(2) { padding-right: 0; padding-left: 2px;}
+        &:nth-of-type(2) { padding-right: 0; padding-left: 2px; }
         
         .button { display: block; }
       }
@@ -1457,7 +1529,7 @@ textarea {
           padding: 0;
           line-height: 32px;
 
-          &:nth-of-type(2) { padding-left: 0;}
+          &:nth-of-type(2) { padding-left: 0; }
         }
       }
 
@@ -1474,6 +1546,66 @@ textarea {
           &:nth-of-type(2) { padding-right: 0; padding-left: 2px; }
         }
       }
+    }
+  }
+}
+/* ==========================================================================
+   _SORT
+   ========================================================================== */
+.sort {
+  margin-bottom: 20px;
+
+  &:after { .clearfix; }
+
+  .line {
+    margin: 0 -1px 4px;
+
+    .type, .form-line {
+      margin: 0 1px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+
+  .type {
+    padding: 6px 54px 6px 20px;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 12px;
+    font-weight: 500;
+    background: @color-white;
+    border-radius: 2px;
+    border: 1px solid @color-beige;
+    position: relative;
+    cursor: default;
+
+    .close {
+      width: 32px;
+      background: @color-beige;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 0 2px 2px 0;
+      transition: opacity @duration;
+
+      &:hover {
+        opacity: .7;
+      }
+
+      &:before, &:after {
+        .before;
+        clear: both;
+        width: 2px;
+        height: 12px;
+        margin: -6px 0 0 -1px;
+        background: @color-font;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+      }
+      &:before { .rotate(45deg); }
+      &:after { .rotate(-45deg); }
     }
   }
 }

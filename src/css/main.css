@@ -570,6 +570,69 @@ input[type="submit"].button-icon:focus .icon:after {
     float: none;
   }
 }
+/* Seletric */
+.selectric {
+  border-color: #707a85;
+  background: #707a85;
+  border-radius: 2px;
+}
+.selectric .label {
+  height: 30px;
+  margin: 0 36px 0 25px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 30px;
+  letter-spacing: .02em;
+}
+.selectric .button {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  text-align: left;
+  background: transparent;
+  border: none;
+}
+.selectric .button:after {
+  margin: auto 0;
+  border-width: 5px;
+  border-top-color: #fff;
+}
+.selectric-hover .selectric,
+.selectric-open .selectric {
+  border-color: #707a85;
+}
+.selectric-hover .selectric .button:after,
+.selectric-open .selectric .button:after {
+  border-top-color: #e5e5e5;
+}
+.selectric-items {
+  margin-top: -1px;
+  background: #fff;
+  border-color: #e5e5e5;
+  border-radius: 0 0 2px 2px;
+  box-shadow: none;
+}
+.selectric-above .selectric-items {
+  margin-top: 0;
+  margin-bottom: -1px;
+  border-radius: 2px 2px 0 0;
+}
+.selectric-items li {
+  color: #707a85;
+  border-top-color: #f4f4f4;
+  border-bottom-color: #f4f4f4;
+}
+.selectric-items li:hover {
+  color: #707a85;
+  background: #f4f4f4;
+}
+.selectric-items li.selected {
+  background: #e5e5e5;
+  border-top-color: #e5e5e5;
+  border-bottom-color: #e5e5e5;
+  color: #333a42;
+}
 /* ==========================================================================
    _HEADER
    ========================================================================== */
@@ -1672,4 +1735,79 @@ input[type="submit"].button-icon:focus .icon:after {
     padding-right: 0;
     padding-left: 2px;
   }
+}
+/* ==========================================================================
+   _SORT
+   ========================================================================== */
+.sort {
+  margin-bottom: 20px;
+}
+.sort:after {
+  display: table;
+  content: '\0020';
+  clear: both;
+}
+.sort .line {
+  margin: 0 -1px 4px;
+}
+.sort .line .type,
+.sort .line .form-line {
+  margin: 0 1px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.sort .type {
+  padding: 6px 54px 6px 20px;
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 12px;
+  font-weight: 500;
+  background: #fff;
+  border-radius: 2px;
+  border: 1px solid #e5e5e5;
+  position: relative;
+  cursor: default;
+}
+.sort .type .close {
+  width: 32px;
+  background: #e5e5e5;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 0 2px 2px 0;
+  transition: opacity 0.2s ease;
+}
+.sort .type .close:hover {
+  opacity: .7;
+}
+.sort .type .close:before,
+.sort .type .close:after {
+  display: block;
+  content: '\0020';
+  overflow: hidden;
+  clear: both;
+  width: 2px;
+  height: 12px;
+  margin: -6px 0 0 -1px;
+  background: #707a85;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+.sort .type .close:before {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -webkit-backface-visibility: hidden;
+}
+.sort .type .close:after {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -webkit-backface-visibility: hidden;
 }

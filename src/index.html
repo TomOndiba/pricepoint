@@ -9,6 +9,7 @@
 	<meta name="format-detection" content="telephone=no">
 
 	<link rel="stylesheet" href="css/pure.css">
+	<link rel="stylesheet" href="css/plugins.css">
 	<link rel="stylesheet" href="css/main.css">
 
 	<link rel="apple-touch-icon" sizes="57x57" href="img/favicon/apple-touch-icon-57x57.png">
@@ -67,6 +68,33 @@
 	<main class="container">
 		<div class="wrapper">
 
+			<!-- Sort -->
+			<div class="sort">
+				<form action="#" method="post">
+					<div class="line">
+						<div class="form-line">
+							<label for="sort"></label>
+							<select id="sort">
+								<option value="">Sort by: Newest Member</option>
+								<option value="">Sort by: Newest Member</option>
+								<option value="">Sort by: Newest Member</option>
+								<option value="">Sort by: Newest Member</option>
+							</select>
+						</div>
+						<span class="type">Within 10 Miles <a class="close" href="#"></a></span>
+						<span class="type">With Photos <a class="close" href="#"></a></span>
+						<span class="type">Ages 18 to 29 <a class="close" href="#"></a></span>
+						<span class="type">Ethnicity: White / Caucasian <a class="close" href="#"></a></span>
+					</div>
+					<div class="button-group">
+						<button class="button button-black" type="submit" value="">Add Search Filter</button>
+						<button class="button button-rosy" type="submit" value="">Update Search</button>
+					</div>
+				</form>
+			</div>
+			<!-- /Sort -->
+
+			<!-- Catalog -->
 			<section class="catalog">
 				<div class="item">
 					<div class="space">
@@ -153,6 +181,7 @@
 					</div>
 				</div>
 			</section>
+			<!-- /Catalog -->
 
 		</div>
 	</main>
@@ -169,5 +198,10 @@
 		</div>
 	</footer>
 	<!-- /Footer -->
+
+	<script src="js/vendor/jquery.min.js"></script>
+	<script src="js/plugins.js"></script>
+	<script src="js/main.js"></script>
+
 </body>
 </html>
