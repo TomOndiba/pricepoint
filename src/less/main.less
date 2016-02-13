@@ -314,7 +314,7 @@ textarea {
   height: 32px;
   margin: 0 auto;
   display: block;
-  padding: 8px 28px;
+  padding: 8px 12px;
   font: bold 12px/14px @font-family;
   color: @color-white;
   text-align: center;
@@ -328,6 +328,8 @@ textarea {
     max-width: none;
     display: inline-block;
     font-size: 13px;
+    padding-left: 28px;
+    padding-right: 28px;
   }
   
   &:hover, &:focus {
@@ -437,11 +439,14 @@ textarea {
   margin: 16px -2px;
   &:after { .clearfix; }
   
-  .line {
+  .cell {
     width: 50%;
+    margin: 0;
     padding: 0 2px;
     float: left;
   }
+
+  .button { width: 100%;}
   
   @media @sm {
     max-width: 400px;
@@ -452,7 +457,7 @@ textarea {
   @media @md {
     max-width: none;
 
-    .line {
+    .cell {
       width: auto;
       padding: 0;
       display: inline-block;
@@ -480,12 +485,10 @@ textarea {
     width: 32px;
     height: 32px;
     padding: 0;
-    text-align: left;
     background: transparent;
     border: none;
 
     &:after {
-      margin: auto 0;
       border-width: 5px;
       border-top-color: @color-white;
     }
@@ -1401,12 +1404,12 @@ textarea {
   }
   
   .photo {
-    margin: -7px -10px 12px;
+    margin: -7px -11px 12px;
     overflow: hidden;
 
     @media @sm {
-      margin-left: -20px;
-      margin-right: -20px;
+      margin-left: -21px;
+      margin-right: -21px;
     }
 
     a {
@@ -1558,54 +1561,79 @@ textarea {
   &:after { .clearfix; }
 
   .line {
-    margin: 0 -1px 4px;
 
-    .type, .form-line {
-      margin: 0 1px;
-      display: inline-block;
-      vertical-align: middle;
+    @media @sm {
+      margin: 0 -1px;
+    }
+
+    .form-line {
+      margin-bottom: 4px;
+
+      @media @sm {
+        margin-left: 1px;
+        margin-right: 1px;
+        display: inline-block;
+        vertical-align: middle;
+      }
+    }
+
+    .type {
+      margin-bottom: 4px;
+      padding: 6px 54px 6px 20px;
+      display: block;
+      font-size: 12px;
+      font-weight: 500;
+      background: @color-white;
+      border-radius: 2px;
+      border: 1px solid @color-beige;
+      position: relative;
+      cursor: default;
+
+      @media @sm {
+        margin-left: 1px;
+        margin-right: 1px;
+        display: inline-block;
+        vertical-align: middle;
+      }
+
+      .close {
+        width: 32px;
+        background: @color-beige;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 0 2px 2px 0;
+        transition: opacity @duration;
+
+        &:hover {
+          opacity: .7;
+        }
+
+        &:before, &:after {
+          .before;
+          clear: both;
+          width: 2px;
+          height: 12px;
+          margin: -6px 0 0 -1px;
+          background: @color-font;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+        }
+        &:before { .rotate(45deg); }
+        &:after { .rotate(-45deg); }
+      }
     }
   }
 
-  .type {
-    padding: 6px 54px 6px 20px;
-    display: inline-block;
-    vertical-align: middle;
-    font-size: 12px;
-    font-weight: 500;
-    background: @color-white;
-    border-radius: 2px;
-    border: 1px solid @color-beige;
-    position: relative;
-    cursor: default;
+  .buttons-group {
+    margin-top: 0;
+    margin-bottom: 4px;
 
-    .close {
-      width: 32px;
-      background: @color-beige;
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      border-radius: 0 2px 2px 0;
-      transition: opacity @duration;
-
-      &:hover {
-        opacity: .7;
-      }
-
-      &:before, &:after {
-        .before;
-        clear: both;
-        width: 2px;
-        height: 12px;
-        margin: -6px 0 0 -1px;
-        background: @color-font;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-      }
-      &:before { .rotate(45deg); }
-      &:after { .rotate(-45deg); }
+    @media @sm {
+      margin-left: 0;
+      margin-right: 0;
     }
   }
 }

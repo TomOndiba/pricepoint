@@ -338,7 +338,7 @@ input[type="submit"] {
   height: 32px;
   margin: 0 auto;
   display: block;
-  padding: 8px 28px;
+  padding: 8px 12px;
   font: bold 12px/14px 'Roboto', Arial, sans-serif;
   color: #fff;
   text-align: center;
@@ -355,6 +355,8 @@ input[type="submit"] {
     max-width: none;
     display: inline-block;
     font-size: 13px;
+    padding-left: 28px;
+    padding-right: 28px;
   }
 }
 .button:hover,
@@ -547,10 +549,14 @@ input[type="submit"].button-icon:focus .icon:after {
   content: '\0020';
   clear: both;
 }
-.buttons-group .line {
+.buttons-group .cell {
   width: 50%;
+  margin: 0;
   padding: 0 2px;
   float: left;
+}
+.buttons-group .button {
+  width: 100%;
 }
 @media (min-width: 568px) {
   .buttons-group {
@@ -563,7 +569,7 @@ input[type="submit"].button-icon:focus .icon:after {
   .buttons-group {
     max-width: none;
   }
-  .buttons-group .line {
+  .buttons-group .cell {
     width: auto;
     padding: 0;
     display: inline-block;
@@ -589,12 +595,10 @@ input[type="submit"].button-icon:focus .icon:after {
   width: 32px;
   height: 32px;
   padding: 0;
-  text-align: left;
   background: transparent;
   border: none;
 }
 .selectric .button:after {
-  margin: auto 0;
   border-width: 5px;
   border-top-color: #fff;
 }
@@ -1575,13 +1579,13 @@ input[type="submit"].button-icon:focus .icon:after {
   }
 }
 .catalog .photo {
-  margin: -7px -10px 12px;
+  margin: -7px -11px 12px;
   overflow: hidden;
 }
 @media (min-width: 568px) {
   .catalog .photo {
-    margin-left: -20px;
-    margin-right: -20px;
+    margin-left: -21px;
+    margin-right: -21px;
   }
 }
 .catalog .photo a {
@@ -1747,19 +1751,26 @@ input[type="submit"].button-icon:focus .icon:after {
   content: '\0020';
   clear: both;
 }
-.sort .line {
-  margin: 0 -1px 4px;
+@media (min-width: 568px) {
+  .sort .line {
+    margin: 0 -1px;
+  }
 }
-.sort .line .type,
 .sort .line .form-line {
-  margin: 0 1px;
-  display: inline-block;
-  vertical-align: middle;
+  margin-bottom: 4px;
 }
-.sort .type {
+@media (min-width: 568px) {
+  .sort .line .form-line {
+    margin-left: 1px;
+    margin-right: 1px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+.sort .line .type {
+  margin-bottom: 4px;
   padding: 6px 54px 6px 20px;
-  display: inline-block;
-  vertical-align: middle;
+  display: block;
   font-size: 12px;
   font-weight: 500;
   background: #fff;
@@ -1768,7 +1779,15 @@ input[type="submit"].button-icon:focus .icon:after {
   position: relative;
   cursor: default;
 }
-.sort .type .close {
+@media (min-width: 568px) {
+  .sort .line .type {
+    margin-left: 1px;
+    margin-right: 1px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+.sort .line .type .close {
   width: 32px;
   background: #e5e5e5;
   position: absolute;
@@ -1778,11 +1797,11 @@ input[type="submit"].button-icon:focus .icon:after {
   border-radius: 0 2px 2px 0;
   transition: opacity 0.2s ease;
 }
-.sort .type .close:hover {
+.sort .line .type .close:hover {
   opacity: .7;
 }
-.sort .type .close:before,
-.sort .type .close:after {
+.sort .line .type .close:before,
+.sort .line .type .close:after {
   display: block;
   content: '\0020';
   overflow: hidden;
@@ -1795,7 +1814,7 @@ input[type="submit"].button-icon:focus .icon:after {
   top: 50%;
   left: 50%;
 }
-.sort .type .close:before {
+.sort .line .type .close:before {
   -webkit-transform: rotate(45deg);
   -moz-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
@@ -1803,11 +1822,21 @@ input[type="submit"].button-icon:focus .icon:after {
   transform: rotate(45deg);
   -webkit-backface-visibility: hidden;
 }
-.sort .type .close:after {
+.sort .line .type .close:after {
   -webkit-transform: rotate(-45deg);
   -moz-transform: rotate(-45deg);
   -ms-transform: rotate(-45deg);
   -o-transform: rotate(-45deg);
   transform: rotate(-45deg);
   -webkit-backface-visibility: hidden;
+}
+.sort .buttons-group {
+  margin-top: 0;
+  margin-bottom: 4px;
+}
+@media (min-width: 568px) {
+  .sort .buttons-group {
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
