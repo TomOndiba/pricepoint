@@ -48,6 +48,15 @@
   transform: rotate(@deg);
   -webkit-backface-visibility: hidden;
 }
+// SCALE
+.scale(@rate) {
+  -webkit-transform: scale(@rate);
+  -moz-transform: scale(@rate);
+  -ms-transform: scale(@rate);
+  -o-transform: scale(@rate);
+  transform: scale(@rate);
+  -webkit-backface-visibility: hidden;
+}
 /* ==========================================================================
    _FONTS
    ========================================================================== */
@@ -69,11 +78,6 @@ html {
   background: @color-beige-light;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  @media @sm {
-    font-size: 14px;
-    line-height: 18px;
-  }
 }
 body {
   width: 100%;
@@ -82,8 +86,13 @@ body {
   padding: 40px 0 120px;
   background: @color-beige-light;
   position: relative;
-  
-  @media @sm {
+}
+@media @sm {
+  html {
+    font-size: 14px;
+    line-height: 18px;
+  }
+  body {
     padding: 60px 0 186px;
   }
 }
@@ -237,17 +246,17 @@ h6 {&:extend(.h6); }
 }
 .sidebar {
   margin-bottom: 20px;
-  
-  @media @sm {
+}
+.content {
+  min-height: 100%;
+}
+@media @sm {
+  .sidebar {
     width: 200px;
     margin-bottom: 0;
     float: left;
   }
-}
-.content {
-  min-height: 100%;
-  
-  @media @sm {
+  .content {
     margin-top: -46px;
     margin-left: 220px;
   }
@@ -301,7 +310,7 @@ textarea {
 /* BUTTONS */
 .button, button, input[type="submit"] {
   max-width: 400px;
-  height: auto;
+  height: 32px;
   margin: 0 auto;
   display: block;
   padding: 8px 28px;
@@ -346,6 +355,30 @@ textarea {
 
     &:hover, &:focus, &:active { border-color: @color-font; }
   }
+
+  &.button-gray {
+    color: @color-white;
+    background: @color-font;
+    border-color: @color-font;
+
+    &:hover, &:focus, &:active {
+      color: @color-font;
+      background-color: transparent;
+      text-decoration: none;
+    }
+  }
+
+  &.button-blue {
+    color: @color-white;
+    background: @color-blue;
+    border-color: @color-blue;
+
+    &:hover, &:focus, &:active {
+      color: @color-blue;
+      background-color: transparent;
+      text-decoration: none;
+    }
+  }
   
   &.button-icon {
     
@@ -355,7 +388,7 @@ textarea {
       display: inline-block;
       vertical-align: top;
       position: relative;
-      
+
       &:before, &:after {
         .before;
         clear: both;
@@ -363,7 +396,7 @@ textarea {
         height: 14px;
         background-image: url("@{images}/sprite.png");
         background-repeat: no-repeat;
-        background-size: 150px auto;
+        background-size: 250px auto;
         position: absolute;
         top: 0;
         left: 0;
@@ -374,8 +407,18 @@ textarea {
       &:after { background-position: 0 -20px; opacity: 0; }
       
       &.icon-fav {
-        &:before { background-position: 0 0; opacity: 1; }
-        &:after { background-position: 0 -20px; opacity: 0; }
+        &:before { background-position: 0 0; }
+        &:after { background-position: 0 -20px; }
+      }
+
+      &.icon-message {
+        &:before { background-position: -40px 0; }
+        &:after { background-position: -40px -20px; }
+      }
+
+      &.icon-offer {
+        &:before { background-position: -20px 0; }
+        &:after { background-position: -20px -20px; }
       }
     }
     
@@ -389,7 +432,7 @@ textarea {
 }
 .buttons-group {
   margin: 16px -2px;
-  &:after {.clearfix;}
+  &:after { .clearfix; }
   
   .line {
     width: 50%;
@@ -405,7 +448,7 @@ textarea {
 
   @media @sm {
     max-width: none;
-  
+
     .line {
       width: auto;
       padding: 0;
@@ -451,6 +494,8 @@ textarea {
       left: 7px;
     }
     
+    a { display: block; }
+    
     img {
       width: 100%;
       height: auto;
@@ -460,15 +505,17 @@ textarea {
   
   .username {
     margin: 0;
-    font-size: 13px;
-    text-align: right;
+    font-size: 11px;
+    line-height: 12px;
     letter-spacing: -.03em;
     position: absolute;
     right: 10px;
-    top: 10px;
+    top: 8px;
     
     @media @sm {
       top: 12px;
+      font-size: 13px;
+      line-height: 18px;
     }
     
     a {
@@ -485,10 +532,10 @@ textarea {
         clear: both;
         background-image: url("@{images}/sprite.png");
         background-repeat: no-repeat;
-        background-size: 100px auto;
+        background-size: 166px auto;
         position: absolute;
         right: 0;
-        top: 0;
+        top: 1px;
         transition: opacity @duration;
       }
       
@@ -503,7 +550,7 @@ textarea {
         &:after { opacity: 1; }
       }
       
-      .credits { display: none; }
+      .credits { display: block; }
       
       @media @sm {
         min-height: 30px;
@@ -513,11 +560,10 @@ textarea {
           width: 30px;
           height: 30px;
           top: 3px;
-          background-size: 150px auto;
+          background-size: 250px auto;
         }
         &:before { background-position: 0 -95px; }
         &:after { background-position: 0 -130px; }
-        .credits { display: block; }
       }
     }
   }
@@ -666,15 +712,15 @@ textarea {
             height: 16px;
             background-image: url("@{images}/sprite.png");
             background-repeat: no-repeat;
-            background-size: 120px auto;
+            background-size: 200px auto;
             position: absolute;
             top: 0;
             left: 0;
             transition: opacity @duration;
           }
 
-          &:before { background-position: 0 -52px;opacity: 1; }
-          &:after { background-position: 0 -32px; opacity: 0;}
+          &:before { background-position: 0 -52px; opacity: 1; }
+          &:after { background-position: 0 -16px; opacity: 0; }
 
           &.icon-search {
             &:before { background-position: 0 -52px; }
@@ -718,10 +764,10 @@ textarea {
             &:before, &:after {
               width: 20px;
               height: 20px;
-              background-size: 150px auto;
+              background-size: 250px auto;
             }
 
-            &:before { background-position: 0 -65px;  }
+            &:before { background-position: 0 -65px; }
             &:after { background-position: 0 -40px; }
 
             &.icon-search {
@@ -855,7 +901,7 @@ textarea {
           width: 16px;
           height: 16px;
           background: url("@{images}/sprite.png") -80px -52px no-repeat;
-          background-size: 120px auto;
+          background-size: 200px auto;
           position: absolute;
           left: 2px;
           top: 2px;
@@ -1041,7 +1087,7 @@ textarea {
           height: 20px;
           background-image: url("@{images}/sprite.png");
           background-repeat: no-repeat;
-          background-size: 150px auto;
+          background-size: 250px auto;
           position: absolute;
           left: 0;
           top: 4px;
@@ -1052,12 +1098,12 @@ textarea {
         &:after { opacity: 0; }
         
         &.icon-about {
-          &:before { background-position: -95px 0; }
-          &:after { background-position: -70px 0; }
+          &:before { background-position: -150px -65px; }
+          &:after { background-position: -150px -40px; }
         }
         &.icon-history {
-          &:before { background-position: -45px 0; }
-          &:after { background-position: -20px 0; }
+          &:before { background-position: -125px -65px; }
+          &:after { background-position: -125px -40px; }
         }
       }
     }
@@ -1106,8 +1152,8 @@ textarea {
         .before;
         width: 16px;
         height: 16px;
-        background: url("@{images}/sprite.png") -100px -32px no-repeat;
-        background-size: 120px auto;
+        background: url("@{images}/sprite.png") -160px -32px no-repeat;
+        background-size: 200px auto;
         position: absolute;
         left: 0;
         top: 4px;
@@ -1119,8 +1165,8 @@ textarea {
         &:before {
           width: 20px;
           height: 20px;
-          background-size: 150px auto;
-          background-position: -125px -40px;
+          background-size: 250px auto;
+          background-position: -200px -40px;
         }
       }
     }
@@ -1180,8 +1226,8 @@ textarea {
         .before;
         width: 16px;
         height: 16px;
-        background: url("@{images}/sprite.png") -80px -32px no-repeat;
-        background-size: 120px auto;
+        background: url("@{images}/sprite.png") -140px -32px no-repeat;
+        background-size: 200px auto;
         position: absolute;
         left: 0;
         top: 2px;
@@ -1193,8 +1239,8 @@ textarea {
         &:before {
           width: 20px;
           height: 20px;
-          background-size: 150px auto;
-          background-position: -100px -40px;
+          background-size: 250px auto;
+          background-position: -175px -40px;
         }
       }
     }
@@ -1218,6 +1264,160 @@ textarea {
         margin-bottom: 0;
 
         img { max-width: 50px; }
+      }
+    }
+  }
+}
+/* ==========================================================================
+   _CATALOG
+   ========================================================================== */
+.catalog {
+
+  &:after { .clearfix; }
+
+  @media @xs {
+    margin-left: -5px;
+    margin-right: -5px;
+  }
+
+  @media @sm {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+
+  .item {
+    margin-bottom: 20px;
+
+    @media @xs {
+      width: 50%;
+      padding: 0 5px;
+      float: left;
+    }
+
+    @media @sm {
+      width: 33.3%;
+      padding: 0 10px;
+    }
+
+    .space {
+      padding: 7px 20px;
+      background: @color-white;
+      border: 1px solid @color-beige;
+    }
+  }
+  
+  .photo {
+    margin: -7px -20px 12px;
+    overflow: hidden;
+
+    a {
+      display: block;
+      overflow: hidden;
+      position: relative;
+      
+      &:before {
+        .before;
+        .color-black(.3);
+        background: @color;
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        opacity: 0;
+        transition: opacity .3s;
+        z-index: 1;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        margin: 0 auto;
+        display: block;
+        .scale(1.1);
+        transition: transform .3s;
+      }
+
+      &:hover {
+        &:before {opacity: 1;}
+        img {.scale(1);}
+      }
+    }
+  }
+
+  .info {
+
+    .name {
+      margin: 0;
+      font-size: 18px;
+      line-height: normal;
+      color: @color-rosy;
+
+      @media @sm {
+        font-size: 24px;
+      }
+    }
+
+    .location {
+      margin-bottom: 10px;
+
+      @media @sm {
+        font-size: 13px;
+      }
+
+      .link {
+        font-weight: 500;
+        float: right;
+        color: @color-font;
+
+        &:before {
+          .before;
+          width: 16px;
+          height: 16px;
+          background: url("@{images}/sprite.png") -80px -52px no-repeat;
+          background-size: 200px auto;
+          position: absolute;
+          left: 2px;
+          top: 0;
+        }
+
+        @media @xs {
+          margin-left: 8px;
+          padding-left: 18px;
+          position: relative;
+          right: auto;
+          top: auto;
+        }
+      }
+    }
+
+    .status {
+      margin-bottom: 7px;
+      padding: 4px 0;
+      border-top: 1px solid @color-beige;
+      border-bottom: 1px solid @color-beige;
+    }
+
+    .actions {
+      width: 100%;
+      display: table;
+      text-align: center;
+      font-weight: 500;
+      font-size: 13px;
+      color: @color-rosy;
+
+      &:after { .clearfix; }
+
+      .cell {
+        width: 50%;
+        margin: 0;
+        padding: 0 2px 0 0;
+        display: table-cell;
+        vertical-align: middle;
+
+        &:nth-of-type(2) { padding-right: 0; padding-left: 2px;}
+        
+        .button { display: block; padding-left: 8px; padding-right: 8px; }
       }
     }
   }

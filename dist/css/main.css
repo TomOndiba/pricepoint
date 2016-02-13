@@ -24,12 +24,6 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-@media (min-width: 750px) {
-  html {
-    font-size: 14px;
-    line-height: 18px;
-  }
-}
 body {
   width: 100%;
   min-width: 320px;
@@ -39,6 +33,10 @@ body {
   position: relative;
 }
 @media (min-width: 750px) {
+  html {
+    font-size: 14px;
+    line-height: 18px;
+  }
   body {
     padding: 60px 0 186px;
   }
@@ -249,17 +247,15 @@ h6 {
 .sidebar {
   margin-bottom: 20px;
 }
+.content {
+  min-height: 100%;
+}
 @media (min-width: 750px) {
   .sidebar {
     width: 200px;
     margin-bottom: 0;
     float: left;
   }
-}
-.content {
-  min-height: 100%;
-}
-@media (min-width: 750px) {
   .content {
     margin-top: -46px;
     margin-left: 220px;
@@ -339,7 +335,7 @@ textarea:focus {
 button,
 input[type="submit"] {
   max-width: 400px;
-  height: auto;
+  height: 32px;
   margin: 0 auto;
   display: block;
   padding: 8px 28px;
@@ -410,6 +406,46 @@ button.button-white:active,
 input[type="submit"].button-white:active {
   border-color: #707a85;
 }
+.button.button-gray,
+button.button-gray,
+input[type="submit"].button-gray {
+  color: #fff;
+  background: #707a85;
+  border-color: #707a85;
+}
+.button.button-gray:hover,
+button.button-gray:hover,
+input[type="submit"].button-gray:hover,
+.button.button-gray:focus,
+button.button-gray:focus,
+input[type="submit"].button-gray:focus,
+.button.button-gray:active,
+button.button-gray:active,
+input[type="submit"].button-gray:active {
+  color: #707a85;
+  background-color: transparent;
+  text-decoration: none;
+}
+.button.button-blue,
+button.button-blue,
+input[type="submit"].button-blue {
+  color: #fff;
+  background: #4c9eda;
+  border-color: #4c9eda;
+}
+.button.button-blue:hover,
+button.button-blue:hover,
+input[type="submit"].button-blue:hover,
+.button.button-blue:focus,
+button.button-blue:focus,
+input[type="submit"].button-blue:focus,
+.button.button-blue:active,
+button.button-blue:active,
+input[type="submit"].button-blue:active {
+  color: #4c9eda;
+  background-color: transparent;
+  text-decoration: none;
+}
 .button.button-icon .icon,
 button.button-icon .icon,
 input[type="submit"].button-icon .icon {
@@ -433,7 +469,7 @@ input[type="submit"].button-icon .icon:after {
   height: 14px;
   background-image: url("../img/sprite.png");
   background-repeat: no-repeat;
-  background-size: 150px auto;
+  background-size: 250px auto;
   position: absolute;
   top: 0;
   left: 0;
@@ -455,13 +491,31 @@ input[type="submit"].button-icon .icon:after {
 button.button-icon .icon.icon-fav:before,
 input[type="submit"].button-icon .icon.icon-fav:before {
   background-position: 0 0;
-  opacity: 1;
 }
 .button.button-icon .icon.icon-fav:after,
 button.button-icon .icon.icon-fav:after,
 input[type="submit"].button-icon .icon.icon-fav:after {
   background-position: 0 -20px;
-  opacity: 0;
+}
+.button.button-icon .icon.icon-message:before,
+button.button-icon .icon.icon-message:before,
+input[type="submit"].button-icon .icon.icon-message:before {
+  background-position: -40px 0;
+}
+.button.button-icon .icon.icon-message:after,
+button.button-icon .icon.icon-message:after,
+input[type="submit"].button-icon .icon.icon-message:after {
+  background-position: -40px -20px;
+}
+.button.button-icon .icon.icon-offer:before,
+button.button-icon .icon.icon-offer:before,
+input[type="submit"].button-icon .icon.icon-offer:before {
+  background-position: -20px 0;
+}
+.button.button-icon .icon.icon-offer:after,
+button.button-icon .icon.icon-offer:after,
+input[type="submit"].button-icon .icon.icon-offer:after {
+  background-position: -20px -20px;
 }
 .button.button-icon:hover .icon:before,
 button.button-icon:hover .icon:before,
@@ -548,6 +602,9 @@ input[type="submit"].button-icon:focus .icon:after {
     left: 7px;
   }
 }
+.header .logo a {
+  display: block;
+}
 .header .logo img {
   width: 100%;
   height: auto;
@@ -555,16 +612,18 @@ input[type="submit"].button-icon:focus .icon:after {
 }
 .header .username {
   margin: 0;
-  font-size: 13px;
-  text-align: right;
+  font-size: 11px;
+  line-height: 12px;
   letter-spacing: -0.03em;
   position: absolute;
   right: 10px;
-  top: 10px;
+  top: 8px;
 }
 @media (min-width: 750px) {
   .header .username {
     top: 12px;
+    font-size: 13px;
+    line-height: 18px;
   }
 }
 .header .username a {
@@ -584,10 +643,10 @@ input[type="submit"].button-icon:focus .icon:after {
   clear: both;
   background-image: url("../img/sprite.png");
   background-repeat: no-repeat;
-  background-size: 100px auto;
+  background-size: 166px auto;
   position: absolute;
   right: 0;
-  top: 0;
+  top: 1px;
   transition: opacity 0.2s ease;
 }
 .header .username a:before {
@@ -615,7 +674,7 @@ input[type="submit"].button-icon:focus .icon:after {
   opacity: 1;
 }
 .header .username a .credits {
-  display: none;
+  display: block;
 }
 @media (min-width: 750px) {
   .header .username a {
@@ -627,16 +686,13 @@ input[type="submit"].button-icon:focus .icon:after {
     width: 30px;
     height: 30px;
     top: 3px;
-    background-size: 150px auto;
+    background-size: 250px auto;
   }
   .header .username a:before {
     background-position: 0 -95px;
   }
   .header .username a:after {
     background-position: 0 -130px;
-  }
-  .header .username a .credits {
-    display: block;
   }
 }
 /* ==========================================================================
@@ -788,7 +844,7 @@ input[type="submit"].button-icon:focus .icon:after {
   height: 16px;
   background-image: url("../img/sprite.png");
   background-repeat: no-repeat;
-  background-size: 120px auto;
+  background-size: 200px auto;
   position: absolute;
   top: 0;
   left: 0;
@@ -799,7 +855,7 @@ input[type="submit"].button-icon:focus .icon:after {
   opacity: 1;
 }
 .top .links-group li a .icon:after {
-  background-position: 0 -32px;
+  background-position: 0 -16px;
   opacity: 0;
 }
 .top .links-group li a .icon.icon-search:before {
@@ -854,7 +910,7 @@ input[type="submit"].button-icon:focus .icon:after {
   .top .links-group li a .icon:after {
     width: 20px;
     height: 20px;
-    background-size: 150px auto;
+    background-size: 250px auto;
   }
   .top .links-group li a .icon:before {
     background-position: 0 -65px;
@@ -996,7 +1052,7 @@ input[type="submit"].button-icon:focus .icon:after {
   width: 16px;
   height: 16px;
   background: url("../img/sprite.png") -80px -52px no-repeat;
-  background-size: 120px auto;
+  background-size: 200px auto;
   position: absolute;
   left: 2px;
   top: 2px;
@@ -1188,7 +1244,7 @@ input[type="submit"].button-icon:focus .icon:after {
   height: 20px;
   background-image: url("../img/sprite.png");
   background-repeat: no-repeat;
-  background-size: 150px auto;
+  background-size: 250px auto;
   position: absolute;
   left: 0;
   top: 4px;
@@ -1201,16 +1257,16 @@ input[type="submit"].button-icon:focus .icon:after {
   opacity: 0;
 }
 .tabs li a .icon.icon-about:before {
-  background-position: -95px 0;
+  background-position: -150px -65px;
 }
 .tabs li a .icon.icon-about:after {
-  background-position: -70px 0;
+  background-position: -150px -40px;
 }
 .tabs li a .icon.icon-history:before {
-  background-position: -45px 0;
+  background-position: -125px -65px;
 }
 .tabs li a .icon.icon-history:after {
-  background-position: -20px 0;
+  background-position: -125px -40px;
 }
 .tabs li.active a {
   color: #e74b90;
@@ -1265,8 +1321,8 @@ input[type="submit"].button-icon:focus .icon:after {
   overflow: hidden;
   width: 16px;
   height: 16px;
-  background: url("../img/sprite.png") -100px -32px no-repeat;
-  background-size: 120px auto;
+  background: url("../img/sprite.png") -160px -32px no-repeat;
+  background-size: 200px auto;
   position: absolute;
   left: 0;
   top: 4px;
@@ -1278,8 +1334,8 @@ input[type="submit"].button-icon:focus .icon:after {
   .gallery .heading a:before {
     width: 20px;
     height: 20px;
-    background-size: 150px auto;
-    background-position: -125px -40px;
+    background-size: 250px auto;
+    background-position: -200px -40px;
   }
 }
 .gallery ul {
@@ -1340,8 +1396,8 @@ input[type="submit"].button-icon:focus .icon:after {
   overflow: hidden;
   width: 16px;
   height: 16px;
-  background: url("../img/sprite.png") -80px -32px no-repeat;
-  background-size: 120px auto;
+  background: url("../img/sprite.png") -140px -32px no-repeat;
+  background-size: 200px auto;
   position: absolute;
   left: 0;
   top: 2px;
@@ -1353,8 +1409,8 @@ input[type="submit"].button-icon:focus .icon:after {
   .gifts .heading a:before {
     width: 20px;
     height: 20px;
-    background-size: 150px auto;
-    background-position: -100px -40px;
+    background-size: 250px auto;
+    background-position: -175px -40px;
   }
 }
 .gifts ul {
@@ -1383,4 +1439,172 @@ input[type="submit"].button-icon:focus .icon:after {
   .gifts ul li img {
     max-width: 50px;
   }
+}
+/* ==========================================================================
+   _CATALOG
+   ========================================================================== */
+.catalog:after {
+  display: table;
+  content: '\0020';
+  clear: both;
+}
+@media (min-width: 568px) {
+  .catalog {
+    margin-left: -5px;
+    margin-right: -5px;
+  }
+}
+@media (min-width: 750px) {
+  .catalog {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+}
+.catalog .item {
+  margin-bottom: 20px;
+}
+@media (min-width: 568px) {
+  .catalog .item {
+    width: 50%;
+    padding: 0 5px;
+    float: left;
+  }
+}
+@media (min-width: 750px) {
+  .catalog .item {
+    width: 33.3%;
+    padding: 0 10px;
+  }
+}
+.catalog .item .space {
+  padding: 7px 20px;
+  background: #fff;
+  border: 1px solid #e5e5e5;
+}
+.catalog .photo {
+  margin: -7px -20px 12px;
+  overflow: hidden;
+}
+.catalog .photo a {
+  display: block;
+  overflow: hidden;
+  position: relative;
+}
+.catalog .photo a:before {
+  display: block;
+  content: '\0020';
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.3);
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 0;
+  transition: opacity .3s;
+  z-index: 1;
+}
+.catalog .photo a img {
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  transform: scale(1.1);
+  -webkit-backface-visibility: hidden;
+  transition: transform .3s;
+}
+.catalog .photo a:hover:before {
+  opacity: 1;
+}
+.catalog .photo a:hover img {
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+  -webkit-backface-visibility: hidden;
+}
+.catalog .info .name {
+  margin: 0;
+  font-size: 18px;
+  line-height: normal;
+  color: #e74b90;
+}
+@media (min-width: 750px) {
+  .catalog .info .name {
+    font-size: 24px;
+  }
+}
+.catalog .info .location {
+  margin-bottom: 10px;
+}
+@media (min-width: 750px) {
+  .catalog .info .location {
+    font-size: 13px;
+  }
+}
+.catalog .info .location .link {
+  font-weight: 500;
+  float: right;
+  color: #707a85;
+}
+.catalog .info .location .link:before {
+  display: block;
+  content: '\0020';
+  overflow: hidden;
+  width: 16px;
+  height: 16px;
+  background: url("../img/sprite.png") -80px -52px no-repeat;
+  background-size: 200px auto;
+  position: absolute;
+  left: 2px;
+  top: 0;
+}
+@media (min-width: 568px) {
+  .catalog .info .location .link {
+    margin-left: 8px;
+    padding-left: 18px;
+    position: relative;
+    right: auto;
+    top: auto;
+  }
+}
+.catalog .info .status {
+  margin-bottom: 7px;
+  padding: 4px 0;
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+}
+.catalog .info .actions {
+  width: 100%;
+  display: table;
+  text-align: center;
+  font-weight: 500;
+  font-size: 13px;
+  color: #e74b90;
+}
+.catalog .info .actions:after {
+  display: table;
+  content: '\0020';
+  clear: both;
+}
+.catalog .info .actions .cell {
+  width: 50%;
+  margin: 0;
+  padding: 0 2px 0 0;
+  display: table-cell;
+  vertical-align: middle;
+}
+.catalog .info .actions .cell:nth-of-type(2) {
+  padding-right: 0;
+  padding-left: 2px;
+}
+.catalog .info .actions .cell .button {
+  display: block;
+  padding-left: 8px;
+  padding-right: 8px;
 }
