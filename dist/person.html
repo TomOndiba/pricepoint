@@ -87,7 +87,7 @@
 						</div>
 						<div class="actions">
 							<ul class="list">
-								<li><a class="button" href="#">Send Message</a></li>
+								<li><a class="button js-popup" href="#popup-message">Send Message</a></li>
 								<li class="hf">
 									<span class="col"><a class="button button-black button-icon" href="#"><span class="icon icon-fav"></span> Favorite</a></span>
 									<span class="col"><a class="button button-black" href="#">Send Wink</a></span>
@@ -214,6 +214,35 @@
 		</div>
 	</main>
 
+	<!-- Message popup -->
+	<div id="popup-message" class="popup message mfp-hide">
+		<h2 class="h2 heading">Send a First Date Offer to <span class="color">Jemma21</span></h2>
+		<form action="#" method="post">
+			<div class="form-line form-line-radiobox">
+				<label class="radiobox radiobox-price"><input name="sum" type="radio"> &#36;50</label>
+				<label class="radiobox radiobox-price"><input name="sum" type="radio"> &#36;100</label>
+				<label class="radiobox radiobox-price"><input name="sum" type="radio"> &#36;150</label>
+				<label class="radiobox radiobox-price"><input name="sum" type="radio"> &#36;200</label>
+				<label class="radiobox radiobox-price"><input name="sum" type="radio"> &#36;300</label>
+			</div>
+			<div class="presents">
+				<div class="form-line">
+					<label class="checkbox"><input type="checkbox" value="flower">Send</label>
+					<label class="checkbox"><input type="checkbox" value="box">Send</label>
+					<label class="checkbox"><input type="checkbox" value="toy">Send</label>
+					<label class="checkbox"><input type="checkbox" value="bag">Send</label>
+					<label class="checkbox"><input type="checkbox" value="shoes">Send</label>
+					<label class="checkbox"><input type="checkbox" value="drink">Send</label>
+				</div>
+			</div>
+			<div class="form-line form-submit">
+				<label>or Type a Custom Amount <input type="text" value="50 &#36;"></label>
+				<input class="button" type="submit" value="Send Offer">
+			</div>
+		</form>
+	</div>
+	<!-- /Message popup -->
+
 	<!-- Footer -->
 	<footer class="footer">
 		<div class="wrapper">
@@ -230,6 +259,5 @@
 	<script src="js/vendor/jquery.min.js"></script>
 	<script src="js/plugins.js"></script>
 	<script src="js/main.js"></script>
-
 </body>
 </html>

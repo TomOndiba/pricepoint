@@ -50,14 +50,16 @@ module.exports = function (grunt) {
 							src.vendor + 'html5shiv/dist/html5shiv.min.js',
 							src.vendor + 'jquery/dist/jquery.min.js',
 							src.vendor + 'jquery.browser/dist/jquery.browser.min.js',
-							src.vendor + 'jquery-selectric/public/jquery.selectric.min.js'
+							src.vendor + 'jquery-selectric/public/jquery.selectric.min.js',
+							src.vendor + 'magnific-popup/dist/jquery.magnific-popup.min.js'
 						],
 						dest: src.js + 'vendor'
 					}, {
 						expand: true,
 						flatten: true,
 						src: [
-							src.vendor + 'jquery-selectric/public/selectric.css'
+							src.vendor + 'jquery-selectric/public/selectric.css',
+							src.vendor + 'magnific-popup/dist/magnific-popup.css'
 						],
 						dest: src.css + 'temp'
 					}
@@ -92,7 +94,8 @@ module.exports = function (grunt) {
 							src.js + 'custom.js',
 							src.js + 'vendor/jquery.browser.min.js',
 							src.js + 'vendor/fastclick.min.js',
-							src.js + 'vendor/jquery.selectric.min.js'
+							src.js + 'vendor/jquery.selectric.min.js',
+							src.js + 'vendor/jquery.magnific-popup.min.js'
 						],
 						dest: src.js + 'plugins.js'
 					}, {
