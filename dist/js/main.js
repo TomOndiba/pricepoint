@@ -32,6 +32,14 @@ $(document).ready(function () {
 	});
 
 	$('.popup-message').each(function () {
+		var _self = $(this), _checkline = $('.form-line-radiobox', _self), _check = $('input', _checkline),
+			total = $('.form-submit', _self), current = _check.val();
+
+		$('label', _checkline).on('change', function () {
+			if ($('input', this).is(':checked')) {
+				total.find('input:text').val(current);
+			}
+		});
 
 	});
 

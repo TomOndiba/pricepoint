@@ -299,8 +299,8 @@ h6 {&:extend(.h6); }
 fieldset { padding: 0; margin: 0; border: none; }
 /* INPUT & TEXTAREA */
 input {
-  height: 24px;
-  padding: 5px 10px;
+  height: 32px;
+  padding: 7px 10px;
   border: 1px solid @color-beige;
   border-radius: 2px;
   color: @color-font;
@@ -308,10 +308,6 @@ input {
   background: @color-white;
   transition: background-color @duration, border-color @duration;
   -webkit-appearance: none;
-  
-  @media @md {
-    height: 32px;
-  }
   
   &:focus { border-color: @color-sea; }
   .form-line & { width: 100%; }
@@ -339,6 +335,7 @@ textarea {
 /* BUTTONS */
 .button, button, input[type="submit"] {
   max-width: 400px;
+  height: auto;
   margin: 0 auto;
   display: block;
   padding: 8px 12px;
@@ -534,9 +531,12 @@ textarea {
   }
 
   &.checkbox-gift {
-    width: 94px;
-    height: 94px;
     padding: 4px;
+
+    @media @md {
+      width: 94px;
+      height: 94px;
+    }
 
     .square {
       width: auto;
@@ -612,11 +612,15 @@ textarea {
   &.radiobox-price {
     padding: 9px 4px;
     text-align: center;
-    font-size: 28px;
+    font-size: 14px;
     line-height: normal;
     font-weight: bold;
     color: @color-blue;
     z-index: 1;
+
+    @media @md {
+      font-size: 28px;
+    }
 
     &.checked { color: @color-white; }
 
@@ -1840,6 +1844,42 @@ textarea {
   }
 }
 /* ==========================================================================
+   _PRESENTS
+   ========================================================================== */
+.presents {
+  margin-bottom: 15px;
+  padding: 7px 5px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+
+  .head {
+    margin: -8px -6px 8px;
+    padding: 2px 10px 5px;
+    font-weight: 500;
+    font-size: 12px;
+    text-align: center;
+    color: @color-white;
+    background: @color-font;
+    border-radius: 8px 8px 0 0;
+
+    @media @md {
+      font-size: 15px;
+    }
+  }
+
+  .list {
+    width: 100%;
+    display: table;
+
+    .cell {
+      display: table-cell;
+      vertical-align: middle;
+
+      .checkbox-gift { margin: 0 2px; }
+    }
+  }
+}
+/* ==========================================================================
    _POPUP
    ========================================================================== */
 /* ====== Fade-zoom animation ====== */
@@ -1895,29 +1935,38 @@ textarea {
   }
 }
 .popup {
-  width: 630px;
+  width: 300px;
   margin: 0 auto;
-  padding: 10px 15px;
+  padding: 34px 15px 15px 15px;
   background: @color-white;
   border-radius: 8px;
   position: relative;
 
+  @media @xxs {
+    width: 360px;
+  }
+
+  @media @md {
+    width: 630px;
+    padding-top: 54px;
+  }
+
   .mfp-close {
-    width: 34px;
-    height: 34px;
+    width: 24px;
+    height: 24px;
     padding: 0;
     display: block;
     background: @color-font;
-    border-radius: 8px;
+    border-radius: 4px;
     top: 9px;
     right: 10px;
     opacity: 1;
     cursor: pointer;
 
     &:before, &:after {
-      width: 18px;
-      height: 4px;
-      margin: -2px 0 0 -8px;
+      width: 14px;
+      height: 2px;
+      margin: -1px 0 0 -7px;
       overflow: hidden;
       display: block;
       content: '';
@@ -1929,73 +1978,88 @@ textarea {
 
     &:before { .rotate(45deg); }
     &:after { .rotate(-45deg); }
+
+    @media @md {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+
+      &:before, &:after {
+        width: 18px;
+        height: 4px;
+        margin: -2px 0 0 -8px;
+      }
+    }
   }
 
   .heading {
-    margin: 0 0 14px;
+    margin: -24px 0 14px;
+    padding-right: 44px;
     font-weight: 500;
+    font-size: 18px;
+    line-height: normal;
+
+    @media @md {
+      margin-top: -44px;
+      font-size: 24px;
+    }
   }
 
   .color { color: @color-rosy; }
   
-  .form-line {
-    margin-bottom: 10px;
+  &.popup-message {
+    .form-line {
+      margin-bottom: 10px;
 
-    .radiobox-price {
-      width: 20%;
-      float: left;
-    }
-  }
-
-  .form-submit {
-    text-align: right;
-
-    label {
-      margin-right: 5px;
-      display: inline-block;
-      vertical-align: top;
-      font-weight: 500;
-      font-size: 15px;
-
-      input[type='text'] {
-        margin-left: 5px;
-        width: 70px;
-        font-size: 22px;
-        line-height: normal;
-        font-weight: 500;
-        text-align: center;
+      .radiobox-price {
+        width: 20%;
+        float: left;
       }
     }
 
-    .button { width: auto; min-width: 140px; }
-  }
-  
-  .presents {
-    margin-bottom: 15px;
-    padding: 7px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
+    .form-submit {
+      text-align: right;
 
-    .head {
-      margin: -8px -8px 8px;
-      padding: 2px 5px 5px;
-      font-weight: 500;
-      font-size: 15px;
-      text-align: center;
-      color: @color-white;
-      background: @color-font;
-      border-radius: 8px 8px 0 0;
-    }
+      label {
+        line-height: 32px;
+        display: inline-block;
+        vertical-align: top;
+        font-weight: 500;
+        font-size: 11px;
 
-    .list {
-      width: 100%;
-      display: table;
+        input[type='text'] {
+          width: 50px;
+          font-weight: 500;
+          text-align: center;
+        }
 
-      .cell {
-        display: table-cell;
-        vertical-align: middle;
+        @media @xxs {
+          font-size: 12px;
+          margin-right: 5px;
 
-        .checkbox-gift { margin-right: 4px; }
+          input[type='text'] {
+            margin-left: 5px;
+          }
+        }
+
+        @media @md {
+          font-size: 15px;
+
+          input[type='text'] {
+            width: 70px;
+            font-size: 22px;
+            line-height: normal;
+          }
+        }
+      }
+
+      .button {
+        width: auto;
+        display: inline-block;
+
+        @media @md {
+          min-width: 140px;
+        }
       }
     }
   }
