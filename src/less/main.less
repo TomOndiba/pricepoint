@@ -301,7 +301,7 @@ fieldset { padding: 0; margin: 0; border: none; }
 input {
   height: 24px;
   padding: 5px 10px;
-  border: 1px solid @color-sea;
+  border: 1px solid @color-beige;
   border-radius: 2px;
   color: @color-font;
   font: 13px/16px @font-family;
@@ -313,7 +313,7 @@ input {
     height: 32px;
   }
   
-  &:focus { border-color: @color-font; }
+  &:focus { border-color: @color-sea; }
   .form-line & { width: 100%; }
 }
 textarea {
@@ -536,7 +536,7 @@ textarea {
   &.checkbox-gift {
     width: 94px;
     height: 94px;
-    padding: 1px 1px;
+    padding: 4px;
 
     .square {
       width: auto;
@@ -610,7 +610,7 @@ textarea {
   }
 
   &.radiobox-price {
-    padding: 12px 4px;
+    padding: 9px 4px;
     text-align: center;
     font-size: 28px;
     line-height: normal;
@@ -1932,26 +1932,71 @@ textarea {
   }
 
   .heading {
+    margin: 0 0 14px;
     font-weight: 500;
   }
 
   .color { color: @color-rosy; }
   
   .form-line {
+    margin-bottom: 10px;
+
     .radiobox-price {
       width: 20%;
       float: left;
     }
   }
+
+  .form-submit {
+    text-align: right;
+
+    label {
+      margin-right: 5px;
+      display: inline-block;
+      vertical-align: top;
+      font-weight: 500;
+      font-size: 15px;
+
+      input[type='text'] {
+        margin-left: 5px;
+        width: 70px;
+        font-size: 22px;
+        line-height: normal;
+        font-weight: 500;
+        text-align: center;
+      }
+    }
+
+    .button { width: auto; min-width: 140px; }
+  }
   
-  .gifts-list {
-    width: 100%;
-    display: table;
-    
-    .cell {
-      padding: 0 2px;
-      display: table-cell;
-      vertical-align: middle;
+  .presents {
+    margin-bottom: 15px;
+    padding: 7px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+
+    .head {
+      margin: -8px -8px 8px;
+      padding: 2px 5px 5px;
+      font-weight: 500;
+      font-size: 15px;
+      text-align: center;
+      color: @color-white;
+      background: @color-font;
+      border-radius: 8px 8px 0 0;
+    }
+
+    .list {
+      width: 100%;
+      display: table;
+
+      .cell {
+        display: table-cell;
+        vertical-align: middle;
+
+        .checkbox-gift { margin-right: 4px; }
+      }
     }
   }
 }

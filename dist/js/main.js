@@ -31,6 +31,10 @@ $(document).ready(function () {
 		}
 	});
 
+	$('.popup-message').each(function () {
+
+	});
+
 	initPopups();
 	initForms();
 
