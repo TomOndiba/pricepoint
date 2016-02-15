@@ -1321,7 +1321,7 @@ textarea {
     display: inline-block;
     
     a {
-      padding: 0 26px 4px;
+      padding: 6px 26px 4px;
       display: block;
       color: @color-font;
       border: 1px solid @color-beige;
@@ -1333,6 +1333,8 @@ textarea {
         height: 20px;
         position: relative;
         display: inline-block;
+        vertical-align: middle;
+        top: -1px;
         
         &:before, &:after {
           .before;
@@ -1344,7 +1346,7 @@ textarea {
           background-size: 250px auto;
           position: absolute;
           left: 0;
-          top: 4px;
+          top: 0;
           transition: opacity @duration;
         }
         
@@ -1382,6 +1384,7 @@ textarea {
   border: 1px solid @color-beige;
   
   @media @md {
+    min-height: 416px;
     padding: 18px 28px;
   }
   
@@ -2020,6 +2023,10 @@ textarea {
         width: 20%;
         float: left;
       }
+    }
+
+    .radiobox, .checkbox {
+      .unselectable;
     }
 
     .form-submit {

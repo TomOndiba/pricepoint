@@ -1452,7 +1452,7 @@ input[type="submit"].button-icon:focus .icon:after {
   display: inline-block;
 }
 .tabs li a {
-  padding: 0 26px 4px;
+  padding: 6px 26px 4px;
   display: block;
   color: #707a85;
   border: 1px solid #e5e5e5;
@@ -1467,6 +1467,8 @@ input[type="submit"].button-icon:focus .icon:after {
   height: 20px;
   position: relative;
   display: inline-block;
+  vertical-align: middle;
+  top: -1px;
 }
 .tabs li a .icon:before,
 .tabs li a .icon:after {
@@ -1481,7 +1483,7 @@ input[type="submit"].button-icon:focus .icon:after {
   background-size: 250px auto;
   position: absolute;
   left: 0;
-  top: 4px;
+  top: 0;
   transition: opacity 0.2s ease;
 }
 .tabs li a .icon:before {
@@ -1520,6 +1522,7 @@ input[type="submit"].button-icon:focus .icon:after {
 }
 @media (min-width: 750px) {
   .tab {
+    min-height: 416px;
     padding: 18px 28px;
   }
 }
@@ -2239,6 +2242,15 @@ input[type="submit"].button-icon:focus .icon:after {
 .popup.popup-message .form-line .radiobox-price {
   width: 20%;
   float: left;
+}
+.popup.popup-message .radiobox,
+.popup.popup-message .checkbox {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
 }
 .popup.popup-message .form-submit {
   text-align: right;

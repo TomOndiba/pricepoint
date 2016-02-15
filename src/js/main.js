@@ -43,6 +43,16 @@ $(document).ready(function () {
 
 	});
 
+	/* Tabs */
+	$('.tabs', this).each(function () {
+		$(this).on('click', 'a', function (event) {
+			var where = $(this).attr('href').replace(/^.*#(.*)/, "$1");
+			$(this).closest('li').addClass('active').siblings('li.active').removeClass('active');
+			$('#' + where).removeClass('tab-hidden').siblings('.tab').addClass('tab-hidden');
+			event.preventDefault();
+		});
+	});
+
 	initPopups();
 	initForms();
 });
@@ -62,6 +72,14 @@ window.initPopups = function (scope) {
 			$.magnificPopup.close();
 			e.preventDefault();
 		});
+
+		/* Reset message popup */
+		if ($(this.content).hasClass('popup-message')) {
+			$('.total', this.content).val('');
+			$('.checkbox-gift', this.content).find(':checkbox').removeAttr('checked');
+			$('.radiobox-price', this.content).removeClass('checked').find(':radio').removeAttr('checked');
+		}
+
 	};
 
 	$('.js-popup').each(function () {
