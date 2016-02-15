@@ -630,6 +630,39 @@ input[type="submit"].button-icon:focus .icon:after {
 .checkbox input[type="checkbox"]:checked + .square:before {
   opacity: 1;
 }
+.checkbox.checkbox-gift {
+  width: 94px;
+  height: 94px;
+  padding: 1px 1px;
+}
+.checkbox.checkbox-gift .square {
+  width: auto;
+  height: auto;
+  border-color: transparent;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+}
+.checkbox.checkbox-gift .square:before {
+  display: none;
+}
+.checkbox.checkbox-gift input[type="checkbox"]:checked + .square {
+  border: 1px solid #e5e5e5;
+  background-color: #fffccd;
+}
+.checkbox.checkbox-gift input[type="checkbox"]:checked + .square:before {
+  opacity: 0;
+}
+.checkbox.checkbox-gift img {
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+  position: relative;
+  z-index: 2;
+}
 /* RADIOBOX */
 .radiobox {
   padding-left: 20px;
@@ -2120,4 +2153,13 @@ input[type="submit"].button-icon:focus .icon:after {
 .popup .form-line .radiobox-price {
   width: 20%;
   float: left;
+}
+.popup .gifts-list {
+  width: 100%;
+  display: table;
+}
+.popup .gifts-list .cell {
+  padding: 0 2px;
+  display: table-cell;
+  vertical-align: middle;
 }

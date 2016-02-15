@@ -23,6 +23,7 @@
 @color-font: #707a85;
 @color-beige-light: #f4f4f4;
 @color-beige: #e5e5e5;
+@color-yellow-light: #fffccd;
 @color-rosy: #e74b90;
 @color-sky: #a5ceec;
 @color-blue: #4c9eda;
@@ -531,6 +532,40 @@ textarea {
   input[type="checkbox"]:checked + .square {
     &:before { opacity: 1; }
   }
+
+  &.checkbox-gift {
+    width: 94px;
+    height: 94px;
+    padding: 1px 1px;
+
+    .square {
+      width: auto;
+      height: auto;
+      border-color: transparent;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      z-index: 1;
+
+      &:before { display: none; }
+    }
+
+    input[type="checkbox"]:checked + .square {
+      border: 1px solid @color-beige;
+      background-color: @color-yellow-light;
+      &:before { opacity: 0; }
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      margin: 0 auto;
+      display: block;
+      position: relative;
+      z-index: 2;
+    }
+  }
 }
 /* RADIOBOX */
 .radiobox {
@@ -583,7 +618,7 @@ textarea {
     color: @color-blue;
     z-index: 1;
 
-    &.checked {color: @color-white;}
+    &.checked { color: @color-white; }
 
     .circle {
       width: auto;
@@ -1906,6 +1941,17 @@ textarea {
     .radiobox-price {
       width: 20%;
       float: left;
+    }
+  }
+  
+  .gifts-list {
+    width: 100%;
+    display: table;
+    
+    .cell {
+      padding: 0 2px;
+      display: table-cell;
+      vertical-align: middle;
     }
   }
 }

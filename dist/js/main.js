@@ -15,7 +15,7 @@ $(document).ready(function () {
 
 	/** Checkbox, Radio */
 	$('.checkbox').each(function () {
-		$(this).append('<span class="square"></span>');
+	$('<span class="square"/>').insertAfter($('input', this));
 	});
 	$('.radiobox').each(function () {
 		if ($('.circle', this).length === 0) {
