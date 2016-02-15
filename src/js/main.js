@@ -15,7 +15,7 @@ $(document).ready(function () {
 
 	/** Checkbox, Radio */
 	$('.checkbox').each(function () {
-	$('<span class="square"/>').insertAfter($('input', this));
+		$('<span class="square"/>').insertAfter($('input', this));
 	});
 	$('.radiobox').each(function () {
 		if ($('.circle', this).length === 0) {
@@ -31,13 +31,13 @@ $(document).ready(function () {
 		}
 	});
 
+	/** Calculate total in message popup */
 	$('.popup-message').each(function () {
-		var _self = $(this), _checkline = $('.form-line-radiobox', _self), _check = $('input', _checkline),
-			total = $('.form-submit', _self), current = _check.val();
-
-		$('label', _checkline).on('change', function () {
-			if ($('input', this).is(':checked')) {
-				total.find('input:text').val(current);
+		var total = $('.total', this);
+		$('.radiobox-price', this).on('change', function () {
+			var radio = $(':radio', this);
+			if (radio.is(':checked')) {
+				total.val('$' + radio.val());
 			}
 		});
 
@@ -45,7 +45,6 @@ $(document).ready(function () {
 
 	initPopups();
 	initForms();
-
 });
 
 /**
@@ -53,22 +52,33 @@ $(document).ready(function () {
  */
 window.initPopups = function (scope) {
 
-	if (typeof scope === 'undefined') {
-		scope = document;
-	}
+	/** On popup opened */
+	window.onOpen = function () {
+		/** Init inner forms */
+		initForms(this.wrap);
+
+		/** Rebind close button */
+		$('.js-close', this.wrap).unbind('click').on('click', function (e) {
+			$.magnificPopup.close();
+			e.preventDefault();
+		});
+	};
 
 	$('.js-popup').each(function () {
-		var d;
-		if (typeof $(this).data('type') === 'undefined') {
-			d = "inline";
-		} else {
-			d = $(this).data('type');
-		}
 		$(this).magnificPopup({
-			type: d
+			type: "inline",
+			closeMarkup: '<span title="%title%" class="mfp-close"><span class="mfp-in"></span></span>',
+			settings: {cache: false},
+			mainClass: 'mfp-zoom-in',
+			midClick: true,
+			removalDelay: 300,
+			autoFocusLast: false,
+			callbacks: {
+				open: onOpen
+			}
 		});
 	});
-}
+};
 
 /**
  * Init forms
@@ -80,37 +90,3 @@ window.initForms = function (scope) {
 	}
 
 };
-
-
-/** On popup opened */
-window.onOpen = function () {
-
-	/** Init inner forms */
-	initForms(this.wrap);
-
-	/** Rebind close button */
-	$('.js-close', this.wrap).unbind('click').on('click', function (e) {
-		$.magnificPopup.close();
-		e.preventDefault();
-	});
-};
-
-
-/**
- * Magnific Popup default settings
- */
-$.extend(true, $.magnificPopup.defaults, {
-	tClose: 'Close (Esc)',
-	tLoading: '',
-	closeMarkup: '<span title="%title%" class="mfp-close"><span class="mfp-in"></span></span>',
-	ajax: {tError: '<a href="%url%">Content</a> not found.'},
-	settings: {cache: false},
-	mainClass: 'mfp-zoom-in',
-	midClick: true,
-	removalDelay: 300,
-	autoFocusLast: false,
-	preload: false,
-	callbacks: {
-		open: onOpen
-	}
-});

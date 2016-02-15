@@ -532,6 +532,7 @@ textarea {
 
   &.checkbox-gift {
     padding: 4px;
+    cursor: pointer;
 
     @media @md {
       width: 94px;
@@ -564,6 +565,7 @@ textarea {
       display: block;
       position: relative;
       z-index: 2;
+      cursor: pointer;
     }
   }
 }
@@ -617,6 +619,7 @@ textarea {
     font-weight: bold;
     color: @color-blue;
     z-index: 1;
+    cursor: pointer;
 
     @media @md {
       font-size: 28px;
@@ -634,6 +637,7 @@ textarea {
       left: 1px;
       right: 1px;
       z-index: -1;
+      cursor: pointer;
 
       &:before {
         display: none;
@@ -1522,7 +1526,7 @@ textarea {
    _CATALOG
    ========================================================================== */
 .catalog {
-
+  cursor: default;
   &:after { .clearfix; }
 
   @media @xs {
@@ -2008,6 +2012,7 @@ textarea {
   .color { color: @color-rosy; }
   
   &.popup-message {
+    cursor: default;
     .form-line {
       margin-bottom: 10px;
 

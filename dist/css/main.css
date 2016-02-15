@@ -627,6 +627,7 @@ input[type="submit"].button-icon:focus .icon:after {
 }
 .checkbox.checkbox-gift {
   padding: 4px;
+  cursor: pointer;
 }
 @media (min-width: 750px) {
   .checkbox.checkbox-gift {
@@ -661,6 +662,7 @@ input[type="submit"].button-icon:focus .icon:after {
   display: block;
   position: relative;
   z-index: 2;
+  cursor: pointer;
 }
 /* RADIOBOX */
 .radiobox {
@@ -710,6 +712,7 @@ input[type="submit"].button-icon:focus .icon:after {
   font-weight: bold;
   color: #4c9eda;
   z-index: 1;
+  cursor: pointer;
 }
 @media (min-width: 750px) {
   .radiobox.radiobox-price {
@@ -729,6 +732,7 @@ input[type="submit"].button-icon:focus .icon:after {
   left: 1px;
   right: 1px;
   z-index: -1;
+  cursor: pointer;
 }
 .radiobox.radiobox-price .circle:before {
   display: none;
@@ -1673,6 +1677,9 @@ input[type="submit"].button-icon:focus .icon:after {
 /* ==========================================================================
    _CATALOG
    ========================================================================== */
+.catalog {
+  cursor: default;
+}
 .catalog:after {
   display: table;
   content: '\0020';
@@ -2222,6 +2229,9 @@ input[type="submit"].button-icon:focus .icon:after {
 }
 .popup .color {
   color: #e74b90;
+}
+.popup.popup-message {
+  cursor: default;
 }
 .popup.popup-message .form-line {
   margin-bottom: 10px;
