@@ -23,6 +23,7 @@
     "jquery": "^2.2.0",
     "jquery.browser": "^0.1.0",
     "fastclick": "^1.0.6",
-    "magnific-popup": "^1.0.1"
+    "magnific-popup": "^1.0.1",
+    "photoswipe": "^4.1.1"
   }
 }

@@ -1608,6 +1608,11 @@ input[type="submit"].button-icon:focus .icon:after {
 .gallery ul li a {
   display: block;
 }
+.gallery ul li figure {
+  padding: 0;
+  margin: 0;
+  display: block;
+}
 .gallery ul li img {
   width: 100%;
   height: auto;
