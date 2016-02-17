@@ -104,9 +104,13 @@
 				<div class="profile">
 
 					<!-- Photo -->
-					<figure class="photo">
-						<img src="img/temp/user-1.jpg" width="200" height="200" alt="">
-					</figure>
+					<div class="photo my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+						<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+							<a href="img/temp/user-1.jpg" itemprop="contentUrl" data-size="200x200">
+								<img src="img/temp/user-1.jpg" width="200" height="200" alt="">
+							</a>
+						</figure>
+					</div>
 
 					<!-- Inform -->
 					<div class="inform">
@@ -361,8 +365,6 @@
 					<!--  Controls are self-explanatory. Order can be changed. -->
 					<div class="pswp__counter"></div>
 					<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-					<button class="pswp__button pswp__button--share" title="Share"></button>
-					<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
 					<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
 					<!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
 					<!-- element will get class pswp__preloader--active when preloader is running -->
