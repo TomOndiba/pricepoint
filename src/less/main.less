@@ -383,6 +383,15 @@ textarea {
     &:hover, &:focus, &:active { border-color: @color-font; }
   }
 
+  &.button-white-bordered {
+    color: @color-blue;
+    background: @color-white;
+    border: 1px solid @color-blue;
+    transition: background-color @duration;
+
+    &:hover, &:focus, &:active { background-color: transparent; }
+  }
+
   &.button-gray {
     color: @color-white;
     background: @color-font;
@@ -741,6 +750,7 @@ textarea {
   left: 0;
   right: 0;
   cursor: default;
+  z-index: 100;
   
   @media @md {
     height: 60px;
@@ -790,7 +800,7 @@ textarea {
       line-height: 18px;
     }
     
-    a {
+    .switch {
       min-height: 20px;
       display: block;
       padding-right: 25px;
@@ -836,6 +846,139 @@ textarea {
         }
         &:before { background-position: 0 -95px; }
         &:after { background-position: 0 -130px; }
+      }
+    }
+
+    .settings {
+      width: 210px;
+      margin-top: 8px;
+      display: none;
+      opacity: 0;
+      padding: 8px;
+      color: @color-sea;
+      letter-spacing: .03em;
+      font-weight: bold;
+      background: #dadada;
+      border-radius: 3px;
+      position: absolute;
+      top: 100%;
+      right: -4px;
+      transition: opacity @duration;
+
+      .profile-open & { display: block; }
+      .profile-visible & { opacity: 1; }
+
+      @media @md {
+        width: 290px;
+      }
+
+      &:before {
+        .before;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 4px 8px 4px;
+        border-color: transparent transparent #dadada transparent;
+        position: absolute;
+        top: -8px;
+        right: 15px;
+      }
+
+      .entry {
+        margin-bottom: 11px;
+        padding-bottom: 4px;
+        border-bottom: 1px solid #f6f6f6;
+
+        &:after { .clearfix; }
+
+        &:last-of-type {
+          margin-bottom: 0;
+          padding-bottom: 0;
+          border-bottom: none;
+        }
+      }
+      
+      .image {
+        width: 90px;
+        margin: 0;
+        padding-top: 5px;
+        float: left;
+        text-align: center;
+
+        @media @md {
+          width: 124px;
+        }
+        
+        img {
+          width: 100%;
+          height: auto;
+          margin-bottom: 2px;
+          display: block;
+        }
+
+        a {
+          display: block;
+          color: @color-blue;
+
+          &:hover {
+            color: @color-rosy;
+            text-decoration: none;
+          }
+        }
+      }
+
+      .button {
+        margin-bottom: 4px;
+        padding: 6px 4px;
+        display: block;
+        font-size: 11px;
+
+        @media @md {
+          padding-top: 8px;
+          padding-bottom: 8px;
+          font-size: 14px;
+        }
+      }
+
+      .fn { line-height: 13px; margin-bottom: 8px; }
+
+      .info {
+        margin-left: 98px;
+
+        @media @md {
+          margin-left: 132px;
+        }
+
+        .name {
+          margin-bottom: 2px;
+          font-size: 14px;
+          line-height: normal;
+
+          @media @md {
+            font-size: 18px;
+          }
+        }
+        
+        .button {
+          font-weight: normal;
+        }
+      }
+
+      .buttons-group {
+        margin: 0 -5px;
+
+        .cell {
+          padding: 0 5px;
+          display: block;
+          float: left;
+
+          &:nth-of-type(1) { width: 120px; }
+          &:nth-of-type(2) { width: 84px; }
+
+          @media @md {
+            &:nth-of-type(1) { width: 200px; }
+          }
+        }
       }
     }
   }

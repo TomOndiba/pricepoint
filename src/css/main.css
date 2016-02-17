@@ -418,6 +418,25 @@ button.button-white:active,
 input[type="submit"].button-white:active {
   border-color: #707a85;
 }
+.button.button-white-bordered,
+button.button-white-bordered,
+input[type="submit"].button-white-bordered {
+  color: #4c9eda;
+  background: #fff;
+  border: 1px solid #4c9eda;
+  transition: background-color 0.2s ease;
+}
+.button.button-white-bordered:hover,
+button.button-white-bordered:hover,
+input[type="submit"].button-white-bordered:hover,
+.button.button-white-bordered:focus,
+button.button-white-bordered:focus,
+input[type="submit"].button-white-bordered:focus,
+.button.button-white-bordered:active,
+button.button-white-bordered:active,
+input[type="submit"].button-white-bordered:active {
+  background-color: transparent;
+}
 .button.button-gray,
 button.button-gray,
 input[type="submit"].button-gray {
@@ -826,6 +845,7 @@ input[type="submit"].button-icon:focus .icon:after {
   left: 0;
   right: 0;
   cursor: default;
+  z-index: 100;
 }
 @media (min-width: 750px) {
   .header {
@@ -876,15 +896,15 @@ input[type="submit"].button-icon:focus .icon:after {
     line-height: 18px;
   }
 }
-.header .username a {
+.header .username .switch {
   min-height: 20px;
   display: block;
   padding-right: 25px;
   color: #fff;
   position: relative;
 }
-.header .username a:before,
-.header .username a:after {
+.header .username .switch:before,
+.header .username .switch:after {
   display: block;
   content: '\0020';
   overflow: hidden;
@@ -899,50 +919,188 @@ input[type="submit"].button-icon:focus .icon:after {
   top: 1px;
   transition: opacity 0.2s ease;
 }
-.header .username a:before {
+.header .username .switch:before {
   background-position: 0 -63px;
   opacity: 1;
 }
-.header .username a:after {
+.header .username .switch:after {
   background-position: 0 -86px;
   opacity: 0;
 }
-.header .username a:hover,
-.header .username a:focus,
-.header .username a:active {
+.header .username .switch:hover,
+.header .username .switch:focus,
+.header .username .switch:active {
   text-decoration: none;
   color: #e74b90;
 }
-.header .username a:hover:before,
-.header .username a:focus:before,
-.header .username a:active:before {
+.header .username .switch:hover:before,
+.header .username .switch:focus:before,
+.header .username .switch:active:before {
   opacity: 0;
 }
-.header .username a:hover:after,
-.header .username a:focus:after,
-.header .username a:active:after {
+.header .username .switch:hover:after,
+.header .username .switch:focus:after,
+.header .username .switch:active:after {
   opacity: 1;
 }
-.header .username a .credits {
+.header .username .switch .credits {
   display: block;
 }
 @media (min-width: 750px) {
-  .header .username a {
+  .header .username .switch {
     min-height: 30px;
     padding-right: 40px;
   }
-  .header .username a:before,
-  .header .username a:after {
+  .header .username .switch:before,
+  .header .username .switch:after {
     width: 30px;
     height: 30px;
     top: 3px;
     background-size: 250px auto;
   }
-  .header .username a:before {
+  .header .username .switch:before {
     background-position: 0 -95px;
   }
-  .header .username a:after {
+  .header .username .switch:after {
     background-position: 0 -130px;
+  }
+}
+.header .username .settings {
+  width: 210px;
+  margin-top: 8px;
+  display: none;
+  opacity: 0;
+  padding: 8px;
+  color: #333a42;
+  letter-spacing: .03em;
+  font-weight: bold;
+  background: #dadada;
+  border-radius: 3px;
+  position: absolute;
+  top: 100%;
+  right: -4px;
+  transition: opacity 0.2s ease;
+}
+.profile-open .header .username .settings {
+  display: block;
+}
+.profile-visible .header .username .settings {
+  opacity: 1;
+}
+@media (min-width: 750px) {
+  .header .username .settings {
+    width: 290px;
+  }
+}
+.header .username .settings:before {
+  display: block;
+  content: '\0020';
+  overflow: hidden;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 4px 8px 4px;
+  border-color: transparent transparent #dadada transparent;
+  position: absolute;
+  top: -8px;
+  right: 15px;
+}
+.header .username .settings .entry {
+  margin-bottom: 11px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #f6f6f6;
+}
+.header .username .settings .entry:after {
+  display: table;
+  content: '\0020';
+  clear: both;
+}
+.header .username .settings .entry:last-of-type {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+.header .username .settings .image {
+  width: 90px;
+  margin: 0;
+  padding-top: 5px;
+  float: left;
+  text-align: center;
+}
+@media (min-width: 750px) {
+  .header .username .settings .image {
+    width: 124px;
+  }
+}
+.header .username .settings .image img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 2px;
+  display: block;
+}
+.header .username .settings .image a {
+  display: block;
+  color: #4c9eda;
+}
+.header .username .settings .image a:hover {
+  color: #e74b90;
+  text-decoration: none;
+}
+.header .username .settings .button {
+  margin-bottom: 4px;
+  padding: 6px 4px;
+  display: block;
+  font-size: 11px;
+}
+@media (min-width: 750px) {
+  .header .username .settings .button {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-size: 14px;
+  }
+}
+.header .username .settings .fn {
+  line-height: 13px;
+  margin-bottom: 8px;
+}
+.header .username .settings .info {
+  margin-left: 98px;
+}
+@media (min-width: 750px) {
+  .header .username .settings .info {
+    margin-left: 132px;
+  }
+}
+.header .username .settings .info .name {
+  margin-bottom: 2px;
+  font-size: 14px;
+  line-height: normal;
+}
+@media (min-width: 750px) {
+  .header .username .settings .info .name {
+    font-size: 18px;
+  }
+}
+.header .username .settings .info .button {
+  font-weight: normal;
+}
+.header .username .settings .buttons-group {
+  margin: 0 -5px;
+}
+.header .username .settings .buttons-group .cell {
+  padding: 0 5px;
+  display: block;
+  float: left;
+}
+.header .username .settings .buttons-group .cell:nth-of-type(1) {
+  width: 120px;
+}
+.header .username .settings .buttons-group .cell:nth-of-type(2) {
+  width: 84px;
+}
+@media (min-width: 750px) {
+  .header .username .settings .buttons-group .cell:nth-of-type(1) {
+    width: 200px;
   }
 }
 /* ==========================================================================

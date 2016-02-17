@@ -37,7 +37,7 @@ module.exports = function (grunt) {
 
 		clean: {
 			pre: [dist.root, src.css, src.js + 'vendor'],
-			after: [src.css + 'temp'],
+			after: [src.js + 'vendor/fastclick.js', src.css + 'temp'],
 			dist: [dist.js + 'custom.js']
 		},
 		copy: {
@@ -50,10 +50,11 @@ module.exports = function (grunt) {
 							src.vendor + 'html5shiv/dist/html5shiv.min.js',
 							src.vendor + 'jquery/dist/jquery.min.js',
 							src.vendor + 'jquery.browser/dist/jquery.browser.min.js',
+							src.vendor + 'fastclick/lib/fastclick.js',
 							src.vendor + 'jquery-selectric/public/jquery.selectric.min.js',
 							src.vendor + 'magnific-popup/dist/jquery.magnific-popup.min.js',
-							src.vendor + 'photoswipe/dist/photoswipe-ui-default.min.js',
-							src.vendor + 'photoswipe/dist/photoswipe.min.js'
+							src.vendor + 'photoswipe/dist/photoswipe.min.js',
+							src.vendor + 'photoswipe/dist/photoswipe-ui-default.min.js'
 						],
 						dest: src.js + 'vendor'
 					}, {
@@ -100,8 +101,8 @@ module.exports = function (grunt) {
 							src.js + 'vendor/fastclick.min.js',
 							src.js + 'vendor/jquery.selectric.min.js',
 							src.js + 'vendor/jquery.magnific-popup.min.js',
-							src.js + 'vendor/photoswipe-ui-default.min.js',
-							src.js + 'vendor/photoswipe.min.js'
+							src.js + 'vendor/photoswipe.min.js',
+							src.js + 'vendor/photoswipe-ui-default.min.js'
 						],
 						dest: src.js + 'plugins.js'
 					}, {

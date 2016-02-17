@@ -12,6 +12,32 @@ $(document).ready(function () {
 
 	initForms();
 
+	/* Toggle settings dropdown in the header  */
+	$('.header').each(function () {
+		body = $('body');
+		$('.username .switch', this).on('click', function () {
+			body.addClass('profile-open').on('click', function () {
+				if ($(this).hasClass('profile-visible')) {
+					$(this).removeClass('profile-visible');
+					setTimeout(function () {
+						body.removeClass('profile-open');
+					}, 500);
+				}
+			});
+			if (!$('body').is('.profile-visible')) {
+				setTimeout(function () {
+					body.addClass('profile-visible');
+				}, 20);
+			} else {
+				body.removeClass('profile-visible');
+				setTimeout(function () {
+					body.removeClass('profile-open');
+				}, 500);
+			}
+			return false;
+		});
+	});
+
 	/* Tabs */
 	$('.tabs', this).each(function () {
 		$(this).on('click', 'a', function (event) {
@@ -93,13 +119,15 @@ window.initForms = function (scope) {
 	});
 
 	/** Checkbox, Radio */
-	$('.checkbox', scope).each(function () {
+	$('.checkbox:not(.inited)', scope).each(function () {
 		$('<span class="square"/>').insertAfter($('input', this));
+		$(this).addClass('inited');
 	});
-	$('.radiobox', scope).each(function () {
+	$('.radiobox:not(.inited)', scope).each(function () {
 		if ($('.circle', this).length === 0) {
 			$(this).append('<span class="circle"></span>');
 		}
+		$(this).addClass('inited');
 	});
 
 };
