@@ -67,6 +67,13 @@ module.exports = function (grunt) {
 							src.vendor + 'photoswipe/dist/default-skin/default-skin.css'
 						],
 						dest: src.css + 'temp'
+					}, {
+						expand: true,
+						flatten: true,
+						src: [
+							src.vendor + 'photoswipe/dist/default-skin/*.*'
+						],
+						dest: src.css
 					}
 				]
 			},
@@ -77,7 +84,7 @@ module.exports = function (grunt) {
 						cwd: '<%= config.src %>',
 						dest: '<%= config.dest %>',
 						src: [
-							'css/{,*/}*.css',
+							'css/{,*/}*.*',
 							'img/**/*',
 							'js/{,*/}*.js',
 							'fonts/{,*/}*.*',

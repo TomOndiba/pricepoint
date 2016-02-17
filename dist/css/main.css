@@ -341,9 +341,9 @@ textarea:focus {
   clear: both;
 }
 /* BUTTONS */
-.button,
-button,
-input[type="submit"] {
+.button:not(.pswp__button),
+button:not(.pswp__button),
+input[type="submit"]:not(.pswp__button) {
   max-width: 400px;
   height: auto;
   margin: 0 auto;
@@ -359,9 +359,9 @@ input[type="submit"] {
   transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 @media (min-width: 750px) {
-  .button,
-  button,
-  input[type="submit"] {
+  .button:not(.pswp__button),
+  button:not(.pswp__button),
+  input[type="submit"]:not(.pswp__button) {
     max-width: none;
     display: inline-block;
     font-size: 13px;
@@ -369,135 +369,135 @@ input[type="submit"] {
     padding-right: 28px;
   }
 }
-.button:hover,
-button:hover,
-input[type="submit"]:hover,
-.button:focus,
-button:focus,
-input[type="submit"]:focus {
+.button:not(.pswp__button):hover,
+button:not(.pswp__button):hover,
+input[type="submit"]:not(.pswp__button):hover,
+.button:not(.pswp__button):focus,
+button:not(.pswp__button):focus,
+input[type="submit"]:not(.pswp__button):focus {
   color: #e74b90;
   background-color: transparent;
   text-decoration: none;
 }
-.button.button-black,
-button.button-black,
-input[type="submit"].button-black {
+.button:not(.pswp__button).button-black,
+button:not(.pswp__button).button-black,
+input[type="submit"]:not(.pswp__button).button-black {
   color: #fff;
   background: #333a42;
   border-color: #333a42;
 }
-.button.button-black:hover,
-button.button-black:hover,
-input[type="submit"].button-black:hover,
-.button.button-black:focus,
-button.button-black:focus,
-input[type="submit"].button-black:focus,
-.button.button-black:active,
-button.button-black:active,
-input[type="submit"].button-black:active {
+.button:not(.pswp__button).button-black:hover,
+button:not(.pswp__button).button-black:hover,
+input[type="submit"]:not(.pswp__button).button-black:hover,
+.button:not(.pswp__button).button-black:focus,
+button:not(.pswp__button).button-black:focus,
+input[type="submit"]:not(.pswp__button).button-black:focus,
+.button:not(.pswp__button).button-black:active,
+button:not(.pswp__button).button-black:active,
+input[type="submit"]:not(.pswp__button).button-black:active {
   color: #333a42;
   background-color: transparent;
   text-decoration: none;
 }
-.button.button-white,
-button.button-white,
-input[type="submit"].button-white {
+.button:not(.pswp__button).button-white,
+button:not(.pswp__button).button-white,
+input[type="submit"]:not(.pswp__button).button-white {
   color: #707a85;
   background: #fff;
   border: 1px solid #e5e5e5;
   transition: border-color 0.2s ease;
 }
-.button.button-white:hover,
-button.button-white:hover,
-input[type="submit"].button-white:hover,
-.button.button-white:focus,
-button.button-white:focus,
-input[type="submit"].button-white:focus,
-.button.button-white:active,
-button.button-white:active,
-input[type="submit"].button-white:active {
+.button:not(.pswp__button).button-white:hover,
+button:not(.pswp__button).button-white:hover,
+input[type="submit"]:not(.pswp__button).button-white:hover,
+.button:not(.pswp__button).button-white:focus,
+button:not(.pswp__button).button-white:focus,
+input[type="submit"]:not(.pswp__button).button-white:focus,
+.button:not(.pswp__button).button-white:active,
+button:not(.pswp__button).button-white:active,
+input[type="submit"]:not(.pswp__button).button-white:active {
   border-color: #707a85;
 }
-.button.button-white-bordered,
-button.button-white-bordered,
-input[type="submit"].button-white-bordered {
+.button:not(.pswp__button).button-white-bordered,
+button:not(.pswp__button).button-white-bordered,
+input[type="submit"]:not(.pswp__button).button-white-bordered {
   color: #4c9eda;
   background: #fff;
   border: 1px solid #4c9eda;
   transition: background-color 0.2s ease;
 }
-.button.button-white-bordered:hover,
-button.button-white-bordered:hover,
-input[type="submit"].button-white-bordered:hover,
-.button.button-white-bordered:focus,
-button.button-white-bordered:focus,
-input[type="submit"].button-white-bordered:focus,
-.button.button-white-bordered:active,
-button.button-white-bordered:active,
-input[type="submit"].button-white-bordered:active {
+.button:not(.pswp__button).button-white-bordered:hover,
+button:not(.pswp__button).button-white-bordered:hover,
+input[type="submit"]:not(.pswp__button).button-white-bordered:hover,
+.button:not(.pswp__button).button-white-bordered:focus,
+button:not(.pswp__button).button-white-bordered:focus,
+input[type="submit"]:not(.pswp__button).button-white-bordered:focus,
+.button:not(.pswp__button).button-white-bordered:active,
+button:not(.pswp__button).button-white-bordered:active,
+input[type="submit"]:not(.pswp__button).button-white-bordered:active {
   background-color: transparent;
 }
-.button.button-gray,
-button.button-gray,
-input[type="submit"].button-gray {
+.button:not(.pswp__button).button-gray,
+button:not(.pswp__button).button-gray,
+input[type="submit"]:not(.pswp__button).button-gray {
   color: #fff;
   background: #707a85;
   border-color: #707a85;
 }
-.button.button-gray:hover,
-button.button-gray:hover,
-input[type="submit"].button-gray:hover,
-.button.button-gray:focus,
-button.button-gray:focus,
-input[type="submit"].button-gray:focus,
-.button.button-gray:active,
-button.button-gray:active,
-input[type="submit"].button-gray:active {
+.button:not(.pswp__button).button-gray:hover,
+button:not(.pswp__button).button-gray:hover,
+input[type="submit"]:not(.pswp__button).button-gray:hover,
+.button:not(.pswp__button).button-gray:focus,
+button:not(.pswp__button).button-gray:focus,
+input[type="submit"]:not(.pswp__button).button-gray:focus,
+.button:not(.pswp__button).button-gray:active,
+button:not(.pswp__button).button-gray:active,
+input[type="submit"]:not(.pswp__button).button-gray:active {
   color: #707a85;
   background-color: transparent;
   text-decoration: none;
 }
-.button.button-blue,
-button.button-blue,
-input[type="submit"].button-blue {
+.button:not(.pswp__button).button-blue,
+button:not(.pswp__button).button-blue,
+input[type="submit"]:not(.pswp__button).button-blue {
   color: #fff;
   background: #4c9eda;
   border-color: #4c9eda;
 }
-.button.button-blue:hover,
-button.button-blue:hover,
-input[type="submit"].button-blue:hover,
-.button.button-blue:focus,
-button.button-blue:focus,
-input[type="submit"].button-blue:focus,
-.button.button-blue:active,
-button.button-blue:active,
-input[type="submit"].button-blue:active {
+.button:not(.pswp__button).button-blue:hover,
+button:not(.pswp__button).button-blue:hover,
+input[type="submit"]:not(.pswp__button).button-blue:hover,
+.button:not(.pswp__button).button-blue:focus,
+button:not(.pswp__button).button-blue:focus,
+input[type="submit"]:not(.pswp__button).button-blue:focus,
+.button:not(.pswp__button).button-blue:active,
+button:not(.pswp__button).button-blue:active,
+input[type="submit"]:not(.pswp__button).button-blue:active {
   color: #4c9eda;
   background-color: transparent;
   text-decoration: none;
 }
-.button.button-icon,
-button.button-icon,
-input[type="submit"].button-icon {
+.button:not(.pswp__button).button-icon,
+button:not(.pswp__button).button-icon,
+input[type="submit"]:not(.pswp__button).button-icon {
   padding-left: 4px;
   padding-right: 4px;
 }
-.button.button-icon .icon,
-button.button-icon .icon,
-input[type="submit"].button-icon .icon {
+.button:not(.pswp__button).button-icon .icon,
+button:not(.pswp__button).button-icon .icon,
+input[type="submit"]:not(.pswp__button).button-icon .icon {
   width: 14px;
   height: 14px;
   display: inline-block;
   vertical-align: top;
   position: relative;
 }
-.button.button-icon .icon:before,
-button.button-icon .icon:before,
-input[type="submit"].button-icon .icon:before,
-.button.button-icon .icon:after,
-button.button-icon .icon:after,
-input[type="submit"].button-icon .icon:after {
+.button:not(.pswp__button).button-icon .icon:before,
+button:not(.pswp__button).button-icon .icon:before,
+input[type="submit"]:not(.pswp__button).button-icon .icon:before,
+.button:not(.pswp__button).button-icon .icon:after,
+button:not(.pswp__button).button-icon .icon:after,
+input[type="submit"]:not(.pswp__button).button-icon .icon:after {
   display: block;
   content: '\0020';
   overflow: hidden;
@@ -512,62 +512,62 @@ input[type="submit"].button-icon .icon:after {
   left: 0;
   transition: opacity 0.2s ease;
 }
-.button.button-icon .icon:before,
-button.button-icon .icon:before,
-input[type="submit"].button-icon .icon:before {
+.button:not(.pswp__button).button-icon .icon:before,
+button:not(.pswp__button).button-icon .icon:before,
+input[type="submit"]:not(.pswp__button).button-icon .icon:before {
   background-position: 0 0;
   opacity: 1;
 }
-.button.button-icon .icon:after,
-button.button-icon .icon:after,
-input[type="submit"].button-icon .icon:after {
+.button:not(.pswp__button).button-icon .icon:after,
+button:not(.pswp__button).button-icon .icon:after,
+input[type="submit"]:not(.pswp__button).button-icon .icon:after {
   background-position: 0 -20px;
   opacity: 0;
 }
-.button.button-icon .icon.icon-fav:before,
-button.button-icon .icon.icon-fav:before,
-input[type="submit"].button-icon .icon.icon-fav:before {
+.button:not(.pswp__button).button-icon .icon.icon-fav:before,
+button:not(.pswp__button).button-icon .icon.icon-fav:before,
+input[type="submit"]:not(.pswp__button).button-icon .icon.icon-fav:before {
   background-position: 0 0;
 }
-.button.button-icon .icon.icon-fav:after,
-button.button-icon .icon.icon-fav:after,
-input[type="submit"].button-icon .icon.icon-fav:after {
+.button:not(.pswp__button).button-icon .icon.icon-fav:after,
+button:not(.pswp__button).button-icon .icon.icon-fav:after,
+input[type="submit"]:not(.pswp__button).button-icon .icon.icon-fav:after {
   background-position: 0 -20px;
 }
-.button.button-icon .icon.icon-message:before,
-button.button-icon .icon.icon-message:before,
-input[type="submit"].button-icon .icon.icon-message:before {
+.button:not(.pswp__button).button-icon .icon.icon-message:before,
+button:not(.pswp__button).button-icon .icon.icon-message:before,
+input[type="submit"]:not(.pswp__button).button-icon .icon.icon-message:before {
   background-position: -40px 0;
 }
-.button.button-icon .icon.icon-message:after,
-button.button-icon .icon.icon-message:after,
-input[type="submit"].button-icon .icon.icon-message:after {
+.button:not(.pswp__button).button-icon .icon.icon-message:after,
+button:not(.pswp__button).button-icon .icon.icon-message:after,
+input[type="submit"]:not(.pswp__button).button-icon .icon.icon-message:after {
   background-position: -40px -20px;
 }
-.button.button-icon .icon.icon-offer:before,
-button.button-icon .icon.icon-offer:before,
-input[type="submit"].button-icon .icon.icon-offer:before {
+.button:not(.pswp__button).button-icon .icon.icon-offer:before,
+button:not(.pswp__button).button-icon .icon.icon-offer:before,
+input[type="submit"]:not(.pswp__button).button-icon .icon.icon-offer:before {
   background-position: -20px 0;
 }
-.button.button-icon .icon.icon-offer:after,
-button.button-icon .icon.icon-offer:after,
-input[type="submit"].button-icon .icon.icon-offer:after {
+.button:not(.pswp__button).button-icon .icon.icon-offer:after,
+button:not(.pswp__button).button-icon .icon.icon-offer:after,
+input[type="submit"]:not(.pswp__button).button-icon .icon.icon-offer:after {
   background-position: -20px -20px;
 }
-.button.button-icon:hover .icon:before,
-button.button-icon:hover .icon:before,
-input[type="submit"].button-icon:hover .icon:before,
-.button.button-icon:focus .icon:before,
-button.button-icon:focus .icon:before,
-input[type="submit"].button-icon:focus .icon:before {
+.button:not(.pswp__button).button-icon:hover .icon:before,
+button:not(.pswp__button).button-icon:hover .icon:before,
+input[type="submit"]:not(.pswp__button).button-icon:hover .icon:before,
+.button:not(.pswp__button).button-icon:focus .icon:before,
+button:not(.pswp__button).button-icon:focus .icon:before,
+input[type="submit"]:not(.pswp__button).button-icon:focus .icon:before {
   opacity: 0;
 }
-.button.button-icon:hover .icon:after,
-button.button-icon:hover .icon:after,
-input[type="submit"].button-icon:hover .icon:after,
-.button.button-icon:focus .icon:after,
-button.button-icon:focus .icon:after,
-input[type="submit"].button-icon:focus .icon:after {
+.button:not(.pswp__button).button-icon:hover .icon:after,
+button:not(.pswp__button).button-icon:hover .icon:after,
+input[type="submit"]:not(.pswp__button).button-icon:hover .icon:after,
+.button:not(.pswp__button).button-icon:focus .icon:after,
+button:not(.pswp__button).button-icon:focus .icon:after,
+input[type="submit"]:not(.pswp__button).button-icon:focus .icon:after {
   opacity: 1;
 }
 .buttons-group {
@@ -1733,45 +1733,41 @@ input[type="submit"].button-icon:focus .icon:after {
     background-position: -200px -40px;
   }
 }
-.gallery ul {
-  margin: 0 -6px;
+.gallery .my-gallery {
   padding: 0;
-  list-style: none;
+  margin: 0 -6px;
 }
-.gallery ul:after {
+.gallery .my-gallery:after {
   display: table;
   content: '\0020';
   clear: both;
 }
 @media (min-width: 750px) {
-  .gallery ul {
+  .gallery .my-gallery {
     display: inline-block;
   }
 }
-.gallery ul li {
+.gallery .my-gallery figure {
   width: 50%;
-  float: left;
   padding: 6px;
+  margin: 0;
+  display: block;
+  float: left;
 }
 @media (min-width: 568px) {
-  .gallery ul li {
+  .gallery .my-gallery figure {
     width: 33.3%;
   }
 }
 @media (min-width: 750px) {
-  .gallery ul li {
+  .gallery .my-gallery figure {
     width: 20%;
   }
 }
-.gallery ul li a {
+.gallery .my-gallery figure a {
   display: block;
 }
-.gallery ul li figure {
-  padding: 0;
-  margin: 0;
-  display: block;
-}
-.gallery ul li img {
+.gallery .my-gallery figure img {
   width: 100%;
   height: auto;
   margin: 0 auto;

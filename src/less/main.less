@@ -142,14 +142,14 @@ a {
 audio, canvas, img, video { vertical-align: middle; }
 dl {
   margin-top: 0;
-  
+
   dt { font-weight: bold; }
   dd {
     margin-left: 0;
     margin-bottom: @margin-sm;
     font-weight: 300;
     font-style: italic;
-    
+
     @media @md {
       margin-bottom: @margin-md;
     }
@@ -169,19 +169,19 @@ dl {
   margin: @margin-sm 0 @margin-sm;
   font-size: 24px;
   font-style: normal;
-  
+
   @media @md {
     font-size: 30px;
     margin: @margin-md 0 @margin-md;
   }
-  
+
 }
 .h2 {
   &:extend(.heading-default);
   margin: @margin-sm 0 @margin-sm;
   font-size: 22px;
   font-style: normal;
-  
+
   @media @md {
     font-size: 24px;
     margin: @margin-md 0 @margin-md;
@@ -192,7 +192,7 @@ dl {
   margin: @margin-sm 0 @margin-sm;
   font-size: 20px;
   font-style: normal;
-  
+
   @media @md {
     font-size: 22px;
     margin: @margin-md 0 @margin-md;
@@ -203,36 +203,36 @@ dl {
   margin: @margin-sm 0 @margin-sm;
   font-size: 18px;
   font-style: normal;
-  
+
   @media @md {
     font-size: 20px;
     margin: @margin-md 0 @margin-md;
   }
-  
+
 }
 .h5 {
   &:extend(.heading-default);
   margin: @margin-sm 0 @margin-sm;
   font-size: 16px;
   font-style: normal;
-  
+
   @media @md {
     font-size: 18px;
     margin: @margin-md 0 @margin-md;
   }
-  
+
 }
 .h6 {
   &:extend(.heading-default);
   margin: @margin-sm 0 @margin-sm;
   font-size: 14px;
   font-style: normal;
-  
+
   @media @md {
     font-size: 15px;
     margin: @margin-md 0 @margin-md;
   }
-  
+
 }
 h1 {&:extend(.h1); }
 h2 {&:extend(.h2); }
@@ -308,7 +308,7 @@ input {
   background: @color-white;
   transition: background-color @duration, border-color @duration;
   -webkit-appearance: none;
-  
+
   &:focus { border-color: @color-sea; }
   .form-line & { width: 100%; }
 }
@@ -317,11 +317,11 @@ textarea {
   height: 116px;
   display: block;
   resize: none;
-  
+
   @media @md {
     height: 170px;
   }
-  
+
   &:focus { border-color: @color-font; }
   .form-line & { width: 100%; }
 }
@@ -333,7 +333,7 @@ textarea {
   &:after { .clearfix; }
 }
 /* BUTTONS */
-.button, button, input[type="submit"] {
+.button:not(.pswp__button), button:not(.pswp__button), input[type="submit"]:not(.pswp__button) {
   max-width: 400px;
   height: auto;
   margin: 0 auto;
@@ -347,7 +347,7 @@ textarea {
   border: 1px solid @color-rosy;
   border-radius: 2px;
   transition: background-color @duration, border-color @duration, color @duration;
-  
+
   @media @md {
     max-width: none;
     display: inline-block;
@@ -355,18 +355,18 @@ textarea {
     padding-left: 28px;
     padding-right: 28px;
   }
-  
+
   &:hover, &:focus {
     color: @color-rosy;
     background-color: transparent;
     text-decoration: none;
   }
-  
+
   &.button-black {
     color: @color-white;
     background: @color-sea;
     border-color: @color-sea;
-    
+
     &:hover, &:focus, &:active {
       color: @color-sea;
       background-color: transparent;
@@ -415,11 +415,11 @@ textarea {
       text-decoration: none;
     }
   }
-  
+
   &.button-icon {
     padding-left: 4px;
     padding-right: 4px;
-    
+
     .icon {
       width: 14px;
       height: 14px;
@@ -440,10 +440,10 @@ textarea {
         left: 0;
         transition: opacity @duration;
       }
-      
+
       &:before { background-position: 0 0; opacity: 1; }
       &:after { background-position: 0 -20px; opacity: 0; }
-      
+
       &.icon-fav {
         &:before { background-position: 0 0; }
         &:after { background-position: 0 -20px; }
@@ -459,7 +459,7 @@ textarea {
         &:after { background-position: -20px -20px; }
       }
     }
-    
+
     &:hover, &:focus {
       .icon {
         &:before { opacity: 0; }
@@ -471,7 +471,7 @@ textarea {
 .buttons-group {
   margin: 16px -2px;
   &:after { .clearfix; }
-  
+
   .cell {
     width: 50%;
     margin: 0;
@@ -480,7 +480,7 @@ textarea {
   }
 
   .button { width: 100%; }
-  
+
   @media @sm {
     max-width: 400px;
     margin-left: auto;
@@ -751,16 +751,16 @@ textarea {
   right: 0;
   cursor: default;
   z-index: 100;
-  
+
   @media @md {
     height: 60px;
   }
-  
+
   .wrapper {
     height: 100%;
     position: relative;
   }
-  
+
   .logo {
     width: 146px;
     height: 21px;
@@ -768,23 +768,23 @@ textarea {
     position: absolute;
     left: 10px;
     top: 10px;
-    
+
     @media @md {
       width: 246px;
       height: 36px;
       top: 13px;
       left: 7px;
     }
-    
+
     a { display: block; }
-    
+
     img {
       width: 100%;
       height: auto;
       display: block;
     }
   }
-  
+
   .username {
     margin: 0;
     font-size: 11px;
@@ -793,20 +793,20 @@ textarea {
     position: absolute;
     right: 10px;
     top: 8px;
-    
+
     @media @md {
       top: 12px;
       font-size: 13px;
       line-height: 18px;
     }
-    
+
     .switch {
       min-height: 20px;
       display: block;
       padding-right: 25px;
       color: @color-white;
       position: relative;
-      
+
       &:before, &:after {
         .before;
         width: 20px;
@@ -820,24 +820,24 @@ textarea {
         top: 1px;
         transition: opacity @duration;
       }
-      
+
       &:before { background-position: 0 -63px; opacity: 1; }
       &:after { background-position: 0 -86px; opacity: 0; }
-      
+
       &:hover, &:focus, &:active {
         text-decoration: none;
         color: @color-rosy;
-        
+
         &:before { opacity: 0; }
         &:after { opacity: 1; }
       }
-      
+
       .credits { display: block; }
-      
+
       @media @md {
         min-height: 30px;
         padding-right: 40px;
-        
+
         &:before, &:after {
           width: 30px;
           height: 30px;
@@ -897,7 +897,7 @@ textarea {
           border-bottom: none;
         }
       }
-      
+
       .image {
         width: 90px;
         margin: 0;
@@ -908,7 +908,7 @@ textarea {
         @media @md {
           width: 124px;
         }
-        
+
         img {
           width: 100%;
           height: auto;
@@ -958,7 +958,7 @@ textarea {
             font-size: 18px;
           }
         }
-        
+
         .button {
           font-weight: normal;
         }
@@ -997,21 +997,21 @@ textarea {
   left: 0;
   bottom: 0;
   cursor: default;
-  
+
   .wrapper {
     min-height: 100%;
     position: relative;
   }
-  
+
   @media @md {
     height: 168px;
     font-size: 14px;
   }
-  
+
   .copyright {
     margin: 0;
     text-align: center;
-    
+
     @media @md {
       margin-top: -9px;
       position: absolute;
@@ -1019,30 +1019,30 @@ textarea {
       top: 50%;
     }
   }
-  
+
   .links {
     margin: 0 0 14px;
     padding: 0;
     list-style: none;
     text-align: center;
-    
+
     @media @md {
       margin: -9px 0 0 0;
       position: absolute;
       right: 10px;
       top: 50%;
     }
-    
+
     li {
-      
+
       @media @md {
         padding: 0 0 0 20px;
         display: inline-block;
       }
-      
+
       a {
         color: @color-white;
-        
+
         &:hover, &:focus, &:active {
           text-decoration: none;
           color: @color-rosy;
@@ -1059,11 +1059,11 @@ textarea {
   background: @color-white;
   border-bottom: 1px solid @color-beige;
   text-align: center;
-  
+
   @media @md {
     text-align: left;
   }
-  
+
   .links-group {
     margin: 0;
     padding: 0;
@@ -1077,7 +1077,7 @@ textarea {
       margin: 0 -1px;
       float: left;
     }
-    
+
     li {
       margin: 0 3px 0 0;
       float: left;
@@ -1090,7 +1090,7 @@ textarea {
         display: inline-block;
         float: none;
       }
-      
+
       a {
         padding: 4px 6px;
         display: block;
@@ -1099,7 +1099,7 @@ textarea {
         border: 1px solid @color-sky;
         border-radius: 2px;
         transition: background-color @duration, border-color @duration, color @duration;
-        
+
         &:hover, &:focus, &:active {
           color: @color-white;
           background-color: @color-blue;
@@ -1184,12 +1184,12 @@ textarea {
       }
     }
   }
-  
+
   .buy {
     margin: 0;
     text-transform: uppercase;
     display: none;
-    
+
     @media @md {
       display: block;
       float: right;
@@ -1202,9 +1202,9 @@ textarea {
 .profile {
   margin: 0 auto 14px;
   position: relative;
-  
+
   &:after { .clearfix; }
-  
+
   .photo {
     margin: 0;
     width: 134px;
@@ -1221,7 +1221,7 @@ textarea {
       display: block;
     }
   }
-  
+
   .inform {
 
     .text {
@@ -1242,7 +1242,7 @@ textarea {
         margin-bottom: 21px;
       }
     }
-    
+
     .name {
       margin: 0 0 4px;
       font-size: 18px;
@@ -1253,7 +1253,7 @@ textarea {
       .small {
         font-size: 13px;
       }
-      
+
       @media @md {
         margin: 0;
         font-size: 24px;
@@ -1262,7 +1262,7 @@ textarea {
         .small { font-size: 15px; }
       }
     }
-    
+
     .location {
       margin: 0 0 16px;
       font-size: 11px;
@@ -1275,7 +1275,7 @@ textarea {
         margin: 0 0 21px;
         font-size: 13px;
       }
-      
+
       .link {
         min-height: 20px;
         padding-left: 18px;
@@ -1301,13 +1301,13 @@ textarea {
         }
       }
     }
-    
+
     .activity {
       margin: 0 0 5px;
       font-size: 11px;
       font-weight: 300;
       font-style: italic;
-      
+
       @media @md {
         margin: 0;
         font-size: 13px;
@@ -1429,7 +1429,7 @@ textarea {
    ========================================================================== */
 .description {
   display: none;
-  
+
   @media @md {
     display: block;
     margin: 0 auto;
@@ -1437,11 +1437,11 @@ textarea {
     background: @color-gray;
     border: 1px solid #ddd;
     font-size: 13px;
-    
+
     dt {
       padding-top: 6px;
       border-top: 1px solid #ddd;
-      
+
       &:first-of-type { padding-top: 0; border-top: none; }
     }
     dd {
@@ -1459,18 +1459,18 @@ textarea {
   font-weight: 500;
   position: relative;
   z-index: 2;
-  
+
   li {
     display: inline-block;
-    
+
     a {
       padding: 6px 26px 4px;
       display: block;
       color: @color-font;
       border: 1px solid @color-beige;
-      
+
       &:hover, &:focus, &:active { text-decoration: none; }
-      
+
       .icon {
         width: 20px;
         height: 20px;
@@ -1478,7 +1478,7 @@ textarea {
         display: inline-block;
         vertical-align: middle;
         top: -1px;
-        
+
         &:before, &:after {
           .before;
           clear: both;
@@ -1492,10 +1492,10 @@ textarea {
           top: 0;
           transition: opacity @duration;
         }
-        
+
         &:before { opacity: 1; }
         &:after { opacity: 0; }
-        
+
         &.icon-about {
           &:before { background-position: -150px -65px; }
           &:after { background-position: -150px -40px; }
@@ -1506,13 +1506,13 @@ textarea {
         }
       }
     }
-    
+
     &.active {
       a {
         color: @color-rosy;
         background: @color-white;
         border-bottom-color: @color-white;
-        
+
         .icon {
           &:before { opacity: 0; }
           &:after { opacity: 1; }
@@ -1525,12 +1525,12 @@ textarea {
   padding: 14px;
   background: @color-white;
   border: 1px solid @color-beige;
-  
+
   @media @md {
     min-height: 416px;
     padding: 18px 28px;
   }
-  
+
   &.tab-hidden { display: none; }
 }
 /* ==========================================================================
@@ -1538,16 +1538,16 @@ textarea {
    ========================================================================== */
 .gallery {
   margin-bottom: 8px;
-  
+
   .heading {
     .h6;
     margin-bottom: 6px !important;
-    
+
     a {
       padding: 4px 4px 4px 18px;
       display: block;
       position: relative;
-      
+
       &:before {
         .before;
         width: 16px;
@@ -1571,22 +1571,22 @@ textarea {
       }
     }
   }
-  
-  ul {
-    margin: 0 -6px;
+
+  .my-gallery {
     padding: 0;
-    list-style: none;
-    
+    margin: 0 -6px;
     &:after { .clearfix; }
-    
+
     @media @md {
       display: inline-block;
     }
-    
-    li {
+
+    figure {
       width: 50%;
-      float: left;
       padding: 6px;
+      margin: 0;
+      display: block;
+      float: left;
 
       @media @sm {
         width: 33.3%;
@@ -1595,15 +1595,9 @@ textarea {
       @media @md {
         width: 20%;
       }
-      
+
       a { display: block; }
 
-      figure {
-        padding: 0;
-        margin: 0;
-        display: block;
-      }
-      
       img {
         width: 100%;
         height: auto;
@@ -1617,17 +1611,17 @@ textarea {
    _GIFTS
    ========================================================================== */
 .gifts {
-  
+
   .heading {
     font-size: 14px;
     margin-bottom: 6px;
     font-weight: 500;
-    
+
     a {
       padding: 4px 4px 4px 18px;
       display: block;
       position: relative;
-      
+
       &:before {
         .before;
         width: 16px;
@@ -1651,18 +1645,18 @@ textarea {
       }
     }
   }
-  
+
   ul {
     margin: 0;
     padding: 0;
     cursor: default;
     list-style: none;
-    
+
     li {
       margin-bottom: 10px;
       display: inline-block;
       vertical-align: middle;
-      
+
       a { display: block; }
       img { max-width: 40px; height: auto; display: block; }
 
@@ -1730,7 +1724,7 @@ textarea {
       &:nth-of-type(3n+1) { clear: left; }
     }
   }
-  
+
   .photo {
     margin: -7px -11px 11px;
     overflow: hidden;
@@ -1744,7 +1738,7 @@ textarea {
       display: block;
       overflow: hidden;
       position: relative;
-      
+
       &:before {
         .before;
         .color-black(.3);
@@ -1848,13 +1842,13 @@ textarea {
         vertical-align: middle;
 
         &:nth-of-type(2) { padding-right: 0; padding-left: 2px; }
-        
+
         .button { display: block; }
       }
 
       @media @xs {
         display: block;
-        
+
         .cell {
           width: 100%;
           display: block;
@@ -2162,7 +2156,7 @@ textarea {
   }
 
   .color { color: @color-rosy; }
-  
+
   &.popup-message {
     cursor: default;
     .form-line {
