@@ -865,9 +865,6 @@ textarea {
       right: -4px;
       transition: opacity @duration;
 
-      .profile-open & { display: block; }
-      .profile-visible & { opacity: 1; }
-
       @media @md {
         width: 290px;
       }
@@ -883,6 +880,9 @@ textarea {
         top: -8px;
         right: 15px;
       }
+
+      .profile-open & { display: block; }
+      .profile-visible & { opacity: 1; }
 
       .entry {
         margin-bottom: 11px;

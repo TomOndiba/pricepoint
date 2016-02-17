@@ -981,12 +981,6 @@ input[type="submit"].button-icon:focus .icon:after {
   right: -4px;
   transition: opacity 0.2s ease;
 }
-.profile-open .header .username .settings {
-  display: block;
-}
-.profile-visible .header .username .settings {
-  opacity: 1;
-}
 @media (min-width: 750px) {
   .header .username .settings {
     width: 290px;
@@ -1004,6 +998,12 @@ input[type="submit"].button-icon:focus .icon:after {
   position: absolute;
   top: -8px;
   right: 15px;
+}
+.profile-open .header .username .settings {
+  display: block;
+}
+.profile-visible .header .username .settings {
+  opacity: 1;
 }
 .header .username .settings .entry {
   margin-bottom: 11px;
