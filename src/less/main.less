@@ -779,7 +779,7 @@ textarea {
 
   .head {
     margin: -15px -15px 15px;
-    padding: 11px 28px;
+    padding: 8px 15px;
     color: @color-cadet;
     font-weight: 300;
     line-height: normal;
@@ -789,6 +789,7 @@ textarea {
 
     @media @md {
       margin: -28px -28px 15px;
+      padding: 11px 28px;
       font-size: 40px;
     }
   }
@@ -1071,6 +1072,10 @@ textarea {
       @media @md {
         margin: 0 0 0 20px;
         .scale(1);
+      }
+
+      &:hover {
+        text-decoration: none;
       }
     }
 
@@ -2160,9 +2165,10 @@ textarea {
    _SIGN-IN
    ========================================================================== */
 .sign-in {
-  max-width: 454px;
+  max-width: 400px;
 
   @media @md {
+    max-width: 454px;
     font-size: 15px;
   }
 

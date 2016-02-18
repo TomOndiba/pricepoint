@@ -879,7 +879,7 @@ input[type="submit"]:not(.pswp__button).button-icon:focus .icon:after {
 }
 .form-register .head {
   margin: -15px -15px 15px;
-  padding: 11px 28px;
+  padding: 8px 15px;
   color: #5a6272;
   font-weight: 300;
   line-height: normal;
@@ -890,6 +890,7 @@ input[type="submit"]:not(.pswp__button).button-icon:focus .icon:after {
 @media (min-width: 750px) {
   .form-register .head {
     margin: -28px -28px 15px;
+    padding: 11px 28px;
     font-size: 40px;
   }
 }
@@ -1206,6 +1207,9 @@ input[type="submit"]:not(.pswp__button).button-icon:focus .icon:after {
     transform: scale(1);
     -webkit-backface-visibility: hidden;
   }
+}
+.header .buttons a:hover {
+  text-decoration: none;
 }
 .header .buttons .button {
   display: none;
@@ -2383,10 +2387,11 @@ input[type="submit"]:not(.pswp__button).button-icon:focus .icon:after {
    _SIGN-IN
    ========================================================================== */
 .sign-in {
-  max-width: 454px;
+  max-width: 400px;
 }
 @media (min-width: 750px) {
   .sign-in {
+    max-width: 454px;
     font-size: 15px;
   }
 }
