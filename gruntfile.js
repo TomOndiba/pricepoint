@@ -119,7 +119,8 @@ module.exports = function (grunt) {
 						dest: src.css + 'plugins.css'
 					}, {
 						src: [
-							src.vendor + 'pure/pure-min.css'
+							src.vendor + 'pure/pure-min.css',
+							src.vendor + 'pure/grids-responsive.css'
 						],
 						dest: src.css + 'pure.css'
 					}

@@ -317,13 +317,16 @@ input:focus {
   width: 100%;
 }
 textarea {
-  height: 116px;
+  height: 104px;
   display: block;
   resize: none;
 }
 @media (min-width: 750px) {
-  textarea {
-    height: 170px;
+  textarea.large {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 16px;
+    line-height: 20px;
   }
 }
 textarea:focus {
@@ -333,16 +336,16 @@ textarea:focus {
   width: 100%;
 }
 ::-webkit-input-placeholder {
-  color: #707a85;
+  color: #ccc;
 }
 :-moz-placeholder {
-  color: #707a85;
+  color: #ccc;
 }
 ::-moz-placeholder {
-  color: #707a85;
+  color: #ccc;
 }
 :-ms-input-placeholder {
-  color: #707a85;
+  color: #ccc;
 }
 .form-line {
   margin: 0 0 16px;
@@ -791,43 +794,39 @@ input[type="submit"]:not(.pswp__button).button-icon:focus .icon:after {
 }
 /* Seletric */
 .selectric {
-  border-color: #707a85;
-  background: #707a85;
+  border-color: #e5e5e5;
+  background: #fff;
   border-radius: 2px;
 }
 .selectric .label {
   height: 30px;
   margin: 0 36px 0 10px;
-  color: #fff;
+  color: #707a85;
   font-size: 13px;
-  font-weight: bold;
   line-height: 30px;
   letter-spacing: .02em;
-}
-@media (min-width: 568px) {
-  .selectric .label {
-    margin-left: 25px;
-  }
 }
 .selectric .button {
   width: 32px;
   height: 32px;
   padding: 0;
+  text-indent: -1000px;
+  overflow: hidden;
   background: transparent;
   border: none;
 }
 .selectric .button:after {
   border-width: 5px;
-  border-top-color: #fff;
+  border-top-color: #e5e5e5;
   transition: opacity 0.2s ease;
 }
 .selectric-hover .selectric,
 .selectric-open .selectric {
-  border-color: #707a85;
+  border-color: #333a42;
 }
 .selectric-hover .selectric .button:after,
 .selectric-open .selectric .button:after {
-  border-top-color: #fff;
+  border-top-color: #333a42;
   opacity: .8;
 }
 .selectric-items {
@@ -842,9 +841,14 @@ input[type="submit"]:not(.pswp__button).button-icon:focus .icon:after {
   margin-bottom: -1px;
   border-radius: 2px 2px 0 0;
 }
+.selectric-items ul {
+  font-size: 13px;
+}
 .selectric-items li {
   padding-top: 5px;
   padding-bottom: 5px;
+  font-size: 13px;
+  letter-spacing: .02em;
   color: #707a85;
   border-top-color: #f4f4f4;
   border-bottom-color: #f4f4f4;
@@ -859,16 +863,29 @@ input[type="submit"]:not(.pswp__button).button-icon:focus .icon:after {
   border-bottom-color: #e5e5e5;
   color: #333a42;
 }
-/* Form Register */
-.form-register {
-  margin-bottom: 22px;
-  padding: 15px;
-  background: #fff;
-  border-radius: 10px;
+@media (min-width: 750px) {
+  .select-large .selectric .label {
+    height: 40px;
+    font-size: 16px;
+    line-height: 40px;
+    margin: 0 46px 0 10px;
+  }
+  .select-large .selectric .button {
+    width: 42px;
+    height: 42px;
+  }
+  .select-large .selectric-items ul {
+    font-size: 16px;
+  }
+  .select-large .selectric-items li {
+    padding: 10px;
+    font-size: 16px;
+  }
 }
+/* Form Register */
 @media (min-width: 750px) {
   .form-register {
-    padding: 28px;
+    font-size: 15px;
   }
   .form-register .form-line {
     margin-bottom: 16px;
@@ -877,7 +894,13 @@ input[type="submit"]:not(.pswp__button).button-icon:focus .icon:after {
     margin-top: 26px;
   }
 }
-.form-register .head {
+.form-register .space {
+  margin-bottom: 22px;
+  padding: 15px;
+  background: #fff;
+  border-radius: 10px;
+}
+.form-register .space .head {
   margin: -15px -15px 15px;
   padding: 8px 15px;
   color: #5a6272;
@@ -888,7 +911,10 @@ input[type="submit"]:not(.pswp__button).button-icon:focus .icon:after {
   border-radius: 10px 10px 0 0;
 }
 @media (min-width: 750px) {
-  .form-register .head {
+  .form-register .space {
+    padding: 28px;
+  }
+  .form-register .space .head {
     margin: -28px -28px 15px;
     padding: 11px 28px;
     font-size: 40px;
@@ -906,7 +932,29 @@ input[type="submit"]:not(.pswp__button).button-icon:focus .icon:after {
 .form-register .legend {
   margin: 8px 0 0;
   display: inline-block;
+}
+.form-register .small {
+  font-size: 12px;
+  display: block;
+  margin: 14px 0 0 0;
+}
+.form-register .blue {
   color: #4c9eda;
+}
+.form-register .select-date .selectric-wrapper {
+  width: auto;
+  margin: 0 6px 0 0;
+  display: inline-block;
+}
+.form-register .select-date .selectric-wrapper .selectric .label {
+  margin-left: 10px;
+}
+.form-register .select-date .selectric-wrapper .selectric-items li {
+  font-size: 15px;
+  padding: 6px 10px;
+}
+.form-register .fn {
+  margin: 0;
 }
 /* ==========================================================================
    _HEADER
@@ -2307,6 +2355,30 @@ input[type="submit"]:not(.pswp__button).button-icon:focus .icon:after {
   transform: rotate(-45deg);
   -webkit-backface-visibility: hidden;
 }
+.sort .line .selectric {
+  border-color: #707a85;
+  background: #707a85;
+}
+.sort .line .selectric .label {
+  color: #fff;
+  font-weight: bold;
+}
+@media (min-width: 568px) {
+  .sort .line .selectric .label {
+    margin-left: 25px;
+  }
+}
+.sort .line .selectric .button:after {
+  border-top-color: #fff;
+}
+.selectric-hover .sort .line .selectric,
+.selectric-open .sort .line .selectric {
+  border-color: #707a85;
+}
+.selectric-hover .sort .line .selectric .button:after,
+.selectric-open .sort .line .selectric .button:after {
+  border-top-color: #fff;
+}
 .sort .buttons-group {
   margin-top: 0;
   margin-bottom: 4px;
@@ -2382,21 +2454,6 @@ input[type="submit"]:not(.pswp__button).button-icon:focus .icon:after {
 }
 .presents .list .cell .checkbox-gift {
   margin: 0 2px;
-}
-/* ==========================================================================
-   _SIGN-IN
-   ========================================================================== */
-.sign-in {
-  max-width: 400px;
-}
-@media (min-width: 750px) {
-  .sign-in {
-    max-width: 454px;
-    font-size: 15px;
-  }
-}
-.sign-in .fn {
-  margin: 0;
 }
 /* ==========================================================================
    _POPUP

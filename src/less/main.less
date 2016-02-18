@@ -28,6 +28,7 @@
 @color-sky: #a5ceec;
 @color-blue: #4c9eda;
 @color-sea: #333a42;
+@color-gray-pastel: #ccc;
 @color-gray: #e9e9e9;
 @color-platinum: #dee1e6;
 @color-cadet: #5a6272;
@@ -296,6 +297,8 @@ h6 {&:extend(.h6); }
   letter-spacing: inherit;
   [class *="pure-u"] { font-family: inherit; }
 }
+
+
 /* ==========================================================================
    _FORMS
    ========================================================================== */
@@ -327,21 +330,26 @@ input {
 }
 textarea {
   &:extend(input);
-  height: 116px;
+  height: 104px;
   display: block;
   resize: none;
 
   @media @md {
-    height: 170px;
+    &.large {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      font-size: 16px;
+      line-height: 20px;
+    }
   }
 
   &:focus { border-color: @color-font; }
   .form-line & { width: 100%; }
 }
-::-webkit-input-placeholder { color: @color-font; }
-:-moz-placeholder { color: @color-font; }
-::-moz-placeholder { color: @color-font; }
-:-ms-input-placeholder { color: @color-font; }
+::-webkit-input-placeholder { color: @color-gray-pastel; }
+:-moz-placeholder { color: @color-gray-pastel; }
+::-moz-placeholder { color: @color-gray-pastel; }
+:-ms-input-placeholder { color: @color-gray-pastel; }
 .form-line {
   margin: 0 0 @margin-sm;
   @media @md {
@@ -687,44 +695,41 @@ textarea {
 }
 /* Seletric */
 .selectric {
-  border-color: @color-font;
-  background: @color-font;
+  border-color: @color-beige;
+  background: @color-white;
   border-radius: 2px;
 
   .label {
     height: 30px;
     margin: 0 36px 0 10px;
-    color: @color-white;
+    color: @color-font;
     font-size: 13px;
-    font-weight: bold;
     line-height: 30px;
     letter-spacing: .02em;
-
-    @media @sm {
-      margin-left: 25px;
-    }
   }
 
   .button {
     width: 32px;
     height: 32px;
     padding: 0;
+    text-indent: -1000px;
+    overflow: hidden;
     background: transparent;
     border: none;
 
     &:after {
       border-width: 5px;
-      border-top-color: @color-white;
+      border-top-color: @color-beige;
       transition: opacity @duration;
     }
   }
 
   .selectric-hover &, .selectric-open & {
-    border-color: @color-font;
+    border-color: @color-sea;
 
     .button {
       &:after {
-        border-top-color: @color-white;
+        border-top-color: @color-sea;
         opacity: .8;
       }
     }
@@ -743,9 +748,13 @@ textarea {
     border-radius: 2px 2px 0 0;
   }
 
+  ul { font-size: 13px; }
+
   li {
     padding-top: 5px;
     padding-bottom: 5px;
+    font-size: 13px;
+    letter-spacing: .02em;
     color: @color-font;
     border-top-color: @color-beige-light;
     border-bottom-color: @color-beige-light;
@@ -763,34 +772,66 @@ textarea {
     }
   }
 }
-/* Form Register */
-.form-register {
-  margin-bottom: 22px;
-  padding: 15px;
-  background: @color-white;
-  border-radius: 10px;
+.select-large {
 
   @media @md {
-    padding: 28px;
+    .selectric {
+
+      .label {
+        height: 40px;
+        font-size: 16px;
+        line-height: 40px;
+        margin: 0 46px 0 10px;
+      }
+
+      .button { width: 42px; height: 42px; }
+    }
+
+    .selectric-items {
+      ul { font-size: 16px; }
+
+      li {
+        padding: 10px;
+        font-size: 16px;
+      }
+    }
+  }
+}
+/* Form Register */
+.form-register {
+
+  @media @md {
+    font-size: 15px;
 
     .form-line { margin-bottom: 16px; }
     .form-submit { margin-top: 26px; }
   }
 
-  .head {
-    margin: -15px -15px 15px;
-    padding: 8px 15px;
-    color: @color-cadet;
-    font-weight: 300;
-    line-height: normal;
-    letter-spacing: .03em;
-    background: @color-platinum;
-    border-radius: 10px 10px 0 0;
+  .space {
+    margin-bottom: 22px;
+    padding: 15px;
+    background: @color-white;
+    border-radius: 10px;
+
+    .head {
+      margin: -15px -15px 15px;
+      padding: 8px 15px;
+      color: @color-cadet;
+      font-weight: 300;
+      line-height: normal;
+      letter-spacing: .03em;
+      background: @color-platinum;
+      border-radius: 10px 10px 0 0;
+    }
 
     @media @md {
-      margin: -28px -28px 15px;
-      padding: 11px 28px;
-      font-size: 40px;
+      padding: 28px;
+
+      .head {
+        margin: -28px -28px 15px;
+        padding: 11px 28px;
+        font-size: 40px;
+      }
     }
   }
 
@@ -808,8 +849,32 @@ textarea {
   .legend {
     margin: 8px 0 0;
     display: inline-block;
-    color: @color-blue;
   }
+
+  .small {
+    font-size: 12px;
+    display: block;
+    margin: 14px 0 0 0;
+  }
+
+  .blue {color: @color-blue;}
+  
+  .select-date {
+    .selectric-wrapper {
+      width: auto;
+      margin: 0 6px 0 0;
+      display: inline-block;
+
+      .selectric {
+        .label { margin-left: 10px; }
+      }
+      .selectric-items {
+        li {font-size: 15px; padding: 6px 10px; }
+      }
+    }
+  }
+
+  .fn { margin: 0; }
 }
 /* ==========================================================================
    _HEADER
@@ -1099,7 +1164,9 @@ textarea {
       &.icon-login { background-position: -35px -95px; }
       &.icon-signup { background-position: -70px -95px; }
 
-      @media @md { display: none;}
+      @media @md {
+        display: none;
+      }
     }
   }
 }
@@ -2082,6 +2149,37 @@ textarea {
         &:after { .rotate(-45deg); }
       }
     }
+
+    .selectric {
+      border-color: @color-font;
+      background: @color-font;
+
+      .label {
+        color: @color-white;
+        font-weight: bold;
+
+        @media @sm {
+          margin-left: 25px;
+        }
+      }
+
+      .button {
+
+        &:after {
+          border-top-color: @color-white;
+        }
+      }
+
+      .selectric-hover &, .selectric-open & {
+        border-color: @color-font;
+
+        .button {
+          &:after {
+            border-top-color: @color-white;
+          }
+        }
+      }
+    }
   }
 
   .buttons-group {
@@ -2160,19 +2258,6 @@ textarea {
       .checkbox-gift { margin: 0 2px; }
     }
   }
-}
-/* ==========================================================================
-   _SIGN-IN
-   ========================================================================== */
-.sign-in {
-  max-width: 400px;
-
-  @media @md {
-    max-width: 454px;
-    font-size: 15px;
-  }
-
-  .fn { margin: 0; }
 }
 /* ==========================================================================
    _POPUP
