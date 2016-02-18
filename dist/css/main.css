@@ -301,6 +301,15 @@ textarea {
   transition: background-color 0.2s ease, border-color 0.2s ease;
   -webkit-appearance: none;
 }
+@media (min-width: 750px) {
+  input.large {
+    height: 42px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
 input:focus {
   border-color: #333a42;
 }
@@ -335,6 +344,14 @@ textarea:focus {
 :-ms-input-placeholder {
   color: #707a85;
 }
+.form-line {
+  margin: 0 0 16px;
+}
+@media (min-width: 750px) {
+  .form-line {
+    margin: 0 0 18px;
+  }
+}
 .form-line:after {
   display: table;
   content: '\0020';
@@ -367,6 +384,14 @@ input[type="submit"]:not(.pswp__button) {
     font-size: 13px;
     padding-left: 28px;
     padding-right: 28px;
+  }
+  .button:not(.pswp__button).button-large,
+  button:not(.pswp__button).button-large,
+  input[type="submit"]:not(.pswp__button).button-large {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    font-size: 15px;
+    line-height: 18px;
   }
 }
 .button:not(.pswp__button):hover,
@@ -402,10 +427,10 @@ input[type="submit"]:not(.pswp__button).button-black:active {
 .button:not(.pswp__button).button-white,
 button:not(.pswp__button).button-white,
 input[type="submit"]:not(.pswp__button).button-white {
-  color: #707a85;
+  color: #4c9eda;
   background: #fff;
-  border: 1px solid #e5e5e5;
-  transition: border-color 0.2s ease;
+  border: 1px solid transparent;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
 }
 .button:not(.pswp__button).button-white:hover,
 button:not(.pswp__button).button-white:hover,
@@ -416,7 +441,8 @@ input[type="submit"]:not(.pswp__button).button-white:focus,
 .button:not(.pswp__button).button-white:active,
 button:not(.pswp__button).button-white:active,
 input[type="submit"]:not(.pswp__button).button-white:active {
-  border-color: #707a85;
+  border-color: #4c9eda;
+  background-color: transparent;
 }
 .button:not(.pswp__button).button-white-bordered,
 button:not(.pswp__button).button-white-bordered,
@@ -833,6 +859,54 @@ input[type="submit"]:not(.pswp__button).button-icon:focus .icon:after {
   border-bottom-color: #e5e5e5;
   color: #333a42;
 }
+/* Form Register */
+.form-register {
+  margin-bottom: 22px;
+  padding: 15px;
+  background: #fff;
+  border-radius: 10px;
+}
+@media (min-width: 750px) {
+  .form-register {
+    padding: 28px;
+  }
+  .form-register .form-line {
+    margin-bottom: 16px;
+  }
+  .form-register .form-submit {
+    margin-top: 26px;
+  }
+}
+.form-register .head {
+  margin: -15px -15px 15px;
+  padding: 11px 28px;
+  color: #5a6272;
+  font-weight: 300;
+  line-height: normal;
+  letter-spacing: .03em;
+  background: #dee1e6;
+  border-radius: 10px 10px 0 0;
+}
+@media (min-width: 750px) {
+  .form-register .head {
+    margin: -28px -28px 15px;
+    font-size: 40px;
+  }
+}
+.form-register .form-submit .button {
+  width: 100%;
+  display: block;
+}
+.form-register label {
+  letter-spacing: .05em;
+  display: block;
+  margin-bottom: 8px;
+}
+.form-register .legend {
+  margin: 8px 0 0;
+  display: inline-block;
+  color: #4c9eda;
+}
 /* ==========================================================================
    _HEADER
    ========================================================================== */
@@ -1101,6 +1175,15 @@ input[type="submit"]:not(.pswp__button).button-icon:focus .icon:after {
   .header .username .settings .buttons-group .cell:nth-of-type(1) {
     width: 200px;
   }
+}
+.header .buttons {
+  position: absolute;
+  right: 10px;
+  top: 14px;
+}
+.header .buttons .button {
+  min-width: 128px;
+  margin: 0 0 0 20px;
 }
 /* ==========================================================================
    _FOOTER
@@ -1563,6 +1646,17 @@ input[type="submit"]:not(.pswp__button).button-icon:focus .icon:after {
   float: left;
   font-size: 12px;
   font-weight: 500;
+}
+.profile .inform .actions .report .button.button-white {
+  color: #707a85;
+  border: 1px solid #e5e5e5;
+  transition: border-color 0.2s ease;
+}
+.profile .inform .actions .report .button.button-white:hover,
+.profile .inform .actions .report .button.button-white:focus,
+.profile .inform .actions .report .button.button-white:active {
+  background-color: #fff;
+  border-color: #707a85;
 }
 @media (min-width: 750px) {
   .profile .inform .actions .report .button {
@@ -2234,6 +2328,20 @@ input[type="submit"]:not(.pswp__button).button-icon:focus .icon:after {
 }
 .presents .list .cell .checkbox-gift {
   margin: 0 2px;
+}
+/* ==========================================================================
+   _SIGN-IN
+   ========================================================================== */
+.sign-in {
+  max-width: 454px;
+}
+@media (min-width: 750px) {
+  .sign-in {
+    font-size: 15px;
+  }
+}
+.sign-in .fn {
+  margin: 0;
 }
 /* ==========================================================================
    _POPUP
