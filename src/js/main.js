@@ -210,11 +210,12 @@ var initPhotoSwipeFromDOM = function (gallerySelector) {
 
 		// find index of clicked item by looping through all child nodes
 		// alternatively, you may define index via data- attribute
-		var clickedGallery = clickedListItem.parentNode,
-			childNodes = clickedListItem.parentNode.childNodes,
+		var clickedGallery = clickedListItem.parentNode ,
+			childNodes = $('[data-pswp-uid=' + $(clickedListItem.parentNode).attr('data-pswp-uid') + ']').find('figure'),
 			numChildNodes = childNodes.length,
 			nodeIndex = 0,
 			index;
+
 
 		for (var i = 0; i < numChildNodes; i++) {
 			if (childNodes[i].nodeType !== 1) {
@@ -227,7 +228,6 @@ var initPhotoSwipeFromDOM = function (gallerySelector) {
 			}
 			nodeIndex++;
 		}
-
 
 		if (index >= 0) {
 			// open PhotoSwipe if valid index found
@@ -270,7 +270,10 @@ var initPhotoSwipeFromDOM = function (gallerySelector) {
 			options,
 			items;
 
-		items = parseThumbnailElements(galleryElement);
+		items = [];
+		$('[data-gallery=' + $(galleryElement).data('gallery') + ']').each(function () {
+			items = items.concat(parseThumbnailElements(this));
+		});
 
 		// define options (if needed)
 		options = {
@@ -323,16 +326,13 @@ var initPhotoSwipeFromDOM = function (gallerySelector) {
 	};
 
 	// loop through all gallery elements and bind events
-	var galleryElements = document.querySelectorAll(gallerySelector);
-
-	for (var i = 0, l = galleryElements.length; i < l; i++) {
-		galleryElements[i].setAttribute('data-pswp-uid', i + 1);
-		galleryElements[i].onclick = onThumbnailsClick;
-	}
+	$(gallerySelector).each(function (i) {
+		$(this).attr('data-pswp-uid', 1).on('click', onThumbnailsClick);
+	});
 
 	// Parse URL and open gallery if it contains #&pid=3&gid=1
 	var hashData = photoswipeParseHash();
 	if (hashData.pid && hashData.gid) {
-		openPhotoSwipe(hashData.pid, galleryElements[hashData.gid - 1], true, true);
+		openPhotoSwipe(hashData.pid, $(gallerySelector)[hashData.gid - 1], true, true);
 	}
 };

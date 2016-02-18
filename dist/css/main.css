@@ -1391,7 +1391,8 @@ label.css-label {
     -webkit-backface-visibility: hidden;
   }
 }
-.header .buttons a:hover {
+.header .buttons a:hover,
+.header .buttons a:focus {
   text-decoration: none;
 }
 .header .buttons .button {
