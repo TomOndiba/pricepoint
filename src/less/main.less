@@ -1057,11 +1057,44 @@ textarea {
   .buttons {
     position: absolute;
     right: 10px;
-    top: 14px;
+    top: 5px;
+
+    @media @md {
+      top: 14px;
+    }
+
+    a {
+      margin: 0 0 0 5px;
+      display: inline-block;
+      .scale(.8);
+
+      @media @md {
+        margin: 0 0 0 20px;
+        .scale(1);
+      }
+    }
 
     .button {
-      min-width: 128px;
-      margin: 0 0 0 20px;
+      display: none;
+
+      @media @md {
+        min-width: 128px;
+        display: block;
+      }
+    }
+
+    .icon {
+      width: 30px;
+      height: 30px;
+      display: inline-block;
+      background-image: url("@{images}/sprite.png");
+      background-repeat: no-repeat;
+      background-size: 250px auto;
+
+      &.icon-login { background-position: -35px -95px; }
+      &.icon-signup { background-position: -70px -95px; }
+
+      @media @md { display: none;}
     }
   }
 }
