@@ -293,12 +293,24 @@ h6 {&:extend(.h6); }
 }
 /* PureCSS styles */
 .pure-g {
+  margin: 0 -10px;
   font-family: inherit;
   letter-spacing: inherit;
-  [class *="pure-u"] { font-family: inherit; }
+  [class *="pure-u"] { font-family: inherit; padding: 0 10px; }
+
+  @media @lg {
+    margin: 0 -25px;
+
+    [class *="pure-u"] { font-family: inherit; padding: 0 25px; }
+  }
+
+  .pure-u-mobile-hidden {
+    display: none;
+    @media (min-width: 768px){
+      display: inline-block;
+    }
+  }
 }
-
-
 /* ==========================================================================
    _FORMS
    ========================================================================== */
@@ -770,8 +782,25 @@ textarea {
       border-bottom-color: @color-beige;
       color: @color-sea;
     }
+    
+    &.disabled { display: none; }
   }
 }
+.select-small {
+
+  @media @md {
+    .selectric {
+
+      .label {
+        height: 24px;
+        line-height: 24px;
+      }
+
+      .button { width: 24px; height: 24px; }
+    }
+  }
+}
+
 .select-large {
 
   @media @md {
@@ -786,7 +815,6 @@ textarea {
 
       .button { width: 42px; height: 42px; }
     }
-
     .selectric-items {
       ul { font-size: 16px; }
 
@@ -797,14 +825,54 @@ textarea {
     }
   }
 }
+/* CSS-Checkbox */
+input[type=checkbox].css-checkbox {
+  position: absolute;
+  z-index: -1000;
+  left: -1000px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+
+  + label.css-label {
+    padding-left: 24px;
+    display: inline-block;
+    font-size: 13px;
+    line-height: 18px;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    vertical-align: middle;
+    cursor: pointer;
+
+    @media @md {
+      font-size: 15px;
+    }
+  }
+
+  &:checked {
+    + label.css-label {
+      background-position: 0 -18px;
+    }
+  }
+}
+label.css-label {
+  background-image: url(http://csscheckbox.com/checkboxes/u/csscheckbox_e7d0bf58d1556e5a8ef49f2491d9a183.png);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 /* Form Register */
 .form-register {
 
   @media @md {
     font-size: 15px;
-
-    .form-line { margin-bottom: 16px; }
-    .form-submit { margin-top: 26px; }
   }
 
   .space {
@@ -836,14 +904,107 @@ textarea {
   }
 
   .form-submit {
-
     .button { width: 100%; display: block; }
+
+    @media @sm {
+      .button-inline { width: auto; display: inline-block;}
+    }
+
+    @media @md {
+      margin-top: 26px;
+    }
+  }
+
+  .form-line {
+    &.form-line-checkbox { margin-bottom: 6px; }
+
+    @media @md {
+      margin-bottom: 16px;
+    }
+  }
+
+  .info {
+    .form-line { margin-bottom: 10px;}
   }
 
   label {
     letter-spacing: .05em;
     display: block;
     margin-bottom: 8px;
+  }
+
+  .select-date {
+    .selectric-wrapper {
+      width: auto;
+      margin: 0 6px 0 0;
+      display: inline-block;
+
+      .selectric {
+        .label { margin-left: 10px; }
+      }
+      .selectric-items {
+        li { font-size: 15px; padding: 6px 10px; }
+      }
+    }
+  }
+
+  .title {
+    margin: 20px -10px 10px;
+    padding: 0 10px 10px;
+    color: @color-rosy;
+    letter-spacing: .08em;
+    border-bottom: 1px solid #ddd;
+
+    @media @md {
+      margin: 30px -23px 10px;
+      padding-left: 23px;
+      padding-right: 23px;
+    }
+  }
+
+  .code {
+
+    input[type="text"] {
+      width: 100px;
+      float: left;
+    }
+
+    .text {
+      min-height: 32px;
+      margin-left: 106px;
+      padding: 4px;
+      display: block;
+      background: @color-beige;
+      cursor: default;
+      font-size: 11px;
+      line-height: 12px;
+    }
+
+    @media @sm {
+
+      input[type="text"] {
+        width: 140px;
+        display: inline-block;
+        vertical-align: middle;
+        float: none;
+      }
+
+      .text {
+        margin-left: 0;
+        display: inline-block;
+        vertical-align: middle;
+        padding: 8px 6px;
+        line-height: 16px;
+      }
+    }
+
+    @media @md {
+      .text {
+        font-size: 16px;
+        line-height: 18px;
+        padding: 12px 10px;
+      }
+    }
   }
 
   .legend {
@@ -857,24 +1018,7 @@ textarea {
     margin: 14px 0 0 0;
   }
 
-  .blue {color: @color-blue;}
-  
-  .select-date {
-    .selectric-wrapper {
-      width: auto;
-      margin: 0 6px 0 0;
-      display: inline-block;
-
-      .selectric {
-        .label { margin-left: 10px; }
-      }
-      .selectric-items {
-        li {font-size: 15px; padding: 6px 10px; }
-      }
-    }
-  }
-
-  .fn { margin: 0; }
+  .blue { color: @color-blue; }
 }
 /* ==========================================================================
    _HEADER
