@@ -6,6 +6,7 @@
    _FONTS
    ========================================================================== */
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300italic,700);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600);
 /* ==========================================================================
    _GENERAL STYLES
    ========================================================================== */
@@ -31,6 +32,10 @@ body {
   padding: 40px 0 120px;
   background: #f4f4f4;
   position: relative;
+}
+body.index-page {
+  height: 100%;
+  padding-bottom: 0;
 }
 @media (min-width: 750px) {
   html {
@@ -282,7 +287,7 @@ h6 {
   font-family: inherit;
   padding: 0 10px;
 }
-@media (min-width: 1000px) {
+@media (min-width: 1024px) {
   .pure-g {
     margin: 0 -25px;
   }
@@ -990,6 +995,52 @@ label.css-label {
   width: 100%;
   display: block;
 }
+.form-register .form-submit .button.button-sign span {
+  width: 12px;
+  height: 12px;
+  margin: 0 3px;
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+}
+.form-register .form-submit .button.button-sign span:before,
+.form-register .form-submit .button.button-sign span:after {
+  display: block;
+  content: '\0020';
+  overflow: hidden;
+  clear: both;
+  width: 2px;
+  height: 7px;
+  background: #fff;
+  border-radius: 2px;
+  position: absolute;
+  left: 6px;
+  transition: background-color 0.2s ease;
+}
+.form-register .form-submit .button.button-sign span:before {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -webkit-backface-visibility: hidden;
+  top: 4px;
+}
+.form-register .form-submit .button.button-sign span:after {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -webkit-backface-visibility: hidden;
+  top: 0;
+}
+.form-register .form-submit .button.button-sign:hover span:before,
+.form-register .form-submit .button.button-sign:focus span:before,
+.form-register .form-submit .button.button-sign:hover span:after,
+.form-register .form-submit .button.button-sign:focus span:after {
+  background-color: #e74b90;
+}
 @media (min-width: 568px) {
   .form-register .form-submit .button-inline {
     width: auto;
@@ -1438,6 +1489,12 @@ label.css-label {
   bottom: 0;
   cursor: default;
 }
+.index-page .footer {
+  position: relative;
+  bottom: auto;
+  left: auto;
+  right: auto;
+}
 .footer .wrapper {
   min-height: 100%;
   position: relative;
@@ -1617,10 +1674,14 @@ label.css-label {
   .top .links-group li a .icon.icon-date:after {
     background-position: -75px -40px;
   }
-  .top .links-group li a:hover .icon:before {
+  .top .links-group li a:hover .icon:before,
+  .top .links-group li a:focus .icon:before,
+  .top .links-group li a:active .icon:before {
     opacity: 0;
   }
-  .top .links-group li a:hover .icon:after {
+  .top .links-group li a:hover .icon:after,
+  .top .links-group li a:focus .icon:after,
+  .top .links-group li a:active .icon:after {
     opacity: 1;
   }
 }
@@ -2551,7 +2612,9 @@ label.css-label {
   border-radius: 2px;
   transition: background-color 0.2s ease, color 0.2s ease;
 }
-.warning .link:hover {
+.warning .link:hover,
+.warning .link:focus,
+.warning .link:active {
   text-decoration: none;
   color: #fff;
   background-color: #4c9eda;
@@ -2590,6 +2653,153 @@ label.css-label {
 }
 .presents .list .cell .checkbox-gift {
   margin: 0 2px;
+}
+/* ==========================================================================
+   _INDEX
+   ========================================================================== */
+.index {
+  height: 100%;
+  padding: 20px 0;
+  color: #fff;
+  font: 16px/20px 'Open Sans', Arial, sans-serif;
+  text-align: center;
+  background: url("../img/temp/index.jpg") 75% 0 no-repeat;
+  background-size: cover;
+  border-top: 2px solid #b0b0b0;
+}
+@media (max-height: 334px) {
+  .index {
+    height: auto;
+  }
+}
+@media (min-width: 568px) {
+  .index {
+    text-align: left;
+    background-position: 88% 0;
+  }
+}
+@media (min-width: 750px) {
+  .index {
+    font-size: 25px;
+    line-height: 35px;
+    background-position: 50% 0;
+  }
+}
+@media (min-width: 750px) and (max-height: 530px) {
+  .index {
+    height: auto;
+  }
+}
+.index .wrapper {
+  height: 100%;
+}
+.index .space {
+  width: 100%;
+  height: 100%;
+  display: table;
+}
+.index .space .cell {
+  display: table-cell;
+  vertical-align: bottom;
+}
+@media (min-width: 568px) {
+  .index .space {
+    max-width: 300px;
+  }
+}
+@media (min-width: 750px) {
+  .index .space {
+    max-width: 500px;
+  }
+  .index .space .cell {
+    vertical-align: middle;
+  }
+}
+.index .heading {
+  margin-top: 0;
+  color: #fff;
+  font-size: 24px;
+  line-height: 32px;
+}
+@media (min-width: 750px) {
+  .index .heading {
+    margin-bottom: 40px;
+    font-size: 44px;
+    line-height: 50px;
+  }
+}
+.index p {
+  letter-spacing: .03em;
+}
+@media (min-width: 750px) {
+  .index p {
+    margin-bottom: 38px;
+  }
+}
+.index .form-line {
+  max-width: 394px;
+  margin: 0 auto;
+}
+@media (min-width: 568px) {
+  .index .form-line {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+.index .form-line label {
+  margin-bottom: 10px;
+  display: block;
+}
+.index .form-line .select-large {
+  margin-bottom: 10px;
+}
+.index .form-line .select-large .selectric .label {
+  font-family: 'Open Sans', Arial, sans-serif;
+}
+@media (min-width: 750px) {
+  .index .form-line .select-large {
+    margin-bottom: 20px;
+  }
+  .index .form-line .select-large .selectric .label {
+    font-size: 15px;
+  }
+}
+.index .form-line .button.button-large {
+  width: 100%;
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-weight: 600;
+  position: relative;
+}
+.index .form-line .button.button-large:after {
+  display: block;
+  content: '\0020';
+  overflow: hidden;
+  clear: both;
+  margin: 0 0 0 10px;
+  display: inline-block;
+  vertical-align: middle;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-color: transparent transparent transparent #fff;
+  transition: border-color 0.2s ease;
+}
+.index .form-line .button.button-large:hover:after {
+  border-color: transparent transparent transparent #e74b90;
+}
+@media (min-width: 750px) {
+  .index .form-line .button.button-large {
+    font-size: 27px;
+    line-height: 34px;
+    padding: 20px 22px;
+    border-radius: 10px;
+    border-width: 2px;
+  }
+  .index .form-line .button.button-large:after {
+    margin: 0 0 0 24px;
+    border-width: 15px 0 15px 15px;
+  }
 }
 /* ==========================================================================
    _POPUP

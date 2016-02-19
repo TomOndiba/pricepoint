@@ -34,7 +34,7 @@
 	<meta name="msapplication-config" content="img/favicon/browserconfig.xml">
 	<meta name="theme-color" content="#ffffff">
 </head>
-<body>
+<body class="index-page">
 
 	<!-- Header -->
 	<header class="header">
@@ -45,185 +45,47 @@
 			<!-- logo -->
 			<p class="logo"><img src="img/logo.png" width="246" height="36" alt=""></p>
 
-			<!-- username -->
-			<div class="username">
-				<a class="switch" href="#">Roberto2011 <span class="credits">100 credits</span></a>
-				<div class="settings">
-					<div class="entry">
-						<figure class="image">
-							<img src="img/temp/user-2.jpg" width="124" height="124" alt="">
-							<a href="person.html">View My Profile</a>
-						</figure>
-						<div class="info">
-							<p class="name">Roberto2011</p>
-							<a class="button button-white-bordered" href="#">Manage Photos</a>
-							<a class="button button-white-bordered" href="#">Edit My Profile</a>
-							<a class="button button-white-bordered" href="#">Settings</a>
-						</div>
-					</div>
-					<div class="entry">
-						<a class="button button-black" href="#">My Favorites</a>
-						<a class="button button-black" href="#">Who Viewed Me</a>
-						<a class="button button-black" href="#">Who Favorited Me</a>
-					</div>
-					<div class="entry">
-						<p class="fn">100 Credits Remaining</p>
-						<div class="buttons-group">
-							<p class="cell"><a class="button" href="#">Buy Credits</a></p>
-							<p class="cell"><a class="button button-white-bordered" href="index.html">Log Out</a></p>
-						</div>
-					</div>
-				</div>
+			<!-- Sign in -->
+			<div class="buttons">
+				<a href="login.html"><span class="button button-white">Log In</span> <span class="icon icon-login"></span></a>
+				<a href="sign-up.html"><span class="button">Sign Up</span> <span class="icon icon-signup"></span></a>
 			</div>
 		</div>
 	</header>
 	<!-- /Header -->
 
 
-	<!-- Top -->
-	<div class="top">
+	<!-- Index -->
+	<div class="index">
 		<div class="wrapper">
-			<ul class="links-group">
-				<li><a href="#"><span class="icon icon-search"></span> Search</a></li>
-				<li><a href="#"><span class="icon icon-offers"></span> Offers <span class="mobile-hidden">-</span> <strong>37</strong></a></li>
-				<li><a href="#"><span class="icon icon-date"></span> Dates <span class="mobile-hidden">-</span> <strong>91</strong></a></li>
-				<li><a href="#"><span class="icon icon-messages"></span> Messages <span class="mobile-hidden">-</span> <strong>59</strong></a></li>
-			</ul>
-			<p class="buy"><a class="button" href="#">Buy Credits</a></p>
+
+			<div class="space">
+				<div class="cell">
+					<h1 class="heading">Where Generous Men <br>Date Beautiful Women</h1>
+
+					<p class="slogan">Men: Go on a date tonight <br>Women: Get paid to go out</p>
+
+					<div class="form-line">
+						<label for="gender">I am</label>
+						<div class="select-large">
+							<select id="gender">
+								<option value="">Generous man seeking beautiful women</option>
+								<option value="">Attractive woman seeking generous men</option>
+							</select>
+						</div>
+						<a class="button button-large" href="#">Join the Dating Auction</a>
+					</div>
+				</div>
+			</div>
+
 		</div>
 	</div>
-	<!-- /Top -->
+	<!-- /Index -->
 
 
 	<!-- Container -->
 	<main class="container">
 		<div class="wrapper">
-
-			<!-- Sort -->
-			<div class="sort">
-				<form action="#" method="post">
-					<div class="line">
-						<div class="form-line">
-							<label for="sort"></label>
-							<select id="sort">
-								<option value="">Sort by: Newest Member</option>
-								<option value="">Sort by: Newest Member</option>
-								<option value="">Sort by: Newest Member</option>
-								<option value="">Sort by: Newest Member</option>
-							</select>
-						</div>
-						<span class="type">Within 10 Miles <a class="close" href="#"></a></span>
-						<span class="type">With Photos <a class="close" href="#"></a></span>
-						<span class="type">Ages 18 to 29 <a class="close" href="#"></a></span>
-						<span class="type">Ethnicity: White / Caucasian <a class="close" href="#"></a></span>
-					</div>
-					<div class="buttons-group">
-						<p class="cell">
-							<button class="button button-black" type="submit" value="">Add Search Filter</button>
-						</p>
-						<p class="cell">
-							<button class="button button-rosy" type="submit" value="">Update Search</button>
-						</p>
-					</div>
-				</form>
-			</div>
-			<!-- /Sort -->
-
-			<!-- Warning -->
-			<div class="warning">
-				<p>Your search has returned <span class="color">2086 members</span> using the search filters above.</p>
-				<a class="link" href="#">Click here to start over</a>
-			</div>
-			<!-- /Warning -->
-
-			<!-- Catalog -->
-			<section class="catalog">
-				<div class="item">
-					<div class="space">
-						<figure class="photo"><a href="person.html"><img src="img/catalog/1.jpg" width="313" height="313" alt=""></a></figure>
-						<div class="info">
-							<p class="name">Jemma21</p>
-							<p class="location">New York, NY <a class="link" href="#">13 miles</a></p>
-							<p class="status">Life is beautifull!</p>
-							<div class="actions">
-								<span class="cell"><a class="button button-icon js-popup" href="#popup-message"><span class="icon icon-offer"></span> Send Offer</a></span>
-								<span class="cell"><a class="button button-gray button-icon" href="#"><span class="icon icon-fav"></span> Favorite</a></span>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="item">
-					<div class="space">
-						<figure class="photo"><a href="person.html"><img src="img/catalog/2.jpg" width="313" height="313" alt=""></a></figure>
-						<div class="info">
-							<p class="name">Manuella</p>
-							<p class="location">California, LA <a class="link" href="#">1223 miles</a></p>
-							<p class="status">Your motto can be added here</p>
-							<div class="actions">
-								<span class="cell">&#36;100 Offer Sent</span>
-								<span class="cell"><a class="button button-gray button-icon" href="#"><span class="icon icon-fav"></span> Favorite</a></span>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="item">
-					<div class="space">
-						<figure class="photo"><a href="person.html"><img src="img/catalog/3.jpg" width="313" height="313" alt=""></a></figure>
-						<div class="info">
-							<p class="name">Dana</p>
-							<p class="location">Lugoj, TM <a class="link" href="#">12983 miles</a></p>
-							<p class="status">Say something</p>
-							<div class="actions">
-								<span class="cell"><a class="button button-blue button-icon js-popup" href="#popup-message"><span class="icon icon-message"></span> Send Message</a></span>
-								<span class="cell"><a class="button button-gray button-icon" href="#"><span class="icon icon-fav"></span> Favorite</a></span>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="item">
-					<div class="space">
-						<figure class="photo"><a href="person.html"><img src="img/catalog/1.jpg" width="313" height="313" alt=""></a></figure>
-						<div class="info">
-							<p class="name">Jemma21</p>
-							<p class="location">New York, NY <a class="link" href="#">13 miles</a></p>
-							<p class="status">Life is beautifull!</p>
-							<div class="actions">
-								<span class="cell"><a class="button button-icon js-popup" href="#popup-message"><span class="icon icon-offer"></span> Send Offer</a></span>
-								<span class="cell"><a class="button button-gray button-icon" href="#"><span class="icon icon-fav"></span> Favorite</a></span>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="item">
-					<div class="space">
-						<figure class="photo"><a href="person.html"><img src="img/catalog/2.jpg" width="313" height="313" alt=""></a></figure>
-						<div class="info">
-							<p class="name">Manuella</p>
-							<p class="location">California, LA <a class="link" href="#">1223 miles</a></p>
-							<p class="status">Your motto can be added here</p>
-							<div class="actions">
-								<span class="cell"><a class="button button-icon js-popup" href="#popup-message"><span class="icon icon-offer"></span> Send Offer</a></span>
-								<span class="cell"><a class="button button-gray button-icon" href="#"><span class="icon icon-fav"></span> Favorite</a></span>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="item">
-					<div class="space">
-						<figure class="photo"><a href="person.html"><img src="img/catalog/3.jpg" width="313" height="313" alt=""></a></figure>
-						<div class="info">
-							<p class="name">Dana</p>
-							<p class="location">Lugoj, TM <a class="link" href="#">12983 miles</a></p>
-							<p class="status">Say something</p>
-							<div class="actions">
-								<span class="cell"><a class="button button-icon js-popup" href="#popup-message"><span class="icon icon-offer"></span> Send Offer</a></span>
-								<span class="cell"><a class="button button-gray button-icon" href="#"><span class="icon icon-fav"></span> Favorite</a></span>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-			<!-- /Catalog -->
 
 		</div>
 	</main>
