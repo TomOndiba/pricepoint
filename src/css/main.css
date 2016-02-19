@@ -5,7 +5,7 @@
 /* ==========================================================================
    _FONTS
    ========================================================================== */
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300italic,700);
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,500,700);
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600);
 /* ==========================================================================
    _GENERAL STYLES
@@ -2785,7 +2785,9 @@ label.css-label {
   border-color: transparent transparent transparent #fff;
   transition: border-color 0.2s ease;
 }
-.index .form-line .button.button-large:hover:after {
+.index .form-line .button.button-large:hover:after,
+.index .form-line .button.button-large:focus:after,
+.index .form-line .button.button-large:active:after {
   border-color: transparent transparent transparent #e74b90;
 }
 @media (min-width: 750px) {
@@ -2797,6 +2799,104 @@ label.css-label {
     border-width: 2px;
   }
   .index .form-line .button.button-large:after {
+    margin: 0 0 0 24px;
+    border-width: 15px 0 15px 15px;
+  }
+}
+/* ==========================================================================
+   _CALL-TO-ACTION
+   ========================================================================== */
+.call-to-action {
+  margin-bottom: 1px;
+  padding: 20px 0;
+  color: #fff;
+  text-align: center;
+  font-weight: 300;
+  background: #333a42;
+  position: relative;
+  z-index: 1;
+}
+@media (min-width: 750px) {
+  .call-to-action {
+    padding: 40px 0;
+  }
+}
+.call-to-action:before,
+.call-to-action:after {
+  display: block;
+  content: '\0020';
+  overflow: hidden;
+  width: 470px;
+  height: 424px;
+  clear: both;
+  background-size: cover;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0;
+  opacity: .09;
+  z-index: -1;
+}
+.call-to-action:before {
+  left: 0;
+  background-image: url("../img/temp/heart.png");
+}
+.call-to-action:after {
+  right: 0;
+  background-image: url("../img/temp/hearts.png");
+}
+@media (min-width: 750px) {
+  .call-to-action p {
+    margin-bottom: 24px;
+    font-size: 21px;
+    line-height: 24px;
+  }
+}
+.call-to-action .heading {
+  color: #fff;
+  font-weight: 300;
+}
+@media (min-width: 750px) {
+  .call-to-action .heading {
+    margin-bottom: 38px;
+    font-size: 60px;
+  }
+}
+.call-to-action .button.button-large {
+  margin-top: 18px;
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-weight: 600;
+  position: relative;
+}
+.call-to-action .button.button-large:after {
+  display: block;
+  content: '\0020';
+  overflow: hidden;
+  clear: both;
+  margin: 0 0 0 10px;
+  display: inline-block;
+  vertical-align: middle;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-color: transparent transparent transparent #fff;
+  transition: border-color 0.2s ease;
+}
+.call-to-action .button.button-large:hover:after,
+.call-to-action .button.button-large:focus:after,
+.call-to-action .button.button-large:active:after {
+  border-color: transparent transparent transparent #e74b90;
+}
+@media (min-width: 750px) {
+  .call-to-action .button.button-large {
+    font-size: 27px;
+    line-height: 34px;
+    padding: 20px 22px;
+    border-radius: 10px;
+    border-width: 2px;
+  }
+  .call-to-action .button.button-large:after {
     margin: 0 0 0 24px;
     border-width: 15px 0 15px 15px;
   }
