@@ -15,6 +15,7 @@
 @md: ~"(min-width: 750px)";
 @lg: ~"(min-width: 1000px)";
 @xl: ~"(min-width: 1024px)";
+@xxl: ~"(min-width: 1200px)";
 
 @font-family: 'Roboto', Arial, sans-serif;
 @font-awesome: 'FontAwesome', sans-serif;
@@ -35,6 +36,7 @@
 @color-platinum: #dee1e6;
 @color-cadet: #5a6272;
 @color-gainsboro: #dadada;
+@color-brown-light: #b6a8a7;
 
 @margin-sm: 16px;
 @margin-md: 18px;
@@ -81,6 +83,14 @@
   -ms-transition: -ms-transform @duration, opacity @duration;
   -o-transition: -o-transform @duration, opacity @duration;
   transition: transform @duration, opacity @duration;
+}
+.gradient-4 (@color-1, @color-2, @color-3, @color-4) {
+  background-color: @color-1;
+  background: -webkit-linear-gradient(top, @color-1, @color-2, @color-3, @color-4);
+  background: -moz-linear-gradient(top, @color-1, @color-2, @color-3, @color-4);
+  background: -ms-linear-gradient(top, @color-1, @color-2, @color-3, @color-4);
+  background: -o-linear-gradient(top, @color-1, @color-2, @color-3, @color-4);
+  background: linear-gradient(to bottom, @color-1, @color-2, @color-3, @color-4);
 }
 /* ==========================================================================
    _FONTS
@@ -2465,7 +2475,7 @@ label.css-label {
   background-size: cover;
   border-top: 2px solid #b0b0b0;
 
-  @media (max-height: 334px){
+  @media (max-height: 334px) {
     height: auto;
   }
 
@@ -2479,7 +2489,7 @@ label.css-label {
     line-height: 35px;
     background-position: 50% 0;
 
-    @media (max-height: 530px){
+    @media (max-height: 530px) {
       height: auto;
     }
   }
@@ -2555,7 +2565,7 @@ label.css-label {
         margin-bottom: 20px;
 
         .selectric {
-          .label {font-size: 15px;}
+          .label { font-size: 15px; }
         }
       }
     }
@@ -2581,7 +2591,7 @@ label.css-label {
       }
 
       &:hover, &:focus, &:active {
-        &:after {border-color: transparent transparent transparent @color-rosy;}
+        &:after { border-color: transparent transparent transparent @color-rosy; }
       }
 
       @media @md {
@@ -2591,7 +2601,185 @@ label.css-label {
         border-radius: 10px;
         border-width: 2px;
 
-        &:after {margin: 0 0 0 24px; border-width: 15px 0 15px 15px;}
+        &:after { margin: 0 0 0 24px; border-width: 15px 0 15px 15px; }
+      }
+    }
+  }
+}
+/* ==========================================================================
+   _ARTICLE
+   ========================================================================== */
+.article {
+  text-align: center;
+  font-size: 13px;
+  overflow: hidden;
+
+  .wrapper {
+    height: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    .space {
+      width: 100%;
+      height: 100%;
+      display: table;
+      .cell { display: table-cell; vertical-align: middle; }
+    }
+  }
+
+  @media @sm {
+    text-align: right;
+
+    .wrapper {
+      min-height: 230px;
+      padding-right: 250px;
+
+      .space { height: 230px;}
+    }
+
+    &:nth-of-type(2n) {
+      text-align: left;
+
+      .wrapper { padding-left: 250px; padding-right: 10px; }
+    }
+  }
+
+  @media @md {
+    font-size: 18px;
+    line-height: 22px;
+
+    .wrapper {
+      min-height: 350px;
+      padding-right: 326px;
+
+      .space { height: 350px;}
+    }
+    &:nth-of-type(2n) {
+      .wrapper { padding-left: 326px; }
+    }
+  }
+
+  @media @lg {
+    font-size: 21px;
+    line-height: 24px;
+
+    .wrapper {
+      min-height: 600px;
+      padding-right: 430px;
+
+      .space { height: 560px;}
+    }
+    &:nth-of-type(2n) {
+      .wrapper { padding-left: 430px; }
+    }
+    p { margin-bottom: 24px; }
+  }
+
+  @media @xxl {
+    .wrapper { padding-right: 316px; }
+
+    &:nth-of-type(2n) {
+      .wrapper { padding-left: 410px; }
+    }
+  }
+
+  .heading {
+    margin-top: 0;
+    font-weight: 300;
+
+    @media @md {
+      margin-bottom: 32px;
+      font-size: 40px;
+    }
+
+    @media @lg {
+      font-size: 60px;
+    }
+  }
+
+  &.article-brown {
+    color: @color-white;
+    position: relative;
+    z-index: 1;
+    .gradient-4 (#b9a9a9 0%, #b6a6a6 18%, #aa9b98 66%, #a59693 100%);
+
+    .heading { color: #e6005f; }
+
+    @media @sm {
+      .wrapper {
+        position: relative;
+
+        &:before {
+          .before;
+          margin-right: -200px;
+          background-image: url("@{images}/temp/article-1.jpg");
+          background-repeat: no-repeat;
+          background-position: 100% 0;
+          background-size: auto 100%;
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          z-index: -1;
+        }
+      }
+    }
+
+    @media @md {
+      .wrapper {
+        &:before { margin-right: -305px; }
+      }
+    }
+
+    @media @lg {
+      .wrapper {
+        &:before { margin-right: -550px; }
+      }
+    }
+
+    @media @xxl {
+      .wrapper {
+        &:before { margin-right: -686px; }
+      }
+    }
+  }
+
+  &.article-blue {
+    .gradient-4 (#bde0e4 0%, #bde0e4 18%, #aed5da 66%, #a7d0d4 100%);
+    position: relative;
+    z-index: 1;
+
+    .heading { color: #4d858b; }
+
+    @media @sm {
+      .wrapper {
+        &:before {
+          .before;
+          margin-left: -200px;
+          background-image: url("@{images}/temp/article-2.jpg");
+          background-repeat: no-repeat;
+          background-position: 0 0;
+          background-size: auto 100%;
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          z-index: -1;
+        }
+      }
+    }
+
+    @media @md {
+      .wrapper {
+        &:before {margin-left: -305px;}
+      }
+    }
+
+    @media @lg {
+      .wrapper {
+        &:before {margin-left: -480px;}
       }
     }
   }
@@ -2627,8 +2815,8 @@ label.css-label {
     z-index: -1;
   }
 
-  &:before { left: 0;background-image: url("@{images}/temp/heart.png"); }
-  &:after { right: 0;background-image: url("@{images}/temp/hearts.png"); }
+  &:before { left: 0; background-image: url("@{images}/temp/heart.png"); }
+  &:after { right: 0; background-image: url("@{images}/temp/hearts.png"); }
 
   @media @md {
     p {
@@ -2669,7 +2857,7 @@ label.css-label {
     }
 
     &:hover, &:focus, &:active {
-      &:after {border-color: transparent transparent transparent @color-rosy;}
+      &:after { border-color: transparent transparent transparent @color-rosy; }
     }
 
     @media @md {
@@ -2679,11 +2867,10 @@ label.css-label {
       border-radius: 10px;
       border-width: 2px;
 
-      &:after {margin: 0 0 0 24px; border-width: 15px 0 15px 15px;}
+      &:after { margin: 0 0 0 24px; border-width: 15px 0 15px 15px; }
     }
   }
 }
-
 /* ==========================================================================
    _POPUP
    ========================================================================== */
