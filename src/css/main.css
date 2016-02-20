@@ -2790,7 +2790,7 @@ label.css-label {
 .index .form-line .button.button-large:active:after {
   border-color: transparent transparent transparent #e74b90;
 }
-@media (min-width: 750px) {
+@media (min-width: 1000px) {
   .index .form-line .button.button-large {
     font-size: 27px;
     line-height: 34px;
@@ -3009,6 +3009,17 @@ label.css-label {
 @media (min-width: 750px) {
   .call-to-action {
     padding: 40px 0;
+    font-size: 18px;
+    line-height: 22px;
+  }
+}
+@media (min-width: 1000px) {
+  .call-to-action {
+    font-size: 21px;
+    line-height: 24px;
+  }
+  .call-to-action p {
+    margin-bottom: 24px;
   }
 }
 .call-to-action:before,
@@ -3035,13 +3046,6 @@ label.css-label {
   right: 0;
   background-image: url("../img/temp/hearts.png");
 }
-@media (min-width: 750px) {
-  .call-to-action p {
-    margin-bottom: 24px;
-    font-size: 21px;
-    line-height: 24px;
-  }
-}
 .call-to-action .heading {
   color: #fff;
   font-weight: 300;
@@ -3049,6 +3053,11 @@ label.css-label {
 @media (min-width: 750px) {
   .call-to-action .heading {
     margin-bottom: 38px;
+    font-size: 40px;
+  }
+}
+@media (min-width: 1000px) {
+  .call-to-action .heading {
     font-size: 60px;
   }
 }
@@ -3078,7 +3087,7 @@ label.css-label {
 .call-to-action .button.button-large:active:after {
   border-color: transparent transparent transparent #e74b90;
 }
-@media (min-width: 750px) {
+@media (min-width: 1000px) {
   .call-to-action .button.button-large {
     font-size: 27px;
     line-height: 34px;

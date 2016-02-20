@@ -2594,7 +2594,7 @@ label.css-label {
         &:after { border-color: transparent transparent transparent @color-rosy; }
       }
 
-      @media @md {
+      @media @lg {
         font-size: 27px;
         line-height: 34px;
         padding: 20px 22px;
@@ -2634,9 +2634,8 @@ label.css-label {
       min-height: 230px;
       padding-right: 250px;
 
-      .space { height: 230px;}
+      .space { height: 230px; }
     }
-
     &:nth-of-type(2n) {
       text-align: left;
 
@@ -2652,9 +2651,10 @@ label.css-label {
       min-height: 350px;
       padding-right: 326px;
 
-      .space { height: 350px;}
+      .space { height: 350px; }
     }
     &:nth-of-type(2n) {
+
       .wrapper { padding-left: 326px; }
     }
   }
@@ -2667,9 +2667,10 @@ label.css-label {
       min-height: 600px;
       padding-right: 430px;
 
-      .space { height: 560px;}
+      .space { height: 560px; }
     }
     &:nth-of-type(2n) {
+
       .wrapper { padding-left: 430px; }
     }
     p { margin-bottom: 24px; }
@@ -2677,8 +2678,8 @@ label.css-label {
 
   @media @xxl {
     .wrapper { padding-right: 316px; }
-
     &:nth-of-type(2n) {
+
       .wrapper { padding-left: 410px; }
     }
   }
@@ -2773,13 +2774,13 @@ label.css-label {
 
     @media @md {
       .wrapper {
-        &:before {margin-left: -305px;}
+        &:before { margin-left: -305px; }
       }
     }
 
     @media @lg {
       .wrapper {
-        &:before {margin-left: -480px;}
+        &:before { margin-left: -480px; }
       }
     }
   }
@@ -2799,6 +2800,15 @@ label.css-label {
 
   @media @md {
     padding: 40px 0;
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  @media @lg {
+    font-size: 21px;
+    line-height: 24px;
+
+    p { margin-bottom: 24px; }
   }
 
   &:before, &:after {
@@ -2818,20 +2828,16 @@ label.css-label {
   &:before { left: 0; background-image: url("@{images}/temp/heart.png"); }
   &:after { right: 0; background-image: url("@{images}/temp/hearts.png"); }
 
-  @media @md {
-    p {
-      margin-bottom: 24px;
-      font-size: 21px;
-      line-height: 24px;
-    }
-  }
-
   .heading {
     color: @color-white;
     font-weight: 300;
 
     @media @md {
       margin-bottom: 38px;
+      font-size: 40px;
+    }
+
+    @media @lg {
       font-size: 60px;
     }
   }
@@ -2860,7 +2866,7 @@ label.css-label {
       &:after { border-color: transparent transparent transparent @color-rosy; }
     }
 
-    @media @md {
+    @media @lg {
       font-size: 27px;
       line-height: 34px;
       padding: 20px 22px;
