@@ -3003,14 +3003,67 @@ label.css-label {
   text-align: center;
   font-weight: 300;
   background: #333a42;
+  overflow: hidden;
   position: relative;
   z-index: 1;
 }
-@media (min-width: 750px) {
+.call-to-action:before {
+  display: block;
+  content: '\0020';
+  overflow: hidden;
+  height: 84%;
+  margin: 0 auto;
+  background: url("../img/temp/hearts.png") 50% 0 no-repeat;
+  background-size: auto 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  opacity: .09;
+  z-index: -1;
+}
+@media (min-width: 568px) {
+  .call-to-action:before {
+    width: 50%;
+    margin: 0;
+    left: 50%;
+    right: auto;
+    background-position: 100% 10px;
+    background-size: auto 100%;
+  }
+  .call-to-action:after {
+    display: block;
+    content: '\0020';
+    overflow: hidden;
+    width: 50%;
+    height: 84%;
+    clear: both;
+    background: url("../img/temp/heart.png") 0 0 no-repeat;
+    background-size: auto 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: .09;
+    z-index: -1;
+  }
+}
+@media (min-width: 1000px) {
   .call-to-action {
     padding: 40px 0;
     font-size: 18px;
     line-height: 22px;
+  }
+  .call-to-action:before {
+    width: 500px;
+    margin-left: 200px;
+    background-position: 100% 30px;
+    background-size: 94% auto;
+  }
+  .call-to-action:after {
+    width: 500px;
+    margin-left: -764px;
+    background-size: 94% auto;
+    left: 50%;
   }
 }
 @media (min-width: 1000px) {
@@ -3021,30 +3074,6 @@ label.css-label {
   .call-to-action p {
     margin-bottom: 24px;
   }
-}
-.call-to-action:before,
-.call-to-action:after {
-  display: block;
-  content: '\0020';
-  overflow: hidden;
-  width: 470px;
-  height: 424px;
-  clear: both;
-  background-size: cover;
-  background-position: 0 0;
-  background-repeat: no-repeat;
-  position: absolute;
-  top: 0;
-  opacity: .09;
-  z-index: -1;
-}
-.call-to-action:before {
-  left: 0;
-  background-image: url("../img/temp/heart.png");
-}
-.call-to-action:after {
-  right: 0;
-  background-image: url("../img/temp/hearts.png");
 }
 .call-to-action .heading {
   color: #fff;
