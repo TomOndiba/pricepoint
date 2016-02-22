@@ -114,6 +114,7 @@ window.initPopups = function (scope) {
 			alert(JSON.stringify(Filter, null, 4));
 			event.preventDefault();
 		});
+		$(this).css('opacity', 1);
 	});
 };
 
@@ -159,6 +160,12 @@ window.initForms = function (scope) {
 		}
 
 		var self = $(this), body = $('body'), st = '.btn-group', buttons = $(st);
+		$('.radio', self).on('click', function (event) {
+			if ($(this).closest('.active').length > 0) {
+				Hide();
+			}
+			event.stopPropagation();
+		});
 		$('.dropdown-toggle,.toggle', self).on('click', function () {
 			if (!self.hasClass('open')) {
 				Show();

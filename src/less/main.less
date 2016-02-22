@@ -894,15 +894,39 @@ label.css-label {
     width: 100%;
     margin-top: 2px;
     display: none;
-    padding: 9px 6px;
+    padding: 0;
     background: @color-white;
     border: 1px solid @color-beige;
     left: 0;
     top: 100%;
 
+    @media @md {
+      padding: 9px 6px;
+    }
+
     li {
+      border-bottom: 1px solid @color-beige;
+
       a {
-        &:hover, &:active, &:focus { text-decoration: none; }
+        padding: 10px;
+        display: block;
+        color: @color-font;
+
+        &:hover, &:active, &:focus { text-decoration: none; color: @color-font; }
+      }
+
+      &.active {
+        a {
+          color: @color-rosy;
+        }
+      }
+
+      &:last-of-type { border-bottom: none; }
+
+      @media @md {
+        border-bottom: none;
+
+        a { padding: 0; }
       }
     }
   }
@@ -987,6 +1011,13 @@ label.css-label {
     }
 
     input[type=checkbox]:checked + .square { background-position: 0 -18px; }
+  }
+
+  label.radio {
+    padding-left: 3px;
+    padding-right: 3px;
+
+    .circle { display: none; }
   }
 
   &.open {
@@ -2773,7 +2804,7 @@ label.css-label {
       width: 100%;
       display: none;
       margin: 2px 0 0 0;
-      padding: 9px 6px;
+      padding: 0;
       list-style: none;
       background: @color-white;
       border: 1px solid @color-beige;
@@ -2781,16 +2812,34 @@ label.css-label {
       top: 100%;
       left: 0;
 
+      @media @md {
+        padding: 9px 6px;
+      }
+
       li {
+        padding: 5px 10px;
+        border-bottom: 1px solid @color-beige;
+
+        &:last-child { border-bottom: none; }
+
         &:after { .clearfix; }
 
+        @media @md {
+          padding: 0;
+          border-bottom: none;
+        }
+
         label {
-          margin-bottom: 4px;
           display: block;
           margin-right: 60px;
           line-height: 28px;
           text-align: right;
+
+          @media @md {
+            margin-bottom: 4px;
+          }
         }
+
         input[type="text"] {
           width: 45px;
           height: 28px;
@@ -3340,33 +3389,39 @@ label.css-label {
    _STEPS
    ========================================================================== */
 .steps {
-  padding: 70px 0;
+  padding: 20px 0;
   text-align: center;
   font-size: 14px;
   background: @color-white;
   overflow: hidden;
 
   @media @md {
+    padding: 70px 0;
     font-size: 15px;
   }
 
   .heading {
-    margin: 0 0 60px;
     font-weight: 500;
     font-size: 16px;
     line-height: normal;
 
     @media @md {
+      margin: 0 0 60px;
       font-size: 36px;
     }
   }
 
   .area {
     margin: 0 -14px;
+    position: relative;
 
     &:after { .clearfix; }
 
     @media @md {
+      margin: 0 -24px;
+    }
+
+    @media @lg {
       margin: 0 -34px;
     }
 
@@ -3378,14 +3433,35 @@ label.css-label {
       &:nth-of-type(3) { width: 100%; padding: 0 80px; float: none; clear: both; }
 
       @media @md {
+        padding: 0 24px;
+      }
+
+      @media @lg {
         padding: 0 34px;
+      }
+    }
+
+    .info {
+      width: 200px;
+      margin: 0 auto;
+      position: absolute;
+      top: 220px;
+      left: 0;
+      right: 0;
+
+      @media @lg {
+        width: 300px;
       }
     }
 
     .image {
       max-width: 100%;
       display: block;
-      margin: 0 auto;
+      margin: 0 auto 8px;
+
+      @media @md {
+        margin-bottom: 0;
+      }
     }
 
     .name {
@@ -3399,8 +3475,8 @@ label.css-label {
     }
 
     .step {
-      margin-bottom: 14px;
-      padding-bottom: 44px;
+      margin-bottom: 8px;
+      padding-bottom: 24px;
       position: relative;
 
       &:before, &:after {
@@ -3412,12 +3488,15 @@ label.css-label {
         right: 0;
       }
 
-      &:before { width: 2px; height: 15px; background: @color-rosy; bottom: 12px; }
-      &:after { width: 0; height: 0; border-style: solid; border-width: 9px 6px 0 6px; border-color: @color-rosy transparent transparent transparent; bottom: 3px; }
+      &:before { width: 2px; height: 15px; background: @color-rosy; bottom: 6px; }
+      &:after { width: 0; height: 0; border-style: solid; border-width: 9px 6px 0 6px; border-color: @color-rosy transparent transparent transparent; bottom: -2px; }
 
       @media @md {
-        &:before { width: 6px; height: 31px; }
-        &:after { border-width: 12px 9px 0 9px; bottom: 0;}
+        margin-bottom: 14px;
+        padding-bottom: 44px;
+
+        &:before { width: 6px; height: 31px; bottom: 12px; }
+        &:after { border-width: 12px 9px 0 9px; bottom: 0; }
       }
 
       .h {
@@ -3475,9 +3554,12 @@ label.css-label {
 
     .text {
       @media @md {
-        max-width: 60%;
+        max-width: 90%;
         min-height: 36px;
         margin: 6px auto 0;
+      }
+      @media @lg {
+        max-width: 60%;
       }
     }
 
@@ -3485,13 +3567,23 @@ label.css-label {
       &:nth-of-type(1) {
         .step {
           &:nth-of-type(2) {
-            &:before { height: 200px; bottom: -116px; left: auto; right: 128px; .rotate(-68deg); }
-            &:after { border-width: 12px 6px 0 6px; margin: 0;  bottom: -3px; right: 60px; left: auto; .rotate(-50deg); }
-          }
+            &:before { height: 30px; bottom: -12px; left: auto; right: 50px; .rotate(-50deg); }
+            &:after { border-width: 12px 6px 0 6px; margin: 0; bottom: -15px; right: 30px; left: auto; .rotate(-50deg); }
 
-          @media @md {
-            &:before {    height: 30px; bottom: 0; left: auto; right: 80px;}
-            &:after {border-width: 18px 12px 0 12px; bottom: -65px; right: 20px;.rotate(-68deg);}
+            @media @sm {
+              &:before { right: 80px; bottom: -16px; }
+              &:after { right: 60px; bottom: -19px; }
+            }
+
+            @media @md {
+              &:before { height: 120px; bottom: -80px; right: 120px; }
+              &:after { border-width: 18px 12px 0 12px; bottom: -72px; right: 60px; }
+            }
+
+            @media @lg {
+              &:before { height: 200px; bottom: -116px; right: 128px; .rotate(-68deg); }
+              &:after { bottom: -65px; right: 20px; .rotate(-68deg); }
+            }
           }
         }
       }
@@ -3499,20 +3591,42 @@ label.css-label {
       &:nth-of-type(2) {
         .step {
           &:nth-of-type(2) {
-            &:before { height: 200px; bottom: -116px; right: auto; left: 128px; .rotate(68deg); }
-            &:after { border-width: 18px 12px 0 12px; margin: 0; bottom: -65px; left: 20px; right: auto; .rotate(68deg); }
+            &:before { height: 30px; bottom: -12px; right: auto; left: 50px; .rotate(50deg); }
+            &:after { border-width: 12px 6px 0 6px; margin: 0; bottom: -15px; left: 30px; right: auto; .rotate(50deg); }
+
+            @media @sm {
+              &:before { left: 80px; bottom: -16px; }
+              &:after { left: 60px; bottom: -19px; }
+            }
+
+            @media @md {
+              &:before { height: 120px; bottom: -80px; left: 120px; }
+              &:after { border-width: 18px 12px 0 12px; bottom: -72px; left: 60px; }
+            }
+
+            @media @lg {
+              &:before { height: 200px; bottom: -116px; left: 128px; .rotate(68deg); }
+              &:after { bottom: -65px; left: 20px; .rotate(68deg); }
+            }
           }
         }
       }
 
       &:nth-of-type(3) {
-        padding-top: 24px;
 
         .step {
           margin-bottom: 0;
           padding-bottom: 0;
 
           &:before, &:after { display: none; }
+        }
+
+        @media @md {
+          padding-top: 44px;
+        }
+
+        @media @lg {
+          padding-top: 24px;
         }
       }
     }
@@ -3710,3 +3824,4 @@ label.css-label {
     }
   }
 }
+.filter { opacity: 0; }

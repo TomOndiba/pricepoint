@@ -965,16 +965,44 @@ label.css-label {
   width: 100%;
   margin-top: 2px;
   display: none;
-  padding: 9px 6px;
+  padding: 0;
   background: #fff;
   border: 1px solid #e5e5e5;
   left: 0;
   top: 100%;
 }
+@media (min-width: 750px) {
+  .btn-group .dropdown-menu {
+    padding: 9px 6px;
+  }
+}
+.btn-group .dropdown-menu li {
+  border-bottom: 1px solid #e5e5e5;
+}
+.btn-group .dropdown-menu li a {
+  padding: 10px;
+  display: block;
+  color: #707a85;
+}
 .btn-group .dropdown-menu li a:hover,
 .btn-group .dropdown-menu li a:active,
 .btn-group .dropdown-menu li a:focus {
   text-decoration: none;
+  color: #707a85;
+}
+.btn-group .dropdown-menu li.active a {
+  color: #e74b90;
+}
+.btn-group .dropdown-menu li:last-of-type {
+  border-bottom: none;
+}
+@media (min-width: 750px) {
+  .btn-group .dropdown-menu li {
+    border-bottom: none;
+  }
+  .btn-group .dropdown-menu li a {
+    padding: 0;
+  }
 }
 .btn-group .btn {
   width: 100%;
@@ -1061,6 +1089,13 @@ label.css-label {
 }
 .btn-group label.checkbox input[type=checkbox]:checked + .square {
   background-position: 0 -18px;
+}
+.btn-group label.radio {
+  padding-left: 3px;
+  padding-right: 3px;
+}
+.btn-group label.radio .circle {
+  display: none;
 }
 .btn-group.open {
   position: relative;
@@ -2995,7 +3030,7 @@ label.css-label {
   width: 100%;
   display: none;
   margin: 2px 0 0 0;
-  padding: 9px 6px;
+  padding: 0;
   list-style: none;
   background: #fff;
   border: 1px solid #e5e5e5;
@@ -3003,17 +3038,39 @@ label.css-label {
   top: 100%;
   left: 0;
 }
+@media (min-width: 750px) {
+  .sort .select-age ul {
+    padding: 9px 6px;
+  }
+}
+.sort .select-age ul li {
+  padding: 5px 10px;
+  border-bottom: 1px solid #e5e5e5;
+}
+.sort .select-age ul li:last-child {
+  border-bottom: none;
+}
 .sort .select-age ul li:after {
   display: table;
   content: '\0020';
   clear: both;
 }
+@media (min-width: 750px) {
+  .sort .select-age ul li {
+    padding: 0;
+    border-bottom: none;
+  }
+}
 .sort .select-age ul li label {
-  margin-bottom: 4px;
   display: block;
   margin-right: 60px;
   line-height: 28px;
   text-align: right;
+}
+@media (min-width: 750px) {
+  .sort .select-age ul li label {
+    margin-bottom: 4px;
+  }
 }
 .sort .select-age ul li input[type="text"] {
   width: 45px;
@@ -3615,7 +3672,7 @@ label.css-label {
    _STEPS
    ========================================================================== */
 .steps {
-  padding: 70px 0;
+  padding: 20px 0;
   text-align: center;
   font-size: 14px;
   background: #fff;
@@ -3623,22 +3680,24 @@ label.css-label {
 }
 @media (min-width: 750px) {
   .steps {
+    padding: 70px 0;
     font-size: 15px;
   }
 }
 .steps .heading {
-  margin: 0 0 60px;
   font-weight: 500;
   font-size: 16px;
   line-height: normal;
 }
 @media (min-width: 750px) {
   .steps .heading {
+    margin: 0 0 60px;
     font-size: 36px;
   }
 }
 .steps .area {
   margin: 0 -14px;
+  position: relative;
 }
 .steps .area:after {
   display: table;
@@ -3646,6 +3705,11 @@ label.css-label {
   clear: both;
 }
 @media (min-width: 750px) {
+  .steps .area {
+    margin: 0 -24px;
+  }
+}
+@media (min-width: 1000px) {
   .steps .area {
     margin: 0 -34px;
   }
@@ -3663,13 +3727,36 @@ label.css-label {
 }
 @media (min-width: 750px) {
   .steps .area .col {
+    padding: 0 24px;
+  }
+}
+@media (min-width: 1000px) {
+  .steps .area .col {
     padding: 0 34px;
+  }
+}
+.steps .area .info {
+  width: 200px;
+  margin: 0 auto;
+  position: absolute;
+  top: 220px;
+  left: 0;
+  right: 0;
+}
+@media (min-width: 1000px) {
+  .steps .area .info {
+    width: 300px;
   }
 }
 .steps .area .image {
   max-width: 100%;
   display: block;
-  margin: 0 auto;
+  margin: 0 auto 8px;
+}
+@media (min-width: 750px) {
+  .steps .area .image {
+    margin-bottom: 0;
+  }
 }
 .steps .area .name {
   margin-bottom: 8px;
@@ -3682,8 +3769,8 @@ label.css-label {
   }
 }
 .steps .area .step {
-  margin-bottom: 14px;
-  padding-bottom: 44px;
+  margin-bottom: 8px;
+  padding-bottom: 24px;
   position: relative;
 }
 .steps .area .step:before,
@@ -3701,7 +3788,7 @@ label.css-label {
   width: 2px;
   height: 15px;
   background: #e74b90;
-  bottom: 12px;
+  bottom: 6px;
 }
 .steps .area .step:after {
   width: 0;
@@ -3709,12 +3796,17 @@ label.css-label {
   border-style: solid;
   border-width: 9px 6px 0 6px;
   border-color: #e74b90 transparent transparent transparent;
-  bottom: 3px;
+  bottom: -2px;
 }
 @media (min-width: 750px) {
+  .steps .area .step {
+    margin-bottom: 14px;
+    padding-bottom: 44px;
+  }
   .steps .area .step:before {
     width: 6px;
     height: 31px;
+    bottom: 12px;
   }
   .steps .area .step:after {
     border-width: 12px 9px 0 9px;
@@ -3771,28 +3863,33 @@ label.css-label {
 }
 @media (min-width: 750px) {
   .steps .area .text {
-    max-width: 60%;
+    max-width: 90%;
     min-height: 36px;
     margin: 6px auto 0;
   }
 }
+@media (min-width: 1000px) {
+  .steps .area .text {
+    max-width: 60%;
+  }
+}
 .steps .area .col:nth-of-type(1) .step:nth-of-type(2):before {
-  height: 200px;
-  bottom: -116px;
+  height: 30px;
+  bottom: -12px;
   left: auto;
-  right: 128px;
-  -webkit-transform: rotate(-68deg);
-  -moz-transform: rotate(-68deg);
-  -ms-transform: rotate(-68deg);
-  -o-transform: rotate(-68deg);
-  transform: rotate(-68deg);
+  right: 50px;
+  -webkit-transform: rotate(-50deg);
+  -moz-transform: rotate(-50deg);
+  -ms-transform: rotate(-50deg);
+  -o-transform: rotate(-50deg);
+  transform: rotate(-50deg);
   -webkit-backface-visibility: hidden;
 }
 .steps .area .col:nth-of-type(1) .step:nth-of-type(2):after {
   border-width: 12px 6px 0 6px;
   margin: 0;
-  bottom: -3px;
-  right: 60px;
+  bottom: -15px;
+  right: 30px;
   left: auto;
   -webkit-transform: rotate(-50deg);
   -moz-transform: rotate(-50deg);
@@ -3801,15 +3898,41 @@ label.css-label {
   transform: rotate(-50deg);
   -webkit-backface-visibility: hidden;
 }
-@media (min-width: 750px) {
-  .steps .area .col:nth-of-type(1) .step:before {
-    height: 30px;
-    bottom: 0;
-    left: auto;
+@media (min-width: 568px) {
+  .steps .area .col:nth-of-type(1) .step:nth-of-type(2):before {
     right: 80px;
+    bottom: -16px;
   }
-  .steps .area .col:nth-of-type(1) .step:after {
+  .steps .area .col:nth-of-type(1) .step:nth-of-type(2):after {
+    right: 60px;
+    bottom: -19px;
+  }
+}
+@media (min-width: 750px) {
+  .steps .area .col:nth-of-type(1) .step:nth-of-type(2):before {
+    height: 120px;
+    bottom: -80px;
+    right: 120px;
+  }
+  .steps .area .col:nth-of-type(1) .step:nth-of-type(2):after {
     border-width: 18px 12px 0 12px;
+    bottom: -72px;
+    right: 60px;
+  }
+}
+@media (min-width: 1000px) {
+  .steps .area .col:nth-of-type(1) .step:nth-of-type(2):before {
+    height: 200px;
+    bottom: -116px;
+    right: 128px;
+    -webkit-transform: rotate(-68deg);
+    -moz-transform: rotate(-68deg);
+    -ms-transform: rotate(-68deg);
+    -o-transform: rotate(-68deg);
+    transform: rotate(-68deg);
+    -webkit-backface-visibility: hidden;
+  }
+  .steps .area .col:nth-of-type(1) .step:nth-of-type(2):after {
     bottom: -65px;
     right: 20px;
     -webkit-transform: rotate(-68deg);
@@ -3821,32 +3944,74 @@ label.css-label {
   }
 }
 .steps .area .col:nth-of-type(2) .step:nth-of-type(2):before {
-  height: 200px;
-  bottom: -116px;
+  height: 30px;
+  bottom: -12px;
   right: auto;
-  left: 128px;
-  -webkit-transform: rotate(68deg);
-  -moz-transform: rotate(68deg);
-  -ms-transform: rotate(68deg);
-  -o-transform: rotate(68deg);
-  transform: rotate(68deg);
+  left: 50px;
+  -webkit-transform: rotate(50deg);
+  -moz-transform: rotate(50deg);
+  -ms-transform: rotate(50deg);
+  -o-transform: rotate(50deg);
+  transform: rotate(50deg);
   -webkit-backface-visibility: hidden;
 }
 .steps .area .col:nth-of-type(2) .step:nth-of-type(2):after {
-  border-width: 18px 12px 0 12px;
+  border-width: 12px 6px 0 6px;
   margin: 0;
-  bottom: -65px;
-  left: 20px;
+  bottom: -15px;
+  left: 30px;
   right: auto;
-  -webkit-transform: rotate(68deg);
-  -moz-transform: rotate(68deg);
-  -ms-transform: rotate(68deg);
-  -o-transform: rotate(68deg);
-  transform: rotate(68deg);
+  -webkit-transform: rotate(50deg);
+  -moz-transform: rotate(50deg);
+  -ms-transform: rotate(50deg);
+  -o-transform: rotate(50deg);
+  transform: rotate(50deg);
   -webkit-backface-visibility: hidden;
 }
-.steps .area .col:nth-of-type(3) {
-  padding-top: 24px;
+@media (min-width: 568px) {
+  .steps .area .col:nth-of-type(2) .step:nth-of-type(2):before {
+    left: 80px;
+    bottom: -16px;
+  }
+  .steps .area .col:nth-of-type(2) .step:nth-of-type(2):after {
+    left: 60px;
+    bottom: -19px;
+  }
+}
+@media (min-width: 750px) {
+  .steps .area .col:nth-of-type(2) .step:nth-of-type(2):before {
+    height: 120px;
+    bottom: -80px;
+    left: 120px;
+  }
+  .steps .area .col:nth-of-type(2) .step:nth-of-type(2):after {
+    border-width: 18px 12px 0 12px;
+    bottom: -72px;
+    left: 60px;
+  }
+}
+@media (min-width: 1000px) {
+  .steps .area .col:nth-of-type(2) .step:nth-of-type(2):before {
+    height: 200px;
+    bottom: -116px;
+    left: 128px;
+    -webkit-transform: rotate(68deg);
+    -moz-transform: rotate(68deg);
+    -ms-transform: rotate(68deg);
+    -o-transform: rotate(68deg);
+    transform: rotate(68deg);
+    -webkit-backface-visibility: hidden;
+  }
+  .steps .area .col:nth-of-type(2) .step:nth-of-type(2):after {
+    bottom: -65px;
+    left: 20px;
+    -webkit-transform: rotate(68deg);
+    -moz-transform: rotate(68deg);
+    -ms-transform: rotate(68deg);
+    -o-transform: rotate(68deg);
+    transform: rotate(68deg);
+    -webkit-backface-visibility: hidden;
+  }
 }
 .steps .area .col:nth-of-type(3) .step {
   margin-bottom: 0;
@@ -3855,6 +4020,16 @@ label.css-label {
 .steps .area .col:nth-of-type(3) .step:before,
 .steps .area .col:nth-of-type(3) .step:after {
   display: none;
+}
+@media (min-width: 750px) {
+  .steps .area .col:nth-of-type(3) {
+    padding-top: 44px;
+  }
+}
+@media (min-width: 1000px) {
+  .steps .area .col:nth-of-type(3) {
+    padding-top: 24px;
+  }
 }
 /* ==========================================================================
    _POPUP
@@ -4077,4 +4252,7 @@ label.css-label {
   .popup.popup-message .form-submit .button {
     min-width: 140px;
   }
+}
+.filter {
+  opacity: 0;
 }
