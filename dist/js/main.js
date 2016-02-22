@@ -112,10 +112,21 @@ window.initForms = function (scope) {
 	}
 
 	/** Custom selectbox */
-	$('select', scope).selectric({
+	$('select:not(.multiselect)', scope).selectric({
 		maxHeight: 200,
 		disableOnMobile: false,
 		responsive: true
+	});
+
+	$('.multiselect', scope).multiselect();
+
+	$('.btn-group', scope).on('click', function () {
+		$(this).toggleClass('open');
+	});
+
+	$('.select-age .toggle', scope).on('click', function () {
+		$(this).closest('.select-age').toggleClass('open');
+		return false;
 	});
 
 	/** Checkbox, Radio */
@@ -210,7 +221,7 @@ var initPhotoSwipeFromDOM = function (gallerySelector) {
 
 		// find index of clicked item by looping through all child nodes
 		// alternatively, you may define index via data- attribute
-		var clickedGallery = clickedListItem.parentNode ,
+		var clickedGallery = clickedListItem.parentNode,
 			childNodes = $('[data-pswp-uid=' + $(clickedListItem.parentNode).attr('data-pswp-uid') + ']').find('figure'),
 			numChildNodes = childNodes.length,
 			nodeIndex = 0,

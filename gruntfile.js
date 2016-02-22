@@ -54,7 +54,8 @@ module.exports = function (grunt) {
 							src.vendor + 'jquery-selectric/public/jquery.selectric.min.js',
 							src.vendor + 'magnific-popup/dist/jquery.magnific-popup.min.js',
 							src.vendor + 'photoswipe/dist/photoswipe.min.js',
-							src.vendor + 'photoswipe/dist/photoswipe-ui-default.min.js'
+							src.vendor + 'photoswipe/dist/photoswipe-ui-default.min.js',
+							src.vendor + 'bootstrap-multiselect/dist/js/bootstrap-multiselect.js'
 						],
 						dest: src.js + 'vendor'
 					}, {
@@ -64,7 +65,8 @@ module.exports = function (grunt) {
 							src.vendor + 'jquery-selectric/public/selectric.css',
 							src.vendor + 'magnific-popup/dist/magnific-popup.css',
 							src.vendor + 'photoswipe/dist/photoswipe.css',
-							src.vendor + 'photoswipe/dist/default-skin/default-skin.css'
+							src.vendor + 'photoswipe/dist/default-skin/default-skin.css',
+							src.vendor + 'bootstrap-multiselect/dist/css/bootstrap-multiselect.css'
 						],
 						dest: src.css + 'temp'
 					}, {
@@ -109,7 +111,8 @@ module.exports = function (grunt) {
 							src.js + 'vendor/jquery.selectric.min.js',
 							src.js + 'vendor/jquery.magnific-popup.min.js',
 							src.js + 'vendor/photoswipe.min.js',
-							src.js + 'vendor/photoswipe-ui-default.min.js'
+							src.js + 'vendor/photoswipe-ui-default.min.js',
+							src.js + 'vendor/bootstrap-multiselect.js'
 						],
 						dest: src.js + 'plugins.js'
 					}, {

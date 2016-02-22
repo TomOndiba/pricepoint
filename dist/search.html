@@ -56,7 +56,7 @@
 						</figure>
 						<div class="info">
 							<p class="name">Roberto2011</p>
-							<a class="button button-white-bordered" href="#">Manage Photos</a>
+							<a class="button button-white-bordered" href="upload.html">Manage Photos</a>
 							<a class="button button-white-bordered" href="#">Edit My Profile</a>
 							<a class="button button-white-bordered" href="#">Settings</a>
 						</div>
@@ -102,8 +102,8 @@
 			<!-- Sort -->
 			<div class="sort">
 				<form action="#" method="post">
-					<div class="line">
-						<div class="form-line">
+					<div class="buttons-group">
+						<div class="cell">
 							<label for="sort"></label>
 							<select id="sort">
 								<option value="">Sort by: Newest Member</option>
@@ -112,18 +112,61 @@
 								<option value="">Sort by: Newest Member</option>
 							</select>
 						</div>
-						<span class="type">Within 10 Miles <a class="close" href="#"></a></span>
-						<span class="type">With Photos <a class="close" href="#"></a></span>
-						<span class="type">Ages 18 to 29 <a class="close" href="#"></a></span>
-						<span class="type">Ethnicity: White / Caucasian <a class="close" href="#"></a></span>
-					</div>
-					<div class="buttons-group">
-						<p class="cell">
-							<button class="button button-black" type="submit" value="">Add Search Filter</button>
-						</p>
-						<p class="cell">
+						<div class="cell">
 							<button class="button button-rosy" type="submit" value="">Update Search</button>
-						</p>
+						</div>
+					</div>
+					<div class="line">
+						<div class="form-line">
+							<label for="distance"></label>
+							<select id="distance" class="multiselect" multiple="multiple">
+								<option value="anywhere">Anywhere</option>
+								<option value="15miles" selected>Within 15 Miles</option>
+								<option value="30miles">Within 30 Miles</option>
+								<option value="60miles">Within 60 Miles</option>
+								<option value="100miles">Within 100 Miles</option>
+							</select>
+						</div>
+						<div class="form-line form-line-photos">
+							<label for="photos"></label>
+							<select id="photos" class="multiselect" multiple="multiple">
+								<option value="all" selected>With & Without Photo</option>
+								<option value="photo">Only With Photos</option>
+							</select>
+						</div>
+						<div class="form-line">
+							<div class="select-age">
+								<a class="toggle" href="#">Ages 18 to 29 <span class="arrow"></span></a>
+								<ul>
+									<li><input id="age1" type="text" value="19"> <label for="age1">From Age</label></li>
+									<li><input id="age2" type="text" value="19"> <label for="age2">To Age</label></li>
+								</ul>
+							</div>
+						</div>
+						<div class="form-line form-line-ethnicity">
+							<label for="ethnicity"></label>
+							<select id="ethnicity" class="multiselect" multiple="multiple">
+								<option value="white" selected>White / Caucasian</option>
+								<option value="islander">Pacific Islander</option>
+								<option value="asian">Asian</option>
+								<option value="black">Black / African Descent</option>
+								<option value="latin">Latin / Hispanic</option>
+								<option value="indian">East Indian</option>
+								<option value="eastern">Middle Eastern</option>
+								<option value="other">Other Ethnicity</option>
+							</select>
+						</div>
+						<div class="form-line form-line-body">
+							<label for="body"></label>
+							<select id="body" class="multiselect" multiple="multiple">
+								<option value="slim" selected>Slim</option>
+								<option value="athletic">Athletic</option>
+								<option value="average">Average</option>
+								<option value="extra-pounds">Extra Pounds</option>
+								<option value="overweight">Overweight</option>
+							</select>
+						</div>
+						<!--span class="type">Within 10 Miles <a class="close" href="#"></a></span-->
 					</div>
 				</form>
 			</div>
