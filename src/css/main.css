@@ -494,8 +494,8 @@ input[type="submit"]:not(.pswp__button).button-white-bordered:active {
 button:not(.pswp__button).button-gray,
 input[type="submit"]:not(.pswp__button).button-gray {
   color: #fff;
-  background: #707a85;
   border-color: #707a85;
+  background: #707a85;
 }
 .button:not(.pswp__button).button-gray:hover,
 button:not(.pswp__button).button-gray:hover,
@@ -507,8 +507,8 @@ input[type="submit"]:not(.pswp__button).button-gray:focus,
 button:not(.pswp__button).button-gray:active,
 input[type="submit"]:not(.pswp__button).button-gray:active {
   color: #707a85;
-  background-color: transparent;
   text-decoration: none;
+  background-color: transparent;
 }
 .button:not(.pswp__button).button-blue,
 button:not(.pswp__button).button-blue,
@@ -541,6 +541,7 @@ button:not(.pswp__button).button-icon .icon,
 input[type="submit"]:not(.pswp__button).button-icon .icon {
   width: 14px;
   height: 14px;
+  margin-top: -1px;
   display: inline-block;
   vertical-align: top;
   position: relative;
@@ -737,19 +738,19 @@ input[type="submit"]:not(.pswp__button).button-icon:focus .icon:after {
   cursor: pointer;
 }
 /* RADIOBOX */
-.radiobox {
+.radio {
   padding-left: 20px;
   position: relative;
   display: block;
 }
-.radiobox input[type="radio"] {
+.radio input[type="radio"] {
   display: none;
   position: absolute;
   left: 0;
   top: 0;
   opacity: 0;
 }
-.radiobox .circle {
+.radio .circle {
   width: 12px;
   height: 12px;
   display: block;
@@ -760,7 +761,7 @@ input[type="submit"]:not(.pswp__button).button-icon:focus .icon:after {
   top: 3px;
   -webkit-backface-visibility: hidden;
 }
-.radiobox .circle:before {
+.radio .circle:before {
   display: block;
   content: '\0020';
   overflow: hidden;
@@ -773,10 +774,10 @@ input[type="submit"]:not(.pswp__button).button-icon:focus .icon:after {
   right: 2px;
   bottom: 2px;
 }
-.radiobox input[type="radio"]:checked + .circle:before {
+.radio input[type="radio"]:checked + .circle:before {
   opacity: 1;
 }
-.radiobox.radiobox-price {
+.radio.radio-price {
   padding: 9px 4px;
   text-align: center;
   font-size: 14px;
@@ -787,14 +788,14 @@ input[type="submit"]:not(.pswp__button).button-icon:focus .icon:after {
   cursor: pointer;
 }
 @media (min-width: 750px) {
-  .radiobox.radiobox-price {
+  .radio.radio-price {
     font-size: 28px;
   }
 }
-.radiobox.radiobox-price.checked {
+.radio.radio-price.checked {
   color: #fff;
 }
-.radiobox.radiobox-price .circle {
+.radio.radio-price .circle {
   width: auto;
   height: auto;
   border-radius: 2px;
@@ -806,14 +807,14 @@ input[type="submit"]:not(.pswp__button).button-icon:focus .icon:after {
   z-index: -1;
   cursor: pointer;
 }
-.radiobox.radiobox-price .circle:before {
+.radio.radio-price .circle:before {
   display: none;
 }
-.radiobox.radiobox-price input[type="radio"]:checked + .circle {
+.radio.radio-price input[type="radio"]:checked + .circle {
   background: #4c9eda;
   border-color: #4c9eda;
 }
-.radiobox.radiobox-price input[type="radio"]:checked + .circle:before {
+.radio.radio-price input[type="radio"]:checked + .circle:before {
   opacity: 0;
 }
 /* Seletric */
@@ -3033,6 +3034,12 @@ label.css-label {
 }
 .sort .select-age.open .toggle .arrow:after {
   border-color: #707a85 transparent transparent transparent;
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+  -webkit-backface-visibility: hidden;
 }
 .sort .buttons-group {
   margin-top: 0;
@@ -3245,7 +3252,7 @@ label.css-label {
   content: '\0020';
   overflow: hidden;
   clear: both;
-  margin: 0 0 0 10px;
+  margin: -2px 0 0 10px;
   display: inline-block;
   vertical-align: middle;
   width: 0;
@@ -3255,10 +3262,15 @@ label.css-label {
   border-color: transparent transparent transparent #fff;
   transition: border-color 0.2s ease;
 }
+.index .form-line .button.button-large:hover,
+.index .form-line .button.button-large:focus,
+.index .form-line .button.button-large:active {
+  color: #fff;
+}
 .index .form-line .button.button-large:hover:after,
 .index .form-line .button.button-large:focus:after,
 .index .form-line .button.button-large:active:after {
-  border-color: transparent transparent transparent #e74b90;
+  border-color: transparent transparent transparent #fff;
 }
 @media (min-width: 1000px) {
   .index .form-line .button.button-large {
@@ -3269,8 +3281,8 @@ label.css-label {
     border-width: 2px;
   }
   .index .form-line .button.button-large:after {
-    margin: 0 0 0 24px;
     border-width: 15px 0 15px 15px;
+    margin: -4px 0 0 24px;
   }
 }
 /* ==========================================================================
@@ -3571,7 +3583,7 @@ label.css-label {
   content: '\0020';
   overflow: hidden;
   clear: both;
-  margin: 0 0 0 10px;
+  margin: -2px 0 0 10px;
   display: inline-block;
   vertical-align: middle;
   width: 0;
@@ -3595,7 +3607,7 @@ label.css-label {
     border-width: 2px;
   }
   .call-to-action .button.button-large:after {
-    margin: 0 0 0 24px;
+    margin: -4px 0 0 24px;
     border-width: 15px 0 15px 15px;
   }
 }
@@ -4009,11 +4021,11 @@ label.css-label {
 .popup.popup-message .form-line {
   margin-bottom: 10px;
 }
-.popup.popup-message .form-line .radiobox-price {
+.popup.popup-message .form-line .radio-price {
   width: 20%;
   float: left;
 }
-.popup.popup-message .radiobox,
+.popup.popup-message .radio,
 .popup.popup-message .checkbox {
   -webkit-user-select: none;
   -moz-user-select: -moz-none;

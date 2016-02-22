@@ -40,7 +40,7 @@
 	<header class="header">
 		<div class="wrapper">
 			<h1 class="hidden">PricePoint Dating</h1>
-			<p class="logo"><img src="img/logo.png" width="246" height="36" alt=""></p>
+			<p class="logo"><a href="index.html"><img src="img/logo.png" width="246" height="36" alt="PricePoint Dating"></a></p>
 			<div class="username">
 				<a class="switch" href="#">Roberto2011 <span class="credits">100 credits</span></a>
 				<div class="settings">
@@ -96,27 +96,26 @@
 
 			<!-- Sort -->
 			<div class="sort">
-				<form action="#" method="post">
+				<form class="filter" action="#" method="post" novalidate>
 					<div class="buttons-group">
 						<div class="cell">
 							<label for="sort"></label>
-							<select id="sort">
-								<option value="newest" selected>Sort by: Newest Member</option>
-								<option value="age">Sort by: Age</option>
-								<option value="body">Sort by: Body Type</option>
-								<option value="hair">Sort by: Hair Color</option>
+							<select id="sort" name="orderby" required>
+								<option value="2" selected>Sort by: Newest Member</option>
+								<option value="1">Sort by: Distance</option>
+								<option value="3">Sort by: Recent</option>
 							</select>
 						</div>
 						<div class="cell">
-							<button class="button button-rosy" type="submit" value="">Update Search</button>
+							<button class="button button-rosy" type="submit">Update Search</button>
 						</div>
 					</div>
 					<div class="line">
 						<div class="form-line">
 							<label for="distance"></label>
-							<select id="distance" class="multiselect" multiple>
-								<option value="anywhere" selected>Anywhere</option>
-								<option value="15" selected>Within 15 Miles</option>
+							<select id="distance" name="distancemax" class="multiselect" required>
+								<option value="0" selected>Anywhere</option>
+								<option value="15">Within 15 Miles</option>
 								<option value="30">Within 30 Miles</option>
 								<option value="60">Within 60 Miles</option>
 								<option value="100">Within 100 Miles</option>
@@ -124,41 +123,42 @@
 						</div>
 						<div class="form-line form-line-photos">
 							<label for="photos"></label>
-							<select id="photos" class="multiselect" multiple>
-								<option value="all" selected>With &amp; Without Photo</option>
-								<option value="photo">Only With Photos</option>
+							<select id="photos" name="withphotos" class="multiselect" data-title="Photos" required>
+								<option value="false" selected>With &amp; Without Photo</option>
+								<option value="true">Only With Photos</option>
 							</select>
 						</div>
 						<div class="form-line">
 							<div class="btn-group select-age">
-								<a class="toggle" href="#">Ages 18 to 29 <span class="arrow"></span></a>
+								<a class="toggle" href="#">Age <span class="agemin">18</span> to <span class="agemax">35</span> <span class="arrow"></span></a>
 								<ul>
-									<li><input id="age1" class="from" type="text" value="19"> <label for="age1">From Age</label></li>
-									<li><input id="age2" class="to" type="text" value="19"> <label for="age2">To Age</label></li>
+									<li><input id="agemin" name="agemin" class="from" type="text" value="18" maxlength="2" required> <label for="agemin">From Age</label></li>
+									<li><input id="agemax" name="agemax" class="to" type="text" value="35" maxlength="2" required> <label for="agemax">To Age</label></li>
 								</ul>
 							</div>
 						</div>
 						<div class="form-line form-line-ethnicity">
-							<label for="ethnicity"></label>
-							<select id="ethnicity" class="multiselect" multiple>
-								<option value="white" selected>White / Caucasian</option>
-								<option value="pacific">Pacific Islander</option>
-								<option value="asian">Asian</option>
-								<option value="black">Black / African Descent</option>
-								<option value="latin">Latin / Hispanic</option>
-								<option value="indian">East Indian</option>
-								<option value="eastern">Middle Eastern</option>
-								<option value="other">Other Ethnicity</option>
+							<label for="ethnicity_type"></label>
+							<select id="ethnicity_type" name="ethnicity" class="multiselect" required multiple data-title="Ethnicity Type">
+								<option value="273">Asian</option>
+								<option value="274">Black / African Descent</option>
+								<option value="275">Latin / Hispanic</option>
+								<option value="276">East Indian</option>
+								<option value="277">Middle Eastern</option>
+								<option value="279">American</option>
+								<option value="280">Pacific Islander</option>
+								<option value="281">White / Caucasian</option>
+								<option value="282">Other Ethnicity</option>
 							</select>
 						</div>
 						<div class="form-line form-line-body">
-							<label for="body"></label>
-							<select id="body" class="multiselect" multiple>
-								<option value="slim" selected>Slim</option>
-								<option value="athletic">Athletic</option>
-								<option value="average">Average</option>
-								<option value="extra-pounds">Extra Pounds</option>
-								<option value="overweight">Overweight</option>
+							<label for="body_type"></label>
+							<select id="body_type" name="body" class="multiselect" required multiple data-title="Body Type">
+								<option value="268">Slim</option>
+								<option value="269">Athletic</option>
+								<option value="270">Average</option>
+								<option value="271">Extra Pounds</option>
+								<option value="272">Overweight</option>
 							</select>
 						</div>
 						<!--span class="type">Within 10 Miles <a class="close" href="#"></a></span-->
@@ -287,11 +287,11 @@
 		<h2 class="h2 heading">Send a First Date Offer to <span class="color">Jemma21</span></h2>
 		<form action="#" method="post">
 			<div class="form-line form-line-radiobox">
-				<label class="radiobox radiobox-price"><input name="sum" type="radio" value="50"> &#36;50</label>
-				<label class="radiobox radiobox-price"><input name="sum" type="radio" value="100"> &#36;100</label>
-				<label class="radiobox radiobox-price"><input name="sum" type="radio" value="150"> &#36;150</label>
-				<label class="radiobox radiobox-price"><input name="sum" type="radio" value="200"> &#36;200</label>
-				<label class="radiobox radiobox-price"><input name="sum" type="radio" value="300"> &#36;300</label>
+				<label class="radio radio-price"><input name="sum" type="radio" value="50"> &#36;50</label>
+				<label class="radio radio-price"><input name="sum" type="radio" value="100"> &#36;100</label>
+				<label class="radio radio-price"><input name="sum" type="radio" value="150"> &#36;150</label>
+				<label class="radio radio-price"><input name="sum" type="radio" value="200"> &#36;200</label>
+				<label class="radio radio-price"><input name="sum" type="radio" value="300"> &#36;300</label>
 			</div>
 			<div class="presents">
 				<p class="head">Impress Her by Sending a Virtual Gift for Only 5 Credits</p>

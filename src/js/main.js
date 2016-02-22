@@ -75,7 +75,7 @@ window.initPopups = function (scope) {
 			total.val('');
 
 			$('.checkbox-gift', this.content).find(':checkbox').removeAttr('checked');
-			$('.radiobox-price', this.content).removeClass('checked').on('change', function () {
+			$('.radio-price', this.content).removeClass('checked').on('change', function () {
 				var radio = $(':radio', this);
 				if (radio.is(':checked')) {
 					$(this).addClass('checked').siblings('.checked').removeClass('checked');
@@ -100,6 +100,21 @@ window.initPopups = function (scope) {
 			}
 		});
 	});
+
+	window.Filter = {};
+	$('.filter').each(function () {
+		$(this).on('submit', function (event) {
+			$('[required]', this).each(function () {
+				if ($(this).is('[multiple]') && $(this).val() === null) {
+					Filter[$(this).attr('name')] = [];
+				} else {
+					Filter[$(this).attr('name')] = $(this).val();
+				}
+			});
+			alert(JSON.stringify(Filter, null, 4));
+			event.preventDefault();
+		});
+	});
 };
 
 
@@ -118,32 +133,33 @@ window.initForms = function (scope) {
 		responsive: true
 	});
 
-	$('.multiselect', scope).multiselect();
+	$('.multiselect', scope).each(function () {
+		$(this).multiselect({
+			nonSelectedText: $(this).data('title')
+		})
+	});
 
 	$('.btn-group', scope).each(function () {
-		function handler(event) {
+		function Handler(event) {
 			var c = $(event.target).closest(st);
 			if ((c.length === 0)) {
 				Hide();
-			} else {
-				if (buttons.filter('.open').length > 1) {
-					buttons.filter('.open').not(c).removeClass('open');
-				}
 			}
 		}
 
 		function Show() {
+			Hide();
 			self.addClass('open');
-			body.on('click', handler);
+			body.on('click', Handler);
 		}
 
 		function Hide() {
+			body.off('click', Handler);
 			buttons.filter('.open').removeClass('open');
-			body.off('click', handler);
 		}
 
 		var self = $(this), body = $('body'), st = '.btn-group', buttons = $(st);
-		self.on('click', function () {
+		$('.dropdown-toggle,.toggle', self).on('click', function () {
 			if (!self.hasClass('open')) {
 				Show();
 			} else {
@@ -157,13 +173,21 @@ window.initForms = function (scope) {
 		$('<span class="square"/>').insertAfter($('input', this));
 		$(this).addClass('inited');
 	});
-	$('.radiobox:not(.inited)', scope).each(function () {
+	$('.radio:not(.inited)', scope).each(function () {
 		if ($('.circle', this).length === 0) {
 			$(this).append('<span class="circle"></span>');
 		}
 		$(this).addClass('inited');
 	});
 
+	$('.select-age', scope).each(function () {
+		var self = $(this);
+		$('input:text', self).on('keypress', function (event) {
+			return event.charCode >= 48 && event.charCode <= 57;
+		}).on('change', function () {
+			$('.' + $(this).attr('name'), self).text($(this).val());
+		});
+	});
 };
 
 
