@@ -3603,7 +3603,246 @@ label.css-label {
    _STEPS
    ========================================================================== */
 .steps {
+  padding: 70px 0;
+  text-align: center;
+  font-size: 14px;
   background: #fff;
+  overflow: hidden;
+}
+@media (min-width: 750px) {
+  .steps {
+    font-size: 15px;
+  }
+}
+.steps .heading {
+  margin: 0 0 60px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: normal;
+}
+@media (min-width: 750px) {
+  .steps .heading {
+    font-size: 36px;
+  }
+}
+.steps .area {
+  margin: 0 -14px;
+}
+.steps .area:after {
+  display: table;
+  content: '\0020';
+  clear: both;
+}
+@media (min-width: 750px) {
+  .steps .area {
+    margin: 0 -34px;
+  }
+}
+.steps .area .col {
+  width: 50%;
+  padding: 0 14px;
+  float: left;
+}
+.steps .area .col:nth-of-type(3) {
+  width: 100%;
+  padding: 0 80px;
+  float: none;
+  clear: both;
+}
+@media (min-width: 750px) {
+  .steps .area .col {
+    padding: 0 34px;
+  }
+}
+.steps .area .image {
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+.steps .area .name {
+  margin-bottom: 8px;
+  line-height: normal;
+  font-weight: 300;
+}
+@media (min-width: 750px) {
+  .steps .area .name {
+    font-size: 36px;
+  }
+}
+.steps .area .step {
+  margin-bottom: 14px;
+  padding-bottom: 44px;
+  position: relative;
+}
+.steps .area .step:before,
+.steps .area .step:after {
+  display: block;
+  content: '\0020';
+  overflow: hidden;
+  clear: both;
+  margin: 0 auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+.steps .area .step:before {
+  width: 2px;
+  height: 15px;
+  background: #e74b90;
+  bottom: 12px;
+}
+.steps .area .step:after {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 9px 6px 0 6px;
+  border-color: #e74b90 transparent transparent transparent;
+  bottom: 3px;
+}
+@media (min-width: 750px) {
+  .steps .area .step:before {
+    width: 6px;
+    height: 31px;
+  }
+  .steps .area .step:after {
+    border-width: 12px 9px 0 9px;
+    bottom: 0;
+  }
+}
+.steps .area .step .h {
+  margin: 0;
+  font-weight: 500;
+  line-height: normal;
+  color: #e74b90;
+}
+@media (min-width: 750px) {
+  .steps .area .step .h {
+    font-size: 24px;
+  }
+}
+.steps .area .step .icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto;
+  display: block;
+  background: #e74b90;
+  border-radius: 50%;
+  position: relative;
+}
+.steps .area .step .icon:before {
+  display: block;
+  content: '\0020';
+  overflow: hidden;
+  width: 45px;
+  height: 45px;
+  margin: auto auto;
+  background-image: url("../img/sprite.png");
+  background-repeat: no-repeat;
+  background-size: 250px auto;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.steps .area .step .icon.icon-join:before {
+  background-position: -40px -165px;
+}
+.steps .area .step .icon.icon-offer:before {
+  background-position: -190px -165px;
+}
+.steps .area .step .icon.icon-accept:before {
+  background-position: -140px -165px;
+}
+.steps .area .step .icon.icon-date:before {
+  background-position: -90px -165px;
+}
+@media (min-width: 750px) {
+  .steps .area .text {
+    max-width: 60%;
+    min-height: 36px;
+    margin: 6px auto 0;
+  }
+}
+.steps .area .col:nth-of-type(1) .step:nth-of-type(2):before {
+  height: 200px;
+  bottom: -116px;
+  left: auto;
+  right: 128px;
+  -webkit-transform: rotate(-68deg);
+  -moz-transform: rotate(-68deg);
+  -ms-transform: rotate(-68deg);
+  -o-transform: rotate(-68deg);
+  transform: rotate(-68deg);
+  -webkit-backface-visibility: hidden;
+}
+.steps .area .col:nth-of-type(1) .step:nth-of-type(2):after {
+  border-width: 12px 6px 0 6px;
+  margin: 0;
+  bottom: -3px;
+  right: 60px;
+  left: auto;
+  -webkit-transform: rotate(-50deg);
+  -moz-transform: rotate(-50deg);
+  -ms-transform: rotate(-50deg);
+  -o-transform: rotate(-50deg);
+  transform: rotate(-50deg);
+  -webkit-backface-visibility: hidden;
+}
+@media (min-width: 750px) {
+  .steps .area .col:nth-of-type(1) .step:before {
+    height: 30px;
+    bottom: 0;
+    left: auto;
+    right: 80px;
+  }
+  .steps .area .col:nth-of-type(1) .step:after {
+    border-width: 18px 12px 0 12px;
+    bottom: -65px;
+    right: 20px;
+    -webkit-transform: rotate(-68deg);
+    -moz-transform: rotate(-68deg);
+    -ms-transform: rotate(-68deg);
+    -o-transform: rotate(-68deg);
+    transform: rotate(-68deg);
+    -webkit-backface-visibility: hidden;
+  }
+}
+.steps .area .col:nth-of-type(2) .step:nth-of-type(2):before {
+  height: 200px;
+  bottom: -116px;
+  right: auto;
+  left: 128px;
+  -webkit-transform: rotate(68deg);
+  -moz-transform: rotate(68deg);
+  -ms-transform: rotate(68deg);
+  -o-transform: rotate(68deg);
+  transform: rotate(68deg);
+  -webkit-backface-visibility: hidden;
+}
+.steps .area .col:nth-of-type(2) .step:nth-of-type(2):after {
+  border-width: 18px 12px 0 12px;
+  margin: 0;
+  bottom: -65px;
+  left: 20px;
+  right: auto;
+  -webkit-transform: rotate(68deg);
+  -moz-transform: rotate(68deg);
+  -ms-transform: rotate(68deg);
+  -o-transform: rotate(68deg);
+  transform: rotate(68deg);
+  -webkit-backface-visibility: hidden;
+}
+.steps .area .col:nth-of-type(3) {
+  padding-top: 24px;
+}
+.steps .area .col:nth-of-type(3) .step {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+.steps .area .col:nth-of-type(3) .step:before,
+.steps .area .col:nth-of-type(3) .step:after {
+  display: none;
 }
 /* ==========================================================================
    _POPUP
