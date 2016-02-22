@@ -120,13 +120,36 @@ window.initForms = function (scope) {
 
 	$('.multiselect', scope).multiselect();
 
-	$('.btn-group', scope).on('click', function () {
-		$(this).toggleClass('open');
-	});
+	$('.btn-group', scope).each(function () {
+		function handler(event) {
+			var c = $(event.target).closest(st);
+			if ((c.length === 0)) {
+				Hide();
+			} else {
+				if (buttons.filter('.open').length > 1) {
+					buttons.filter('.open').not(c).removeClass('open');
+				}
+			}
+		}
 
-	$('.select-age .toggle', scope).on('click', function () {
-		$(this).closest('.select-age').toggleClass('open');
-		return false;
+		function Show() {
+			self.addClass('open');
+			body.on('click', handler);
+		}
+
+		function Hide() {
+			buttons.filter('.open').removeClass('open');
+			body.off('click', handler);
+		}
+
+		var self = $(this), body = $('body'), st = '.btn-group', buttons = $(st);
+		self.on('click', function () {
+			if (!self.hasClass('open')) {
+				Show();
+			} else {
+				Hide();
+			}
+		})
 	});
 
 	/** Checkbox, Radio */

@@ -1,5 +1,5 @@
 /*
- * Project: Price Point Dating
+ * Project: PricePoint Dating
  * File: Main styles
  */
 
@@ -38,6 +38,7 @@
 @color-cadet: #5a6272;
 @color-gainsboro: #dadada;
 @color-brown-light: #b6a8a7;
+@color-gray-new: #ddd;
 
 @margin-sm: 16px;
 @margin-md: 18px;
@@ -165,14 +166,14 @@ a {
 audio, canvas, img, video { vertical-align: middle; }
 dl {
   margin-top: 0;
-  
+
   dt { font-weight: bold; }
   dd {
     margin-left: 0;
     margin-bottom: @margin-sm;
     font-weight: 300;
     font-style: italic;
-    
+
     @media @md {
       margin-bottom: @margin-md;
     }
@@ -192,19 +193,19 @@ dl {
   margin: @margin-sm 0 @margin-sm;
   font-size: 24px;
   font-style: normal;
-  
+
   @media @md {
     font-size: 30px;
     margin: @margin-md 0 @margin-md;
   }
-  
+
 }
 .h2 {
   &:extend(.heading-default);
   margin: @margin-sm 0 @margin-sm;
   font-size: 22px;
   font-style: normal;
-  
+
   @media @md {
     font-size: 24px;
     margin: @margin-md 0 @margin-md;
@@ -215,7 +216,7 @@ dl {
   margin: @margin-sm 0 @margin-sm;
   font-size: 20px;
   font-style: normal;
-  
+
   @media @md {
     font-size: 22px;
     margin: @margin-md 0 @margin-md;
@@ -226,36 +227,36 @@ dl {
   margin: @margin-sm 0 @margin-sm;
   font-size: 18px;
   font-style: normal;
-  
+
   @media @md {
     font-size: 20px;
     margin: @margin-md 0 @margin-md;
   }
-  
+
 }
 .h5 {
   &:extend(.heading-default);
   margin: @margin-sm 0 @margin-sm;
   font-size: 16px;
   font-style: normal;
-  
+
   @media @md {
     font-size: 18px;
     margin: @margin-md 0 @margin-md;
   }
-  
+
 }
 .h6 {
   &:extend(.heading-default);
   margin: @margin-sm 0 @margin-sm;
   font-size: 14px;
   font-style: normal;
-  
+
   @media @md {
     font-size: 15px;
     margin: @margin-md 0 @margin-md;
   }
-  
+
 }
 h1 {&:extend(.h1); }
 h2 {&:extend(.h2); }
@@ -269,7 +270,7 @@ h6 {&:extend(.h6); }
 .clearfix { display: table; content: '\0020'; clear: both; }
 .before { display: block; content: '\0020'; overflow: hidden; }
 .hidden { display: none; }
-.unselectable { -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: -moz-none; -ms-user-select: none; -o-user-select: none; user-select: none; }
+.unselectable { -webkit-user-select: none; -moz-user-select: -moz-none; -ms-user-select: none; -o-user-select: none; user-select: none; }
 .mobile-visible {
   @media @md {
     display: none;
@@ -316,13 +317,13 @@ h6 {&:extend(.h6); }
   font-family: inherit;
   letter-spacing: inherit;
   [class *="pure-u"] { font-family: inherit; padding: 0 10px; }
-  
+
   @media @xl {
     margin: 0 -25px;
-    
+
     [class *="pure-u"] { font-family: inherit; padding: 0 25px; }
   }
-  
+
   .pure-u-mobile-hidden {
     display: none;
     @media (min-width: 768px) {
@@ -345,7 +346,7 @@ input {
   background: @color-white;
   transition: background-color @duration, border-color @duration;
   -webkit-appearance: none;
-  
+
   @media @md {
     &.large {
       height: 42px;
@@ -355,7 +356,7 @@ input {
       line-height: 20px;
     }
   }
-  
+
   &:focus { border-color: @color-sea; }
   .form-line & { width: 100%; }
 }
@@ -364,7 +365,7 @@ textarea {
   height: 104px;
   display: block;
   resize: none;
-  
+
   @media @md {
     &.large {
       padding-top: 10px;
@@ -373,7 +374,7 @@ textarea {
       line-height: 20px;
     }
   }
-  
+
   &:focus { border-color: @color-font; }
   .form-line & { width: 100%; }
 }
@@ -386,7 +387,7 @@ textarea {
   @media @md {
     margin: 0 0 @margin-md;
   }
-  
+
   &:after { .clearfix; }
 }
 /* BUTTONS */
@@ -404,14 +405,14 @@ textarea {
   border: 1px solid @color-rosy;
   border-radius: 2px;
   transition: background-color @duration, border-color @duration, color @duration;
-  
+
   @media @md {
     max-width: none;
     display: inline-block;
     font-size: 13px;
     padding-left: 28px;
     padding-right: 28px;
-    
+
     &.button-large {
       padding-top: 12px;
       padding-bottom: 12px;
@@ -419,78 +420,78 @@ textarea {
       line-height: 18px;
     }
   }
-  
+
   &:hover, &:focus {
     color: @color-rosy;
     background-color: transparent;
     text-decoration: none;
   }
-  
+
   &.button-black {
     color: @color-white;
     background: @color-sea;
     border-color: @color-sea;
-    
+
     &:hover, &:focus, &:active {
       color: @color-sea;
       background-color: transparent;
       text-decoration: none;
     }
   }
-  
+
   &.button-white {
     color: @color-blue;
     background: @color-white;
     border: 1px solid transparent;
     transition: border-color @duration, background-color @duration;
-    
+
     &:hover, &:focus, &:active { border-color: @color-blue; background-color: transparent; }
   }
-  
+
   &.button-white-bordered {
     color: @color-blue;
     background: @color-white;
     border: 1px solid @color-blue;
     transition: background-color @duration;
-    
+
     &:hover, &:focus, &:active { background-color: transparent; }
   }
-  
+
   &.button-gray {
     color: @color-white;
     background: @color-font;
     border-color: @color-font;
-    
+
     &:hover, &:focus, &:active {
       color: @color-font;
       background-color: transparent;
       text-decoration: none;
     }
   }
-  
+
   &.button-blue {
     color: @color-white;
     background: @color-blue;
     border-color: @color-blue;
-    
+
     &:hover, &:focus, &:active {
       color: @color-blue;
       background-color: transparent;
       text-decoration: none;
     }
   }
-  
+
   &.button-icon {
     padding-left: 4px;
     padding-right: 4px;
-    
+
     .icon {
       width: 14px;
       height: 14px;
       display: inline-block;
       vertical-align: top;
       position: relative;
-      
+
       &:before, &:after {
         .before;
         clear: both;
@@ -504,26 +505,26 @@ textarea {
         left: 0;
         transition: opacity @duration;
       }
-      
+
       &:before { background-position: 0 0; opacity: 1; }
       &:after { background-position: 0 -20px; opacity: 0; }
-      
+
       &.icon-fav {
         &:before { background-position: 0 0; }
         &:after { background-position: 0 -20px; }
       }
-      
+
       &.icon-message {
         &:before { background-position: -40px 0; }
         &:after { background-position: -40px -20px; }
       }
-      
+
       &.icon-offer {
         &:before { background-position: -20px 0; }
         &:after { background-position: -20px -20px; }
       }
     }
-    
+
     &:hover, &:focus {
       .icon {
         &:before { opacity: 0; }
@@ -535,25 +536,25 @@ textarea {
 .buttons-group {
   margin: 16px -2px;
   &:after { .clearfix; }
-  
+
   .cell {
     width: 50%;
     margin: 0;
     padding: 0 2px;
     float: left;
   }
-  
+
   .button { width: 100%; }
-  
+
   @media @sm {
     max-width: 400px;
     margin-left: auto;
     margin-right: auto;
   }
-  
+
   @media @md {
     max-width: none;
-    
+
     .cell {
       width: auto;
       padding: 0;
@@ -567,7 +568,7 @@ textarea {
   padding-left: 20px;
   position: relative;
   display: block;
-  
+
   input[type="checkbox"] {
     display: none;
     position: absolute;
@@ -575,7 +576,7 @@ textarea {
     top: 0;
     opacity: 0;
   }
-  
+
   .square {
     width: 12px;
     height: 12px;
@@ -585,7 +586,7 @@ textarea {
     position: absolute;
     left: 0;
     top: 3px;
-    
+
     &:before {
       .before;
       background: @color-font;
@@ -598,20 +599,20 @@ textarea {
       bottom: 1px;
     }
   }
-  
+
   input[type="checkbox"]:checked + .square {
     &:before { opacity: 1; }
   }
-  
+
   &.checkbox-gift {
     padding: 4px;
     cursor: pointer;
-    
+
     @media @md {
       width: 94px;
       height: 94px;
     }
-    
+
     .square {
       width: auto;
       height: auto;
@@ -621,16 +622,16 @@ textarea {
       bottom: 0;
       right: 0;
       z-index: 1;
-      
+
       &:before { display: none; }
     }
-    
+
     input[type="checkbox"]:checked + .square {
       border: 1px solid @color-beige;
       background-color: @color-yellow-light;
       &:before { opacity: 0; }
     }
-    
+
     img {
       max-width: 100%;
       height: auto;
@@ -647,7 +648,7 @@ textarea {
   padding-left: 20px;
   position: relative;
   display: block;
-  
+
   input[type="radio"] {
     display: none;
     position: absolute;
@@ -655,7 +656,7 @@ textarea {
     top: 0;
     opacity: 0;
   }
-  
+
   .circle {
     width: 12px;
     height: 12px;
@@ -666,7 +667,7 @@ textarea {
     left: 0;
     top: 3px;
     -webkit-backface-visibility: hidden;
-    
+
     &:before {
       .before;
       background: @color-font;
@@ -679,11 +680,11 @@ textarea {
       bottom: 2px;
     }
   }
-  
+
   input[type="radio"]:checked + .circle {
     &:before { opacity: 1; }
   }
-  
+
   &.radiobox-price {
     padding: 9px 4px;
     text-align: center;
@@ -693,13 +694,13 @@ textarea {
     color: @color-blue;
     z-index: 1;
     cursor: pointer;
-    
+
     @media @md {
       font-size: 28px;
     }
-    
+
     &.checked { color: @color-white; }
-    
+
     .circle {
       width: auto;
       height: auto;
@@ -711,12 +712,12 @@ textarea {
       right: 1px;
       z-index: -1;
       cursor: pointer;
-      
+
       &:before {
         display: none;
       }
     }
-    
+
     input[type="radio"]:checked + .circle {
       background: @color-blue;
       border-color: @color-blue;
@@ -729,7 +730,7 @@ textarea {
   border-color: @color-beige;
   background: @color-white;
   border-radius: 2px;
-  
+
   .label {
     height: 30px;
     margin: 0 36px 0 10px;
@@ -738,7 +739,7 @@ textarea {
     line-height: 30px;
     letter-spacing: .02em;
   }
-  
+
   .button {
     width: 32px;
     height: 32px;
@@ -747,17 +748,17 @@ textarea {
     overflow: hidden;
     background: transparent;
     border: none;
-    
+
     &:after {
       border-width: 5px;
       border-top-color: @color-beige;
       transition: opacity @duration;
     }
   }
-  
+
   .selectric-hover &, .selectric-open & {
     border-color: @color-sea;
-    
+
     .button {
       &:after {
         border-top-color: @color-sea;
@@ -772,15 +773,15 @@ textarea {
   border-color: @color-beige;
   border-radius: 0 0 2px 2px;
   box-shadow: none;
-  
+
   .selectric-above & {
     margin-top: 0;
     margin-bottom: -1px;
     border-radius: 2px 2px 0 0;
   }
-  
+
   ul { font-size: 13px; }
-  
+
   li {
     padding-top: 5px;
     padding-bottom: 5px;
@@ -789,53 +790,53 @@ textarea {
     color: @color-font;
     border-top-color: @color-beige-light;
     border-bottom-color: @color-beige-light;
-    
+
     &:hover {
       color: @color-font;
       background: @color-beige-light;
     }
-    
+
     &.selected {
       background: @color-beige;
       border-top-color: @color-beige;
       border-bottom-color: @color-beige;
       color: @color-sea;
     }
-    
+
     &.disabled { display: none; }
   }
 }
 .select-small {
-  
+
   @media @md {
     .selectric {
-      
+
       .label {
         height: 24px;
         line-height: 24px;
       }
-      
+
       .button { width: 24px; height: 24px; }
     }
   }
 }
 .select-large {
-  
+
   @media @md {
     .selectric {
-      
+
       .label {
         height: 40px;
         font-size: 16px;
         line-height: 40px;
         margin: 0 46px 0 10px;
       }
-      
+
       .button { width: 42px; height: 42px; }
     }
     .selectric-items {
       ul { font-size: 16px; }
-      
+
       li {
         padding: 10px;
         font-size: 16px;
@@ -855,7 +856,7 @@ input[type=checkbox].css-checkbox {
   margin: -1px;
   padding: 0;
   border: 0;
-  
+
   + label.css-label {
     padding-left: 24px;
     display: inline-block;
@@ -865,12 +866,12 @@ input[type=checkbox].css-checkbox {
     background-position: 0 0;
     vertical-align: middle;
     cursor: pointer;
-    
+
     @media @md {
       font-size: 15px;
     }
   }
-  
+
   &:checked {
     + label.css-label {
       background-position: 0 -18px;
@@ -994,7 +995,10 @@ label.css-label {
     .dropdown-menu { display: block; }
     .btn {
       .caret {
-        &:after { border-color: @color-font transparent transparent transparent; }
+        &:after {
+          border-color: @color-font transparent transparent transparent;
+          .rotate(180deg);
+        }
       }
     }
   }
@@ -1007,7 +1011,7 @@ label.css-label {
     padding: 15px;
     background: @color-white;
     border-radius: 10px;
-    
+
     .head {
       margin: -15px -15px 15px;
       padding: 8px 15px;
@@ -1018,10 +1022,10 @@ label.css-label {
       background: @color-platinum;
       border-radius: 10px 10px 0 0;
     }
-    
+
     @media @md {
       padding: 28px;
-      
+
       .head {
         margin: -28px -28px 15px;
         padding: 11px 28px;
@@ -1029,14 +1033,14 @@ label.css-label {
       }
     }
   }
-  
+
   .form-submit {
     .button {
       width: 100%;
       display: block;
-      
+
       &.button-sign {
-        
+
         span {
           width: 12px;
           height: 12px;
@@ -1044,7 +1048,7 @@ label.css-label {
           display: inline-block;
           vertical-align: middle;
           position: relative;
-          
+
           &:before, &:after {
             .before;
             clear: both;
@@ -1060,7 +1064,7 @@ label.css-label {
           &:before { .rotate(45deg); top: 4px; }
           &:after { .rotate(-45deg); top: 0; }
         }
-        
+
         &:hover, &:focus {
           span {
             &:before, &:after { background-color: @color-rosy; }
@@ -1068,36 +1072,36 @@ label.css-label {
         }
       }
     }
-    
+
     @media @sm {
       .button-inline { width: auto; display: inline-block; }
     }
-    
+
     @media @md {
       margin-top: 26px;
     }
   }
-  
+
   .form-line {
     &.form-line-checkbox { margin-bottom: 6px; }
-    
+
     @media @md {
       margin-bottom: 16px;
     }
   }
-  
+
   label {
     letter-spacing: .05em;
     display: block;
     margin-bottom: 8px;
   }
-  
+
   .select-date {
     .selectric-wrapper {
       width: auto;
       margin: 0 6px 0 0;
       display: inline-block;
-      
+
       .selectric {
         .label { margin-left: 10px; }
       }
@@ -1106,28 +1110,28 @@ label.css-label {
       }
     }
   }
-  
+
   .title {
     margin: 20px -10px 10px;
     padding: 0 10px 10px;
     color: @color-rosy;
     letter-spacing: .08em;
-    border-bottom: 1px solid #ddd;
-    
+    border-bottom: 1px solid @color-gray-new;
+
     @media @md {
       margin: 30px -23px 10px;
       padding-left: 23px;
       padding-right: 23px;
     }
   }
-  
+
   .code {
-    
+
     input[type="text"] {
       width: 100px;
       float: left;
     }
-    
+
     .text {
       min-height: 32px;
       margin-left: 106px;
@@ -1138,9 +1142,9 @@ label.css-label {
       font-size: 11px;
       line-height: 12px;
     }
-    
+
     @media @sm {
-      
+
       input[type="text"] {
         width: 140px;
         display: inline-block;
@@ -1155,7 +1159,7 @@ label.css-label {
         line-height: 16px;
       }
     }
-    
+
     @media @md {
       .text {
         font-size: 16px;
@@ -1164,25 +1168,25 @@ label.css-label {
       }
     }
   }
-  
+
   .legend {
     margin: 8px 0 0;
     display: inline-block;
   }
-  
+
   .small {
     font-size: 12px;
     display: block;
     margin: 14px 0 0 0;
   }
-  
+
   .blue { color: @color-blue; }
 
   .inform {
     margin-bottom: 20px;
     padding: 12px;
     background: @color-gray;
-    border: 1px solid #ddd;
+    border: 1px solid @color-gray-new;
     border-radius: 2px;
   }
 
@@ -1411,16 +1415,16 @@ label.css-label {
   right: 0;
   cursor: default;
   z-index: 100;
-  
+
   @media @md {
     height: 60px;
   }
-  
+
   .wrapper {
     height: 100%;
     position: relative;
   }
-  
+
   .logo {
     width: 146px;
     height: 21px;
@@ -1428,23 +1432,23 @@ label.css-label {
     position: absolute;
     left: 10px;
     top: 10px;
-    
+
     @media @md {
       width: 246px;
       height: 36px;
       top: 13px;
       left: 7px;
     }
-    
+
     a { display: block; }
-    
+
     img {
       width: 100%;
       height: auto;
       display: block;
     }
   }
-  
+
   .username {
     margin: 0;
     font-size: 11px;
@@ -1453,20 +1457,20 @@ label.css-label {
     position: absolute;
     right: 10px;
     top: 8px;
-    
+
     @media @md {
       top: 12px;
       font-size: 13px;
       line-height: 18px;
     }
-    
+
     .switch {
       min-height: 20px;
       display: block;
       padding-right: 25px;
       color: @color-white;
       position: relative;
-      
+
       &:before, &:after {
         .before;
         width: 20px;
@@ -1480,24 +1484,24 @@ label.css-label {
         top: 1px;
         transition: opacity @duration;
       }
-      
+
       &:before { background-position: 0 -63px; opacity: 1; }
       &:after { background-position: 0 -86px; opacity: 0; }
-      
+
       &:hover, &:focus, &:active {
         text-decoration: none;
         color: @color-rosy;
-        
+
         &:before { opacity: 0; }
         &:after { opacity: 1; }
       }
-      
+
       .credits { display: block; }
-      
+
       @media @md {
         min-height: 30px;
         padding-right: 40px;
-        
+
         &:before, &:after {
           width: 30px;
           height: 30px;
@@ -1508,7 +1512,7 @@ label.css-label {
         &:after { background-position: 0 -130px; }
       }
     }
-    
+
     .settings {
       width: 250px;
       margin-top: 8px;
@@ -1525,11 +1529,11 @@ label.css-label {
       top: 100%;
       right: -4px;
       transition: opacity @duration;
-      
+
       @media @md {
         width: 290px;
       }
-      
+
       &:before {
         .before;
         width: 0;
@@ -1541,99 +1545,99 @@ label.css-label {
         top: -8px;
         right: 15px;
       }
-      
+
       .profile-open & { display: block; }
       .profile-visible & { opacity: 1; }
-      
+
       .entry {
         margin-bottom: 11px;
         padding-bottom: 4px;
-        border-bottom: 1px solid #f6f6f6;
-        
+        border-bottom: 1px solid @color-beige-light;
+
         &:after { .clearfix; }
-        
+
         &:last-of-type {
           margin-bottom: 0;
           padding-bottom: 0;
           border-bottom: none;
         }
       }
-      
+
       .image {
         width: 110px;
         margin: 0;
         padding-top: 5px;
         float: left;
         text-align: center;
-        
+
         @media @md {
           width: 124px;
         }
-        
+
         img {
           width: 100%;
           height: auto;
           margin-bottom: 2px;
           display: block;
         }
-        
+
         a {
           display: block;
           color: @color-blue;
-          
+
           &:hover {
             color: @color-rosy;
             text-decoration: none;
           }
         }
       }
-      
+
       .button {
         margin-bottom: 4px;
         padding-left: 4px;
         padding-right: 4px;
         display: block;
-        
+
         @media @md {
           font-size: 14px;
         }
       }
-      
+
       .fn { line-height: 13px; margin-bottom: 8px; }
-      
+
       .info {
         margin-left: 118px;
-        
+
         @media @md {
           margin-left: 132px;
         }
-        
+
         .name {
           margin-bottom: 2px;
           font-size: 15px;
           line-height: normal;
-          
+
           @media @md {
             font-size: 18px;
           }
         }
-        
+
         .button {
           font-weight: normal;
         }
       }
-      
+
       .buttons-group {
         margin: 0 -5px;
-        
+
         .cell {
           padding: 0 5px;
           display: block;
           float: left;
-          
+
           &:nth-of-type(1) { width: 160px; }
           &:nth-of-type(2) { width: 84px; }
-          
+
           @media @md {
             &:nth-of-type(1) { width: 200px; }
           }
@@ -1641,40 +1645,40 @@ label.css-label {
       }
     }
   }
-  
+
   .buttons {
     position: absolute;
     right: 10px;
     top: 5px;
-    
+
     @media @md {
       top: 14px;
     }
-    
+
     a {
       margin: 0 0 0 5px;
       display: inline-block;
       .scale(.8);
-      
+
       @media @md {
         margin: 0 0 0 20px;
         .scale(1);
       }
-      
+
       &:hover, &:focus {
         text-decoration: none;
       }
     }
-    
+
     .button {
       display: none;
-      
+
       @media @md {
         min-width: 128px;
         display: block;
       }
     }
-    
+
     .icon {
       width: 30px;
       height: 30px;
@@ -1682,10 +1686,10 @@ label.css-label {
       background-image: url("@{images}/sprite.png");
       background-repeat: no-repeat;
       background-size: 250px auto;
-      
+
       &.icon-login { background-position: -35px -95px; }
       &.icon-signup { background-position: -70px -95px; }
-      
+
       @media @md {
         display: none;
       }
@@ -1713,21 +1717,21 @@ label.css-label {
     left: auto;
     right: auto;
   }
-  
+
   .wrapper {
     min-height: 100%;
     position: relative;
   }
-  
+
   @media @md {
     height: 168px;
     font-size: 14px;
   }
-  
+
   .copyright {
     margin: 0;
     text-align: center;
-    
+
     @media @md {
       margin-top: -9px;
       position: absolute;
@@ -1735,30 +1739,30 @@ label.css-label {
       top: 50%;
     }
   }
-  
+
   .links {
     margin: 0 0 14px;
     padding: 0;
     list-style: none;
     text-align: center;
-    
+
     @media @md {
       margin: -9px 0 0 0;
       position: absolute;
       right: 10px;
       top: 50%;
     }
-    
+
     li {
-      
+
       @media @md {
         padding: 0 0 0 20px;
         display: inline-block;
       }
-      
+
       a {
         color: @color-white;
-        
+
         &:hover, &:focus, &:active {
           text-decoration: none;
           color: @color-rosy;
@@ -1775,38 +1779,38 @@ label.css-label {
   background: @color-white;
   border-bottom: 1px solid @color-beige;
   text-align: center;
-  
+
   @media @md {
     text-align: left;
   }
-  
+
   .links-group {
     margin: 0;
     padding: 0;
     list-style: none;
     line-height: 21px;
-    
+
     &:after { .clearfix; }
-    
+
     @media @md {
       max-width: none;
       margin: 0 -1px;
       float: left;
     }
-    
+
     li {
       margin: 0 3px 0 0;
       float: left;
-      
+
       &:last-of-type { margin-right: 0; }
-      
+
       @media @md {
         margin: 0;
         padding: 0 1px;
         display: inline-block;
         float: none;
       }
-      
+
       a {
         padding: 4px 6px;
         display: block;
@@ -1815,16 +1819,16 @@ label.css-label {
         border: 1px solid @color-sky;
         border-radius: 2px;
         transition: background-color @duration, border-color @duration, color @duration;
-        
+
         &:hover, &:focus, &:active {
           color: @color-white;
           background-color: @color-blue;
           border-color: @color-blue;
           text-decoration: none;
         }
-        
+
         @media @xxs {
-          
+
           .icon {
             width: 20px;
             height: 20px;
@@ -1834,7 +1838,7 @@ label.css-label {
             position: relative;
             top: -1px;
             .scale(.7);
-            
+
             &:before, &:after {
               .before;
               clear: both;
@@ -1848,48 +1852,48 @@ label.css-label {
               left: 0;
               transition: opacity @duration;
             }
-            
+
             &:before { background-position: 0 -65px; opacity: 1; }
             &:after { background-position: 0 -40px; opacity: 0; }
-            
+
             &.icon-search {
               &:before { background-position: 0 -65px; }
               &:after { background-position: 0 -40px; }
             }
-            
+
             &.icon-offers {
               &:before { background-position: -25px -65px; }
               &:after { background-position: -25px -40px; }
             }
-            
+
             &.icon-messages {
               &:before { background-position: -50px -65px; }
               &:after { background-position: -50px -40px; }
             }
-            
+
             &.icon-date {
               &:before { background-position: -75px -65px; }
               &:after { background-position: -75px -40px; }
             }
           }
           &:hover, &:focus, &:active {
-            
+
             .icon {
               &:before { opacity: 0; }
               &:after { opacity: 1; }
             }
           }
         }
-        
+
         @media @sm {
           padding-left: 12px;
           padding-right: 12px;
-          
+
           .icon {
             margin: 0 3px;
           }
         }
-        
+
         @media @md {
           .mobile-hidden { display: inline; }
           .icon {
@@ -1900,12 +1904,12 @@ label.css-label {
       }
     }
   }
-  
+
   .buy {
     margin: 0;
     text-transform: uppercase;
     display: none;
-    
+
     @media @md {
       display: block;
       float: right;
@@ -1918,21 +1922,21 @@ label.css-label {
 .profile {
   margin: 0 auto 14px;
   position: relative;
-  
+
   &:after { .clearfix; }
-  
+
   .photo {
     margin: 0;
     width: 134px;
     float: left;
-    
+
     @media @md {
       width: 200px;
     }
-    
+
     figure {
       margin: 0;
-      
+
       img {
         width: 100%;
         height: auto;
@@ -1941,61 +1945,61 @@ label.css-label {
       }
     }
   }
-  
+
   .inform {
-    
+
     .text {
       min-height: 134px;
       margin-left: 144px;
       margin-bottom: 10px;
       padding-top: 5px;
     }
-    
+
     @media @md {
       margin-left: 220px;
       padding-bottom: 40px;
       padding-top: 0;
-      
+
       .text {
         min-height: 0;
         margin-left: 0;
         margin-bottom: 21px;
       }
     }
-    
+
     .name {
       margin: 0 0 4px;
       font-size: 18px;
       line-height: 18px;
       color: @color-rosy;
       font-weight: normal;
-      
+
       .small {
         font-size: 13px;
       }
-      
+
       @media @md {
         margin: 0;
         font-size: 24px;
         line-height: 22px;
-        
+
         .small { font-size: 15px; }
       }
     }
-    
+
     .location {
       margin: 0 0 16px;
       font-size: 11px;
-      
+
       @media @xxs {
         margin: 0 0 34px;
       }
-      
+
       @media @md {
         margin: 0 0 21px;
         font-size: 13px;
       }
-      
+
       .link {
         min-height: 20px;
         padding-left: 18px;
@@ -2004,7 +2008,7 @@ label.css-label {
         font-weight: 500;
         color: @color-font;
         position: relative;
-        
+
         &:before {
           .before;
           width: 16px;
@@ -2015,19 +2019,19 @@ label.css-label {
           left: 2px;
           top: 2px;
         }
-        
+
         @media @sm {
           margin-left: 8px;
         }
       }
     }
-    
+
     .activity {
       margin: 0 0 5px;
       font-size: 11px;
       font-weight: 300;
       font-style: italic;
-      
+
       @media @md {
         margin: 0;
         font-size: 13px;
@@ -2036,61 +2040,61 @@ label.css-label {
         top: 16px;
       }
     }
-    
+
     .status {
       margin: 0;
       font-weight: bold;
     }
-    
+
     .actions {
       margin: 0 auto;
       position: relative;
-      
+
       @media @md {
         padding: 13px 90px 13px 0;
         border-top: 1px solid @color-beige;
       }
-      
+
       .list {
         max-width: 400px;
         margin: 0 auto;
         padding: 0;
         list-style: none;
-        
+
         @media @xs {
           max-width: none;
         }
-        
+
         @media @md {
           display: inline-block;
         }
-        
+
         li {
           margin-bottom: 10px;
           &:after { .clearfix; }
-          
+
           &:last-child {
             margin-bottom: 0;
           }
-          
+
           &.hf {
             margin-left: -2px;
             margin-right: -2px;
-            
+
             .col {
               width: 50%;
               padding: 0 2px;
               float: left;
             }
           }
-          
+
           @media @sm {
             margin: 0;
             display: inline-block;
-            
+
             &.hf {
               margin: 0;
-              
+
               .col {
                 width: 100%;
                 padding: 0;
@@ -2099,25 +2103,25 @@ label.css-label {
             }
           }
         }
-        
+
         .button {
           max-width: none;
           padding-left: 24px;
           padding-right: 24px;
-          
+
           @media @sm {
             display: inline-block;
           }
         }
       }
-      
+
       .report {
         max-width: 320px;
         margin: 0 auto;
         display: none;
-        
+
         &:after { .clearfix; }
-        
+
         @media @md {
           width: 80px;
           display: block;
@@ -2125,7 +2129,7 @@ label.css-label {
           top: 5px;
           right: 0;
         }
-        
+
         .button {
           width: 50%;
           padding: 3px 10px;
@@ -2134,15 +2138,15 @@ label.css-label {
           float: left;
           font-size: 12px;
           font-weight: 500;
-          
+
           &.button-white {
             color: @color-font;
             border: 1px solid @color-beige;
             transition: border-color @duration;
-            
+
             &:hover, &:focus, &:active { background-color: @color-white; border-color: @color-font; }
           }
-          
+
           @media @md {
             width: auto;
             float: none;
@@ -2157,19 +2161,19 @@ label.css-label {
    ========================================================================== */
 .description {
   display: none;
-  
+
   @media @md {
     display: block;
     margin: 0 auto;
     padding: 6px 10px;
     background: @color-gray;
-    border: 1px solid #ddd;
+    border: 1px solid @color-gray-new;
     font-size: 13px;
-    
+
     dt {
       padding-top: 6px;
-      border-top: 1px solid #ddd;
-      
+      border-top: 1px solid @color-gray-new;
+
       &:first-of-type { padding-top: 0; border-top: none; }
     }
     dd {
@@ -2187,18 +2191,18 @@ label.css-label {
   font-weight: 500;
   position: relative;
   z-index: 2;
-  
+
   li {
     display: inline-block;
-    
+
     a {
       padding: 6px 26px 4px;
       display: block;
       color: @color-font;
       border: 1px solid @color-beige;
-      
+
       &:hover, &:focus, &:active { text-decoration: none; }
-      
+
       .icon {
         width: 20px;
         height: 20px;
@@ -2206,7 +2210,7 @@ label.css-label {
         display: inline-block;
         vertical-align: middle;
         top: -1px;
-        
+
         &:before, &:after {
           .before;
           clear: both;
@@ -2220,10 +2224,10 @@ label.css-label {
           top: 0;
           transition: opacity @duration;
         }
-        
+
         &:before { opacity: 1; }
         &:after { opacity: 0; }
-        
+
         &.icon-about {
           &:before { background-position: -150px -65px; }
           &:after { background-position: -150px -40px; }
@@ -2234,13 +2238,13 @@ label.css-label {
         }
       }
     }
-    
+
     &.active {
       a {
         color: @color-rosy;
         background: @color-white;
         border-bottom-color: @color-white;
-        
+
         .icon {
           &:before { opacity: 0; }
           &:after { opacity: 1; }
@@ -2253,12 +2257,12 @@ label.css-label {
   padding: 14px;
   background: @color-white;
   border: 1px solid @color-beige;
-  
+
   @media @md {
     min-height: 416px;
     padding: 18px 28px;
   }
-  
+
   &.tab-hidden { display: none; }
 }
 /* ==========================================================================
@@ -2266,16 +2270,16 @@ label.css-label {
    ========================================================================== */
 .gallery {
   margin-bottom: 8px;
-  
+
   .heading {
     .h6;
     margin-bottom: 6px !important;
-    
+
     a {
       padding: 4px 4px 4px 18px;
       display: block;
       position: relative;
-      
+
       &:before {
         .before;
         width: 16px;
@@ -2286,10 +2290,10 @@ label.css-label {
         left: 0;
         top: 4px;
       }
-      
+
       @media @md {
         padding-left: 22px;
-        
+
         &:before {
           width: 20px;
           height: 20px;
@@ -2299,33 +2303,33 @@ label.css-label {
       }
     }
   }
-  
+
   .my-gallery {
     padding: 0;
     margin: 0 -6px;
     &:after { .clearfix; }
-    
+
     @media @md {
       display: inline-block;
     }
-    
+
     figure {
       width: 50%;
       padding: 6px;
       margin: 0;
       display: block;
       float: left;
-      
+
       @media @sm {
         width: 33.3%;
       }
-      
+
       @media @md {
         width: 20%;
       }
-      
+
       a { display: block; }
-      
+
       img {
         width: 100%;
         height: auto;
@@ -2339,17 +2343,17 @@ label.css-label {
    _GIFTS
    ========================================================================== */
 .gifts {
-  
+
   .heading {
     font-size: 14px;
     margin-bottom: 6px;
     font-weight: 500;
-    
+
     a {
       padding: 4px 4px 4px 18px;
       display: block;
       position: relative;
-      
+
       &:before {
         .before;
         width: 16px;
@@ -2360,10 +2364,10 @@ label.css-label {
         left: 0;
         top: 2px;
       }
-      
+
       @media @md {
         padding-left: 22px;
-        
+
         &:before {
           width: 20px;
           height: 20px;
@@ -2373,24 +2377,24 @@ label.css-label {
       }
     }
   }
-  
+
   ul {
     margin: 0;
     padding: 0;
     cursor: default;
     list-style: none;
-    
+
     li {
       margin-bottom: 10px;
       display: inline-block;
       vertical-align: middle;
-      
+
       a { display: block; }
       img { max-width: 40px; height: auto; display: block; }
-      
+
       @media @md {
         margin-bottom: 0;
-        
+
         img { max-width: 50px; }
       }
     }
@@ -2402,71 +2406,71 @@ label.css-label {
 .catalog {
   cursor: default;
   &:after { .clearfix; }
-  
+
   @media @xs {
     margin-left: -1px;
     margin-right: -1px;
   }
-  
+
   @media @sm {
     margin-left: -5px;
     margin-right: -5px;
   }
-  
+
   @media @md {
     margin-left: -10px;
     margin-right: -10px;
   }
-  
+
   .item {
     margin-bottom: 18px;
-    
+
     .space {
       padding: 7px 10px;
       background: @color-white;
       border: 1px solid @color-beige;
     }
-    
+
     @media @xs {
       width: 50%;
       padding: 0 1px;
       float: left;
-      
+
       &:nth-of-type(2n+1) { clear: left; }
     }
-    
+
     @media @sm {
       padding: 0 5px;
-      
+
       .space {
         padding-left: 20px;
         padding-right: 20px;
       }
     }
-    
+
     @media @lg {
       width: 33.3%;
       padding: 0 10px;
-      
+
       &:nth-of-type(2n+1) { clear: none; }
       &:nth-of-type(3n+1) { clear: left; }
     }
   }
-  
+
   .photo {
     margin: -7px -11px 11px;
     overflow: hidden;
-    
+
     @media @sm {
       margin-left: -21px;
       margin-right: -21px;
     }
-    
+
     a {
       display: block;
       overflow: hidden;
       position: relative;
-      
+
       &:before {
         .before;
         .color-black(.3);
@@ -2480,7 +2484,7 @@ label.css-label {
         transition: opacity .3s;
         z-index: 1;
       }
-      
+
       img {
         width: 100%;
         height: auto;
@@ -2489,43 +2493,43 @@ label.css-label {
         .scale(1.1);
         transition: transform .3s;
       }
-      
+
       &:hover {
-        
+
         &:before { opacity: 1; }
-        
+
         img { .scale(1); }
       }
     }
   }
-  
+
   .info {
-    
+
     .name {
       margin: 0;
       font-size: 18px;
       line-height: normal;
       color: @color-rosy;
-      
+
       @media @md {
         font-size: 24px;
       }
     }
-    
+
     .location {
       margin-bottom: 10px;
-      
+
       @media @md {
         font-size: 13px;
       }
-      
+
       .link {
         padding-left: 18px;
         position: relative;
         font-weight: 500;
         float: right;
         color: @color-font;
-        
+
         &:before {
           .before;
           width: 16px;
@@ -2536,7 +2540,7 @@ label.css-label {
           left: 2px;
           top: 2px;
         }
-        
+
         @media @sm {
           margin-left: 8px;
           right: auto;
@@ -2544,14 +2548,14 @@ label.css-label {
         }
       }
     }
-    
+
     .status {
       margin-bottom: 7px;
       padding: 4px 0;
       border-top: 1px solid @color-beige;
       border-bottom: 1px solid @color-beige;
     }
-    
+
     .actions {
       width: 100%;
       display: table;
@@ -2559,45 +2563,45 @@ label.css-label {
       font-weight: 500;
       font-size: 13px;
       color: @color-rosy;
-      
+
       &:after { .clearfix; }
-      
+
       .cell {
         width: 50%;
         margin: 0;
         padding: 0 2px 0 0;
         display: table-cell;
         vertical-align: middle;
-        
+
         &:nth-of-type(2) { padding-right: 0; padding-left: 2px; }
-        
+
         .button { display: block; }
       }
-      
+
       @media @xs {
         display: block;
-        
+
         .cell {
           width: 100%;
           display: block;
           margin-bottom: 4px;
           padding: 0;
           line-height: 32px;
-          
+
           &:nth-of-type(2) { padding-left: 0; }
         }
       }
-      
+
       @media @sm {
         display: table;
-        
+
         .cell {
           width: 50%;
           margin-bottom: 0;
           padding: 0 2px 0 0;
           display: table-cell;
           line-height: inherit;
-          
+
           &:nth-of-type(2) { padding-right: 0; padding-left: 2px; }
         }
       }
@@ -2609,22 +2613,19 @@ label.css-label {
    ========================================================================== */
 .sort {
   margin-bottom: 16px;
-  
   &:after { .clearfix; }
-  
-  .line {
 
+  .line {
     @media @sm {
       margin: 0 -1px;
     }
-
     @media @md {
       margin-left: 216px;
     }
-    
+
     .form-line {
       margin-bottom: 4px;
-      
+
       @media @sm {
         width: 154px;
         margin-left: 1px;
@@ -2634,10 +2635,6 @@ label.css-label {
 
         &.form-line-photos { width: 190px; }
         &.form-line-ethnicity { width: 248px; }
-      }
-
-      @media @md {
-
       }
     }
   }
@@ -2672,9 +2669,7 @@ label.css-label {
       border-radius: 0 2px 2px 0;
       transition: opacity @duration;
 
-      &:hover {
-        opacity: .7;
-      }
+      &:hover { opacity: .7; }
 
       &:before, &:after {
         .before;
@@ -2701,7 +2696,7 @@ label.css-label {
       font-weight: bold;
 
       @media @sm {
-        margin-left: 25px;
+        margin-left: 20px;
       }
     }
 
@@ -2821,7 +2816,7 @@ label.css-label {
     }
 
   }
-  
+
   .buttons-group {
     margin-top: 0;
     margin-bottom: 4px;
@@ -2852,11 +2847,11 @@ label.css-label {
   text-align: center;
   background: @color-white;
   border: 1px solid @color-beige;
-  
+
   p { margin-bottom: 2px; }
-  
+
   .color { color: @color-blue; }
-  
+
   .link {
     display: inline-block;
     padding: 2px 24px;
@@ -2866,7 +2861,7 @@ label.css-label {
     background: @color-beige;
     border-radius: 2px;
     transition: background-color @duration, color @duration;
-    
+
     &:hover, &:focus, &:active {
       text-decoration: none;
       color: @color-white;
@@ -2880,9 +2875,9 @@ label.css-label {
 .presents {
   margin-bottom: 15px;
   padding: 7px 5px;
-  border: 1px solid #ddd;
+  border: 1px solid @color-gray-new;
   border-radius: 8px;
-  
+
   .head {
     margin: -8px -6px 8px;
     padding: 2px 10px 5px;
@@ -2892,20 +2887,20 @@ label.css-label {
     color: @color-white;
     background: @color-font;
     border-radius: 8px 8px 0 0;
-    
+
     @media @md {
       font-size: 15px;
     }
   }
-  
+
   .list {
     width: 100%;
     display: table;
-    
+
     .cell {
       display: table-cell;
       vertical-align: middle;
-      
+
       .checkbox-gift { margin: 0 2px; }
     }
   }
@@ -3352,12 +3347,12 @@ label.css-label {
     -webkit-transform-style: preserve-3d;
     -webkit-backface-visibility: hidden;
   }
-  
+
   &.mfp-bg {
     opacity: 0;
     .transition-translate-opacity(@duration);
   }
-  
+
   &.mfp-ready {
     .mfp-content {
       opacity: 1;
@@ -3365,7 +3360,7 @@ label.css-label {
     }
     &.mfp-bg { opacity: 0.8; }
   }
-  
+
   &.mfp-removing {
     .mfp-content {
       opacity: 0;
@@ -3382,14 +3377,14 @@ label.css-label {
 }
 .mfp-bg {
   background: @color-black;
-  
+
   &.mfp-ready {
     opacity: .95;
   }
 }
 .mfp-container {
   padding: 0 10px;
-  
+
   @media @md {
     padding: 0 20px;
   }
@@ -3401,16 +3396,16 @@ label.css-label {
   background: @color-white;
   border-radius: 8px;
   position: relative;
-  
+
   @media @xxs {
     width: 360px;
   }
-  
+
   @media @md {
     width: 630px;
     padding-top: 54px;
   }
-  
+
   .mfp-close {
     width: 24px;
     height: 24px;
@@ -3422,7 +3417,7 @@ label.css-label {
     right: 10px;
     opacity: 1;
     cursor: pointer;
-    
+
     &:before, &:after {
       width: 14px;
       height: 2px;
@@ -3435,15 +3430,15 @@ label.css-label {
       left: 50%;
       background: @color-gray;
     }
-    
+
     &:before { .rotate(45deg); }
     &:after { .rotate(-45deg); }
-    
+
     @media @md {
       width: 34px;
       height: 34px;
       border-radius: 8px;
-      
+
       &:before, &:after {
         width: 18px;
         height: 4px;
@@ -3451,47 +3446,47 @@ label.css-label {
       }
     }
   }
-  
+
   .heading {
     margin: -24px 0 14px;
     padding-right: 44px;
     font-weight: 500;
     font-size: 18px;
     line-height: normal;
-    
+
     @media @md {
       margin-top: -44px;
       font-size: 24px;
     }
   }
-  
+
   .color { color: @color-rosy; }
-  
+
   &.popup-message {
     cursor: default;
     .form-line {
       margin-bottom: 10px;
-      
+
       .radiobox-price {
         width: 20%;
         float: left;
       }
     }
-    
+
     .radiobox, .checkbox {
       .unselectable;
     }
-    
+
     .form-submit {
       text-align: right;
-      
+
       label {
         line-height: 32px;
         display: inline-block;
         vertical-align: top;
         font-weight: 500;
         font-size: 11px;
-        
+
         input[type='text'] {
           width: 50px;
           padding-left: 4px;
@@ -3499,19 +3494,19 @@ label.css-label {
           font-weight: 500;
           text-align: center;
         }
-        
+
         @media @xxs {
           font-size: 12px;
           margin-right: 5px;
-          
+
           input[type='text'] {
             margin-left: 5px;
           }
         }
-        
+
         @media @md {
           font-size: 15px;
-          
+
           input[type='text'] {
             width: 70px;
             font-size: 22px;
@@ -3519,11 +3514,11 @@ label.css-label {
           }
         }
       }
-      
+
       .button {
         width: auto;
         display: inline-block;
-        
+
         @media @md {
           min-width: 140px;
         }

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Price Point Dating</title>
+	<title>PricePoint Dating</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
 	<meta name="format-detection" content="telephone=no">
@@ -27,7 +27,7 @@
 	<link rel="icon" type="image/png" href="img/favicon/android-chrome-192x192.png" sizes="192x192">
 	<link rel="icon" type="image/png" href="img/favicon/favicon-16x16.png" sizes="16x16">
 	<link rel="manifest" href="img/favicon/manifest.json">
-	<link rel="mask-icon" href="img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+	<link rel="mask-icon" href="img/favicon/safari-pinned-tab.svg">
 	<link rel="shortcut icon" href="img/favicon/favicon.ico">
 	<meta name="msapplication-TileColor" content="#da532c">
 	<meta name="msapplication-TileImage" content="img/favicon/mstile-144x144.png">
@@ -39,13 +39,8 @@
 	<!-- Header -->
 	<header class="header">
 		<div class="wrapper">
-
-			<h1 class="hidden">Price Point Dating</h1>
-
-			<!-- logo -->
+			<h1 class="hidden">PricePoint Dating</h1>
 			<p class="logo"><img src="img/logo.png" width="246" height="36" alt=""></p>
-
-			<!-- username -->
 			<div class="username">
 				<a class="switch" href="#">Roberto2011 <span class="credits">100 credits</span></a>
 				<div class="settings">
@@ -106,10 +101,10 @@
 						<div class="cell">
 							<label for="sort"></label>
 							<select id="sort">
-								<option value="">Sort by: Newest Member</option>
-								<option value="">Sort by: Newest Member</option>
-								<option value="">Sort by: Newest Member</option>
-								<option value="">Sort by: Newest Member</option>
+								<option value="newest" selected>Sort by: Newest Member</option>
+								<option value="age">Sort by: Age</option>
+								<option value="body">Sort by: Body Type</option>
+								<option value="hair">Sort by: Hair Color</option>
 							</select>
 						</div>
 						<div class="cell">
@@ -119,35 +114,35 @@
 					<div class="line">
 						<div class="form-line">
 							<label for="distance"></label>
-							<select id="distance" class="multiselect" multiple="multiple">
-								<option value="anywhere">Anywhere</option>
-								<option value="15miles" selected>Within 15 Miles</option>
-								<option value="30miles">Within 30 Miles</option>
-								<option value="60miles">Within 60 Miles</option>
-								<option value="100miles">Within 100 Miles</option>
+							<select id="distance" class="multiselect" multiple>
+								<option value="anywhere" selected>Anywhere</option>
+								<option value="15" selected>Within 15 Miles</option>
+								<option value="30">Within 30 Miles</option>
+								<option value="60">Within 60 Miles</option>
+								<option value="100">Within 100 Miles</option>
 							</select>
 						</div>
 						<div class="form-line form-line-photos">
 							<label for="photos"></label>
-							<select id="photos" class="multiselect" multiple="multiple">
-								<option value="all" selected>With & Without Photo</option>
+							<select id="photos" class="multiselect" multiple>
+								<option value="all" selected>With &amp; Without Photo</option>
 								<option value="photo">Only With Photos</option>
 							</select>
 						</div>
 						<div class="form-line">
-							<div class="select-age">
+							<div class="btn-group select-age">
 								<a class="toggle" href="#">Ages 18 to 29 <span class="arrow"></span></a>
 								<ul>
-									<li><input id="age1" type="text" value="19"> <label for="age1">From Age</label></li>
-									<li><input id="age2" type="text" value="19"> <label for="age2">To Age</label></li>
+									<li><input id="age1" class="from" type="text" value="19"> <label for="age1">From Age</label></li>
+									<li><input id="age2" class="to" type="text" value="19"> <label for="age2">To Age</label></li>
 								</ul>
 							</div>
 						</div>
 						<div class="form-line form-line-ethnicity">
 							<label for="ethnicity"></label>
-							<select id="ethnicity" class="multiselect" multiple="multiple">
+							<select id="ethnicity" class="multiselect" multiple>
 								<option value="white" selected>White / Caucasian</option>
-								<option value="islander">Pacific Islander</option>
+								<option value="pacific">Pacific Islander</option>
 								<option value="asian">Asian</option>
 								<option value="black">Black / African Descent</option>
 								<option value="latin">Latin / Hispanic</option>
@@ -158,7 +153,7 @@
 						</div>
 						<div class="form-line form-line-body">
 							<label for="body"></label>
-							<select id="body" class="multiselect" multiple="multiple">
+							<select id="body" class="multiselect" multiple>
 								<option value="slim" selected>Slim</option>
 								<option value="athletic">Athletic</option>
 								<option value="average">Average</option>

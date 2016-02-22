@@ -1,5 +1,5 @@
 /*
- * Project: Price Point Dating
+ * Project: PricePoint Dating
  * File: Main styles
  */
 /* ==========================================================================
@@ -224,7 +224,6 @@ h6 {
 }
 .unselectable {
   -webkit-user-select: none;
-  -khtml-user-select: none;
   -moz-user-select: -moz-none;
   -ms-user-select: none;
   -o-user-select: none;
@@ -1071,6 +1070,12 @@ label.css-label {
 }
 .btn-group.open .btn .caret:after {
   border-color: #707a85 transparent transparent transparent;
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+  -webkit-backface-visibility: hidden;
 }
 /* Form */
 .form .space {
@@ -1666,7 +1671,7 @@ label.css-label {
 .header .username .settings .entry {
   margin-bottom: 11px;
   padding-bottom: 4px;
-  border-bottom: 1px solid #f6f6f6;
+  border-bottom: 1px solid #f4f4f4;
 }
 .header .username .settings .entry:after {
   display: table;
@@ -2922,7 +2927,7 @@ label.css-label {
 }
 @media (min-width: 568px) {
   .sort .selectric .label {
-    margin-left: 25px;
+    margin-left: 20px;
   }
 }
 .sort .selectric .button:after {
@@ -3772,7 +3777,6 @@ label.css-label {
 .popup.popup-message .radiobox,
 .popup.popup-message .checkbox {
   -webkit-user-select: none;
-  -khtml-user-select: none;
   -moz-user-select: -moz-none;
   -ms-user-select: none;
   -o-user-select: none;
