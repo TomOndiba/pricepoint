@@ -1007,7 +1007,7 @@ label.css-label {
 .btn-group .btn {
   width: 100%;
   max-width: none;
-  padding-left: 20px;
+  padding-left: 10px;
   padding-right: 20px;
   text-align: left;
   color: #707a85;
@@ -1055,7 +1055,6 @@ label.css-label {
 }
 @media (min-width: 750px) {
   .btn-group .btn {
-    padding-left: 20px;
     padding-right: 32px;
   }
 }
@@ -2984,7 +2983,7 @@ label.css-label {
 .sort .select-age .toggle {
   width: 100%;
   display: block;
-  padding: 8px 32px 8px 22px;
+  padding: 8px 32px 8px 10px;
   color: #707a85;
   background: #fff;
   border: 1px solid #e5e5e5;

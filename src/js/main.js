@@ -136,7 +136,9 @@ window.initForms = function (scope) {
 
 	$('.multiselect', scope).each(function () {
 		$(this).multiselect({
-			nonSelectedText: $(this).data('title')
+			nonSelectedText: $(this).data('title'),
+			allSelectedText: $(this).data('all'),
+			numberDisplayed: 10
 		})
 	});
 
