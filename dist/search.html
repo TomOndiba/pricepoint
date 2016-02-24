@@ -96,11 +96,11 @@
 
 			<!-- Sort -->
 			<div class="sort">
-				<form class="filter" action="#" method="post" novalidate>
+				<form class="form-filter" action="search.html" method="post">
 					<div class="buttons-group">
 						<div class="cell">
 							<label for="sort"></label>
-							<select id="sort" name="orderby" required>
+							<select id="sort" name="orderby" class="select">
 								<option value="2" selected>Sort by: Newest Member</option>
 								<option value="1">Sort by: Distance</option>
 								<option value="3">Sort by: Recent</option>
@@ -113,7 +113,7 @@
 					<div class="line">
 						<div class="form-line">
 							<label for="distance"></label>
-							<select id="distance" name="distancemax" class="multiselect" required>
+							<select id="distance" name="distancemax" class="multiselect">
 								<option value="0" selected>Anywhere</option>
 								<option value="15">Within 15 Miles</option>
 								<option value="30">Within 30 Miles</option>
@@ -123,23 +123,23 @@
 						</div>
 						<div class="form-line form-line-photos">
 							<label for="photos"></label>
-							<select id="photos" name="withphotos" class="multiselect" data-title="Photos" required>
+							<select id="photos" name="withphotos" class="multiselect" data-title="Photos">
 								<option value="false" selected>With &amp; Without Photo</option>
 								<option value="true">Only With Photos</option>
 							</select>
 						</div>
 						<div class="form-line">
-							<div class="btn-group select-age">
+							<div class="btn-group select-age" data-min="16" data-max="70">
 								<a class="toggle" href="#">Age <span class="agemin">18</span> to <span class="agemax">35</span> <span class="arrow"></span></a>
 								<ul>
-									<li><input id="agemin" name="agemin" class="from" type="text" value="18" maxlength="2" required> <label for="agemin">From Age</label></li>
-									<li><input id="agemax" name="agemax" class="to" type="text" value="35" maxlength="2" required> <label for="agemax">To Age</label></li>
+									<li><input class="from" id="agemin" name="agemin" type="text" maxlength="2" value="18"> <label for="agemin">From Age</label></li>
+									<li><input class="to" id="agemax" name="agemax" type="text" maxlength="2" value="35"> <label for="agemax">To Age</label></li>
 								</ul>
 							</div>
 						</div>
 						<div class="form-line form-line-ethnicity">
 							<label for="ethnicity_type"></label>
-							<select id="ethnicity_type" name="ethnicity" class="multiselect" required multiple data-title="Ethnicity Type" data-all="All Ethnicity Types">
+							<select id="ethnicity_type" name="ethnicity" class="multiselect" multiple data-title="Ethnicity Type" data-all="All Ethnicity Types">
 								<option value="273">Asian</option>
 								<option value="274">Black / African Descent</option>
 								<option value="275">Latin / Hispanic</option>
@@ -153,7 +153,7 @@
 						</div>
 						<div class="form-line form-line-body">
 							<label for="body_type"></label>
-							<select id="body_type" name="body" class="multiselect" required multiple data-title="Body Type" data-all="All Body Types">
+							<select id="body_type" name="body" class="multiselect" multiple data-title="Body Type" data-all="All Body Types">
 								<option value="268">Slim</option>
 								<option value="269">Athletic</option>
 								<option value="270">Average</option>
@@ -161,7 +161,6 @@
 								<option value="272">Overweight</option>
 							</select>
 						</div>
-						<!--span class="type">Within 10 Miles <a class="close" href="#"></a></span-->
 					</div>
 				</form>
 			</div>
@@ -170,7 +169,7 @@
 			<!-- Warning -->
 			<div class="warning">
 				<p>Your search has returned <span class="color">2086 members</span> using the search filters above.</p>
-				<a class="link" href="#">Click here to start over</a>
+				<a class="link" href="search.html">Click here to start over</a>
 			</div>
 			<!-- /Warning -->
 
@@ -181,7 +180,7 @@
 						<figure class="photo"><a href="person.html"><img src="img/catalog/1.jpg" width="313" height="313" alt=""></a></figure>
 						<div class="info">
 							<p class="name">Jemma21</p>
-							<p class="location">New York, NY <a class="link" href="#">13 miles</a></p>
+							<p class="location">New York, NY <span class="range">13 miles</span></p>
 							<p class="status">Life is beautifull!</p>
 							<div class="actions">
 								<span class="cell"><a class="button button-icon js-popup" href="popup-offer.html"><span class="icon icon-offer"></span> Send Offer</a></span>
@@ -195,7 +194,7 @@
 						<figure class="photo"><a href="person.html"><img src="img/catalog/2.jpg" width="313" height="313" alt=""></a></figure>
 						<div class="info">
 							<p class="name">Manuella</p>
-							<p class="location">California, LA <a class="link" href="#">1223 miles</a></p>
+							<p class="location">California, LA <span class="range">1223 miles</span></p>
 							<p class="status">Your motto can be added here</p>
 							<div class="actions">
 								<span class="cell">&#36;100 Offer Sent</span>
@@ -209,7 +208,7 @@
 						<figure class="photo"><a href="person.html"><img src="img/catalog/3.jpg" width="313" height="313" alt=""></a></figure>
 						<div class="info">
 							<p class="name">Dana</p>
-							<p class="location">Lugoj, TM <a class="link" href="#">12983 miles</a></p>
+							<p class="location">Lugoj, TM <span class="range">12983 miles</span></p>
 							<p class="status">Say something</p>
 							<div class="actions">
 								<span class="cell"><a class="button button-blue button-icon js-popup" href="popup-offer.html"><span class="icon icon-message"></span> Send Message</a></span>
@@ -223,7 +222,7 @@
 						<figure class="photo"><a href="person.html"><img src="img/catalog/1.jpg" width="313" height="313" alt=""></a></figure>
 						<div class="info">
 							<p class="name">Jemma21</p>
-							<p class="location">New York, NY <a class="link" href="#">13 miles</a></p>
+							<p class="location">New York, NY <span class="range">13 miles</span></p>
 							<p class="status">Life is beautifull!</p>
 							<div class="actions">
 								<span class="cell"><a class="button button-icon js-popup" href="popup-offer.html"><span class="icon icon-offer"></span> Send Offer</a></span>
@@ -237,7 +236,7 @@
 						<figure class="photo"><a href="person.html"><img src="img/catalog/2.jpg" width="313" height="313" alt=""></a></figure>
 						<div class="info">
 							<p class="name">Manuella</p>
-							<p class="location">California, LA <a class="link" href="#">1223 miles</a></p>
+							<p class="location">California, LA <span class="range">1223 miles</span></p>
 							<p class="status">Your motto can be added here</p>
 							<div class="actions">
 								<span class="cell"><a class="button button-icon js-popup" href="popup-offer.html"><span class="icon icon-offer"></span> Send Offer</a></span>
@@ -251,7 +250,7 @@
 						<figure class="photo"><a href="person.html"><img src="img/catalog/3.jpg" width="313" height="313" alt=""></a></figure>
 						<div class="info">
 							<p class="name">Dana</p>
-							<p class="location">Lugoj, TM <a class="link" href="#">12983 miles</a></p>
+							<p class="location">Lugoj, TM <span class="range">12983 miles</span></p>
 							<p class="status">Say something</p>
 							<div class="actions">
 								<span class="cell"><a class="button button-icon js-popup" href="popup-offer.html"><span class="icon icon-offer"></span> Send Offer</a></span>
@@ -280,67 +279,6 @@
 		</div>
 	</footer>
 	<!-- /Footer -->
-
-
-	<!-- Message popup -->
-	<div id="popup-message" class="popup popup-offer mfp-hide">
-		<h2 class="h2 heading">Send a First Date Offer to <span class="color">Jemma21</span></h2>
-		<form action="#" method="post">
-			<div class="form-line form-line-radiobox">
-				<label class="radio radio-price"><input name="sum" type="radio" value="50"> &#36;50</label>
-				<label class="radio radio-price"><input name="sum" type="radio" value="100"> &#36;100</label>
-				<label class="radio radio-price"><input name="sum" type="radio" value="150"> &#36;150</label>
-				<label class="radio radio-price"><input name="sum" type="radio" value="200"> &#36;200</label>
-				<label class="radio radio-price"><input name="sum" type="radio" value="300"> &#36;300</label>
-			</div>
-			<div class="presents">
-				<p class="head">Impress Her by Sending a Virtual Gift for Only 5 Credits</p>
-				<div class="list">
-					<div class="cell">
-						<label class="checkbox checkbox-gift">
-							<input type="checkbox" value="flowers">
-							<img src="img/gifts/1-(90x90).png" width="90" alt="">
-						</label>
-					</div>
-					<div class="cell">
-						<label class="checkbox checkbox-gift">
-							<input type="checkbox" value="box">
-							<img src="img/gifts/2-(90x90).png" width="90" alt="">
-						</label>
-					</div>
-					<div class="cell">
-						<label class="checkbox checkbox-gift">
-							<input type="checkbox" value="toy">
-							<img src="img/gifts/3-(90x90).png" width="90" alt="">
-						</label>
-					</div>
-					<div class="cell">
-						<label class="checkbox checkbox-gift">
-							<input type="checkbox" value="bag">
-							<img src="img/gifts/4-(90x90).png" width="90" alt="">
-						</label>
-					</div>
-					<div class="cell">
-						<label class="checkbox checkbox-gift">
-							<input type="checkbox" value="shoes">
-							<img src="img/gifts/5-(90x90).png" width="90" alt="">
-						</label>
-					</div>
-					<div class="cell">
-						<label class="checkbox checkbox-gift">
-							<input type="checkbox" value="drink">
-							<img src="img/gifts/6-(90x90).png" width="90" alt="">
-						</label>
-					</div>
-				</div>
-			</div>
-			<div class="form-submit">
-				<label>or Type a Custom Amount <input class="total" type="text" value=""></label>
-				<input class="button" type="submit" value="Send Offer">
-			</div>
-		</form>
-	</div>
-	<!-- /Message popup -->
 
 
 	<script src="js/vendor/jquery.min.js"></script>

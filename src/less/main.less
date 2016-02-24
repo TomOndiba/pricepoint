@@ -18,8 +18,9 @@
 @xxl: ~"(min-width: 1200px)";
 
 @font-awesome: 'FontAwesome', sans-serif;
-@font-family: 'Roboto', Arial, sans-serif;
+@font-roboto: 'Roboto', Arial, sans-serif;
 @font-opensans: 'Open Sans', Arial, sans-serif;
+@font-arial: Arial, sans-serif;
 
 @color-black: #000;
 @color-white: #fff;
@@ -112,7 +113,7 @@ html {
   height: 100%;
   padding: 0;
   margin: 0;
-  font: 12px/16px @font-family;
+  font: 12px/16px @font-roboto;
   color: @color-font;
   background: @color-beige-light;
   -webkit-font-smoothing: antialiased;
@@ -365,7 +366,7 @@ input {
   border: 1px solid @color-beige;
   border-radius: 2px;
   color: @color-font;
-  font: 13px/16px @font-family;
+  font: 13px/16px @font-opensans;
   background: @color-white;
   transition: background-color @duration, border-color @duration;
   -webkit-appearance: none;
@@ -420,7 +421,7 @@ textarea {
   margin: 0 auto;
   display: block;
   padding: 8px 12px;
-  font: bold 12px/14px @font-family;
+  font: bold 12px/14px @font-roboto;
   color: @color-white;
   text-align: center;
   text-decoration: none;
@@ -885,7 +886,8 @@ input[type=checkbox].css-checkbox {
     display: inline-block;
     font-size: 13px;
     line-height: 18px;
-    background: no-repeat 0 0;
+    background-repeat: no-repeat;
+    background-position: 0 0;
     vertical-align: middle;
     cursor: pointer;
 
@@ -1055,38 +1057,66 @@ label.css-label {
     }
   }
 }
-/* Form */
+/**
+ * Form
+ */
 .form {
+  margin: 50px 0 30px;
+  font-family: @font-arial;
+  cursor: default;
 
-  .space {
-    margin-bottom: 22px;
+  @media @md {
+    font-size: 15px;
+  }
+
+  .form-space {
     padding: 15px;
-    background: @color-white;
     border-radius: 10px;
-
-    .head {
-      margin: -15px -15px 15px;
-      padding: 8px 15px;
-      color: @color-cadet;
-      font-weight: 300;
-      line-height: normal;
-      letter-spacing: .03em;
-      background: @color-platinum;
-      border-radius: 10px 10px 0 0;
-    }
+    margin: 0;
+    background: @color-white;
 
     @media @md {
-      padding: 28px;
-
-      .head {
-        margin: -28px -28px 15px;
-        padding: 11px 28px;
-        font-size: 40px;
-      }
+      padding: 30px;
     }
   }
 
+  .form-head {
+    padding: 8px 15px;
+    border-radius: 10px 10px 0 0;
+    margin: -15px -15px 15px;
+    color: @color-cadet;
+    font-family: @font-arial;
+    font-weight: 300;
+    line-height: normal;
+    letter-spacing: .03em;
+    background: @color-platinum;
+
+    @media @md {
+      padding: 15px 30px;
+      margin: -30px -30px 15px;
+      font-size: 40px;
+    }
+  }
+
+  .form-line {
+    @media @md {
+      margin-bottom: 16px;
+    }
+
+    &-checkbox { margin-bottom: 6px; }
+  }
+
+  .form-label {
+    margin-bottom: 8px;
+    display: block;
+    letter-spacing: .05em;
+  }
+
   .form-submit {
+    @media @md {
+      margin-top: 26px;
+    }
+
     .button {
       width: 100%;
       display: block;
@@ -1128,24 +1158,6 @@ label.css-label {
     @media @sm {
       .button-inline { width: auto; display: inline-block; }
     }
-
-    @media @md {
-      margin-top: 26px;
-    }
-  }
-
-  .form-line {
-    &.form-line-checkbox { margin-bottom: 6px; }
-
-    @media @md {
-      margin-bottom: 16px;
-    }
-  }
-
-  label {
-    letter-spacing: .05em;
-    display: block;
-    margin-bottom: 8px;
   }
 
   .select-date {
@@ -1177,46 +1189,40 @@ label.css-label {
     }
   }
 
-  .code {
-
-    input[type="text"] {
+  .form-code {
+    .form-code-input {
       width: 100px;
       float: left;
-    }
 
-    .text {
-      min-height: 32px;
-      margin-left: 106px;
-      padding: 4px;
-      display: block;
-      background: @color-beige;
-      cursor: default;
-      font-size: 11px;
-      line-height: 12px;
-    }
-
-    @media @sm {
-
-      input[type="text"] {
+      @media @sm {
         width: 140px;
         display: inline-block;
         vertical-align: middle;
         float: none;
       }
-      .text {
+    }
+
+    .form-code-text {
+      min-height: 32px;
+      padding: 4px;
+      margin-left: 106px;
+      display: block;
+      cursor: default;
+      font-size: 11px;
+      line-height: 12px;
+      background: @color-beige;
+
+      @media @sm {
+        padding: 8px 6px;
         margin-left: 0;
         display: inline-block;
         vertical-align: middle;
-        padding: 8px 6px;
         line-height: 16px;
       }
-    }
-
-    @media @md {
-      .text {
+      @media @md {
+        padding: 12px 10px;
         font-size: 16px;
         line-height: 18px;
-        padding: 12px 10px;
       }
     }
   }
@@ -1242,21 +1248,20 @@ label.css-label {
     border-radius: 2px;
   }
 
-  &.form-register {
+  .form-important {
+    padding: .2em .6em;
+    margin: 1.33em 0 0;
+    line-height: 1.2em;
+  }
 
-    .info {
-      .form-line { margin-bottom: 10px; }
-    }
-
-    @media @md {
-      font-size: 15px;
-    }
+  .form-info {
+    .form-line { margin-bottom: 10px; }
   }
 
   &.form-upload {
 
     @media @md {
-      .head { margin-bottom: 30px; }
+      .form-head { margin-bottom: 30px; }
       .small { margin-top: 68px; }
     }
 
@@ -1277,7 +1282,7 @@ label.css-label {
         height: auto;
         margin: 0 auto;
         padding: 8px 12px;
-        font: bold 12px/14px @font-family;
+        font: bold 12px/14px @font-roboto;
         color: @color-white;
         text-align: center;
         text-decoration: none;
@@ -1332,7 +1337,7 @@ label.css-label {
           background-size: 200px auto;
           position: absolute;
           left: 0;
-          top: 4px;
+          top: 3px;
         }
 
         @media @md {
@@ -2029,7 +2034,7 @@ label.css-label {
         font-size: 13px;
       }
 
-      .link {
+      .range {
         min-height: 20px;
         padding-left: 18px;
         display: inline-block;
@@ -2551,7 +2556,7 @@ label.css-label {
         font-size: 13px;
       }
 
-      .link {
+      .range {
         padding-left: 18px;
         position: relative;
         font-weight: 500;
@@ -2816,14 +2821,12 @@ label.css-label {
         padding: 5px 10px;
         border-bottom: 1px solid @color-beige;
 
-        &:last-child { border-bottom: none; }
-
-        &:after { .clearfix; }
-
         @media @md {
           padding: 0;
           border-bottom: none;
         }
+
+        &:after { .clearfix; }
 
         label {
           display: block;
@@ -2836,13 +2839,18 @@ label.css-label {
           }
         }
 
+        &:last-child {
+          border-bottom: none;
+          label { margin-bottom: 0; }
+        }
+
         input[type="text"] {
           width: 45px;
           height: 28px;
           padding-top: 5px;
           padding-bottom: 5px;
           float: right;
-          display: inline-block;
+          text-align: center;
 
           @media @md {
             font-size: 15px;
@@ -2928,9 +2936,9 @@ label.css-label {
   border: 1px solid @color-gray-new;
   border-radius: 8px;
 
-  .head {
+  .form-head {
     margin: -8px -6px 8px;
-    padding: 2px 10px 5px;
+    padding: 3px 10px;
     font-weight: 500;
     font-size: 12px;
     text-align: center;
@@ -3207,7 +3215,6 @@ label.css-label {
       margin-bottom: 32px;
       font-size: 40px;
     }
-
     @media @lg {
       font-size: 60px;
     }
@@ -3305,10 +3312,11 @@ label.css-label {
   color: @color-white;
   text-align: center;
   font-weight: 300;
-  background: @color-sea;
   overflow: hidden;
   position: relative;
   z-index: 1;
+  background: @color-sea;
+  cursor: default;
 
   &:before {
     .before;
@@ -3325,10 +3333,8 @@ label.css-label {
   }
 
   @media @sm {
-
     &:before { width: 50%; margin: 0; left: 50%; right: auto; background-position: 100% 10px; background-size: auto 100%; }
-    &:after { .before; width: 50%; height: 84%; clear: both; background: url("@{images}/temp/heart.png") 0 0 no-repeat; background-size: auto 100%; position: absolute; top: 0; left: 0; opacity: .09; z-index: -1;
-    }
+    &:after { .before; width: 50%; height: 84%; clear: both; background: url("@{images}/temp/heart.png") 0 0 no-repeat; background-size: auto 100%; position: absolute; top: 0; left: 0; opacity: .09; z-index: -1; }
   }
 
   @media @lg {
@@ -3355,7 +3361,6 @@ label.css-label {
       margin-bottom: 38px;
       font-size: 40px;
     }
-
     @media @lg {
       font-size: 60px;
     }
@@ -3651,9 +3656,9 @@ label.css-label {
   border: 1px solid @color-gray-new;
   overflow: hidden;
 
-  .head {
-    margin: 0;
-    padding: 7px 76px 7px 36px;
+  .form-head {
+    margin: -36px -40px 40px;
+    padding: 10px 36px;
     color: @color-white;
     font-weight: bold;
     text-align: center;
@@ -3899,7 +3904,7 @@ label.css-label {
     display: block;
     background: @color-font;
     border-radius: 4px;
-    top: 9px;
+    top: 10px;
     right: 10px;
     opacity: 1;
     cursor: pointer;
@@ -3907,13 +3912,15 @@ label.css-label {
     &:before, &:after {
       width: 14px;
       height: 2px;
-      margin: -1px 0 0 -7px;
+      margin: auto;
       overflow: hidden;
       display: block;
       content: '';
       position: absolute;
-      top: 50%;
-      left: 50%;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
       background: @color-gray;
     }
 
@@ -3928,7 +3935,6 @@ label.css-label {
       &:before, &:after {
         width: 18px;
         height: 4px;
-        margin: -2px 0 0 -8px;
       }
     }
   }
@@ -4012,4 +4018,7 @@ label.css-label {
     }
   }
 }
-.filter { opacity: 0; }
+.form-filter {
+  opacity: 0;
+  &.inited { opacity: 1; }
+}

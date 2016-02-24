@@ -75,6 +75,7 @@ function initPopups(scope) {
 		autoFocusLast: false,
 		callbacks: {
 			open: function () {
+				console.log(this.wrap);
 				initForms(this.wrap);
 
 				/** Rebind close button */
@@ -99,22 +100,6 @@ function initPopups(scope) {
 			}
 		}
 	});
-
-	window.Filter = {};
-	$('.filter').each(function () {
-		$(this).on('submit', function (event) {
-			$('[required]', this).each(function () {
-				if ($(this).is('[multiple]') && $(this).val() === null) {
-					Filter[$(this).attr('name')] = [];
-				} else {
-					Filter[$(this).attr('name')] = $(this).val();
-				}
-			});
-			alert(JSON.stringify(Filter, null, 4));
-			event.preventDefault();
-		});
-		$(this).css('opacity', 1);
-	});
 }
 
 
@@ -127,7 +112,7 @@ function initForms(scope) {
 	}
 
 	/** Custom selectbox */
-	$('select:not(.multiselect)', scope).selectric({
+	$('select.select', scope).selectric({
 		maxHeight: 200,
 		disableOnMobile: false,
 		responsive: true
@@ -201,6 +186,22 @@ function initForms(scope) {
 			$('.' + $(this).attr('name'), self).text($(this).val());
 		});
 		self.addClass('inited');
+	});
+
+	/** Filter form */
+	$('.form-filter:not(.inited)').each(function () {
+		var result = {};
+		$(this).on('submit', function () {
+			$('[required]', this).each(function () {
+				if ($(this).is('[multiple]') && $(this).val() === null) {
+					result[$(this).attr('name')] = [];
+				} else {
+					result[$(this).attr('name')] = $(this).val();
+				}
+			});
+			alert(JSON.stringify(result, null, 4));
+			return false;
+		}).addClass('inited');
 	});
 }
 
