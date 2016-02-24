@@ -2933,25 +2933,22 @@ label.css-label {
    _INDEX
    ========================================================================== */
 .index {
-  height: 100%;
-  min-height: 440px;
-  padding: 20px 0;
+  height: 440px;
   color: @color-white;
-  font: 14px/22px @font-opensans;
+  font: 15px/22px @font-opensans;
   text-align: center;
   background: url("@{images}/temp/index.jpg") 80% -46px no-repeat;
-  background-size: auto 76%;
+  background-size: auto 74%;
   border-top: 2px solid #b0b0b0;
   position: relative;
 
-  @media (max-height: 334px) {
-  }
-
   @media @xxs {
-    background-position: 80% -46px;
+    background-position: 91% -45px;
   }
 
   @media @md {
+    height: 100%;
+    padding: 20px 0;
     font-size: 25px;
     line-height: 35px;
     text-align: left;
@@ -3393,13 +3390,13 @@ label.css-label {
   }
 
   .heading {
+    margin-top: 0;
     font-weight: 500;
-    font-size: 16px;
-    line-height: normal;
 
     @media @md {
-      margin: 0 0 60px;
+      margin-bottom: 60px;
       font-size: 36px;
+      line-height: normal;
     }
   }
 
