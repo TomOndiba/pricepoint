@@ -134,8 +134,8 @@ body {
 
   &.conversation-page {
     height: 100%;
-    padding-top: 110px;
-    padding-bottom: 260px;
+    padding-top: 88px;
+    padding-bottom: 0;
   }
 }
 @media @md {
@@ -145,6 +145,10 @@ body {
   }
   body {
     padding: 60px 0 186px;
+
+    &.conversation-page {
+      padding-top: 110px;
+    }
   }
 }
 /* ==========================================================================
@@ -303,8 +307,16 @@ h6 {&:extend(.h6); }
 
   .conversation-page & {
     height: 100%;
+    padding-bottom: 0;
 
-    > .wrapper { height: 100%; }
+    > .wrapper {
+      height: 100%;
+      min-height: 350px;
+      position: relative;
+      padding-bottom: 206px;
+
+      .aside { display: none; }
+    }
   }
 }
 .sidebar {
@@ -315,24 +327,44 @@ h6 {&:extend(.h6); }
 
   .conversation-page & { height: 100%; }
 }
+@media @xxs {
+  .container {
+
+    .conversation-page & {
+      > .wrapper {
+        padding-bottom: 216px;
+      }
+    }
+  }
+}
 @media @md {
-  .container { padding: 20px 0; }
+  .container {
+    padding: 20px 0;
+
+    .conversation-page & {
+      > .wrapper {
+        padding-bottom: 270px;
+        padding-right: 230px;
+
+        .aside {
+          width: 212px;
+          display: block;
+          position: absolute;
+          top: 0;
+          right: 10px;
+          bottom: 8px;
+        }
+      }
+    }
+  }
   .sidebar {
     width: 200px;
     margin-bottom: 0;
     float: left;
-
-    &.sidebar-right { float: right; }
   }
   .content {
     margin-top: -46px;
     margin-left: 220px;
-
-    &.content-left {
-      margin-top: 0;
-      margin-left: 0;
-      margin-right: 220px;
-    }
   }
 }
 /* PureCSS styles */
@@ -790,6 +822,12 @@ textarea {
       }
     }
   }
+
+  .selectric-open & {
+    .button {
+      &:after { .rotate(-180deg); }
+    }
+  }
 }
 .selectric-items {
   margin-top: -1px;
@@ -1179,7 +1217,7 @@ label.css-label {
     margin: 20px -10px 10px;
     padding: 0 10px 10px;
     color: @color-rosy;
-    letter-spacing: .08em;
+    letter-spacing: .054em;
     border-bottom: 1px solid @color-gray-new;
 
     @media @md {
@@ -1230,6 +1268,7 @@ label.css-label {
   .legend {
     margin: 8px 0 0;
     display: inline-block;
+    letter-spacing: .05em;
   }
 
   .small {
@@ -1252,6 +1291,7 @@ label.css-label {
     padding: .2em .6em;
     margin: 1.33em 0 0;
     line-height: 1.2em;
+    letter-spacing: .059em;
   }
 
   .form-info {
@@ -1812,11 +1852,15 @@ label.css-label {
     position: absolute;
     left: 0;
     right: 0;
-    top: 60px;
+    top: 40px;
   }
 
   @media @md {
     text-align: left;
+
+    .conversation-page & {
+      top: 60px;
+    }
   }
 
   .links-group {
@@ -3082,7 +3126,7 @@ label.css-label {
         margin-bottom: 20px;
 
         .selectric {
-          .label { font-size: 16px; line-height: 40px; }
+          .label { margin-left: 16px; font-size: 15px; line-height: 40px; text-align: left; }
         }
       }
     }
@@ -3652,37 +3696,63 @@ label.css-label {
    ========================================================================== */
 .conversation {
   height: 100%;
+  padding-top: 30px;
   background: @color-white;
   border: 1px solid @color-gray-new;
   overflow: hidden;
+  position: relative;
 
-  .form-head {
-    margin: -36px -40px 40px;
-    padding: 10px 36px;
+  @media @md {
+    padding-top: 32px;
+  }
+
+  .head {
+    margin: 0;
+    padding: 7px 10px;
     color: @color-white;
     font-weight: bold;
     text-align: center;
     background: @color-gray-dark;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    @media @md {
+      padding: 7px 36px;
+    }
   }
 
   .space {
-    max-height: 406px;
-    padding: 20px 76px 20px 36px;
+    padding: 10px;
     overflow-y: scroll;
+    max-height: 100%;
+
+    @media @md {
+      padding: 20px;
+    }
+
+    @media @lg {
+      padding: 20px 76px 20px 36px;
+    }
   }
 
   .entry {
-    margin-bottom: 16px;
+    margin-bottom: 10px;
     &:after { .clearfix; }
 
     &:last-of-type { margin-bottom: 0; }
 
+    @media @md {
+      margin-bottom: 16px;
+    }
+
     .message {
       margin-bottom: 0;
-      margin-right: 134px;
-      padding: 10px 30px;
+      margin-right: 80px;
+      padding: 10px;
       color: @color-white;
-      font-size: 13px;
+      font-size: 12px;
       background-color: @color-azure;
       border-radius: 8px;
       position: relative;
@@ -3698,31 +3768,52 @@ label.css-label {
         top: 16px;
         right: -12px;
       }
+
+      @media @md {
+        margin-right: 100px;
+        padding-left: 30px;
+        padding-right: 30px;
+        font-size: 13px;
+      }
+
+      @media @lg {
+        margin-right: 134px;
+      }
     }
 
     .author {
-      width: 110px;
+      width: 70px;
       margin: 0;
       padding-top: 8px;
       margin-right: 3px;
       float: right;
       color: @color-rosy;
       text-align: right;
+      font-size: 11px;
       line-height: 14px;
 
       .time, .status {
         display: block;
-        font-size: 13px;
+        font-size: 10px;
+      }
+
+      @media @md {
+        width: 90px;
+        font-size: 14px;
+
+        .time, .status { font-size: 13px; }
+      }
+
+      @media @lg {
+        width: 110px;
       }
     }
 
     &.entry-interlocutor {
 
       .message {
-        margin-left: 134px;
+        margin-left: 80px;
         margin-right: 0;
-        padding-left: 18px;
-        padding-right: 18px;
         color: @color-font;
         background-color: @color-beige;
 
@@ -3731,6 +3822,16 @@ label.css-label {
           border-color: transparent @color-beige transparent transparent;
           left: -12px;
           right: auto;
+        }
+
+        @media @md {
+          margin-left: 100px;
+          padding-left: 18px;
+          padding-right: 18px;
+        }
+
+        @media @lg {
+          margin-left: 134px;
         }
       }
 
@@ -3747,81 +3848,222 @@ label.css-label {
   }
 }
 /* ==========================================================================
-   _FORM-SEND
+   _FORM-MESSAGE
    ========================================================================== */
-.form-send {
+.form-message {
+  height: 190px;
+  position: absolute;
+  bottom: 8px;
+  right: 10px;
+  left: 10px;
+
+  @media @xxs {
+    height: 200px;
+  }
+
+  @media @md {
+    height: 250px;
+    right: 230px;
+    left: 10px;
+  }
+
   &:after { .clearfix; }
 
-  .text {
-    margin-bottom: 10px;
-    padding-left: 170px;
-    position: relative;
+  .photo {
+    width: 134px;
+    height: 134px;
+    margin: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
 
-    .photo {
+    img {
+      width: 134px;
+      height: 134px;
+    }
+
+    @media @md {
       width: 160px;
-      margin: 0;
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
+      height: 160px;
 
-    .name {
-      margin-bottom: 6px;
-      display: inline-block;
-      font-size: 24px;
-      color: @color-rosy;
-
-      .small {
-        margin: 0 0 0 10px;
-        display: inline-block;
-        font-size: 17px;
-        color: #b1b5ba;
+      img {
+        width: 160px;
+        height: 160px;
       }
     }
 
-    .form-line {
-      margin-bottom: 11px;
-
-      textarea {
-        height: 90px;
-        font-size: 15px;
-      }
-    }
-
-    .form-submit { margin: 0; }
-
-    .note {
-      min-height: 32px;
-      margin-left: 106px;
+    .price {
       padding: 4px;
       display: block;
-      background: #e5e5e5;
-      cursor: default;
-      font-size: 11px;
-      line-height: 12px;
+      font-size: 16px;
+      font-weight: bold;
+      color: @color-blue;
+      background: @color-white;
+      border-radius: 1px;
+      position: absolute;
+      right: 5px;
+      bottom: 5px;
 
-      @media @sm {
-        margin-left: 0;
-        display: inline-block;
-        vertical-align: top;
-        padding: 8px 12px;
-        font-size: 13px;
-        line-height: 14px;
+      @media @md {
+        padding: 6px;
+        font-size: 20px;
+      }
+
+      @media @lg {
+        padding: 9px;
+        font-size: 28px;
       }
     }
   }
 
+  .text {
+    margin-bottom: 7px;
+    padding-left: 144px;
+    position: relative;
+
+    @media @md {
+      padding-left: 170px;
+    }
+
+    .name {
+      margin-bottom: 0;
+      display: inline-block;
+      font-size: 16px;
+      color: @color-rosy;
+
+      @media @md {
+        margin-bottom: 6px;
+        font-size: 24px;
+      }
+
+      .small {
+        display: block;
+        font-size: 11px;
+        color: #b1b5ba;
+
+        @media @md {
+          margin: 0 0 0 10px;
+          font-size: 17px;
+          display: inline-block;
+        }
+      }
+    }
+
+    .form-line {
+      margin-bottom: 4px;
+
+      textarea { height: 66px; }
+
+      @media @md {
+        margin-bottom: 11px;
+
+        textarea {
+          height: 90px;
+          font-size: 15px;
+        }
+      }
+    }
+
+    .note {
+      display: none;
+
+      @media @lg {
+        display: inline-block;
+        vertical-align: top;
+        padding: 8px 12px;
+        font-size: 13px;
+        line-height: 16px;
+        background: #e5e5e5;
+        cursor: default;
+      }
+    }
+
+    .button {
+      width: auto;
+      margin: 0;
+    }
+  }
+
   .presents {
-    padding-left: 160px;
+    margin: 0;
+    padding-top: 2px;
+    padding-bottom: 2px;
     clear: both;
     font-size: 13px;
     position: relative;
 
+    @media @lg {
+      padding-left: 160px;
+    }
+
+    .list {
+      width: auto;
+      margin: 0 auto;
+    }
+
+    .checkbox.checkbox-gift {
+      width: 44px;
+      height: 44px;
+
+      @media @xxs {
+        width: 53px;
+        height: 53px;
+      }
+
+      @media @md {
+        width: 76px;
+        height: 76px;
+      }
+    }
+    
     .h {
-      margin: 0;
-      position: absolute;
-      left: 16px;
-      line-height: 21px;
+      display: none;
+      @media @lg {
+
+        width: 140px;
+        margin: 0;
+        display: block;
+        position: absolute;
+        left: 16px;
+        top: 8px;
+        line-height: 21px;
+      }
+    }
+  }
+}
+/* ==========================================================================
+   _COMMUNICATION
+   ========================================================================== */
+.communication {
+  height: 100%;
+  padding: 44px 14px 14px;
+  border: 1px solid @color-gray-new;
+
+  .head {
+    margin: 0;
+    padding: 7px 14px;
+    color: @color-white;
+    font-weight: bold;
+    background: @color-gray-dark;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    @media @md {
+      padding: 7px 36px;
+    }
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 13px;
+    color: #a1a1a1;
+
+    li {
+      margin-bottom: 18px;
     }
   }
 }
