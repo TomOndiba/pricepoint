@@ -4274,6 +4274,7 @@ label.css-label {
   bottom: 8px;
   right: 10px;
   left: 10px;
+  cursor: default;
 }
 @media (min-width: 375px) {
   .form-message {

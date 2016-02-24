@@ -227,8 +227,9 @@ function initForms(scope, data) {
 			gifts.filter(':checked').each(function () {
 				g.push(+$(this).val());
 			});
-			if ((t === 0) && g.length === 0) {
-				alert('Please, choose a gift');
+			if ((t > 500)) {
+				$('button', form).blur();
+				alert('Your offer must be $500 or less');
 			} else {
 				var request = sendRequest({'MakeOffer': {'id_user': i, 'amount': t, 'gifts': g}});
 				request.done(function (data) {
@@ -246,6 +247,22 @@ function initForms(scope, data) {
 		}).addClass('inited');
 
 		Clear();
+	});
+
+	/** Message form */
+	$('.form-message:not(.inited)', scope).each(function () {
+		var result = {};
+		$(this).on('submit', function () {
+			$('[required]', this).each(function () {
+				result[$(this).attr('name')] = $(this).val()
+			});
+			result['gifts'] = [];
+			$('.checkbox-gift :checkbox', this).filter(':checked').each(function () {
+				result['gifts'].push($(this).val());
+			});
+			alert(JSON.stringify(result, null, 4));
+			return false;
+		}).addClass('inited');
 	});
 }
 
