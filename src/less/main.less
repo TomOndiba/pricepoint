@@ -39,6 +39,7 @@
 @color-gainsboro: #dadada;
 @color-brown-light: #b6a8a7;
 @color-gray-new: #ddd;
+@color-gray-dark: #808080;
 
 @margin-sm: 16px;
 @margin-md: 18px;
@@ -305,10 +306,18 @@ h6 {&:extend(.h6); }
     width: 200px;
     margin-bottom: 0;
     float: left;
+
+    &.sidebar-right { float: right; }
   }
   .content {
     margin-top: -46px;
     margin-left: 220px;
+
+    &.content-left {
+      margin-top: 0;
+      margin-left: 0;
+      margin-right: 220px;
+    }
   }
 }
 /* PureCSS styles */
@@ -3621,6 +3630,24 @@ label.css-label {
     }
   }
 }
+/* ==========================================================================
+   _CONVERSATION
+   ========================================================================== */
+.conversation {
+  padding: 36px 40px;
+  background: @color-white;
+  border: 1px solid @color-gray-new;
+  
+  .head {
+    margin: -36px -40px 40px;
+    padding: 10px 36px;
+    color: @color-white;
+    font-weight: bold;
+    text-align: center;
+    background: @color-gray-dark;
+  }
+}
+
 /* ==========================================================================
    _POPUP
    ========================================================================== */
