@@ -1680,49 +1680,21 @@ label.css-label {
   .buttons {
     position: absolute;
     right: 10px;
-    top: 5px;
+    top: 4px;
 
     @media @md {
       top: 14px;
     }
 
-    a {
+    .button {
+      min-width: 85px;
       margin: 0 0 0 5px;
       display: inline-block;
-      .scale(.8);
-
-      @media @md {
-        margin: 0 0 0 20px;
-        .scale(1);
-      }
-
-      &:hover, &:focus {
-        text-decoration: none;
-      }
-    }
-
-    .button {
-      display: none;
 
       @media @md {
         min-width: 128px;
-        display: block;
-      }
-    }
-
-    .icon {
-      width: 30px;
-      height: 30px;
-      display: inline-block;
-      background-image: url("@{images}/sprite.png");
-      background-repeat: no-repeat;
-      background-size: 250px auto;
-
-      &.icon-login { background-position: -35px -95px; }
-      &.icon-signup { background-position: -70px -95px; }
-
-      @media @md {
-        display: none;
+        margin: 0 0 0 20px;
+        display: inline-block;
       }
     }
   }
@@ -2962,27 +2934,29 @@ label.css-label {
    ========================================================================== */
 .index {
   height: 100%;
+  min-height: 440px;
   padding: 20px 0;
   color: @color-white;
-  font: 16px/20px @font-opensans;
+  font: 14px/22px @font-opensans;
   text-align: center;
-  background: url("@{images}/temp/index.jpg") 75% 0 no-repeat;
-  background-size: cover;
+  background: url("@{images}/temp/index.jpg") 80% -46px no-repeat;
+  background-size: auto 76%;
   border-top: 2px solid #b0b0b0;
+  position: relative;
 
   @media (max-height: 334px) {
-    height: auto;
   }
 
-  @media @sm {
-    text-align: left;
-    background-position: 88% 0;
+  @media @xxs {
+    background-position: 80% -46px;
   }
 
   @media @md {
     font-size: 25px;
     line-height: 35px;
-    background-position: 50% 0;
+    text-align: left;
+    background-position: 88% 0;
+    background-size: cover;
 
     @media (max-height: 530px) {
       height: auto;
@@ -2994,31 +2968,41 @@ label.css-label {
   }
 
   .space {
-    width: 100%;
-    height: 100%;
-    display: table;
 
     .cell {
-      display: table-cell;
-      vertical-align: bottom;
-    }
-
-    @media @sm {
-      max-width: 300px;
+      padding: 10px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: @color-sea;
     }
 
     @media @md {
+      width: 100%;
       max-width: 500px;
+      height: 100%;
+      display: table;
 
-      .cell { vertical-align: middle; }
+      .cell {
+        padding: 0;
+        display: table-cell;
+        vertical-align: middle;
+        background: transparent;
+        position: relative;
+        bottom: auto;
+        right: auto;
+        left: auto;
+      }
     }
   }
 
   .heading {
     margin-top: 0;
+    margin-bottom: 8px;
     color: @color-white;
-    font-size: 24px;
-    line-height: 32px;
+    font-size: 22px;
+    line-height: 26px;
 
     @media @md {
       margin-bottom: 40px;
@@ -3027,8 +3011,10 @@ label.css-label {
     }
   }
 
-  p {
-    letter-spacing: .03em;
+  p { letter-spacing: .03em; }
+
+  .slogan {
+    margin-bottom: -6px;
 
     @media @md {
       margin-bottom: 38px;
@@ -3038,49 +3024,56 @@ label.css-label {
   .form-line {
     max-width: 394px;
     margin: 0 auto;
+    text-align: left;
 
-    @media @sm {
+    @media @md {
       margin-left: 0;
       margin-right: 0;
     }
 
     label {
-      margin-bottom: 10px;
+      margin-bottom: 6px;
       display: block;
+
+      @media @md {
+        margin-bottom: 10px;
+      }
     }
 
     .select-large {
       margin-bottom: 10px;
 
       .selectric {
-        .label { font-family: @font-opensans; }
+        .label { font: 14px/30px @font-opensans; color: @color-black; text-align: center; }
       }
 
       @media @md {
         margin-bottom: 20px;
 
         .selectric {
-          .label { font-size: 15px; }
+          .label { font-size: 16px; line-height: 40px; }
         }
       }
     }
 
     .button.button-large {
       width: 100%;
-      font-family: @font-opensans;
-      font-weight: 600;
+      padding-top: 12px;
+      padding-bottom: 12px;
+      font: 600 15px/18px @font-opensans;
       position: relative;
+      border-radius: 6px;
 
       &:after {
         .before;
         clear: both;
-        margin: -2px 0 0 10px;
+        margin: -2px 0 0 14px;
         display: inline-block;
         vertical-align: middle;
         width: 0;
         height: 0;
         border-style: solid;
-        border-width: 5px 0 5px 5px;
+        border-width: 9px 0 9px 9px;
         border-color: transparent transparent transparent @color-white;
         transition: border-color @duration;
       }
