@@ -15,9 +15,6 @@ $(document).ready(function () {
  * Init UI
  **/
 function initUI() {
-	/** Fastclick */
-	FastClick.attach(document.body);
-
 	/** Toggle settings dropdown in the header  */
 	$('.header').each(function () {
 		body = $('body');
@@ -93,6 +90,11 @@ function initForms(scope, data) {
 		scope = document;
 	}
 
+	/** Fastclick */
+	if (!(/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream)) {
+		FastClick.attach(document.body);
+	}
+
 	/** Custom selectbox */
 	$('select.select', scope).selectric({
 		maxHeight: 200,
@@ -154,7 +156,7 @@ function initForms(scope, data) {
 	/** Checkbox init */
 	$('.radio:not(.inited)', scope).each(function () {
 		if ($('.circle', this).length === 0) {
-			$(this).append('<span class="circle"></span>');
+			$('<span class="circle"/>').insertAfter($('input', this));
 		}
 		$(this).addClass('inited');
 	});
@@ -206,7 +208,6 @@ function initForms(scope, data) {
 			var radio = $(this);
 			radio.on('change', function () {
 				if (radio.is(':checked')) {
-					radio.closest('label').addClass('checked').siblings('.checked').removeClass('checked');
 					total.val('$' + radio.val());
 				}
 			});
