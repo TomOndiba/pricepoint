@@ -2,17 +2,24 @@
 /*global window, console, document, $, jQuery, google */
 
 
-/*
+/**
  * On document ready
- */
+ **/
 $(document).ready(function () {
+	initUI();
+	initForms();
+	initPopups();
+});
 
-	/* Fastclick */
+
+/**
+ * Init UI
+ **/
+function initUI() {
+	/** Fastclick */
 	FastClick.attach(document.body);
 
-	initForms();
-
-	/* Toggle settings dropdown in the header  */
+	/** Toggle settings dropdown in the header  */
 	$('.header').each(function () {
 		body = $('body');
 		$('.username .switch', this).on('click', function () {
@@ -38,8 +45,8 @@ $(document).ready(function () {
 		});
 	});
 
-	/* Tabs */
-	$('.tabs', this).each(function () {
+	/** Tabs */
+	$('.tabs').each(function () {
 		$(this).on('click', 'a', function (event) {
 			var where = $(this).attr('href').replace(/^.*#(.*)/, "$1");
 			$(this).closest('li').addClass('active').siblings('li.active').removeClass('active');
@@ -48,57 +55,49 @@ $(document).ready(function () {
 		});
 	});
 
-	initPopups();
-	initPhotoSwipeFromDOM('.my-gallery');
-});
+	initPhotoSwipe('.my-gallery');
+}
 
 
 /**
  * Init popups
- */
-window.initPopups = function (scope) {
+ **/
+function initPopups(scope) {
 
-	/** On popup opened */
-	window.onOpen = function () {
-		/** Init inner forms */
-		initForms(this.wrap);
+	/** Popup init */
+	$('.js-popup').magnificPopup({
+		type: 'ajax',
+		closeMarkup: '<span title="%title%" class="mfp-close"><span class="mfp-in"></span></span>',
+		settings: {cache: false},
+		mainClass: 'mfp-zoom-in',
+		midClick: true,
+		removalDelay: 300,
+		autoFocusLast: false,
+		callbacks: {
+			open: function () {
+				initForms(this.wrap);
 
-		/** Rebind close button */
-		$('.js-close', this.wrap).unbind('click').on('click', function (e) {
-			$.magnificPopup.close();
-			e.preventDefault();
-		});
+				/** Rebind close button */
+				$('.js-close', this.wrap).unbind('click').on('click', function (e) {
+					$.magnificPopup.close();
+					e.preventDefault();
+				});
 
-		/** Reset message popup */
-		if ($(this.content).hasClass('popup-message')) {
-			var total = $('.total', this.content);
-			total.val('');
-
-			$('.checkbox-gift', this.content).find(':checkbox').removeAttr('checked');
-			$('.radio-price', this.content).removeClass('checked').on('change', function () {
-				var radio = $(':radio', this);
-				if (radio.is(':checked')) {
-					$(this).addClass('checked').siblings('.checked').removeClass('checked');
-					total.val('$' + radio.val());
+				/** Reset message popup */
+				if ($(this.content).hasClass('popup-offer')) {
+					var total = $('.total', this.content);
+					total.val('');
+					$('.checkbox-gift', this.content).find(':checkbox').removeAttr('checked');
+					$('.radio-price', this.content).removeClass('checked').on('change', function () {
+						var radio = $(':radio', this);
+						if (radio.is(':checked')) {
+							$(this).addClass('checked').siblings('.checked').removeClass('checked');
+							total.val('$' + radio.val());
+						}
+					}).find(':radio').removeAttr('checked');
 				}
-			}).find(':radio').removeAttr('checked');
-		}
-
-	};
-
-	$('.js-popup').each(function () {
-		$(this).magnificPopup({
-			type: "inline",
-			closeMarkup: '<span title="%title%" class="mfp-close"><span class="mfp-in"></span></span>',
-			settings: {cache: false},
-			mainClass: 'mfp-zoom-in',
-			midClick: true,
-			removalDelay: 300,
-			autoFocusLast: false,
-			callbacks: {
-				open: onOpen
 			}
-		});
+		}
 	});
 
 	window.Filter = {};
@@ -116,13 +115,13 @@ window.initPopups = function (scope) {
 		});
 		$(this).css('opacity', 1);
 	});
-};
+}
 
 
 /**
  * Init forms
- */
-window.initForms = function (scope) {
+ **/
+function initForms(scope) {
 	if (typeof scope === 'undefined') {
 		scope = document;
 	}
@@ -134,7 +133,8 @@ window.initForms = function (scope) {
 		responsive: true
 	});
 
-	$('.multiselect', scope).each(function () {
+	/** Multiselect selectbox */
+	$('select.multiselect', scope).each(function () {
 		$(this).multiselect({
 			nonSelectedText: $(this).data('title'),
 			allSelectedText: $(this).data('all'),
@@ -142,6 +142,7 @@ window.initForms = function (scope) {
 		})
 	});
 
+	/** Multiselect dropdown */
 	$('.btn-group', scope).each(function () {
 		function Handler(event) {
 			var c = $(event.target).closest(st);
@@ -177,11 +178,13 @@ window.initForms = function (scope) {
 		})
 	});
 
-	/** Checkbox, Radio */
+	/** Radiobox init */
 	$('.checkbox:not(.inited)', scope).each(function () {
 		$('<span class="square"/>').insertAfter($('input', this));
 		$(this).addClass('inited');
 	});
+
+	/** Checkbox init */
 	$('.radio:not(.inited)', scope).each(function () {
 		if ($('.circle', this).length === 0) {
 			$(this).append('<span class="circle"></span>');
@@ -189,21 +192,23 @@ window.initForms = function (scope) {
 		$(this).addClass('inited');
 	});
 
-	$('.select-age', scope).each(function () {
+	/** Select age dropdown */
+	$('.select-age:not(.inited)', scope).each(function () {
 		var self = $(this);
 		$('input:text', self).on('keypress', function (event) {
 			return event.charCode >= 48 && event.charCode <= 57;
 		}).on('change', function () {
 			$('.' + $(this).attr('name'), self).text($(this).val());
 		});
+		self.addClass('inited');
 	});
-};
+}
 
 
 /**
- * Init photoswipe
- */
-var initPhotoSwipeFromDOM = function (gallerySelector) {
+ * Init photo swipe
+ **/
+function initPhotoSwipe(gallerySelector) {
 
 	// parse slide data (url, title, size ...) from DOM elements
 	// (children of gallerySelector)
@@ -402,4 +407,4 @@ var initPhotoSwipeFromDOM = function (gallerySelector) {
 	if (hashData.pid && hashData.gid) {
 		openPhotoSwipe(hashData.pid, $(gallerySelector)[hashData.gid - 1], true, true);
 	}
-};
+}

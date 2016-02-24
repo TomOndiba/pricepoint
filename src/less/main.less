@@ -17,8 +17,8 @@
 @xl: ~"(min-width: 1024px)";
 @xxl: ~"(min-width: 1200px)";
 
-@font-family: 'Roboto', Arial, sans-serif;
 @font-awesome: 'FontAwesome', sans-serif;
+@font-family: 'Roboto', Arial, sans-serif;
 @font-opensans: 'Open Sans', Arial, sans-serif;
 
 @color-black: #000;
@@ -44,7 +44,7 @@
 @margin-sm: 16px;
 @margin-md: 18px;
 
-@duration: .2s ease;
+@duration: .2s;
 @images: '../img';
 
 // ==========================================================================
@@ -88,7 +88,6 @@
   transition: transform @duration, opacity @duration;
 }
 .gradient-4 (@color-1, @color-2, @color-3, @color-4) {
-  background-color: @color-1;
   background: -webkit-linear-gradient(top, @color-1, @color-2, @color-3, @color-4);
   background: -moz-linear-gradient(top, @color-1, @color-2, @color-3, @color-4);
   background: -ms-linear-gradient(top, @color-1, @color-2, @color-3, @color-4);
@@ -507,8 +506,7 @@ textarea {
         clear: both;
         width: 14px;
         height: 14px;
-        background-image: url("@{images}/sprite.png");
-        background-repeat: no-repeat;
+        background: url("@{images}/sprite.png") no-repeat;
         background-size: 250px auto;
         position: absolute;
         top: 0;
@@ -751,8 +749,8 @@ textarea {
   }
 
   .button {
-    width: 32px;
-    height: 32px;
+    width: 30px;
+    height: 30px;
     padding: 0;
     text-indent: -1000px;
     overflow: hidden;
@@ -872,8 +870,7 @@ input[type=checkbox].css-checkbox {
     display: inline-block;
     font-size: 13px;
     line-height: 18px;
-    background-repeat: no-repeat;
-    background-position: 0 0;
+    background: no-repeat 0 0;
     vertical-align: middle;
     cursor: pointer;
 
@@ -1252,8 +1249,8 @@ label.css-label {
       margin-bottom: 8px;
 
       .inputfile {
-        width: 0.1px !important;
-        height: 0.1px;
+        width: 0 !important;
+        height: 0;
         opacity: 0;
         overflow: hidden;
         position: absolute;
@@ -1516,8 +1513,7 @@ label.css-label {
         width: 20px;
         height: 20px;
         clear: both;
-        background-image: url("@{images}/sprite.png");
-        background-repeat: no-repeat;
+        background: url("@{images}/sprite.png") no-repeat;
         background-size: 166px auto;
         position: absolute;
         right: 0;
@@ -1856,8 +1852,7 @@ label.css-label {
               clear: both;
               width: 20px;
               height: 20px;
-              background-image: url("@{images}/sprite.png");
-              background-repeat: no-repeat;
+              background: url("@{images}/sprite.png") no-repeat;
               background-size: 250px auto;
               position: absolute;
               top: 0;
@@ -2029,7 +2024,7 @@ label.css-label {
           background-size: 200px auto;
           position: absolute;
           left: 2px;
-          top: 2px;
+          top: 1px;
         }
 
         @media @sm {
@@ -2228,8 +2223,7 @@ label.css-label {
           clear: both;
           width: 20px;
           height: 20px;
-          background-image: url("@{images}/sprite.png");
-          background-repeat: no-repeat;
+          background: url("@{images}/sprite.png") no-repeat;
           background-size: 250px auto;
           position: absolute;
           left: 0;
@@ -2493,7 +2487,7 @@ label.css-label {
         bottom: 0;
         right: 0;
         opacity: 0;
-        transition: opacity .3s;
+        transition: opacity @duration;
         z-index: 1;
       }
 
@@ -2503,7 +2497,7 @@ label.css-label {
         margin: 0 auto;
         display: block;
         .scale(1.1);
-        transition: transform .3s;
+        transition: transform @duration;
       }
 
       &:hover {
@@ -2550,7 +2544,7 @@ label.css-label {
           background-size: 200px auto;
           position: absolute;
           left: 2px;
-          top: 2px;
+          top: 1px;
         }
 
         @media @sm {
@@ -3211,9 +3205,7 @@ label.css-label {
         &:before {
           .before;
           margin-right: -200px;
-          background-image: url("@{images}/temp/article-1.jpg");
-          background-repeat: no-repeat;
-          background-position: 100% 0;
+          background: url("@{images}/temp/article-1.jpg") no-repeat 100% 0;
           background-size: auto 100%;
           position: absolute;
           left: 0;
@@ -3256,9 +3248,7 @@ label.css-label {
         &:before {
           .before;
           margin-left: -200px;
-          background-image: url("@{images}/temp/article-2.jpg");
-          background-repeat: no-repeat;
-          background-position: 0 0;
+          background: url("@{images}/temp/article-2.jpg") no-repeat 0 0;
           background-size: auto 100%;
           position: absolute;
           left: 0;
@@ -3522,8 +3512,7 @@ label.css-label {
           width: 45px;
           height: 45px;
           margin: auto auto;
-          background-image: url("@{images}/sprite.png");
-          background-repeat: no-repeat;
+          background: url("@{images}/sprite.png") no-repeat;
           background-size: 250px auto;
           position: absolute;
           top: 0;
@@ -3637,7 +3626,7 @@ label.css-label {
   padding: 36px 40px;
   background: @color-white;
   border: 1px solid @color-gray-new;
-  
+
   .head {
     margin: -36px -40px 40px;
     padding: 10px 36px;
@@ -3647,7 +3636,6 @@ label.css-label {
     background: @color-gray-dark;
   }
 }
-
 /* ==========================================================================
    _POPUP
    ========================================================================== */
@@ -3776,7 +3764,7 @@ label.css-label {
 
   .color { color: @color-rosy; }
 
-  &.popup-message {
+  &.popup-offer {
     cursor: default;
     .form-line {
       margin-bottom: 10px;
