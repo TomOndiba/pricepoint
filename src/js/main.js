@@ -8,7 +8,6 @@
 $(document).ready(function () {
 	initUI();
 	initForms();
-	initPopups();
 });
 
 
@@ -55,16 +54,7 @@ function initUI() {
 		});
 	});
 
-	initPhotoSwipe('.my-gallery');
-}
-
-
-/**
- * Init popups
- **/
-function initPopups(scope) {
-
-	/** Popup init */
+	/** Init popups */
 	$('.js-popup').magnificPopup({
 		type: 'ajax',
 		closeMarkup: '<span title="%title%" class="mfp-close"><span class="mfp-in"></span></span>',
@@ -74,39 +64,31 @@ function initPopups(scope) {
 		removalDelay: 300,
 		autoFocusLast: false,
 		callbacks: {
-			open: function () {
-				console.log(this.wrap);
-				initForms(this.wrap);
-
-				/** Rebind close button */
-				$('.js-close', this.wrap).unbind('click').on('click', function (e) {
-					$.magnificPopup.close();
-					e.preventDefault();
-				});
-
-				/** Reset message popup */
-				if ($(this.content).hasClass('popup-offer')) {
-					var total = $('.total', this.content);
-					total.val('');
-					$('.checkbox-gift', this.content).find(':checkbox').removeAttr('checked');
-					$('.radio-price', this.content).removeClass('checked').on('change', function () {
-						var radio = $(':radio', this);
-						if (radio.is(':checked')) {
-							$(this).addClass('checked').siblings('.checked').removeClass('checked');
-							total.val('$' + radio.val());
-						}
-					}).find(':radio').removeAttr('checked');
-				}
+			ajaxContentAdded: function () {
+				initForms(this.content, this);
 			}
 		}
 	});
+
+	/** Init favorite */
+	$('.js-favorite').on('click', function (event) {
+		var self = $(this);
+		var request = sendRequest({'Favorite': {'id_user': self.closest('[data-id]').data('id'), 'on_off': self.hasClass('active')}});
+		self.toggleClass('active');
+		request.done(function (data) {
+			alert(data);
+		});
+		event.preventDefault();
+	});
+
+	initPhotoSwipe('.my-gallery');
 }
 
 
 /**
  * Init forms
  **/
-function initForms(scope) {
+function initForms(scope, data) {
 	if (typeof scope === 'undefined') {
 		scope = document;
 	}
@@ -189,7 +171,7 @@ function initForms(scope) {
 	});
 
 	/** Filter form */
-	$('.form-filter:not(.inited)').each(function () {
+	$('.form-filter:not(.inited)', scope).each(function () {
 		var result = {};
 		$(this).on('submit', function () {
 			$('[required]', this).each(function () {
@@ -202,6 +184,77 @@ function initForms(scope) {
 			alert(JSON.stringify(result, null, 4));
 			return false;
 		}).addClass('inited');
+	});
+
+	/** Offer form */
+	$('.form-offer:not(.inited)', scope).each(function () {
+		/** Clear form*/
+		function Clear() {
+			total.val('');
+			gifts.removeAttr('checked').closest('label').removeClass('checked');
+			offers.removeAttr('checked').closest('label').removeClass('checked');
+		}
+
+		var form = $(this),
+			total = $('.total', form), username = $('.username', form),
+			gifts = $('.checkbox-gift :checkbox', form), offers = $('.radio-offer :radio', form),
+			el = $(data.items[data.index].el), item = el.closest('[data-id]');
+
+		username.text(item.data('user'));
+
+		offers.each(function () {
+			var radio = $(this);
+			radio.on('change', function () {
+				if (radio.is(':checked')) {
+					radio.closest('label').addClass('checked').siblings('.checked').removeClass('checked');
+					total.val('$' + radio.val());
+				}
+			});
+		});
+
+		total.on('keypress', function (event) {
+			return event.charCode >= 48 && event.charCode <= 57;
+		}).on('change', function () {
+			if (total.val().indexOf('$') < 0) {
+				total.val('$' + total.val());
+			}
+		});
+
+		form.on('submit', function () {
+			var i = item.data('id'),
+				t = +total.val().replace('$', ''),
+				g = [], gs = '';
+			gifts.filter(':checked').each(function () {
+				g.push(+$(this).val());
+			});
+			if ((t === 0) && g.length === 0) {
+				alert('Please, choose a gift');
+			} else {
+				var request = sendRequest({'MakeOffer': {'id_user': i, 'amount': t, 'gifts': g}});
+				request.done(function (data) {
+					alert(data);
+				});
+				var h = el.addClass('hidden').siblings('.sent').removeClass('hidden');
+				if (t > 0) {
+					h.text('$' + t + ' Offer Sent');
+				} else {
+					h.text('Offer Sent');
+				}
+				$.magnificPopup.close();
+			}
+			return false;
+		}).addClass('inited');
+
+		Clear();
+	});
+}
+
+function sendRequest(data) {
+	return request = $.ajax({
+		url: 'webservice.php',
+		method: 'POST',
+		data: data,
+		context: document.body
 	});
 }
 

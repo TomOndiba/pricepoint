@@ -538,18 +538,35 @@ input[type="submit"]:not(.pswp__button).button-gray {
   border-color: #707a85;
   background: #707a85;
 }
-.button:not(.pswp__button).button-gray:hover,
-button:not(.pswp__button).button-gray:hover,
-input[type="submit"]:not(.pswp__button).button-gray:hover,
-.button:not(.pswp__button).button-gray:focus,
-button:not(.pswp__button).button-gray:focus,
-input[type="submit"]:not(.pswp__button).button-gray:focus,
-.button:not(.pswp__button).button-gray:active,
-button:not(.pswp__button).button-gray:active,
-input[type="submit"]:not(.pswp__button).button-gray:active {
+.button:not(.pswp__button).button-gray:not(.js-favorite):hover,
+button:not(.pswp__button).button-gray:not(.js-favorite):hover,
+input[type="submit"]:not(.pswp__button).button-gray:not(.js-favorite):hover,
+.button:not(.pswp__button).button-gray:not(.js-favorite):focus,
+button:not(.pswp__button).button-gray:not(.js-favorite):focus,
+input[type="submit"]:not(.pswp__button).button-gray:not(.js-favorite):focus,
+.button:not(.pswp__button).button-gray:not(.js-favorite):active,
+button:not(.pswp__button).button-gray:not(.js-favorite):active,
+input[type="submit"]:not(.pswp__button).button-gray:not(.js-favorite):active {
   color: #707a85;
   text-decoration: none;
   background-color: transparent;
+}
+.button:not(.pswp__button).button-gray .icon:before,
+button:not(.pswp__button).button-gray .icon:before,
+input[type="submit"]:not(.pswp__button).button-gray .icon:before {
+  opacity: 1 !important;
+}
+.button:not(.pswp__button).button-gray .icon:after,
+button:not(.pswp__button).button-gray .icon:after,
+input[type="submit"]:not(.pswp__button).button-gray .icon:after {
+  display: none !important;
+}
+.button:not(.pswp__button).button-gray.active,
+button:not(.pswp__button).button-gray.active,
+input[type="submit"]:not(.pswp__button).button-gray.active {
+  border-color: #e19933;
+  color: #fff;
+  background: #f0ad4e;
 }
 .button:not(.pswp__button).button-blue,
 button:not(.pswp__button).button-blue,
@@ -817,7 +834,7 @@ input[type="submit"]:not(.pswp__button).button-icon:focus .icon:after {
 .radio input[type="radio"]:checked + .circle:before {
   opacity: 1;
 }
-.radio.radio-price {
+.radio.radio-offer {
   padding: 9px 4px;
   text-align: center;
   font-size: 14px;
@@ -828,14 +845,14 @@ input[type="submit"]:not(.pswp__button).button-icon:focus .icon:after {
   cursor: pointer;
 }
 @media (min-width: 750px) {
-  .radio.radio-price {
+  .radio.radio-offer {
     font-size: 28px;
   }
 }
-.radio.radio-price.checked {
+.radio.radio-offer.checked {
   color: #fff;
 }
-.radio.radio-price .circle {
+.radio.radio-offer .circle {
   width: auto;
   height: auto;
   border-radius: 2px;
@@ -847,14 +864,14 @@ input[type="submit"]:not(.pswp__button).button-icon:focus .icon:after {
   z-index: -1;
   cursor: pointer;
 }
-.radio.radio-price .circle:before {
+.radio.radio-offer .circle:before {
   display: none;
 }
-.radio.radio-price input[type="radio"]:checked + .circle {
+.radio.radio-offer input[type="radio"]:checked + .circle {
   background: #4c9eda;
   border-color: #4c9eda;
 }
-.radio.radio-price input[type="radio"]:checked + .circle:before {
+.radio.radio-offer input[type="radio"]:checked + .circle:before {
   opacity: 0;
 }
 /* Seletric */
@@ -3404,6 +3421,9 @@ label.css-label {
   font-size: 13px;
   overflow: hidden;
 }
+.article p:last-child {
+  margin: 0;
+}
 .article .wrapper {
   height: 100%;
   padding-top: 20px;
@@ -3863,6 +3883,7 @@ label.css-label {
   }
 }
 .steps .area .step .h {
+  padding: 2px 0;
   margin: 0;
   font-weight: 500;
   line-height: normal;
@@ -4537,11 +4558,12 @@ label.css-label {
 }
 .popup {
   width: 300px;
-  margin: 0 auto;
   padding: 34px 15px 15px 15px;
-  background: #fff;
   border-radius: 8px;
+  margin: 0 auto;
   position: relative;
+  background: #fff;
+  cursor: default;
 }
 @media (min-width: 375px) {
   .popup {
@@ -4622,69 +4644,72 @@ label.css-label {
     font-size: 24px;
   }
 }
-.popup .color {
+.popup .username {
   color: #e74b90;
 }
-.popup.popup-offer {
-  cursor: default;
-}
-.popup.popup-offer .form-line {
-  margin-bottom: 10px;
-}
-.popup.popup-offer .form-line .radio-price {
-  width: 20%;
-  float: left;
-}
-.popup.popup-offer .radio,
-.popup.popup-offer .checkbox {
+.form-offer {
   -webkit-user-select: none;
   -moz-user-select: -moz-none;
   -ms-user-select: none;
   -o-user-select: none;
   user-select: none;
 }
-.popup.popup-offer .form-submit {
-  text-align: right;
+.form-offer .form-line {
+  margin-bottom: 10px;
 }
-.popup.popup-offer .form-submit label {
-  line-height: 32px;
+.form-offer .radio-offer {
+  width: 20%;
+  float: left;
+}
+.form-offer .total-area {
   display: inline-block;
-  vertical-align: top;
+  vertical-align: middle;
   font-weight: 500;
   font-size: 11px;
 }
-.popup.popup-offer .form-submit label input[type='text'] {
+.form-offer .total-area .for {
+  display: inline-block;
+  vertical-align: middle;
+}
+.form-offer .total-area .total {
   width: 50px;
   padding-left: 4px;
   padding-right: 4px;
   font-weight: 500;
+  line-height: normal;
+  display: inline-block;
+  vertical-align: middle;
   text-align: center;
 }
 @media (min-width: 375px) {
-  .popup.popup-offer .form-submit label {
+  .form-offer .total-area {
     font-size: 12px;
     margin-right: 5px;
   }
-  .popup.popup-offer .form-submit label input[type='text'] {
+  .form-offer .total-area .total {
     margin-left: 5px;
   }
 }
 @media (min-width: 750px) {
-  .popup.popup-offer .form-submit label {
+  .form-offer .total-area {
     font-size: 15px;
   }
-  .popup.popup-offer .form-submit label input[type='text'] {
+  .form-offer .total-area .total {
     width: 70px;
-    font-size: 22px;
-    line-height: normal;
+    font-family: 'Roboto', Arial, sans-serif;
+    font-size: 20px;
+    overflow: hidden;
   }
 }
-.popup.popup-offer .form-submit .button {
+.form-offer .form-line-submit {
+  text-align: right;
+}
+.form-offer .form-line-submit .button {
   width: auto;
   display: inline-block;
 }
 @media (min-width: 750px) {
-  .popup.popup-offer .form-submit .button {
+  .form-offer .form-line-submit .button {
     min-width: 140px;
   }
 }

@@ -91,7 +91,7 @@ module.exports = function (grunt) {
 							'js/{,*/}*.js',
 							'fonts/{,*/}*.*',
 							'video/{,*/}*.*',
-							'{,*/}*.html'
+							'{,*/}*.*'
 						]
 					}
 				]
@@ -185,6 +185,10 @@ module.exports = function (grunt) {
 			},
 			html: {
 				files: [src.html + "*.html"],
+				tasks: ["process"]
+			},
+			php: {
+				files: [src.html + "*.php"],
 				tasks: ["process"]
 			},
 			images: {
