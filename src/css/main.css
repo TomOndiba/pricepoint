@@ -273,7 +273,7 @@ h6 {
   height: 100%;
   min-height: 350px;
   position: relative;
-  padding-bottom: 206px;
+  padding-bottom: 176px;
 }
 .conversation-page .container > .wrapper .aside {
   display: none;
@@ -289,7 +289,7 @@ h6 {
 }
 @media (min-width: 375px) {
   .conversation-page .container > .wrapper {
-    padding-bottom: 216px;
+    padding-bottom: 184px;
   }
 }
 @media (min-width: 750px) {
@@ -4105,7 +4105,6 @@ label.css-label {
    ========================================================================== */
 .conversation {
   height: 100%;
-  padding-top: 30px;
   background: #fff;
   border: 1px solid #ddd;
   overflow: hidden;
@@ -4117,24 +4116,25 @@ label.css-label {
   }
 }
 .conversation .head {
-  margin: 0;
-  padding: 7px 10px;
-  color: #fff;
-  font-weight: bold;
-  text-align: center;
-  background: #808080;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
+  display: none;
 }
 @media (min-width: 750px) {
   .conversation .head {
+    margin: 0;
     padding: 7px 36px;
+    display: block;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    background: #808080;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
   }
 }
 .conversation .space {
-  padding: 10px;
+  padding: 0 10px 10px 10px;
   overflow-y: scroll;
   max-height: 100%;
 }
@@ -4169,7 +4169,8 @@ label.css-label {
   margin-right: 80px;
   padding: 10px;
   color: #fff;
-  font-size: 12px;
+  font-size: 17px;
+  line-height: 20px;
   background-color: #299efd;
   border-radius: 8px;
   position: relative;
@@ -4235,6 +4236,7 @@ label.css-label {
   margin-left: 80px;
   margin-right: 0;
   color: #707a85;
+  font-weight: 500;
   background-color: #e5e5e5;
 }
 .conversation .entry.entry-interlocutor .message:before {
@@ -4248,6 +4250,9 @@ label.css-label {
     margin-left: 100px;
     padding-left: 18px;
     padding-right: 18px;
+    font-weight: normal;
+    font-size: inherit;
+    line-height: inherit;
   }
 }
 @media (min-width: 1000px) {
@@ -4269,7 +4274,7 @@ label.css-label {
    _FORM-MESSAGE
    ========================================================================== */
 .form-message {
-  height: 190px;
+  height: 160px;
   position: absolute;
   bottom: 8px;
   right: 10px;
@@ -4278,7 +4283,7 @@ label.css-label {
 }
 @media (min-width: 375px) {
   .form-message {
-    height: 200px;
+    height: 168px;
   }
 }
 @media (min-width: 750px) {
@@ -4294,16 +4299,16 @@ label.css-label {
   clear: both;
 }
 .form-message .photo {
-  width: 134px;
-  height: 134px;
+  width: 102px;
+  height: 102px;
   margin: 0;
   position: absolute;
   top: 0;
   left: 0;
 }
 .form-message .photo img {
-  width: 134px;
-  height: 134px;
+  width: 102px;
+  height: 102px;
 }
 @media (min-width: 750px) {
   .form-message .photo {
@@ -4341,8 +4346,13 @@ label.css-label {
 }
 .form-message .text {
   margin-bottom: 7px;
-  padding-left: 144px;
+  padding-left: 108px;
   position: relative;
+}
+.form-message .text:after {
+  display: table;
+  content: '\0020';
+  clear: both;
 }
 @media (min-width: 750px) {
   .form-message .text {
@@ -4350,15 +4360,14 @@ label.css-label {
   }
 }
 .form-message .text .name {
-  margin-bottom: 0;
-  display: inline-block;
-  font-size: 16px;
-  color: #e74b90;
+  display: none;
 }
 @media (min-width: 750px) {
   .form-message .text .name {
     margin-bottom: 6px;
     font-size: 24px;
+    display: inline-block;
+    color: #e74b90;
   }
 }
 .form-message .text .name .small {
@@ -4378,6 +4387,7 @@ label.css-label {
 }
 .form-message .text .form-line textarea {
   height: 66px;
+  font-size: 15px;
 }
 @media (min-width: 750px) {
   .form-message .text .form-line {
@@ -4385,7 +4395,6 @@ label.css-label {
   }
   .form-message .text .form-line textarea {
     height: 90px;
-    font-size: 15px;
   }
 }
 .form-message .text .note {
@@ -4405,6 +4414,12 @@ label.css-label {
 .form-message .text .button {
   width: auto;
   margin: 0;
+  float: right;
+}
+@media (min-width: 750px) {
+  .form-message .text .button {
+    float: none;
+  }
 }
 .form-message .presents {
   margin: 0;

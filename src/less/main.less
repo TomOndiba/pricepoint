@@ -313,7 +313,7 @@ h6 {&:extend(.h6); }
       height: 100%;
       min-height: 350px;
       position: relative;
-      padding-bottom: 206px;
+      padding-bottom: 176px;
 
       .aside { display: none; }
     }
@@ -332,7 +332,7 @@ h6 {&:extend(.h6); }
 
     .conversation-page & {
       > .wrapper {
-        padding-bottom: 216px;
+        padding-bottom: 184px;
       }
     }
   }
@@ -3703,7 +3703,6 @@ label.css-label {
    ========================================================================== */
 .conversation {
   height: 100%;
-  padding-top: 30px;
   background: @color-white;
   border: 1px solid @color-gray-new;
   overflow: hidden;
@@ -3714,24 +3713,25 @@ label.css-label {
   }
 
   .head {
-    margin: 0;
-    padding: 7px 10px;
-    color: @color-white;
-    font-weight: bold;
-    text-align: center;
-    background: @color-gray-dark;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
+    display: none;
 
     @media @md {
+      margin: 0;
       padding: 7px 36px;
+      display: block;
+      color: @color-white;
+      font-weight: bold;
+      text-align: center;
+      background: @color-gray-dark;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
     }
   }
 
   .space {
-    padding: 10px;
+    padding: 0 10px 10px 10px;
     overflow-y: scroll;
     max-height: 100%;
 
@@ -3759,7 +3759,8 @@ label.css-label {
       margin-right: 80px;
       padding: 10px;
       color: @color-white;
-      font-size: 12px;
+      font-size: 17px;
+      line-height: 20px;
       background-color: @color-azure;
       border-radius: 8px;
       position: relative;
@@ -3822,6 +3823,7 @@ label.css-label {
         margin-left: 80px;
         margin-right: 0;
         color: @color-font;
+        font-weight: 500;
         background-color: @color-beige;
 
         &:before {
@@ -3835,6 +3837,9 @@ label.css-label {
           margin-left: 100px;
           padding-left: 18px;
           padding-right: 18px;
+          font-weight: normal;
+          font-size: inherit;
+          line-height: inherit;
         }
 
         @media @lg {
@@ -3858,7 +3863,7 @@ label.css-label {
    _FORM-MESSAGE
    ========================================================================== */
 .form-message {
-  height: 190px;
+  height: 160px;
   position: absolute;
   bottom: 8px;
   right: 10px;
@@ -3866,7 +3871,7 @@ label.css-label {
   cursor: default;
 
   @media @xxs {
-    height: 200px;
+    height: 168px;
   }
 
   @media @md {
@@ -3878,16 +3883,16 @@ label.css-label {
   &:after { .clearfix; }
 
   .photo {
-    width: 134px;
-    height: 134px;
+    width: 102px;
+    height: 102px;
     margin: 0;
     position: absolute;
     top: 0;
     left: 0;
 
     img {
-      width: 134px;
-      height: 134px;
+      width: 102px;
+      height: 102px;
     }
 
     @media @md {
@@ -3926,22 +3931,23 @@ label.css-label {
 
   .text {
     margin-bottom: 7px;
-    padding-left: 144px;
+    padding-left: 108px;
     position: relative;
+
+    &:after { .clearfix; }
 
     @media @md {
       padding-left: 170px;
     }
 
     .name {
-      margin-bottom: 0;
-      display: inline-block;
-      font-size: 16px;
-      color: @color-rosy;
+      display: none;
 
       @media @md {
         margin-bottom: 6px;
         font-size: 24px;
+        display: inline-block;
+        color: @color-rosy;
       }
 
       .small {
@@ -3960,14 +3966,13 @@ label.css-label {
     .form-line {
       margin-bottom: 4px;
 
-      textarea { height: 66px; }
+      textarea { height: 66px; font-size: 15px; }
 
       @media @md {
         margin-bottom: 11px;
 
         textarea {
           height: 90px;
-          font-size: 15px;
         }
       }
     }
@@ -3989,6 +3994,11 @@ label.css-label {
     .button {
       width: auto;
       margin: 0;
+      float: right;
+
+      @media @md {
+        float: none;
+      }
     }
   }
 
