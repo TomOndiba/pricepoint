@@ -37,6 +37,11 @@ body.index-page {
   height: 100%;
   padding-bottom: 0;
 }
+body.conversation-page {
+  height: 100%;
+  padding-top: 110px;
+  padding-bottom: 260px;
+}
 @media (min-width: 750px) {
   html {
     font-size: 14px;
@@ -257,11 +262,20 @@ h6 {
 .container {
   padding: 8px 0;
 }
+.conversation-page .container {
+  height: 100%;
+}
+.conversation-page .container > .wrapper {
+  height: 100%;
+}
 .sidebar {
   margin-bottom: 20px;
 }
 .content {
   min-height: 100%;
+}
+.conversation-page .content {
+  height: 100%;
 }
 @media (min-width: 750px) {
   .container {
@@ -1906,6 +1920,12 @@ label.css-label {
   background: #fff;
   border-bottom: 1px solid #e5e5e5;
   text-align: center;
+}
+.conversation-page .top {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 60px;
 }
 @media (min-width: 750px) {
   .top {
@@ -4006,17 +4026,97 @@ label.css-label {
    _CONVERSATION
    ========================================================================== */
 .conversation {
-  padding: 36px 40px;
+  height: 100%;
   background: #fff;
   border: 1px solid #ddd;
+  overflow: hidden;
 }
 .conversation .head {
-  margin: -36px -40px 40px;
-  padding: 10px 36px;
+  margin: 0;
+  padding: 7px 76px 7px 36px;
   color: #fff;
   font-weight: bold;
   text-align: center;
   background: #808080;
+}
+.conversation .space {
+  max-height: 406px;
+  padding: 20px 76px 20px 36px;
+  overflow-y: scroll;
+}
+.conversation .entry {
+  margin-bottom: 16px;
+}
+.conversation .entry:after {
+  display: table;
+  content: '\0020';
+  clear: both;
+}
+.conversation .entry:last-of-type {
+  margin-bottom: 0;
+}
+.conversation .entry .message {
+  margin-bottom: 0;
+  margin-right: 134px;
+  padding: 10px 30px;
+  color: #fff;
+  font-size: 13px;
+  background-color: #299efd;
+  border-radius: 8px;
+  position: relative;
+}
+.conversation .entry .message:before {
+  display: block;
+  content: '\0020';
+  overflow: hidden;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5px 0 5px 12px;
+  border-color: transparent transparent transparent #299efd;
+  position: absolute;
+  top: 16px;
+  right: -12px;
+}
+.conversation .entry .author {
+  width: 110px;
+  margin: 0;
+  padding-top: 8px;
+  margin-right: 3px;
+  float: right;
+  color: #e74b90;
+  text-align: right;
+  line-height: 14px;
+}
+.conversation .entry .author .time,
+.conversation .entry .author .status {
+  display: block;
+  font-size: 13px;
+  line-height: 13px;
+}
+.conversation .entry.entry-interlocutor .message {
+  margin-left: 134px;
+  margin-right: 0;
+  padding-left: 18px;
+  padding-right: 18px;
+  color: #707a85;
+  background-color: #e5e5e5;
+}
+.conversation .entry.entry-interlocutor .message:before {
+  border-width: 5px 12px 5px 0;
+  border-color: transparent #e5e5e5 transparent transparent;
+  left: -12px;
+  right: auto;
+}
+.conversation .entry.entry-interlocutor .author {
+  padding-top: 15px;
+  padding-left: 0;
+  float: left;
+  color: #707a85;
+  text-align: left;
+}
+.conversation .entry.entry-interlocutor .author .status {
+  color: #4c9eda;
 }
 /* ==========================================================================
    _POPUP

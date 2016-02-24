@@ -31,6 +31,7 @@
 @color-red: #e71818;
 @color-sky: #a5ceec;
 @color-blue: #4c9eda;
+@color-azure: #299efd;
 @color-sea: #333a42;
 @color-gray-pastel: #ccc;
 @color-gray: #e9e9e9;
@@ -128,6 +129,12 @@ body {
   &.index-page {
     height: 100%;
     padding-bottom: 0;
+  }
+
+  &.conversation-page {
+    height: 100%;
+    padding-top: 110px;
+    padding-bottom: 260px;
   }
 }
 @media @md {
@@ -292,12 +299,20 @@ h6 {&:extend(.h6); }
 }
 .container {
   padding: 8px 0;
+
+  .conversation-page & {
+    height: 100%;
+
+    > .wrapper { height: 100%; }
+  }
 }
 .sidebar {
   margin-bottom: 20px;
 }
 .content {
   min-height: 100%;
+
+  .conversation-page & { height: 100%; }
 }
 @media @md {
   .container { padding: 20px 0; }
@@ -1787,6 +1802,13 @@ label.css-label {
   background: @color-white;
   border-bottom: 1px solid @color-beige;
   text-align: center;
+
+  .conversation-page & {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 60px;
+  }
 
   @media @md {
     text-align: left;
@@ -3623,17 +3645,100 @@ label.css-label {
    _CONVERSATION
    ========================================================================== */
 .conversation {
-  padding: 36px 40px;
+  height: 100%;
   background: @color-white;
   border: 1px solid @color-gray-new;
+  overflow: hidden;
 
   .head {
-    margin: -36px -40px 40px;
-    padding: 10px 36px;
+    margin: 0;
+    padding: 7px 76px 7px 36px;
     color: @color-white;
     font-weight: bold;
     text-align: center;
     background: @color-gray-dark;
+  }
+
+  .space {
+    max-height: 406px;
+    padding: 20px 76px 20px 36px;
+    overflow-y: scroll;
+  }
+
+  .entry {
+    margin-bottom: 16px;
+    &:after { .clearfix; }
+
+    &:last-of-type { margin-bottom: 0; }
+
+    .message {
+      margin-bottom: 0;
+      margin-right: 134px;
+      padding: 10px 30px;
+      color: @color-white;
+      font-size: 13px;
+      background-color: @color-azure;
+      border-radius: 8px;
+      position: relative;
+
+      &:before {
+        .before;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 5px 0 5px 12px;
+        border-color: transparent transparent transparent @color-azure;
+        position: absolute;
+        top: 16px;
+        right: -12px;
+      }
+    }
+
+    .author {
+      width: 110px;
+      margin: 0;
+      padding-top: 8px;
+      margin-right: 3px;
+      float: right;
+      color: @color-rosy;
+      text-align: right;
+      line-height: 14px;
+
+      .time, .status {
+        display: block;
+        font-size: 13px;
+        line-height: 13px;
+      }
+    }
+
+    &.entry-interlocutor {
+
+      .message {
+        margin-left: 134px;
+        margin-right: 0;
+        padding-left: 18px;
+        padding-right: 18px;
+        color: @color-font;
+        background-color: @color-beige;
+
+        &:before {
+          border-width: 5px 12px 5px 0;
+          border-color: transparent @color-beige transparent transparent;
+          left: -12px;
+          right: auto;
+        }
+      }
+
+      .author {
+        padding-top: 15px;
+        padding-left: 0;
+        float: left;
+        color: @color-font;
+        text-align: left;
+
+        .status { color: @color-blue; }
+      }
+    }
   }
 }
 /* ==========================================================================
