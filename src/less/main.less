@@ -2924,6 +2924,7 @@ label.css-label {
 .presents {
   margin-bottom: 15px;
   padding: 7px 5px;
+  background: @color-white;
   border: 1px solid @color-gray-new;
   border-radius: 8px;
 
@@ -3707,7 +3708,6 @@ label.css-label {
       .time, .status {
         display: block;
         font-size: 13px;
-        line-height: 13px;
       }
     }
 
@@ -3738,6 +3738,85 @@ label.css-label {
 
         .status { color: @color-blue; }
       }
+    }
+  }
+}
+/* ==========================================================================
+   _FORM-SEND
+   ========================================================================== */
+.form-send {
+  &:after { .clearfix; }
+
+  .text {
+    margin-bottom: 10px;
+    padding-left: 170px;
+    position: relative;
+
+    .photo {
+      width: 160px;
+      margin: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .name {
+      margin-bottom: 6px;
+      display: inline-block;
+      font-size: 24px;
+      color: @color-rosy;
+
+      .small {
+        margin: 0 0 0 10px;
+        display: inline-block;
+        font-size: 17px;
+        color: #b1b5ba;
+      }
+    }
+
+    .form-line {
+      margin-bottom: 11px;
+
+      textarea {
+        height: 90px;
+        font-size: 15px;
+      }
+    }
+
+    .form-submit { margin: 0; }
+
+    .note {
+      min-height: 32px;
+      margin-left: 106px;
+      padding: 4px;
+      display: block;
+      background: #e5e5e5;
+      cursor: default;
+      font-size: 11px;
+      line-height: 12px;
+
+      @media @sm {
+        margin-left: 0;
+        display: inline-block;
+        vertical-align: top;
+        padding: 8px 12px;
+        font-size: 13px;
+        line-height: 14px;
+      }
+    }
+  }
+
+  .presents {
+    padding-left: 160px;
+    clear: both;
+    font-size: 13px;
+    position: relative;
+
+    .h {
+      margin: 0;
+      position: absolute;
+      left: 16px;
+      line-height: 21px;
     }
   }
 }

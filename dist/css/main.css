@@ -3140,6 +3140,7 @@ label.css-label {
 .presents {
   margin-bottom: 15px;
   padding: 7px 5px;
+  background: #fff;
   border: 1px solid #ddd;
   border-radius: 8px;
 }
@@ -4092,7 +4093,6 @@ label.css-label {
 .conversation .entry .author .status {
   display: block;
   font-size: 13px;
-  line-height: 13px;
 }
 .conversation .entry.entry-interlocutor .message {
   margin-left: 134px;
@@ -4117,6 +4117,80 @@ label.css-label {
 }
 .conversation .entry.entry-interlocutor .author .status {
   color: #4c9eda;
+}
+/* ==========================================================================
+   _FORM-SEND
+   ========================================================================== */
+.form-send:after {
+  display: table;
+  content: '\0020';
+  clear: both;
+}
+.form-send .text {
+  margin-bottom: 10px;
+  padding-left: 170px;
+  position: relative;
+}
+.form-send .text .photo {
+  width: 160px;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.form-send .text .name {
+  margin-bottom: 6px;
+  display: inline-block;
+  font-size: 24px;
+  color: #e74b90;
+}
+.form-send .text .name .small {
+  margin: 0 0 0 10px;
+  display: inline-block;
+  font-size: 17px;
+  color: #b1b5ba;
+}
+.form-send .text .form-line {
+  margin-bottom: 11px;
+}
+.form-send .text .form-line textarea {
+  height: 90px;
+  font-size: 15px;
+}
+.form-send .text .form-submit {
+  margin: 0;
+}
+.form-send .text .note {
+  min-height: 32px;
+  margin-left: 106px;
+  padding: 4px;
+  display: block;
+  background: #e5e5e5;
+  cursor: default;
+  font-size: 11px;
+  line-height: 12px;
+}
+@media (min-width: 568px) {
+  .form-send .text .note {
+    margin-left: 0;
+    display: inline-block;
+    vertical-align: top;
+    padding: 8px 12px;
+    font-size: 13px;
+    line-height: 14px;
+  }
+}
+.form-send .presents {
+  padding-left: 160px;
+  clear: both;
+  font-size: 13px;
+  position: relative;
+}
+.form-send .presents .h {
+  margin: 0;
+  position: absolute;
+  left: 16px;
+  line-height: 21px;
 }
 /* ==========================================================================
    _POPUP
