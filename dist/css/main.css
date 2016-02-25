@@ -359,8 +359,8 @@ fieldset {
 /* INPUT & TEXTAREA */
 input,
 textarea {
-  height: 32px;
-  padding: 7px 10px;
+  height: 46px;
+  padding: 15px 10px;
   border: 1px solid #e5e5e5;
   border-radius: 2px;
   color: #707a85;
@@ -370,6 +370,12 @@ textarea {
   -webkit-appearance: none;
 }
 @media (min-width: 750px) {
+  input,
+  textarea {
+    height: 32px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+  }
   input.large {
     height: 42px;
     padding-top: 10px;
@@ -436,7 +442,7 @@ input[type="submit"]:not(.pswp__button) {
   height: auto;
   margin: 0 auto;
   display: block;
-  padding: 8px 12px;
+  padding: 15px 12px;
   font: bold 12px/14px 'Roboto', Arial, sans-serif;
   color: #fff;
   text-align: center;
@@ -453,8 +459,7 @@ input[type="submit"]:not(.pswp__button) {
     max-width: none;
     display: inline-block;
     font-size: 13px;
-    padding-left: 28px;
-    padding-right: 28px;
+    padding: 8px 28px;
   }
   .button:not(.pswp__button).button-large,
   button:not(.pswp__button).button-large,
@@ -878,16 +883,23 @@ input[type="submit"]:not(.pswp__button).button-icon:focus .icon:after {
   border-radius: 2px;
 }
 .selectric .label {
-  height: 30px;
-  margin: 0 36px 0 10px;
+  height: 44px;
+  margin: 0 46px 0 10px;
   color: #707a85;
   font-size: 13px;
-  line-height: 30px;
+  line-height: 44px;
   letter-spacing: .02em;
 }
+@media (min-width: 750px) {
+  .selectric .label {
+    height: 30px;
+    line-height: 30px;
+    margin-right: 36px;
+  }
+}
 .selectric .button {
-  width: 30px;
-  height: 30px;
+  width: 46px;
+  height: 46px;
   padding: 0;
   text-indent: -1000px;
   overflow: hidden;
@@ -898,6 +910,12 @@ input[type="submit"]:not(.pswp__button).button-icon:focus .icon:after {
   border-width: 5px;
   border-top-color: #e5e5e5;
   transition: opacity 0.2s;
+}
+@media (min-width: 750px) {
+  .selectric .button {
+    width: 30px;
+    height: 30px;
+  }
 }
 .selectric-hover .selectric,
 .selectric-open .selectric {
@@ -932,8 +950,8 @@ input[type="submit"]:not(.pswp__button).button-icon:focus .icon:after {
   font-size: 13px;
 }
 .selectric-items li {
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   font-size: 13px;
   letter-spacing: .02em;
   color: #707a85;
@@ -945,13 +963,22 @@ input[type="submit"]:not(.pswp__button).button-icon:focus .icon:after {
   background: #f4f4f4;
 }
 .selectric-items li.selected {
-  background: #e5e5e5;
   border-top-color: #e5e5e5;
   border-bottom-color: #e5e5e5;
   color: #333a42;
+  background: #f9f2a4;
 }
 .selectric-items li.disabled {
   display: none;
+}
+@media (min-width: 750px) {
+  .selectric-items li {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+  .selectric-items li.selected {
+    background: #e5e5e5;
+  }
 }
 @media (min-width: 750px) {
   .select-small .selectric .label {
@@ -996,25 +1023,38 @@ input[type=checkbox].css-checkbox {
   border: 0;
 }
 input[type=checkbox].css-checkbox + label.css-label {
-  padding-left: 24px;
-  display: inline-block;
+  padding: 14px 0 14px 24px;
+  display: block;
   font-size: 13px;
   line-height: 18px;
-  background-repeat: no-repeat;
-  background-position: 0 0;
   vertical-align: middle;
   cursor: pointer;
+  position: relative;
+}
+input[type=checkbox].css-checkbox + label.css-label:before {
+  display: block;
+  content: '\0020';
+  overflow: hidden;
+  width: 18px;
+  height: 18px;
+  margin: auto 0;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-image: url(http://csscheckbox.com/checkboxes/u/csscheckbox_e7d0bf58d1556e5a8ef49f2491d9a183.png);
+  position: absolute;
+  top: -1px;
+  left: 0;
+  bottom: 0;
 }
 @media (min-width: 750px) {
   input[type=checkbox].css-checkbox + label.css-label {
     font-size: 15px;
   }
 }
-input[type=checkbox].css-checkbox:checked + label.css-label {
+input[type=checkbox].css-checkbox:checked + label.css-label:before {
   background-position: 0 -18px;
 }
 label.css-label {
-  background-image: url(http://csscheckbox.com/checkboxes/u/csscheckbox_e7d0bf58d1556e5a8ef49f2491d9a183.png);
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -1042,7 +1082,7 @@ label.css-label {
   border-bottom: 1px solid #e5e5e5;
 }
 .btn-group .dropdown-menu li a {
-  padding: 10px;
+  padding: 0 10px;
   display: block;
   color: #707a85;
 }
@@ -1121,8 +1161,7 @@ label.css-label {
   }
 }
 .btn-group label.checkbox {
-  padding-left: 24px;
-  padding-right: 3px;
+  padding: 15px 3px 15px 24px;
   color: #707a85;
   left: 1px;
 }
@@ -1130,6 +1169,8 @@ label.css-label {
   .btn-group label.checkbox {
     font-size: 15px;
     line-height: 21px;
+    padding-top: 3px;
+    padding-bottom: 3px;
   }
 }
 .btn-group label.checkbox .square {
@@ -1144,6 +1185,9 @@ label.css-label {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  top: -3px;
+  bottom: 0;
+  margin: auto 0;
 }
 .btn-group label.checkbox .square:before {
   display: none;
@@ -1152,8 +1196,13 @@ label.css-label {
   background-position: 0 -18px;
 }
 .btn-group label.radio {
-  padding-left: 3px;
-  padding-right: 3px;
+  padding: 15px 3px;
+}
+@media (min-width: 750px) {
+  .btn-group label.radio {
+    padding-top: 3px;
+    padding-bottom: 3px;
+  }
 }
 .btn-group label.radio .circle {
   display: none;
@@ -1178,12 +1227,13 @@ label.css-label {
  * Form
  */
 .form {
-  margin: 50px 0 30px;
+  margin: 10px 0;
   font-family: Arial, sans-serif;
   cursor: default;
 }
 @media (min-width: 750px) {
   .form {
+    margin: 50px 0 30px;
     font-size: 15px;
   }
 }
@@ -1295,6 +1345,9 @@ label.css-label {
   margin: 0 6px 0 0;
   display: inline-block;
 }
+.form .select-date .selectric-wrapper:last-of-type {
+  margin: 0;
+}
 .form .select-date .selectric-wrapper .selectric .label {
   margin-left: 10px;
 }
@@ -1329,8 +1382,8 @@ label.css-label {
   }
 }
 .form .form-code .form-code-text {
-  min-height: 32px;
-  padding: 4px;
+  min-height: 46px;
+  padding: 8px 4px;
   margin-left: 106px;
   display: block;
   cursor: default;
@@ -1349,6 +1402,7 @@ label.css-label {
 }
 @media (min-width: 750px) {
   .form .form-code .form-code-text {
+    min-height: 0;
     padding: 12px 10px;
     font-size: 16px;
     line-height: 18px;
@@ -1406,7 +1460,7 @@ label.css-label {
   max-width: 400px;
   height: auto;
   margin: 0 auto;
-  padding: 8px 12px;
+  padding: 15px 12px;
   font: bold 12px/14px 'Roboto', Arial, sans-serif;
   color: #fff;
   text-align: center;
@@ -1427,8 +1481,7 @@ label.css-label {
     max-width: none;
     display: inline-block;
     font-size: 13px;
-    padding-left: 28px;
-    padding-right: 28px;
+    padding: 8px 28px;
   }
 }
 .form.form-upload .filebox .inputlabel:hover,
@@ -1893,6 +1946,8 @@ label.css-label {
   min-width: 85px;
   margin: 0 0 0 5px;
   display: inline-block;
+  padding-top: 8px;
+  padding-bottom: 8px;
 }
 @media (min-width: 750px) {
   .header .buttons .button {
@@ -3029,7 +3084,7 @@ label.css-label {
 .sort .select-age .toggle {
   width: 100%;
   display: block;
-  padding: 8px 32px 8px 10px;
+  padding: 15px 32px 15px 10px;
   color: #707a85;
   background: #fff;
   border: 1px solid #e5e5e5;
@@ -3037,6 +3092,12 @@ label.css-label {
   line-height: 14px;
   font-weight: bold;
   position: relative;
+}
+@media (min-width: 750px) {
+  .sort .select-age .toggle {
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
 }
 .sort .select-age .toggle .arrow {
   width: 32px;
@@ -3089,7 +3150,7 @@ label.css-label {
   }
 }
 .sort .select-age ul li {
-  padding: 5px 10px;
+  padding: 7px 10px;
   border-bottom: 1px solid #e5e5e5;
 }
 @media (min-width: 750px) {
@@ -3349,7 +3410,7 @@ label.css-label {
   margin-bottom: 10px;
 }
 .index .form-line .select-large .selectric .label {
-  font: 14px/30px 'Open Sans', Arial, sans-serif;
+  font: 14px/46px 'Open Sans', Arial, sans-serif;
   color: #000;
   text-align: center;
 }
@@ -3358,6 +3419,7 @@ label.css-label {
     margin-bottom: 20px;
   }
   .index .form-line .select-large .selectric .label {
+    height: 40px;
     margin-left: 16px;
     font-size: 15px;
     line-height: 40px;
@@ -3367,7 +3429,7 @@ label.css-label {
 .index .form-line .button.button-large {
   width: 100%;
   padding-top: 12px;
-  padding-bottom: 12px;
+  padding-bottom: 13px;
   font: 600 15px/18px 'Open Sans', Arial, sans-serif;
   position: relative;
   border-radius: 6px;
@@ -3415,7 +3477,8 @@ label.css-label {
    ========================================================================== */
 .article {
   text-align: center;
-  font-size: 13px;
+  font-size: 16px;
+  line-height: 22px;
   overflow: hidden;
 }
 .article p:last-child {
@@ -3457,7 +3520,6 @@ label.css-label {
 @media (min-width: 750px) {
   .article {
     font-size: 18px;
-    line-height: 22px;
   }
   .article .wrapper {
     min-height: 350px;
@@ -3606,6 +3668,8 @@ label.css-label {
   color: #fff;
   text-align: center;
   font-weight: 300;
+  font-size: 16px;
+  line-height: 22px;
   overflow: hidden;
   position: relative;
   z-index: 1;
@@ -3656,7 +3720,6 @@ label.css-label {
   .call-to-action {
     padding: 40px 0;
     font-size: 18px;
-    line-height: 22px;
   }
   .call-to-action:before {
     width: 500px;
@@ -3697,8 +3760,7 @@ label.css-label {
 }
 .call-to-action .button.button-large {
   margin-top: 18px;
-  font-family: 'Open Sans', Arial, sans-serif;
-  font-weight: 600;
+  font: 600 13px/14px 'Open Sans', Arial, sans-serif;
   position: relative;
 }
 .call-to-action .button.button-large:after {
@@ -4410,12 +4472,18 @@ label.css-label {
 .form-message .text .button {
   width: auto;
   margin: 0;
+  padding-top: 8px;
+  padding-bottom: 8px;
   float: right;
 }
 @media (min-width: 750px) {
   .form-message .text .button {
     float: none;
   }
+}
+.form-message .text textarea {
+  padding-top: 8px;
+  padding-bottom: 8px;
 }
 .form-message .presents {
   margin: 0;
@@ -4719,6 +4787,7 @@ label.css-label {
 .form-offer .form-line-submit .button {
   width: auto;
   display: inline-block;
+  vertical-align: middle;
 }
 @media (min-width: 750px) {
   .form-offer .form-line-submit .button {

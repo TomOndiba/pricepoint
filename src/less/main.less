@@ -396,8 +396,8 @@ h6 {&:extend(.h6); }
 fieldset { padding: 0; margin: 0; border: none; }
 /* INPUT & TEXTAREA */
 input {
-  height: 32px;
-  padding: 7px 10px;
+  height: 46px;
+  padding: 15px 10px;
   border: 1px solid @color-beige;
   border-radius: 2px;
   color: @color-font;
@@ -407,6 +407,10 @@ input {
   -webkit-appearance: none;
 
   @media @md {
+    height: 32px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+
     &.large {
       height: 42px;
       padding-top: 10px;
@@ -455,7 +459,7 @@ textarea {
   height: auto;
   margin: 0 auto;
   display: block;
-  padding: 8px 12px;
+  padding: 15px 12px;
   font: bold 12px/14px @font-roboto;
   color: @color-white;
   text-align: center;
@@ -469,8 +473,7 @@ textarea {
     max-width: none;
     display: inline-block;
     font-size: 13px;
-    padding-left: 28px;
-    padding-right: 28px;
+    padding: 8px 28px;
 
     &.button-large {
       padding-top: 12px;
@@ -796,17 +799,23 @@ textarea {
   border-radius: 2px;
 
   .label {
-    height: 30px;
-    margin: 0 36px 0 10px;
+    height: 44px;
+    margin: 0 46px 0 10px;
     color: @color-font;
     font-size: 13px;
-    line-height: 30px;
+    line-height: 44px;
     letter-spacing: .02em;
+
+    @media @md {
+      height: 30px;
+      line-height: 30px;
+      margin-right: 36px;
+    }
   }
 
   .button {
-    width: 30px;
-    height: 30px;
+    width: 46px;
+    height: 46px;
     padding: 0;
     text-indent: -1000px;
     overflow: hidden;
@@ -817,6 +826,11 @@ textarea {
       border-width: 5px;
       border-top-color: @color-beige;
       transition: opacity @duration;
+    }
+
+    @media @md {
+      width: 30px;
+      height: 30px;
     }
   }
 
@@ -853,8 +867,8 @@ textarea {
   ul { font-size: 13px; }
 
   li {
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     font-size: 13px;
     letter-spacing: .02em;
     color: @color-font;
@@ -867,13 +881,22 @@ textarea {
     }
 
     &.selected {
-      background: @color-beige;
       border-top-color: @color-beige;
       border-bottom-color: @color-beige;
       color: @color-sea;
+      background: #f9f2a4;
     }
 
     &.disabled { display: none; }
+
+    @media @md {
+      padding-top: 5px;
+      padding-bottom: 5px;
+
+      &.selected {
+        background: @color-beige;
+      }
+    }
   }
 }
 .select-small {
@@ -928,14 +951,27 @@ input[type=checkbox].css-checkbox {
   border: 0;
 
   + label.css-label {
-    padding-left: 24px;
-    display: inline-block;
+    padding: 14px 0 14px 24px;
+    display: block;
     font-size: 13px;
     line-height: 18px;
-    background-repeat: no-repeat;
-    background-position: 0 0;
     vertical-align: middle;
     cursor: pointer;
+    position: relative;
+
+    &:before {
+      .before;
+      width: 18px;
+      height: 18px;
+      margin: auto 0;
+      background-repeat: no-repeat;
+      background-position: 0 0;
+      background-image: url(http://csscheckbox.com/checkboxes/u/csscheckbox_e7d0bf58d1556e5a8ef49f2491d9a183.png);
+      position: absolute;
+      top: -1px;
+      left: 0;
+      bottom: 0;
+    }
 
     @media @md {
       font-size: 15px;
@@ -944,12 +980,11 @@ input[type=checkbox].css-checkbox {
 
   &:checked {
     + label.css-label {
-      background-position: 0 -18px;
+      &:before { background-position: 0 -18px; }
     }
   }
 }
 label.css-label {
-  background-image: url(http://csscheckbox.com/checkboxes/u/csscheckbox_e7d0bf58d1556e5a8ef49f2491d9a183.png);
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -977,7 +1012,7 @@ label.css-label {
       border-bottom: 1px solid @color-beige;
 
       a {
-        padding: 10px;
+        padding: 0 10px;
         display: block;
         color: @color-font;
 
@@ -1053,14 +1088,15 @@ label.css-label {
   }
 
   label.checkbox {
-    padding-left: 24px;
-    padding-right: 3px;
+    padding: 15px 3px 15px 24px;
     color: @color-font;
     left: 1px;
 
     @media @md {
       font-size: 15px;
       line-height: 21px;
+      padding-top: 3px;
+      padding-bottom: 3px;
     }
 
     .square {
@@ -1075,6 +1111,9 @@ label.css-label {
       -moz-user-select: none;
       -ms-user-select: none;
       user-select: none;
+      top: -3px;
+      bottom: 0;
+      margin: auto 0;
       &:before { display: none; }
     }
 
@@ -1082,8 +1121,12 @@ label.css-label {
   }
 
   label.radio {
-    padding-left: 3px;
-    padding-right: 3px;
+    padding: 15px 3px;
+
+    @media @md {
+      padding-top: 3px;
+      padding-bottom: 3px;
+    }
 
     .circle { display: none; }
   }
@@ -1107,11 +1150,12 @@ label.css-label {
  * Form
  */
 .form {
-  margin: 50px 0 30px;
+  margin: 10px 0;
   font-family: @font-arial;
   cursor: default;
 
   @media @md {
+    margin: 50px 0 30px;
     font-size: 15px;
   }
 
@@ -1212,6 +1256,8 @@ label.css-label {
       margin: 0 6px 0 0;
       display: inline-block;
 
+      &:last-of-type { margin: 0; }
+
       .selectric {
         .label { margin-left: 10px; }
       }
@@ -1249,8 +1295,8 @@ label.css-label {
     }
 
     .form-code-text {
-      min-height: 32px;
-      padding: 4px;
+      min-height: 46px;
+      padding: 8px 4px;
       margin-left: 106px;
       display: block;
       cursor: default;
@@ -1266,6 +1312,7 @@ label.css-label {
         line-height: 16px;
       }
       @media @md {
+        min-height: 0;
         padding: 12px 10px;
         font-size: 16px;
         line-height: 18px;
@@ -1329,7 +1376,7 @@ label.css-label {
         max-width: 400px;
         height: auto;
         margin: 0 auto;
-        padding: 8px 12px;
+        padding: 15px 12px;
         font: bold 12px/14px @font-roboto;
         color: @color-white;
         text-align: center;
@@ -1349,8 +1396,7 @@ label.css-label {
           max-width: none;
           display: inline-block;
           font-size: 13px;
-          padding-left: 28px;
-          padding-right: 28px;
+          padding: 8px 28px;
         }
 
         &:hover, &:focus {
@@ -1763,6 +1809,8 @@ label.css-label {
       min-width: 85px;
       margin: 0 0 0 5px;
       display: inline-block;
+      padding-top: 8px;
+      padding-bottom: 8px;
 
       @media @md {
         min-width: 128px;
@@ -2810,7 +2858,7 @@ label.css-label {
     .toggle {
       width: 100%;
       display: block;
-      padding: 8px 32px 8px 10px;
+      padding: 15px 32px 15px 10px;
       color: @color-font;
       background: @color-white;
       border: 1px solid @color-beige;
@@ -2818,6 +2866,11 @@ label.css-label {
       line-height: 14px;
       font-weight: bold;
       position: relative;
+
+      @media @md {
+        padding-top: 8px;
+        padding-bottom: 8px;
+      }
 
       .arrow {
         width: 32px;
@@ -2870,7 +2923,7 @@ label.css-label {
       }
 
       li {
-        padding: 5px 10px;
+        padding: 7px 10px;
         border-bottom: 1px solid @color-beige;
 
         @media @md {
@@ -3127,14 +3180,14 @@ label.css-label {
       margin-bottom: 10px;
 
       .selectric {
-        .label { font: 14px/30px @font-opensans; color: @color-black; text-align: center; }
+        .label { font: 14px/46px @font-opensans; color: @color-black; text-align: center; }
       }
 
       @media @md {
         margin-bottom: 20px;
 
         .selectric {
-          .label { margin-left: 16px; font-size: 15px; line-height: 40px; text-align: left; }
+          .label { height: 40px; margin-left: 16px; font-size: 15px; line-height: 40px; text-align: left; }
         }
       }
     }
@@ -3142,7 +3195,7 @@ label.css-label {
     .button.button-large {
       width: 100%;
       padding-top: 12px;
-      padding-bottom: 12px;
+      padding-bottom: 13px;
       font: 600 15px/18px @font-opensans;
       position: relative;
       border-radius: 6px;
@@ -3186,7 +3239,8 @@ label.css-label {
    ========================================================================== */
 .article {
   text-align: center;
-  font-size: 13px;
+  font-size: 16px;
+  line-height: 22px;
   overflow: hidden;
 
   p:last-child { margin: 0; }
@@ -3220,7 +3274,6 @@ label.css-label {
 
   @media @md {
     font-size: 18px;
-    line-height: 22px;
 
     .wrapper {
       min-height: 350px;
@@ -3359,6 +3412,8 @@ label.css-label {
   color: @color-white;
   text-align: center;
   font-weight: 300;
+  font-size: 16px;
+  line-height: 22px;
   overflow: hidden;
   position: relative;
   z-index: 1;
@@ -3387,7 +3442,6 @@ label.css-label {
   @media @lg {
     padding: 40px 0;
     font-size: 18px;
-    line-height: 22px;
 
     &:before { width: 500px; margin-left: 200px; background-position: 100% 30px; background-size: 94% auto; }
     &:after { width: 500px; margin-left: -764px; background-size: 94% auto; left: 50%; }
@@ -3415,8 +3469,7 @@ label.css-label {
 
   .button.button-large {
     margin-top: 18px;
-    font-family: @font-opensans;
-    font-weight: 600;
+    font: 600 13px/14px @font-opensans;
     position: relative;
 
     &:after {
@@ -3990,12 +4043,16 @@ label.css-label {
     .button {
       width: auto;
       margin: 0;
+      padding-top: 8px;
+      padding-bottom: 8px;
       float: right;
 
       @media @md {
         float: none;
       }
     }
+
+    textarea { padding-top: 8px; padding-bottom: 8px; }
   }
 
   .presents {
@@ -4269,6 +4326,7 @@ label.css-label {
     .button {
       width: auto;
       display: inline-block;
+      vertical-align: middle;
 
       @media @md {
         min-width: 140px;
