@@ -3425,6 +3425,9 @@ label.css-label {
     line-height: 40px;
     text-align: left;
   }
+  .index .form-line .select-large .selectric-items li {
+    font-size: 15px;
+  }
 }
 .index .form-line .button.button-large {
   width: 100%;
@@ -3561,12 +3564,14 @@ label.css-label {
 }
 .article .heading {
   margin-top: 0;
-  font-weight: 300;
+  font-size: 26px;
+  font-weight: normal;
 }
 @media (min-width: 750px) {
   .article .heading {
     margin-bottom: 32px;
     font-size: 40px;
+    font-weight: 300;
   }
 }
 @media (min-width: 1000px) {
@@ -3745,12 +3750,14 @@ label.css-label {
 }
 .call-to-action .heading {
   color: #fff;
-  font-weight: 300;
+  font-size: 26px;
+  font-weight: normal;
 }
 @media (min-width: 750px) {
   .call-to-action .heading {
     margin-bottom: 38px;
     font-size: 40px;
+    font-weight: 300;
   }
 }
 @media (min-width: 1000px) {
