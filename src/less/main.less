@@ -37,6 +37,7 @@
 @color-gray-pastel: #ccc;
 @color-gray: #e9e9e9;
 @color-platinum: #dee1e6;
+@color-platinum-light: #f1f1f1;
 @color-cadet: #5a6272;
 @color-gainsboro: #dadada;
 @color-brown-light: #b6a8a7;
@@ -3189,7 +3190,6 @@ label.css-label {
         .selectric {
           .label { height: 40px; margin-left: 16px; font-size: 15px; line-height: 40px; text-align: left; }
         }
-
         .selectric-items {
           li { font-size: 15px; }
         }
@@ -4346,3 +4346,119 @@ label.css-label {
   opacity: 0;
   &.inited { opacity: 1; }
 }
+/* ==========================================================================
+   _RESENTS
+   ========================================================================== */
+.resents {
+  
+  .heading {
+    margin: 0 0 14px;
+    font-weight: normal;
+  }
+
+  .panel {
+    margin-bottom: 10px;
+    font-size: 15px;
+    line-height: 20px;
+    background: @color-white;
+    border: 1px solid @color-gray-new;
+
+    @media @md {
+      font-size: 13px;
+      line-height: 15px;
+    }
+
+    &.panel-new { background: @color-yellow-light; }
+    &.panel-locked { background: @color-platinum-light; }
+
+    .head {
+      margin: 0;
+      padding: 10px 90px 10px 10px;
+      font-weight: bold;
+      background: @color-gray;
+      position: relative;
+
+      &:after { .clearfix; }
+
+      a { color: @color-blue; }
+
+      .time {
+        font-style: italic;
+        font-weight: 300;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+      }
+
+      @media @md {
+        padding: 10px 100px 10px 20px;
+
+        .time { right: 20px; }
+      }
+    }
+
+    .panel-space {
+      min-height: 100px;
+      padding: 26px 10px 26px 110px;
+      position: relative;
+      z-index: 1;
+
+      &:after { .clearfix; }
+
+      .photo {
+        width: 100px;
+        height: 100px;
+        display: block;
+        text-decoration: none;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 2;
+
+        img { width: 100%; height: 100%; display: block; }
+      }
+      
+      .button {
+        min-width: 140px;
+        padding-left: 4px;
+        padding-right: 4px;
+        float: right;
+      }
+
+      .fn, .name { display: none; }
+
+      @media @md {
+        min-height: 76px;
+        padding: 22px 20px 22px 106px;
+
+        .photo { width: 76px; height: 76px; }
+
+        .name {
+          margin: 0;
+          display: inline-block;
+
+          .small { display: block; font-size: 11px; }
+        }
+
+        .fn {
+          margin: auto auto;
+          display: block;
+          font-size: 48px;
+          line-height: 76px;
+          font-weight: bold;
+          text-align: center;
+          text-transform: uppercase;
+          opacity: .15;
+          cursor: default;
+          position: absolute;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
+          z-index: -1;
+        }
+      }
+    }
+  }
+}
+
