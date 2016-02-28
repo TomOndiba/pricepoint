@@ -2087,7 +2087,8 @@ body > form {
 }
 .links-group li a:hover,
 .links-group li a:focus,
-.links-group li a:active {
+.links-group li a:active,
+.links-group li a.active {
   color: #fff;
   background-color: #4c9eda;
   border-color: #4c9eda;
@@ -2182,12 +2183,14 @@ body > form {
   }
   .links-group li a:hover .icon:before,
   .links-group li a:focus .icon:before,
-  .links-group li a:active .icon:before {
+  .links-group li a:active .icon:before,
+  .links-group li a.active .icon:before {
     opacity: 0;
   }
   .links-group li a:hover .icon:after,
   .links-group li a:focus .icon:after,
-  .links-group li a:active .icon:after {
+  .links-group li a:active .icon:after,
+  .links-group li a.active .icon:after {
     opacity: 1;
   }
 }
@@ -2205,7 +2208,6 @@ body > form {
     display: inline;
   }
   .links-group li a .icon {
-    top: auto;
     -webkit-transform: scale(1);
     -moz-transform: scale(1);
     -ms-transform: scale(1);

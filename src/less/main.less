@@ -1952,7 +1952,7 @@ body {
       border-radius: 2px;
       transition: background-color @duration, border-color @duration, color @duration;
 
-      &:hover, &:focus, &:active {
+      &:hover, &:focus, &:active, &.active {
         color: @color-white;
         background-color: @color-blue;
         border-color: @color-blue;
@@ -2027,8 +2027,7 @@ body {
             &:after { background-position: -60px -130px; }
           }
         }
-        &:hover, &:focus, &:active {
-
+        &:hover, &:focus, &:active, &.active {
           .icon {
             &:before { opacity: 0; }
             &:after { opacity: 1; }
@@ -2039,18 +2038,12 @@ body {
       @media @sm {
         padding-left: 12px;
         padding-right: 12px;
-
-        .icon {
-          margin: 0 3px;
-        }
+        .icon { margin: 0 3px; }
       }
 
       @media @md {
         .mobile-hidden { display: inline; }
-        .icon {
-          top: auto;
-          .scale(1);
-        }
+        .icon { .scale(1); }
       }
     }
   }
