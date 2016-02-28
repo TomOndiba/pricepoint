@@ -1151,6 +1151,16 @@ label.css-label {
 /**
  * Form
  */
+body {
+  > form {
+    height: 100%;
+    margin: 0;
+
+    .index-page &, .conversation--page & {
+      height: 100%;
+    }
+  }
+}
 .form {
   margin: 10px 0;
   font-family: @font-arial;
@@ -1968,7 +1978,7 @@ label.css-label {
         border-radius: 2px;
         transition: background-color @duration, border-color @duration, color @duration;
 
-        &:hover, &:focus, &:active {
+        &:hover, &:focus, &:active, &.active {
           color: @color-white;
           background-color: @color-blue;
           border-color: @color-blue;
@@ -2023,7 +2033,7 @@ label.css-label {
               &:after { background-position: -75px -40px; }
             }
           }
-          &:hover, &:focus, &:active {
+          &:hover, &:focus, &:active, &.active {
 
             .icon {
               &:before { opacity: 0; }
@@ -2044,7 +2054,6 @@ label.css-label {
         @media @md {
           .mobile-hidden { display: inline; }
           .icon {
-            top: auto;
             .scale(1);
           }
         }
@@ -4356,7 +4365,7 @@ label.css-label {
 }
 .form-filter {
   opacity: 0;
-  &.inited { opacity: 1; }
+  form.inited & { opacity: 1; }
 }
 /* ==========================================================================
    _RESENTS

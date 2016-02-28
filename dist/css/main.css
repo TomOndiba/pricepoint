@@ -1226,6 +1226,14 @@ label.css-label {
 /**
  * Form
  */
+body > form {
+  height: 100%;
+  margin: 0;
+}
+.index-page body > form,
+.conversation--page body > form {
+  height: 100%;
+}
 .form {
   margin: 10px 0;
   font-family: Arial, sans-serif;
@@ -2105,7 +2113,8 @@ label.css-label {
 }
 .top .links-group li a:hover,
 .top .links-group li a:focus,
-.top .links-group li a:active {
+.top .links-group li a:active,
+.top .links-group li a.active {
   color: #fff;
   background-color: #4c9eda;
   border-color: #4c9eda;
@@ -2176,12 +2185,14 @@ label.css-label {
   }
   .top .links-group li a:hover .icon:before,
   .top .links-group li a:focus .icon:before,
-  .top .links-group li a:active .icon:before {
+  .top .links-group li a:active .icon:before,
+  .top .links-group li a.active .icon:before {
     opacity: 0;
   }
   .top .links-group li a:hover .icon:after,
   .top .links-group li a:focus .icon:after,
-  .top .links-group li a:active .icon:after {
+  .top .links-group li a:active .icon:after,
+  .top .links-group li a.active .icon:after {
     opacity: 1;
   }
 }
@@ -2199,7 +2210,6 @@ label.css-label {
     display: inline;
   }
   .top .links-group li a .icon {
-    top: auto;
     -webkit-transform: scale(1);
     -moz-transform: scale(1);
     -ms-transform: scale(1);
@@ -4814,7 +4824,7 @@ label.css-label {
 .form-filter {
   opacity: 0;
 }
-.form-filter.inited {
+form.inited .form-filter {
   opacity: 1;
 }
 /* ==========================================================================

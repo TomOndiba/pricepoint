@@ -15,6 +15,11 @@ $(document).ready(function () {
  * Init UI
  **/
 function initUI() {
+	/** Fastclick */
+	if (!(/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream)) {
+		FastClick.attach(document.body);
+	}
+
 	/** Toggle settings dropdown in the header  */
 	$('.header').each(function () {
 		body = $('body');
@@ -83,18 +88,9 @@ function initUI() {
 
 
 /**
- * Init forms
+ * Init form elements
  **/
-function initForms(scope, data) {
-	if (typeof scope === 'undefined') {
-		scope = document;
-	}
-
-	/** Fastclick */
-	if (!(/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream)) {
-		FastClick.attach(document.body);
-	}
-
+function initFormElements(scope, data) {
 	/** Custom selectbox */
 	$('select.select', scope).selectric({
 		maxHeight: 200,
@@ -112,7 +108,7 @@ function initForms(scope, data) {
 	});
 
 	/** Multiselect dropdown */
-	$('.btn-group', scope).each(function () {
+	$('.btn-group:not(.inited)', scope).each(function () {
 		function Handler(event) {
 			var c = $(event.target).closest(st);
 			if ((c.length === 0)) {
@@ -144,7 +140,8 @@ function initForms(scope, data) {
 			} else {
 				Hide();
 			}
-		})
+		});
+		self.addClass('inited');
 	});
 
 	/** Radiobox init */
@@ -171,9 +168,41 @@ function initForms(scope, data) {
 		});
 		self.addClass('inited');
 	});
+}
+
+/**
+ * Init all forms
+ **/
+function initForms(scope, data) {
+	if (typeof scope === 'undefined') {
+		scope = document;
+	}
+
+	initFormElements(scope, data);
+
+	/** Login form */
+	$('[data-form="login"]:not(.inited)', scope).each(function () {
+		$(this).on('submit', function () {
+			alert('Login form submitted!');
+		});
+	});
+
+	/** Sign Up form */
+	$('[data-form="sign-up"]:not(.inited)', scope).each(function () {
+		$(this).on('submit', function () {
+			alert('Sign Up form submitted!');
+		});
+	});
+
+	/** Registration form */
+	$('[data-form="registration"]:not(.inited)', scope).each(function () {
+		$(this).on('submit', function () {
+			alert('Registration form submitted!');
+		});
+	});
 
 	/** Filter form */
-	$('.form-filter:not(.inited)', scope).each(function () {
+	$('[data-form="filter"]:not(.inited)', scope).each(function () {
 		var result = {};
 		$(this).on('submit', function () {
 			$('[required]', this).each(function () {
@@ -188,8 +217,37 @@ function initForms(scope, data) {
 		}).addClass('inited');
 	});
 
+	/** Send message form */
+	$('[data-form="message"]:not(.inited)', scope).each(function () {
+		function Submit() {
+			$('[required]', this).each(function () {
+				result[$(this).attr('name')] = $(this).val()
+			});
+			result['gifts'] = [];
+			$('.checkbox-gift :checkbox', this).filter(':checked').each(function () {
+				result['gifts'].push($(this).val());
+			});
+			alert('Send message form submit!\n' + JSON.stringify(result, null, 4));
+		}
+
+		var result = {};
+		$(this).on('submit', function () {
+			var gifts = +$('.checkbox-gift :checkbox', this).filter(':checked').length;
+			if (gifts > 0) {
+				var r = confirm("A total of " + gifts * 5 + " credits will be deducted for the gifts.\nWould you like to send the message?");
+				if (r === true) {
+					Submit.call(this);
+				}
+			} else {
+				Submit.call(this);
+			}
+			return false;
+		}).addClass('inited');
+	});
+
+
 	/** Offer form */
-	$('.form-offer:not(.inited)', scope).each(function () {
+	$('[data-form="offer"]:not(.inited)', scope).each(function () {
 		/** Clear form*/
 		function Clear() {
 			total.val('');
@@ -249,24 +307,12 @@ function initForms(scope, data) {
 
 		Clear();
 	});
-
-	/** Message form */
-	$('.form-message:not(.inited)', scope).each(function () {
-		var result = {};
-		$(this).on('submit', function () {
-			$('[required]', this).each(function () {
-				result[$(this).attr('name')] = $(this).val()
-			});
-			result['gifts'] = [];
-			$('.checkbox-gift :checkbox', this).filter(':checked').each(function () {
-				result['gifts'].push($(this).val());
-			});
-			alert(JSON.stringify(result, null, 4));
-			return false;
-		}).addClass('inited');
-	});
 }
 
+
+/**
+ * Sends AJAX request to server-side widget
+ **/
 function sendRequest(data) {
 	return request = $.ajax({
 		url: 'webservice.php',

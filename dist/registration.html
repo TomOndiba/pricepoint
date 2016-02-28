@@ -35,323 +35,325 @@
 	<meta name="theme-color" content="#ffffff">
 </head>
 <body>
+	<form action="search.html" method="post" data-form="registration">
 
-	<!-- Header -->
-	<header class="header">
-		<div class="wrapper">
-			<h1 class="hidden">PricePoint Dating</h1>
-			<p class="logo"><a href="index.html"><img src="img/logo.png" width="246" height="36" alt="PricePoint Dating"></a></p>
-			<div class="username">
-				<a class="switch" href="#">Roberto2011 <span class="credits">100 credits</span></a>
-				<div class="settings">
-					<div class="entry">
-						<figure class="image">
-							<img src="img/temp/user-2.jpg" width="124" height="124" alt="">
-							<a href="person.html">View My Profile</a>
-						</figure>
-						<div class="info">
-							<p class="name">Roberto2011</p>
-							<a class="button button-white-bordered" href="upload.html">Manage Photos</a>
-							<a class="button button-white-bordered" href="#">Edit My Profile</a>
-							<a class="button button-white-bordered" href="#">Settings</a>
+		<!-- Header -->
+		<header class="header">
+			<div class="wrapper">
+				<h1 class="hidden">PricePoint Dating</h1>
+				<p class="logo"><a href="index.html"><img src="img/logo.png" width="246" height="36" alt="PricePoint Dating"></a></p>
+				<div class="username">
+					<a class="switch" href="#">Roberto2011 <span class="credits">100 credits</span></a>
+					<div class="settings">
+						<div class="entry">
+							<figure class="image">
+								<img src="img/temp/user-2.jpg" width="124" height="124" alt="">
+								<a href="person.html">View My Profile</a>
+							</figure>
+							<div class="info">
+								<p class="name">Roberto2011</p>
+								<a class="button button-white-bordered" href="upload.html">Manage Photos</a>
+								<a class="button button-white-bordered" href="#">Edit My Profile</a>
+								<a class="button button-white-bordered" href="#">Settings</a>
+							</div>
 						</div>
-					</div>
-					<div class="entry">
-						<a class="button button-black" href="#">My Favorites</a>
-						<a class="button button-black" href="#">Who Viewed Me</a>
-						<a class="button button-black" href="#">Who Favorited Me</a>
-					</div>
-					<div class="entry">
-						<p class="fn">100 Credits Remaining</p>
-						<div class="buttons-group">
-							<p class="cell"><a class="button" href="#">Buy Credits</a></p>
-							<p class="cell"><a class="button button-white-bordered" href="index.html">Log Out</a></p>
+						<div class="entry">
+							<a class="button button-black" href="#">My Favorites</a>
+							<a class="button button-black" href="#">Who Viewed Me</a>
+							<a class="button button-black" href="#">Who Favorited Me</a>
+						</div>
+						<div class="entry">
+							<p class="fn">100 Credits Remaining</p>
+							<div class="buttons-group">
+								<p class="cell"><a class="button" href="#">Buy Credits</a></p>
+								<p class="cell"><a class="button button-white-bordered" href="index.html">Log Out</a></p>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</header>
-	<!-- /Header -->
+		</header>
+		<!-- /Header -->
 
 
-	<!-- Container -->
-	<main class="container">
-		<div class="wrapper">
-			<div class="pure-g">
-				<div class="pure-u-1 pure-u-lg-19-24">
-					<form class="form" action="index.html" method="post">
-						<div class="form-space">
-							<h2 class="form-head">Create Your Profile</h2>
-							<div class="form-line">
-								<div class="form-code">
-									<label for="code" class="form-label">ZIP Code</label>
-									<input class="large form-code-input" id="code" type="text">
-									<span class="form-code-text">You must be able to go on a date in this city</span>
-								</div>
-							</div>
-							<div class="form-line">
-								<label for="headline" class="form-label">Profile headline</label>
-								<input class="large" id="headline" name="headline" type="text" placeholder="We'll Just Lie and Say We Met at the Library&hellip;">
-							</div>
-							<div class="form-line">
-								<label for="description" class="form-label">Describe yourself</label>
-								<textarea class="large" id="description" name="description" placeholder="I am very active, I love mountain biking, snowboarding, skydiving and shark feeding. James Bond is my mentor and The Most Interesting Man in the World is my life coach&hellip;"></textarea>
-							</div>
-							<div class="form-line">
-								<label for="firstdate" class="form-label">What would be your firstdate first date?</label>
-								<textarea class="large" id="firstdate" name="firstdate" placeholder="A lounge, bar or upscale restaurant, interesting conversation over a glass of wine, laughs and great chemistry."></textarea>
-							</div>
-							<div class="form-info">
-								<h2 class="title">Personal Information</h2>
-								<div class="pure-g">
-									<div class="pure-u-1 pure-u-sm-1-2 pure-u-md-1-3">
-										<div class="form-line">
-											<label for="ethnicity_type" class="form-label">Ethnicity</label>
-											<div class="select-small">
-												<select id="ethnicity_type" name="ethnicity" class="select" required multiple data-title="Ethnicity Type" data-all="All Ethnicity Types">
-													<option disabled selected></option>
-													<option value="273">Asian</option>
-													<option value="274">Black / African Descent</option>
-													<option value="275">Latin / Hispanic</option>
-													<option value="276">East Indian</option>
-													<option value="277">Middle Eastern</option>
-													<option value="279">American</option>
-													<option value="280">Pacific Islander</option>
-													<option value="281">White / Caucasian</option>
-													<option value="282">Other Ethnicity</option>
-												</select>
-											</div>
-										</div>
-										<div class="form-line">
-											<label for="religion" class="form-label">Religion</label>
-											<div class="select-small">
-												<select id="religion" class="select">
-													<option disabled selected></option>
-													<option value="christianity">Christianity</option>
-													<option value="islam">Islam</option>
-													<option value="hinduism">Hinduism</option>
-													<option value="buddhism">Buddhism</option>
-													<option value="other">Other Religion</option>
-												</select>
-											</div>
-										</div>
-										<div class="form-line">
-											<label for="children" class="form-label">Children</label>
-											<div class="select-small">
-												<select id="children" class="select">
-													<option disabled selected></option>
-													<option value="0">No Children</option>
-													<option value="1">1</option>
-													<option value="2">2</option>
-													<option value="3">3</option>
-													<option value="4">4</option>
-													<option value="5">5</option>
-												</select>
-											</div>
-										</div>
-										<div class="form-line">
-											<label for="drinking" class="form-label">Drinking Habits</label>
-											<div class="select-small">
-												<select id="drinking" class="select">
-													<option disabled selected></option>
-													<option value="social">Social Drinker</option>
-													<option value="no">Non-drinker</option>
-												</select>
-											</div>
-										</div>
-										<div class="form-line">
-											<label for="smoker" class="form-label">Smoking Habits</label>
-											<div class="select-small">
-												<select id="smoker" class="select">
-													<option disabled selected></option>
-													<option value="false">Non-smoker</option>
-													<option value="true">Smoker</option>
-												</select>
-											</div>
-										</div>
-									</div>
-									<div class="pure-u-1 pure-u-sm-1-2 pure-u-md-1-3 pure-u-mobile-hidden">&nbsp;</div>
-									<div class="pure-u-1 pure-u-sm-1-2 pure-u-md-1-3">
-										<div class="form-line">
-											<label for="height" class="form-label">Height</label>
-											<div class="select-small">
-												<select id="height" class="select">
-													<option disabled selected></option>
-													<option value="160">160cm</option>
-													<option value="161">161cm</option>
-													<option value="162">162cm</option>
-													<option value="163">163cm</option>
-													<option value="164">164cm</option>
-													<option value="165">165cm</option>
-													<option value="166">166cm</option>
-													<option value="167">167cm</option>
-													<option value="168">168cm</option>
-													<option value="169">169cm</option>
-													<option value="170">170cm</option>
-													<option value="171">171cm</option>
-													<option value="172">172cm</option>
-													<option value="173">173cm</option>
-													<option value="174">174cm</option>
-													<option value="176">176cm</option>
-													<option value="177">177cm</option>
-													<option value="178">178cm</option>
-													<option value="180">180cm</option>
-													<option value="180">181cm</option>
-													<option value="182">182cm</option>
-													<option value="183">183cm</option>
-													<option value="184">184cm</option>
-													<option value="185">185cm</option>
-												</select>
-											</div>
-										</div>
-										<div class="form-line">
-											<label for="body_type" class="form-label">Body Type</label>
-											<div class="select-small">
-												<select id="body_type" class="select">
-													<option disabled selected></option>
-													<option value="268">Slim</option>
-													<option value="269">Athletic</option>
-													<option value="270">Average</option>
-													<option value="271">Extra Pounds</option>
-													<option value="272">Overweight</option>
-												</select>
-											</div>
-										</div>
-										<div class="form-line">
-											<label for="eye_color" class="form-label">Eye Color</label>
-											<div class="select-small">
-												<select id="eye_color" class="select">
-													<option disabled selected></option>
-													<option value="blue">Blue</option>
-													<option value="green">Green</option>
-													<option value="gray">Gray</option>
-													<option value="brown">Brown</option>
-												</select>
-											</div>
-										</div>
-										<div class="form-line">
-											<label for="hair_color" class="form-label">Hair Color</label>
-											<div class="select-small">
-												<select id="hair_color" class="select">
-													<option disabled selected></option>
-													<option value="blonde">Blonde</option>
-													<option value="brown">Brown</option>
-													<option value="redhead">Redhead</option>
-													<option value="brunette">Brunette</option>
-												</select>
-											</div>
-										</div>
-										<div class="form-line">
-											<label for="relationship" class="form-label">Relationship Status</label>
-											<div class="select-small">
-												<select id="relationship" class="select">
-													<option disabled selected></option>
-													<option value="single">Single</option>
-													<option value="married">Married</option>
-												</select>
-											</div>
-										</div>
-									</div>
-									<div class="pure-u-1">
-										<div class="form-line">
-											<label for="ocupation" class="form-label">Ocupation</label>
-											<input class="large" id="ocupation" type="text">
-										</div>
-									</div>
-									<div class="pure-u-1 pure-u-sm-1-2 pure-u-md-1-3">
-										<div class="form-line">
-											<label for="education" class="form-label">Education</label>
-											<div class="select-small">
-												<select id="education" class="select">
-													<option disabled selected></option>
-													<option value="bachelors">Bachelors Degree</option>
-													<option value="masters">Masters Degree</option>
-												</select>
-											</div>
-										</div>
-									</div>
-									<div class="pure-u-1 pure-u-sm-1-2 pure-u-md-1-3">
-										<div class="form-line">
-											<label for="income" class="form-label">Annual Income</label>
-											<div class="select-small">
-												<select id="income" class="select">
-													<option disabled selected></option>
-													<option value="hidden">Prefer Not To Say</option>
-												</select>
-											</div>
-										</div>
-									</div>
-									<div class="pure-u-1 pure-u-sm-1-2 pure-u-md-1-3">
-										<div class="form-line">
-											<label for="worth" class="form-label">Net Worth</label>
-											<div class="select-small">
-												<select id="worth" class="select">
-													<option disabled selected></option>
-													<option value="hidden">Prefer Not To Say</option>
-												</select>
-											</div>
-										</div>
+		<!-- Container -->
+		<main class="container">
+			<div class="wrapper">
+				<div class="pure-g">
+					<div class="pure-u-1 pure-u-lg-19-24">
+						<div class="form form-registration">
+							<div class="form-space">
+								<h2 class="form-head">Create Your Profile</h2>
+								<div class="form-line">
+									<div class="form-code">
+										<label for="code" class="form-label">ZIP Code</label>
+										<input class="large form-code-input" id="code" type="text">
+										<span class="form-code-text">You must be able to go on a date in this city</span>
 									</div>
 								</div>
-							</div>
+								<div class="form-line">
+									<label for="headline" class="form-label">Profile headline</label>
+									<input class="large" id="headline" name="headline" type="text" placeholder="We'll Just Lie and Say We Met at the Library&hellip;">
+								</div>
+								<div class="form-line">
+									<label for="description" class="form-label">Describe yourself</label>
+									<textarea class="large" id="description" name="description" placeholder="I am very active, I love mountain biking, snowboarding, skydiving and shark feeding. James Bond is my mentor and The Most Interesting Man in the World is my life coach&hellip;"></textarea>
+								</div>
+								<div class="form-line">
+									<label for="firstdate" class="form-label">What would be your firstdate first date?</label>
+									<textarea class="large" id="firstdate" name="firstdate" placeholder="A lounge, bar or upscale restaurant, interesting conversation over a glass of wine, laughs and great chemistry."></textarea>
+								</div>
+								<div class="form-info">
+									<h2 class="title">Personal Information</h2>
+									<div class="pure-g">
+										<div class="pure-u-1 pure-u-sm-1-2 pure-u-md-1-3">
+											<div class="form-line">
+												<label for="ethnicity_type" class="form-label">Ethnicity</label>
+												<div class="select-small">
+													<select id="ethnicity_type" name="ethnicity" class="select" required multiple data-title="Ethnicity Type" data-all="All Ethnicity Types">
+														<option disabled selected></option>
+														<option value="273">Asian</option>
+														<option value="274">Black / African Descent</option>
+														<option value="275">Latin / Hispanic</option>
+														<option value="276">East Indian</option>
+														<option value="277">Middle Eastern</option>
+														<option value="279">American</option>
+														<option value="280">Pacific Islander</option>
+														<option value="281">White / Caucasian</option>
+														<option value="282">Other Ethnicity</option>
+													</select>
+												</div>
+											</div>
+											<div class="form-line">
+												<label for="religion" class="form-label">Religion</label>
+												<div class="select-small">
+													<select id="religion" class="select">
+														<option disabled selected></option>
+														<option value="christianity">Christianity</option>
+														<option value="islam">Islam</option>
+														<option value="hinduism">Hinduism</option>
+														<option value="buddhism">Buddhism</option>
+														<option value="other">Other Religion</option>
+													</select>
+												</div>
+											</div>
+											<div class="form-line">
+												<label for="children" class="form-label">Children</label>
+												<div class="select-small">
+													<select id="children" class="select">
+														<option disabled selected></option>
+														<option value="0">No Children</option>
+														<option value="1">1</option>
+														<option value="2">2</option>
+														<option value="3">3</option>
+														<option value="4">4</option>
+														<option value="5">5</option>
+													</select>
+												</div>
+											</div>
+											<div class="form-line">
+												<label for="drinking" class="form-label">Drinking Habits</label>
+												<div class="select-small">
+													<select id="drinking" class="select">
+														<option disabled selected></option>
+														<option value="social">Social Drinker</option>
+														<option value="no">Non-drinker</option>
+													</select>
+												</div>
+											</div>
+											<div class="form-line">
+												<label for="smoker" class="form-label">Smoking Habits</label>
+												<div class="select-small">
+													<select id="smoker" class="select">
+														<option disabled selected></option>
+														<option value="false">Non-smoker</option>
+														<option value="true">Smoker</option>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="pure-u-1 pure-u-sm-1-2 pure-u-md-1-3 pure-u-mobile-hidden">&nbsp;</div>
+										<div class="pure-u-1 pure-u-sm-1-2 pure-u-md-1-3">
+											<div class="form-line">
+												<label for="height" class="form-label">Height</label>
+												<div class="select-small">
+													<select id="height" class="select">
+														<option disabled selected></option>
+														<option value="160">160cm</option>
+														<option value="161">161cm</option>
+														<option value="162">162cm</option>
+														<option value="163">163cm</option>
+														<option value="164">164cm</option>
+														<option value="165">165cm</option>
+														<option value="166">166cm</option>
+														<option value="167">167cm</option>
+														<option value="168">168cm</option>
+														<option value="169">169cm</option>
+														<option value="170">170cm</option>
+														<option value="171">171cm</option>
+														<option value="172">172cm</option>
+														<option value="173">173cm</option>
+														<option value="174">174cm</option>
+														<option value="176">176cm</option>
+														<option value="177">177cm</option>
+														<option value="178">178cm</option>
+														<option value="180">180cm</option>
+														<option value="180">181cm</option>
+														<option value="182">182cm</option>
+														<option value="183">183cm</option>
+														<option value="184">184cm</option>
+														<option value="185">185cm</option>
+													</select>
+												</div>
+											</div>
+											<div class="form-line">
+												<label for="body_type" class="form-label">Body Type</label>
+												<div class="select-small">
+													<select id="body_type" class="select">
+														<option disabled selected></option>
+														<option value="268">Slim</option>
+														<option value="269">Athletic</option>
+														<option value="270">Average</option>
+														<option value="271">Extra Pounds</option>
+														<option value="272">Overweight</option>
+													</select>
+												</div>
+											</div>
+											<div class="form-line">
+												<label for="eye_color" class="form-label">Eye Color</label>
+												<div class="select-small">
+													<select id="eye_color" class="select">
+														<option disabled selected></option>
+														<option value="blue">Blue</option>
+														<option value="green">Green</option>
+														<option value="gray">Gray</option>
+														<option value="brown">Brown</option>
+													</select>
+												</div>
+											</div>
+											<div class="form-line">
+												<label for="hair_color" class="form-label">Hair Color</label>
+												<div class="select-small">
+													<select id="hair_color" class="select">
+														<option disabled selected></option>
+														<option value="blonde">Blonde</option>
+														<option value="brown">Brown</option>
+														<option value="redhead">Redhead</option>
+														<option value="brunette">Brunette</option>
+													</select>
+												</div>
+											</div>
+											<div class="form-line">
+												<label for="relationship" class="form-label">Relationship Status</label>
+												<div class="select-small">
+													<select id="relationship" class="select">
+														<option disabled selected></option>
+														<option value="single">Single</option>
+														<option value="married">Married</option>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="pure-u-1">
+											<div class="form-line">
+												<label for="ocupation" class="form-label">Ocupation</label>
+												<input class="large" id="ocupation" type="text">
+											</div>
+										</div>
+										<div class="pure-u-1 pure-u-sm-1-2 pure-u-md-1-3">
+											<div class="form-line">
+												<label for="education" class="form-label">Education</label>
+												<div class="select-small">
+													<select id="education" class="select">
+														<option disabled selected></option>
+														<option value="bachelors">Bachelors Degree</option>
+														<option value="masters">Masters Degree</option>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="pure-u-1 pure-u-sm-1-2 pure-u-md-1-3">
+											<div class="form-line">
+												<label for="income" class="form-label">Annual Income</label>
+												<div class="select-small">
+													<select id="income" class="select">
+														<option disabled selected></option>
+														<option value="hidden">Prefer Not To Say</option>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="pure-u-1 pure-u-sm-1-2 pure-u-md-1-3">
+											<div class="form-line">
+												<label for="worth" class="form-label">Net Worth</label>
+												<div class="select-small">
+													<select id="worth" class="select">
+														<option disabled selected></option>
+														<option value="hidden">Prefer Not To Say</option>
+													</select>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
 
-							<section>
-								<h2 class="title">What Are You Loking For?</h2>
-								<div class="form-line form-line-checkbox">
-									<input type="checkbox" name="checkboxG1" id="checkboxG1" class="css-checkbox" checked="checked">
-									<label for="checkboxG1" class="css-label">Short Term Dating</label>
-								</div>
-								<div class="form-line form-line-checkbox">
-									<input type="checkbox" name="checkboxG2" id="checkboxG2" class="css-checkbox" checked="checked">
-									<label for="checkboxG2" class="css-label">Friendship - Activity Partner</label>
-								</div>
-								<div class="form-line form-line-checkbox">
-									<input type="checkbox" name="checkboxG3" id="checkboxG3" class="css-checkbox" checked="checked">
-									<label for="checkboxG3" class="css-label">Long Term Relationship - Posibly Marridge</label>
-								</div>
-								<div class="form-line form-line-checkbox">
-									<input type="checkbox" name="checkboxG4" id="checkboxG4" class="css-checkbox" checked="checked">
-									<label for="checkboxG4" class="css-label">Mutually Beneficial Arangement</label>
-								</div>
-								<div class="form-line form-line-checkbox">
-									<input type="checkbox" name="checkboxG5" id="checkboxG5" class="css-checkbox" checked="checked">
-									<label for="checkboxG5" class="css-label">Discreet Affair</label>
-								</div>
-								<div class="form-line form-line-checkbox">
-									<input type="checkbox" name="checkboxG6" id="checkboxG6" class="css-checkbox" checked="checked">
-									<label for="checkboxG6" class="css-label">Casual Dating - No Strings Atached</label>
-								</div>
-							</section>
+								<section>
+									<h2 class="title">What Are You Loking For?</h2>
+									<div class="form-line form-line-checkbox">
+										<input type="checkbox" name="checkboxG1" id="checkboxG1" class="css-checkbox" checked="checked">
+										<label for="checkboxG1" class="css-label">Short Term Dating</label>
+									</div>
+									<div class="form-line form-line-checkbox">
+										<input type="checkbox" name="checkboxG2" id="checkboxG2" class="css-checkbox" checked="checked">
+										<label for="checkboxG2" class="css-label">Friendship - Activity Partner</label>
+									</div>
+									<div class="form-line form-line-checkbox">
+										<input type="checkbox" name="checkboxG3" id="checkboxG3" class="css-checkbox" checked="checked">
+										<label for="checkboxG3" class="css-label">Long Term Relationship - Posibly Marridge</label>
+									</div>
+									<div class="form-line form-line-checkbox">
+										<input type="checkbox" name="checkboxG4" id="checkboxG4" class="css-checkbox" checked="checked">
+										<label for="checkboxG4" class="css-label">Mutually Beneficial Arangement</label>
+									</div>
+									<div class="form-line form-line-checkbox">
+										<input type="checkbox" name="checkboxG5" id="checkboxG5" class="css-checkbox" checked="checked">
+										<label for="checkboxG5" class="css-label">Discreet Affair</label>
+									</div>
+									<div class="form-line form-line-checkbox">
+										<input type="checkbox" name="checkboxG6" id="checkboxG6" class="css-checkbox" checked="checked">
+										<label for="checkboxG6" class="css-label">Casual Dating - No Strings Atached</label>
+									</div>
+								</section>
 
-							<div class="form-submit">
-								<button class="button button-inline" type="submit" value="">Complete Profile</button>
+								<div class="form-submit">
+									<button class="button button-inline" type="submit" value="">Complete Profile</button>
+								</div>
 							</div>
 						</div>
-					</form>
+					</div>
 				</div>
 			</div>
-		</div>
-	</main>
-	<!-- /Container -->
+		</main>
+		<!-- /Container -->
 
 
-	<!-- Footer -->
-	<footer class="footer">
-		<div class="wrapper">
-			<ul class="links">
-				<li><a href="#">Privacy Policy</a></li>
-				<li><a href="#">Terms of Use</a></li>
-				<li><a href="#">Contact Us</a></li>
-			</ul>
-			<p class="copyright">&copy;2016 PricePointDating.com</p>
-		</div>
-	</footer>
-	<!-- /Footer -->
+		<!-- Footer -->
+		<footer class="footer">
+			<div class="wrapper">
+				<ul class="links">
+					<li><a href="#">Privacy Policy</a></li>
+					<li><a href="#">Terms of Use</a></li>
+					<li><a href="#">Contact Us</a></li>
+				</ul>
+				<p class="copyright">&copy;2016 PricePointDating.com</p>
+			</div>
+		</footer>
+		<!-- /Footer -->
 
 
-	<script src="js/vendor/jquery.min.js"></script>
-	<script src="js/plugins.js"></script>
-	<script src="js/main.js"></script>
+		<script src="js/vendor/jquery.min.js"></script>
+		<script src="js/plugins.js"></script>
+		<script src="js/main.js"></script>
+	</form>
 </body>
 </html>

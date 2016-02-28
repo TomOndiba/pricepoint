@@ -35,6 +35,7 @@
 	<meta name="theme-color" content="#ffffff">
 </head>
 <body class="conversation-page">
+	<form action="#" method="post" data-form="message" novalidate>
 
 	<!-- Header -->
 	<header class="header">
@@ -79,10 +80,10 @@
 	<div class="top">
 		<div class="wrapper">
 			<ul class="links-group">
-				<li><a href="#"><span class="icon icon-search"></span> Search</a></li>
-				<li><a href="#"><span class="icon icon-offers"></span> Offers <span class="mobile-hidden">-</span> <strong>37</strong></a></li>
+				<li><a href="search.html"><span class="icon icon-search"></span> Search</a></li>
+				<li><a href="offers.html"><span class="icon icon-offers"></span> Offers <span class="mobile-hidden">-</span> <strong>37</strong></a></li>
 				<li><a href="#"><span class="icon icon-date"></span> Dates <span class="mobile-hidden">-</span> <strong>91</strong></a></li>
-				<li><a href="#"><span class="icon icon-messages"></span> Messages <span class="mobile-hidden">-</span> <strong>59</strong></a></li>
+				<li><a class="active" href="messages.html"><span class="icon icon-messages"></span> Messages <span class="mobile-hidden">-</span> <strong>59</strong></a></li>
 			</ul>
 			<p class="buy"><a class="button" href="#">Buy Credits</a></p>
 		</div>
@@ -154,7 +155,7 @@
 			<!-- /Conversation -->
 
 			<!-- Form-message -->
-			<form class="form-message" action="#" method="post" novalidate>
+			<div class="form-message">
 
 				<figure class="photo">
 					<img src="img/catalog/1.jpg" width="160" height="160" alt="">
@@ -208,7 +209,7 @@
 						</div>
 					</div>
 				</div>
-			</form>
+			</div>
 			<!-- /Form-message -->
 
 		</div>
