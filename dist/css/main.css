@@ -1245,7 +1245,7 @@ body > form {
   margin: 0;
 }
 .index-page body > form,
-.conversation--page body > form {
+.conversation-page body > form {
   height: 100%;
 }
 .form {
@@ -4610,6 +4610,7 @@ body > form {
   height: 100%;
   padding: 44px 14px 14px;
   border: 1px solid #ddd;
+  overflow: hidden;
 }
 .communication .head {
   margin: 0;
