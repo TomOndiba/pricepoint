@@ -4971,6 +4971,21 @@ label.css-label {
   background: #ddd;
   position: relative;
 }
+.offers .panel .head:before {
+  display: block;
+  content: '\0020';
+  overflow: hidden;
+  width: 20px;
+  height: 20px;
+  margin: auto 0;
+  background: url("../img/sprite.png") no-repeat;
+  background-size: 250px auto;
+  background-position: -35px -95px;
+  position: absolute;
+  left: 16px;
+  top: 0;
+  bottom: 0;
+}
 .offers .panel .head:after {
   display: table;
   content: '\0020';
@@ -4990,6 +5005,25 @@ label.css-label {
   .offers .panel .head .time {
     right: 14px;
   }
+}
+.offers .panel.panel-wink .head:before {
+  background-position: -35px -95px;
+}
+.offers .panel.panel-rejected .head:before {
+  background-position: -110px -95px;
+}
+.offers .panel.panel-accepted .head {
+  color: #fff;
+  background: #004583;
+}
+.offers .panel.panel-accepted .head:before {
+  background-position: -110px -95px;
+}
+.offers .panel.panel-new .head:before {
+  background-position: -110px -95px;
+}
+.offers .panel.panel-pending .head:before {
+  background-position: -110px -95px;
 }
 .offers .panel .panel-space {
   padding: 5px;
@@ -5095,8 +5129,4 @@ label.css-label {
 .offers .panel .panel-space .buttons .text .h {
   display: block;
   color: #4c9eda;
-}
-.offers .panel.panel-accepted .head {
-  color: #fff;
-  background: #004583;
 }

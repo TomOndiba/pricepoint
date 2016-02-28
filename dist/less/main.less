@@ -4498,6 +4498,20 @@ label.css-label {
       background: @color-gray-new;
       position: relative;
 
+      &:before {
+        .before;
+        width: 20px;
+        height: 20px;
+        margin: auto 0;
+        background: url("@{images}/sprite.png") no-repeat;
+        background-size: 250px auto;
+        background-position: -35px -95px;
+        position: absolute;
+        left: 16px;
+        top: 0;
+        bottom: 0;
+      }
+
       &:after { .clearfix; }
 
       a { color: @color-blue; }
@@ -4513,6 +4527,39 @@ label.css-label {
       @media @md {
 
         .time { right: 14px; }
+      }
+    }
+
+    &.panel-wink {
+      .head {
+        &:before { background-position: -35px -95px; }
+      }
+    }
+
+    &.panel-rejected {
+      .head {
+        &:before { background-position: -110px -95px; }
+      }
+    }
+
+    &.panel-accepted {
+      .head {
+        color: @color-white;
+        background: @color-cerulean-dark;
+
+        &:before { background-position: -110px -95px; }
+      }
+    }
+
+    &.panel-new {
+      .head {
+        &:before { background-position: -110px -95px; }
+      }
+    }
+
+    &.panel-pending {
+      .head {
+        &:before { background-position: -110px -95px; }
       }
     }
 
@@ -4616,14 +4663,6 @@ label.css-label {
             color: @color-blue;
           }
         }
-      }
-    }
-
-    &.panel-accepted {
-
-      .head {
-        color: @color-white;
-        background: @color-cerulean-dark;
       }
     }
   }
