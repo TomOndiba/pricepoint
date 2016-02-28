@@ -1023,7 +1023,7 @@ input[type=checkbox].css-checkbox {
   border: 0;
 }
 input[type=checkbox].css-checkbox + label.css-label {
-  padding: 14px 0 14px 24px;
+  padding: 0 0 0 24px;
   display: block;
   font-size: 13px;
   line-height: 18px;
@@ -1662,6 +1662,16 @@ label.css-label {
   .form.form-upload .photos ul li .close:after {
     width: 18px;
     height: 4px;
+  }
+}
+.form.form-upload .photos ul li .form-line input[type=checkbox].css-checkbox + label.css-label {
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+@media (min-width: 750px) {
+  .form.form-upload .photos ul li .form-line input[type=checkbox].css-checkbox + label.css-label {
+    padding-top: 0;
+    padding-bottom: 0;
   }
 }
 /* ==========================================================================
@@ -4933,4 +4943,160 @@ label.css-label {
     right: 0;
     z-index: -1;
   }
+}
+/* ==========================================================================
+   _OFFERS
+   ========================================================================== */
+.offers:after {
+  display: table;
+  content: '\0020';
+  clear: both;
+}
+.offers .pure-g {
+  margin: 0 -5px;
+}
+.offers .pure-g [class*="pure-u"] {
+  padding: 0 5px;
+}
+.offers .panel {
+  margin-bottom: 10px;
+  background: #fff;
+  border: 1px solid #ddd;
+}
+.offers .panel .head {
+  margin: -1px -1px 0;
+  padding: 8px 70px 8px 40px;
+  font-size: 24px;
+  line-height: normal;
+  background: #ddd;
+  position: relative;
+}
+.offers .panel .head:after {
+  display: table;
+  content: '\0020';
+  clear: both;
+}
+.offers .panel .head a {
+  color: #4c9eda;
+}
+.offers .panel .head .date {
+  font-size: 14px;
+  letter-spacing: -0.06em;
+  position: absolute;
+  top: 14px;
+  right: 16px;
+}
+@media (min-width: 750px) {
+  .offers .panel .head .time {
+    right: 14px;
+  }
+}
+.offers .panel .panel-space {
+  padding: 5px;
+  position: relative;
+  z-index: 1;
+}
+.offers .panel .panel-space:after {
+  display: table;
+  content: '\0020';
+  clear: both;
+}
+.offers .panel .panel-space .info {
+  margin: -5px -6px 0;
+  padding: 2px 10px 2px 110px;
+  position: relative;
+}
+.offers .panel .panel-space .info:after {
+  display: table;
+  content: '\0020';
+  clear: both;
+}
+.offers .panel .panel-space .info .photo {
+  width: 100px;
+  height: 100px;
+  display: block;
+  text-decoration: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.offers .panel .panel-space .info .photo img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.offers .panel .panel-space .info .name {
+  margin: 0;
+  font-size: 24px;
+  line-height: normal;
+  color: #e74b90;
+}
+.offers .panel .panel-space .info .name .small {
+  font-size: 15px;
+}
+@media (min-width: 750px) {
+  .offers .panel .panel-space .info .name {
+    font-size: 24px;
+  }
+  .offers .panel .panel-space .info .name .small {
+    font-size: 15px;
+  }
+}
+.offers .panel .panel-space .info .location {
+  display: none;
+}
+@media (min-width: 750px) {
+  .offers .panel .panel-space .info .location {
+    margin: 0 0 6px;
+    display: block;
+    font-size: 13px;
+    line-height: 16px;
+    color: #ddd;
+  }
+}
+.offers .panel .panel-space .info .type {
+  min-width: 150px;
+  margin: 0;
+  padding: 4px;
+  display: inline-block;
+  cursor: default;
+  font-size: 30px;
+  line-height: 34px;
+  text-align: center;
+  color: #4c9eda;
+  font-weight: bold;
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 2px;
+}
+.offers .panel .panel-space .buttons {
+  width: 100%;
+  margin: 18px 0 14px;
+  display: table;
+  table-layout: fixed;
+}
+.offers .panel .panel-space .buttons .cell {
+  padding: 0 5px;
+  display: table-cell;
+  vertical-align: middle;
+}
+.offers .panel .panel-space .buttons .cell .button {
+  width: 100%;
+  max-width: 176px;
+  padding-left: 4px;
+  padding-right: 4px;
+  text-transform: uppercase;
+}
+.offers .panel .panel-space .buttons .text {
+  margin: 0;
+  font-size: 13px;
+  line-height: 16px;
+}
+.offers .panel .panel-space .buttons .text .h {
+  display: block;
+  color: #4c9eda;
+}
+.offers .panel.panel-accepted .head {
+  color: #fff;
+  background: #004583;
 }

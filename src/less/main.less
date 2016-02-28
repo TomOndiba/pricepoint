@@ -33,6 +33,7 @@
 @color-sky: #a5ceec;
 @color-blue: #4c9eda;
 @color-azure: #299efd;
+@color-cerulean-dark: #004583;
 @color-sea: #333a42;
 @color-gray-pastel: #ccc;
 @color-gray: #e9e9e9;
@@ -952,7 +953,7 @@ input[type=checkbox].css-checkbox {
   border: 0;
 
   + label.css-label {
-    padding: 14px 0 14px 24px;
+    padding: 0 0 0 24px;
     display: block;
     font-size: 13px;
     line-height: 18px;
@@ -1546,6 +1547,17 @@ label.css-label {
               &:before, &:after {
                 width: 18px;
                 height: 4px;
+              }
+            }
+          }
+
+          .form-line {
+            input[type=checkbox].css-checkbox {
+
+              + label.css-label { padding-top: 14px; padding-bottom: 14px; }
+
+              @media @md {
+                + label.css-label { padding-top: 0; padding-bottom: 0; }
               }
             }
           }
@@ -4350,7 +4362,7 @@ label.css-label {
    _RESENTS
    ========================================================================== */
 .resents {
-  
+
   .heading {
     margin: 0 0 14px;
     font-weight: normal;
@@ -4417,7 +4429,7 @@ label.css-label {
 
         img { width: 100%; height: 100%; display: block; }
       }
-      
+
       .button {
         min-width: 140px;
         padding-left: 4px;
@@ -4432,14 +4444,12 @@ label.css-label {
         padding: 22px 20px 22px 106px;
 
         .photo { width: 76px; height: 76px; }
-
         .name {
           margin: 0;
           display: inline-block;
 
           .small { display: block; font-size: 11px; }
         }
-
         .fn {
           margin: auto auto;
           display: block;
@@ -4457,6 +4467,163 @@ label.css-label {
           right: 0;
           z-index: -1;
         }
+      }
+    }
+  }
+}
+/* ==========================================================================
+   _OFFERS
+   ========================================================================== */
+.offers {
+  &:after { .clearfix; }
+
+  .pure-g {
+    margin: 0 -5px;
+
+    [class*="pure-u"] {
+      padding: 0 5px;
+    }
+  }
+
+  .panel {
+    margin-bottom: 10px;
+    background: @color-white;
+    border: 1px solid @color-gray-new;
+
+    .head {
+      margin: -1px -1px 0;
+      padding: 8px 70px 8px 40px;
+      font-size: 24px;
+      line-height: normal;
+      background: @color-gray-new;
+      position: relative;
+
+      &:after { .clearfix; }
+
+      a { color: @color-blue; }
+
+      .date {
+        font-size: 14px;
+        letter-spacing: -.06em;
+        position: absolute;
+        top: 14px;
+        right: 16px;
+      }
+
+      @media @md {
+
+        .time { right: 14px; }
+      }
+    }
+
+    .panel-space {
+      padding: 5px;
+      position: relative;
+      z-index: 1;
+
+      &:after { .clearfix; }
+
+      .info {
+        margin: -5px -6px 0;
+        padding: 2px 10px 2px 110px;
+        position: relative;
+
+        &:after { .clearfix; }
+
+        .photo {
+          width: 100px;
+          height: 100px;
+          display: block;
+          text-decoration: none;
+          position: absolute;
+          top: 0;
+          left: 0;
+
+          img { width: 100%; height: 100%; display: block; }
+        }
+
+        .name {
+          margin: 0;
+          font-size: 24px;
+          line-height: normal;
+          color: @color-rosy;
+
+          .small { font-size: 15px; }
+
+          @media @md {
+            font-size: 24px;
+
+            .small { font-size: 15px; }
+          }
+        }
+
+        .location {
+          display: none;
+
+          @media @md {
+            margin: 0 0 6px;
+            display: block;
+            font-size: 13px;
+            line-height: 16px;
+            color: @color-gray-new;
+          }
+        }
+
+        .type {
+          min-width: 150px;
+          margin: 0;
+          padding: 4px;
+          display: inline-block;
+          cursor: default;
+          font-size: 30px;
+          line-height: 34px;
+          text-align: center;
+          color: @color-blue;
+          font-weight: bold;
+          background: @color-white;
+          border: 1px solid @color-beige;
+          border-radius: 2px;
+        }
+      }
+
+      .buttons {
+        width: 100%;
+        margin: 18px 0 14px;
+        display: table;
+        table-layout: fixed;
+
+        .cell {
+          padding: 0 5px;
+          display: table-cell;
+          vertical-align: middle;
+
+          .button {
+            width: 100%;
+            max-width: 176px;
+            padding-left: 4px;
+            padding-right: 4px;
+            text-transform: uppercase;
+          }
+        }
+
+        .text {
+          margin: 0;
+          font-size: 13px;
+          line-height: 16px;
+
+          .h {
+            display: block;
+            color: @color-blue;
+          }
+        }
+      }
+    }
+
+    &.panel-accepted {
+
+      .head {
+        color: @color-white;
+        background: @color-cerulean-dark;
       }
     }
   }
