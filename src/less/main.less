@@ -682,6 +682,8 @@ textarea {
   &.checkbox-gift {
     padding: 4px;
     cursor: pointer;
+    position: relative;
+    z-index: 1;
 
     @media @md {
       width: 94px;
@@ -696,12 +698,24 @@ textarea {
       left: 0;
       bottom: 0;
       right: 0;
-      z-index: 1;
+      z-index: -2;
 
       &:before { display: none; }
     }
 
-    input[type="checkbox"]:checked + .square {
+    &:before {
+      display: block;
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;;
+      z-index: 5;
+    }
+
+    input[type="checkbox"]:checked + .square,
+    &.checked input[type="checkbox"] + .square {
       border: 1px solid @color-beige;
       background-color: @color-yellow-light;
       &:before { opacity: 0; }
@@ -713,7 +727,7 @@ textarea {
       margin: 0 auto;
       display: block;
       position: relative;
-      z-index: 2;
+      z-index: -1;
       cursor: pointer;
     }
   }
@@ -4342,7 +4356,6 @@ body {
       padding-left: 4px;
       padding-right: 4px;
       font-weight: 500;
-      line-height: normal;
       display: inline-block;
       vertical-align: middle;
       text-align: center;
@@ -4362,8 +4375,11 @@ body {
 
       .total {
         width: 70px;
+        padding-top: 3px;
+        padding-bottom: 3px;
         font-family: @font-roboto;
         font-size: 20px;
+        line-height: 20px;
         overflow: hidden;
       }
     }

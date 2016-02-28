@@ -766,6 +766,8 @@ input[type="submit"]:not(.pswp__button).button-icon:focus .icon:after {
 .checkbox.checkbox-gift {
   padding: 4px;
   cursor: pointer;
+  position: relative;
+  z-index: 1;
 }
 @media (min-width: 750px) {
   .checkbox.checkbox-gift {
@@ -781,16 +783,28 @@ input[type="submit"]:not(.pswp__button).button-icon:focus .icon:after {
   left: 0;
   bottom: 0;
   right: 0;
-  z-index: 1;
+  z-index: -2;
 }
 .checkbox.checkbox-gift .square:before {
   display: none;
 }
-.checkbox.checkbox-gift input[type="checkbox"]:checked + .square {
+.checkbox.checkbox-gift:before {
+  display: block;
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 5;
+}
+.checkbox.checkbox-gift input[type="checkbox"]:checked + .square,
+.checkbox.checkbox-gift.checked input[type="checkbox"] + .square {
   border: 1px solid #e5e5e5;
   background-color: #fffccd;
 }
-.checkbox.checkbox-gift input[type="checkbox"]:checked + .square:before {
+.checkbox.checkbox-gift input[type="checkbox"]:checked + .square:before,
+.checkbox.checkbox-gift.checked input[type="checkbox"] + .square:before {
   opacity: 0;
 }
 .checkbox.checkbox-gift img {
@@ -799,7 +813,7 @@ input[type="submit"]:not(.pswp__button).button-icon:focus .icon:after {
   margin: 0 auto;
   display: block;
   position: relative;
-  z-index: 2;
+  z-index: -1;
   cursor: pointer;
 }
 /* RADIOBOX */
@@ -4813,7 +4827,6 @@ body > form {
   padding-left: 4px;
   padding-right: 4px;
   font-weight: 500;
-  line-height: normal;
   display: inline-block;
   vertical-align: middle;
   text-align: center;
@@ -4833,8 +4846,11 @@ body > form {
   }
   .form-offer .total-area .total {
     width: 70px;
+    padding-top: 3px;
+    padding-bottom: 3px;
     font-family: 'Roboto', Arial, sans-serif;
     font-size: 20px;
+    line-height: 20px;
     overflow: hidden;
   }
 }
