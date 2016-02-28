@@ -1919,6 +1919,143 @@ body {
   }
 }
 /* ==========================================================================
+   _LINKS-GROUP
+   ========================================================================== */
+.links-group {
+  margin: 0 0 8px;
+  padding: 0;
+  list-style: none;
+  line-height: 21px;
+
+  &:after { .clearfix; }
+
+  li {
+    margin: 0 3px 0 0;
+    float: left;
+
+    &:last-of-type { margin-right: 0; }
+
+    @media @md {
+      margin: 0;
+      padding: 0 1px;
+      display: inline-block;
+      float: none;
+    }
+
+    a {
+      padding: 4px 6px;
+      display: block;
+      text-align: center;
+      color: @color-blue;
+      background: @color-white;
+      border: 1px solid @color-sky;
+      border-radius: 2px;
+      transition: background-color @duration, border-color @duration, color @duration;
+
+      &:hover, &:focus, &:active {
+        color: @color-white;
+        background-color: @color-blue;
+        border-color: @color-blue;
+        text-decoration: none;
+      }
+
+      @media @xxs {
+
+        .icon {
+          width: 20px;
+          height: 20px;
+          margin: 0 -1px 0 -2px;
+          display: inline-block;
+          vertical-align: middle;
+          position: relative;
+          top: -1px;
+          .scale(.7);
+
+          &:before, &:after {
+            .before;
+            clear: both;
+            width: 20px;
+            height: 20px;
+            background: url("@{images}/sprite.png") no-repeat;
+            background-size: 250px auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: opacity @duration;
+          }
+
+          &:before { background-position: 0 -65px; opacity: 1; }
+          &:after { background-position: 0 -40px; opacity: 0; }
+
+          &.icon-search {
+            &:before { background-position: 0 -65px; }
+            &:after { background-position: 0 -40px; }
+          }
+
+          &.icon-offers {
+            &:before { background-position: -25px -65px; }
+            &:after { background-position: -25px -40px; }
+          }
+
+          &.icon-messages {
+            &:before { background-position: -50px -65px; }
+            &:after { background-position: -50px -40px; }
+          }
+
+          &.icon-date {
+            &:before { background-position: -75px -65px; }
+            &:after { background-position: -75px -40px; }
+          }
+
+          &.icon-wink {
+            &:before { background-position: -85px -95px; }
+            &:after { background-position: -60px -95px; }
+          }
+
+          &.icon-new {
+            &:before { background-position: -160px -130px; }
+            &:after { background-position: -135px -130px; }
+          }
+
+          &.icon-tick {
+            &:before { background-position: -185px -130px; }
+            &:after { background-position: -210px -95px; }
+          }
+
+          &.icon-sandglass {
+            &:before { background-position: -85px -130px; }
+            &:after { background-position: -60px -130px; }
+          }
+        }
+        &:hover, &:focus, &:active {
+
+          .icon {
+            &:before { opacity: 0; }
+            &:after { opacity: 1; }
+          }
+        }
+      }
+
+      @media @sm {
+        padding-left: 12px;
+        padding-right: 12px;
+
+        .icon {
+          margin: 0 3px;
+        }
+      }
+
+      @media @md {
+        .mobile-hidden { display: inline; }
+        .icon {
+          top: auto;
+          .scale(1);
+        }
+      }
+    }
+  }
+}
+/* ==========================================================================
    _TOP
    ========================================================================== */
 .top {
@@ -1944,120 +2081,10 @@ body {
 
   .links-group {
     margin: 0;
-    padding: 0;
-    list-style: none;
-    line-height: 21px;
-
-    &:after { .clearfix; }
 
     @media @md {
-      max-width: none;
       margin: 0 -1px;
       float: left;
-    }
-
-    li {
-      margin: 0 3px 0 0;
-      float: left;
-
-      &:last-of-type { margin-right: 0; }
-
-      @media @md {
-        margin: 0;
-        padding: 0 1px;
-        display: inline-block;
-        float: none;
-      }
-
-      a {
-        padding: 4px 6px;
-        display: block;
-        text-align: center;
-        color: @color-blue;
-        border: 1px solid @color-sky;
-        border-radius: 2px;
-        transition: background-color @duration, border-color @duration, color @duration;
-
-        &:hover, &:focus, &:active, &.active {
-          color: @color-white;
-          background-color: @color-blue;
-          border-color: @color-blue;
-          text-decoration: none;
-        }
-
-        @media @xxs {
-
-          .icon {
-            width: 20px;
-            height: 20px;
-            margin: 0 -1px 0 -2px;
-            display: inline-block;
-            vertical-align: middle;
-            position: relative;
-            top: -1px;
-            .scale(.7);
-
-            &:before, &:after {
-              .before;
-              clear: both;
-              width: 20px;
-              height: 20px;
-              background: url("@{images}/sprite.png") no-repeat;
-              background-size: 250px auto;
-              position: absolute;
-              top: 0;
-              left: 0;
-              transition: opacity @duration;
-            }
-
-            &:before { background-position: 0 -65px; opacity: 1; }
-            &:after { background-position: 0 -40px; opacity: 0; }
-
-            &.icon-search {
-              &:before { background-position: 0 -65px; }
-              &:after { background-position: 0 -40px; }
-            }
-
-            &.icon-offers {
-              &:before { background-position: -25px -65px; }
-              &:after { background-position: -25px -40px; }
-            }
-
-            &.icon-messages {
-              &:before { background-position: -50px -65px; }
-              &:after { background-position: -50px -40px; }
-            }
-
-            &.icon-date {
-              &:before { background-position: -75px -65px; }
-              &:after { background-position: -75px -40px; }
-            }
-          }
-          &:hover, &:focus, &:active, &.active {
-
-            .icon {
-              &:before { opacity: 0; }
-              &:after { opacity: 1; }
-            }
-          }
-        }
-
-        @media @sm {
-          padding-left: 12px;
-          padding-right: 12px;
-
-          .icon {
-            margin: 0 3px;
-          }
-        }
-
-        @media @md {
-          .mobile-hidden { display: inline; }
-          .icon {
-            .scale(1);
-          }
-        }
-      }
     }
   }
 
@@ -4495,7 +4522,7 @@ body {
   }
 
   .panel {
-    margin-bottom: 10px;
+    margin-bottom: 30px;
     background: @color-white;
     border: 1px solid @color-gray-new;
 
@@ -4504,6 +4531,7 @@ body {
       padding: 8px 70px 8px 40px;
       font-size: 24px;
       line-height: normal;
+      cursor: default;
       background: @color-gray-new;
       position: relative;
 
@@ -4556,19 +4584,19 @@ body {
         color: @color-white;
         background: @color-cerulean-dark;
 
-        &:before { background-position: -110px -95px; }
+        &:before { background-position: -210px -95px; }
       }
     }
 
     &.panel-new {
       .head {
-        &:before { background-position: -110px -95px; }
+        &:before { background-position: -110px -130px; }
       }
     }
 
     &.panel-pending {
       .head {
-        &:before { background-position: -110px -95px; }
+        &:before { background-position: -35px -130px; }
       }
     }
 
@@ -4580,6 +4608,7 @@ body {
       &:after { .clearfix; }
 
       .info {
+        min-height: 100px;
         margin: -5px -6px 0;
         padding: 2px 10px 2px 110px;
         position: relative;
@@ -4604,25 +4633,21 @@ body {
           line-height: normal;
           color: @color-rosy;
 
-          .small { font-size: 15px; }
+          .small { display: none; }
 
           @media @md {
             font-size: 24px;
 
-            .small { font-size: 15px; }
+            .small { display: inline; font-size: 15px; }
           }
         }
 
         .location {
-          display: none;
-
-          @media @md {
-            margin: 0 0 6px;
-            display: block;
-            font-size: 13px;
-            line-height: 16px;
-            color: @color-gray-new;
-          }
+          margin: 0 0 6px;
+          display: block;
+          font-size: 13px;
+          line-height: 16px;
+          color: @color-gray-new;
         }
 
         .type {
@@ -4655,10 +4680,18 @@ body {
 
           .button {
             width: 100%;
-            max-width: 176px;
+            margin: 0;
             padding-left: 4px;
             padding-right: 4px;
             text-transform: uppercase;
+
+            @media @md {
+              max-width: 226px;
+            }
+
+            @media @xl {
+              max-width: 176px;
+            }
           }
         }
 
