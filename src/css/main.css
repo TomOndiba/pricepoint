@@ -390,6 +390,10 @@ input:focus {
 .form-line input {
   width: 100%;
 }
+input.form-beige {
+  background: #f9f9f9;
+  border-color: #ddd;
+}
 textarea {
   height: 104px;
   display: block;
@@ -688,6 +692,46 @@ input[type="submit"]:not(.pswp__button).button-icon:hover .icon:after,
 button:not(.pswp__button).button-icon:focus .icon:after,
 input[type="submit"]:not(.pswp__button).button-icon:focus .icon:after {
   opacity: 1;
+}
+.button:not(.pswp__button).button-paypal,
+button:not(.pswp__button).button-paypal,
+input[type="submit"]:not(.pswp__button).button-paypal {
+  padding-top: 9px;
+  padding-bottom: 9px;
+  color: #000;
+  letter-spacing: .04em;
+  background: -webkit-linear-gradient(top, #ffaf03, #dc911d);
+  background: -moz-linear-gradient(top, #ffaf03, #dc911d);
+  background: -ms-linear-gradient(top, #ffaf03, #dc911d);
+  background: -o-linear-gradient(top, #ffaf03, #dc911d);
+  background: linear-gradient(to bottom, #ffaf03, #dc911d);
+  border: none;
+  position: relative;
+  z-index: 1;
+}
+.button:not(.pswp__button).button-paypal:before,
+button:not(.pswp__button).button-paypal:before,
+input[type="submit"]:not(.pswp__button).button-paypal:before {
+  display: block;
+  content: '\0020';
+  overflow: hidden;
+  background: #ffc439;
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.75);
+  border-radius: 2px;
+  position: absolute;
+  left: 1px;
+  right: 1px;
+  bottom: 1px;
+  top: 1px;
+  z-index: -1;
+}
+.button:not(.pswp__button).button-paypal img,
+button:not(.pswp__button).button-paypal img,
+input[type="submit"]:not(.pswp__button).button-paypal img {
+  width: 90px;
+  margin: 0 0 0 2px;
+  display: inline-block;
+  vertical-align: middle;
 }
 .buttons-group {
   margin: 16px -2px;
@@ -1022,6 +1066,22 @@ input[type="submit"]:not(.pswp__button).button-icon:focus .icon:after {
     padding: 10px;
     font-size: 16px;
   }
+}
+.select-beige .selectric {
+  border-color: #ddd;
+  background: #f9f9f9;
+}
+.select-beige .selectric .button {
+  width: 23px;
+  background: #ddd;
+  border-radius: 0;
+}
+.select-beige .selectric .button:after {
+  border-top-color: #f9f9f9;
+}
+.select-beige .selectric-items {
+  border-color: #ddd;
+  background: #f9f9f9;
 }
 /* CSS-Checkbox */
 input[type=checkbox].css-checkbox {
@@ -5194,4 +5254,253 @@ form.inited .form-filter {
 .offers .panel .panel-space .buttons .text .h {
   display: block;
   color: #4c9eda;
+}
+/* ==========================================================================
+   _PACKAGES
+   ========================================================================== */
+.packages .pure-g {
+  margin: 0 -5px;
+}
+.packages .pure-g [class*="pure-u"] {
+  padding: 0 5px;
+}
+.packages .panel {
+  margin-bottom: 30px;
+  text-align: center;
+  position: relative;
+  background: url("../img/bg.jpg") 0 0 repeat;
+  border: 1px solid #ddd;
+}
+.packages .panel .head {
+  margin: -1px -1px 0;
+  font-size: 48px;
+  line-height: 78px;
+  color: #fff;
+  font-weight: bold;
+  background: #333a42;
+  border-bottom: 10px solid #4c9eda;
+}
+.packages .panel .panel-space {
+  padding: 44px 20px 90px;
+  position: relative;
+}
+.packages .panel .small {
+  margin: 0;
+  color: #b2b2b2;
+  font-size: 13px;
+  position: absolute;
+  top: 7px;
+  left: 0;
+  right: 0;
+}
+.packages .panel .credits {
+  margin-bottom: 6px;
+  font-size: 40px;
+  line-height: normal;
+  font-weight: bold;
+  color: #4c9eda;
+}
+.packages .panel .name {
+  margin: 0;
+  font-size: 24px;
+  line-height: 42px;
+  color: #fff;
+  background: #333a42;
+  position: absolute;
+  bottom: -1px;
+  left: -1px;
+  right: -1px;
+}
+.packages .panel.active {
+  background: #fff;
+}
+.packages .panel.active .price {
+  border-bottom-color: #e74b90;
+}
+.packages .panel.active .credits {
+  color: #e74b90;
+}
+@media (min-width: 750px) {
+  .packages .panel.active .panel-space {
+    padding-top: 78px;
+    padding-bottom: 95px;
+  }
+}
+/* ==========================================================================
+   _BENEFITS
+   ========================================================================== */
+.benefits {
+  margin-bottom: 5px;
+  background: #fff;
+  border: 1px solid #ddd;
+}
+.benefits .heading {
+  margin: 0;
+  padding: 12px;
+  color: #fff;
+  text-align: center;
+  font-size: 24px;
+  line-height: normal;
+  background: #4c9eda;
+}
+.benefits ul {
+  margin: 0;
+  padding: 10px 0;
+  list-style: none;
+  font-size: 15px;
+  font-weight: bold;
+}
+.benefits ul li {
+  min-height: 36px;
+  margin-bottom: 10px;
+  padding: 10px 10px 10px 56px;
+  position: relative;
+}
+.benefits ul li:last-of-type {
+  margin-bottom: 0;
+}
+.benefits ul li .icon {
+  width: 36px;
+  height: 36px;
+  display: block;
+  vertical-align: middle;
+  background: #707a85;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 10px;
+}
+.benefits ul li .icon img {
+  width: 20px;
+  height: 20px;
+  margin: auto auto;
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+@media (min-width: 750px) {
+  .benefits ul li {
+    display: inline-block;
+  }
+}
+/* ==========================================================================
+   _FORM-ORDER
+   ========================================================================== */
+.form-order .head:after {
+  display: table;
+  content: '\0020';
+  clear: both;
+}
+.form-order .head .h {
+  margin: 0 0 -20px 0;
+  padding: 15px 15px 15px 45px;
+  color: #e74b90;
+  font-weight: 500;
+  font-size: 15px;
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-bottom-color: #fff;
+  position: relative;
+}
+.form-order .head .h:before {
+  display: block;
+  content: '\0020';
+  overflow: hidden;
+  width: 20px;
+  height: 13px;
+  background: url("../img/icons/card.png") 0 0 no-repeat;
+  background-size: cover;
+  position: absolute;
+  left: 20px;
+  top: 17px;
+}
+.form-order .head .button-paypal {
+  margin-bottom: 5px;
+}
+@media (min-width: 750px) {
+  .form-order .head .h {
+    margin-bottom: -1px;
+    float: left;
+    font-size: 14px;
+  }
+  .form-order .head .button-paypal {
+    margin: 0;
+    float: right;
+  }
+}
+.form-order .space {
+  padding: 20px;
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 0;
+}
+.form-order .pure-g {
+  margin: 0 -5px;
+}
+.form-order .pure-g [class*="pure-u"] {
+  padding: 0 5px;
+}
+.form-order .form-line {
+  margin-bottom: 8px;
+}
+.form-order .form-line label {
+  margin-bottom: 2px;
+  display: block;
+  font-weight: 500;
+}
+@media (min-width: 750px) {
+  .form-order .form-line label {
+    font-size: 12px;
+  }
+}
+.form-order .form-line input {
+  font-size: 12px;
+}
+.form-order .total {
+  margin: 30px 0 8px;
+  font-size: 15px;
+  font-weight: bold;
+  color: #333a42;
+}
+.form-order .fn {
+  margin-left: 6px;
+}
+.form-order .fn span {
+  padding: 2px 6px 2px 0;
+  display: inline;
+  color: #4c9eda;
+  font-size: 13px;
+  line-height: 26px;
+  text-transform: uppercase;
+  white-space: pre-wrap;
+  background: #e5f0f8;
+  box-shadow: -6px 0 0 #e5f0f8;
+}
+.form-order .info {
+  margin-bottom: 14px;
+}
+.form-order .info .fn {
+  margin-bottom: 14px;
+  text-transform: none;
+}
+.form-order .info img {
+  margin: 0 6px 0 0;
+  display: inline-block;
+  vertical-align: middle;
+}
+@media (min-width: 750px) {
+  .form-order .info .fn {
+    margin: 0 10px 0 0;
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+.form-order .form-submit {
+  margin-bottom: 12px;
+}
+.form-order .form-submit .button {
+  margin: 0;
 }

@@ -83,6 +83,21 @@ function initUI() {
 		event.preventDefault();
 	});
 
+	$('.packages').each(function(){
+		var _self = $(this), _package = $('.panel', this), _active = $('.panel.active', this);
+
+		$('.button', _package).on('click', function(){
+			$(this).closest(_package).addClass('active').parent().siblings().find('.active').removeClass('active');
+			if(_package.hasClass('active')){
+				$('.button', this).text('Package Selected').removeClass('.button-blue');
+			} else {
+				alert('no');
+				$('.button', this).text('Select Package').addClass('.button-blue');
+			}
+			return false;
+		});
+	});
+
 	initPhotoSwipe('.my-gallery');
 }
 
