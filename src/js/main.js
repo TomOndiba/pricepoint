@@ -83,15 +83,38 @@ function initUI() {
 		event.preventDefault();
 	});
 
-	$('.packages').each(function(){
+	/** Init accept offer */
+	$('.js-accept-offer').on('click', function (event) {
+		$(this).blur().closest('[data-id_offer]').each(function () {
+			AcceptOffer($(this).data('id_offer'), $(this));
+		});
+		event.preventDefault();
+	});
+
+	/** Init reject offer */
+	$('.js-reject-offer').on('click', function (event) {
+		$(this).blur().closest('[data-id_offer]').each(function () {
+			RejectOffer($(this).data('id_offer'), $(this));
+		});
+		event.preventDefault();
+	});
+
+	/** Init withdraw offer */
+	$('.js-withdraw-offer').on('click', function (event) {
+		$(this).blur().closest('[data-id_offer]').each(function () {
+			WithdrawOffer($(this).data('id_offer'), $(this));
+		});
+		event.preventDefault();
+	});
+
+	$('.packages').each(function () {
 		var _self = $(this), _package = $('.panel', this), _active = $('.panel.active', this);
 
-		$('.button', _package).on('click', function(){
+		$('.button', _package).on('click', function () {
 			$(this).closest(_package).addClass('active').parent().siblings().find('.active').removeClass('active');
-			if(_package.hasClass('active')){
+			if (_package.hasClass('active')) {
 				$('.button', this).text('Package Selected').removeClass('.button-blue');
 			} else {
-				alert('no');
 				$('.button', this).text('Select Package').addClass('.button-blue');
 			}
 			return false;
@@ -197,43 +220,81 @@ function initForms(scope, data) {
 
 	/** Login form */
 	$('[data-form="login"]:not(.inited)', scope).each(function () {
-		$(this).on('submit', function () {
-			alert('Login form submitted!');
-		});
+		initLoginForm.call(this);
 	});
 
-	/** Sign Up form */
 	$('[data-form="sign-up"]:not(.inited)', scope).each(function () {
-		$(this).on('submit', function () {
-			alert('Sign Up form submitted!');
-		});
+		initSignUpForm.call(this);
 	});
 
-	/** Registration form */
 	$('[data-form="registration"]:not(.inited)', scope).each(function () {
-		$(this).on('submit', function () {
-			alert('Registration form submitted!');
-		});
+		initRegistrationForm.call(this);
 	});
 
-	/** Filter form */
 	$('[data-form="filter"]:not(.inited)', scope).each(function () {
-		var result = {};
-		$(this).on('submit', function () {
-			$('[required]', this).each(function () {
-				if ($(this).is('[multiple]') && $(this).val() === null) {
-					result[$(this).attr('name')] = [];
-				} else {
-					result[$(this).attr('name')] = $(this).val();
-				}
-			});
-			alert(JSON.stringify(result, null, 4));
-			return false;
-		}).addClass('inited');
+		initFilterForm.call(this);
 	});
 
-	/** Send message form */
 	$('[data-form="message"]:not(.inited)', scope).each(function () {
+		initMessageForm.call(this);
+	});
+
+	$('[data-form="offer"]:not(.inited)', scope).each(function () {
+		initOfferForm.call(this, data);
+	});
+}
+
+
+/**
+ * Initialize sign up form
+ **/
+function initLoginForm() {
+	$(this).on('submit', function () {
+		alert('Login form submitted!');
+	}).addClass('inited');
+}
+
+/**
+ * Initialize sign up form
+ **/
+function initSignUpForm() {
+	$(this).on('submit', function () {
+		alert('Sign Up form submitted!');
+	}).addClass('inited');
+}
+
+/**
+ * Initialize registration form
+ **/
+function initRegistrationForm() {
+	$(this).on('submit', function () {
+		alert('Registration form submitted!');
+	}).addClass('inited');
+}
+
+/**
+ * Initialize filter form
+ **/
+function initFilterForm() {
+	var result = {};
+	$(this).on('submit', function () {
+		$('[required]', this).each(function () {
+			if ($(this).is('[multiple]') && $(this).val() === null) {
+				result[$(this).attr('name')] = [];
+			} else {
+				result[$(this).attr('name')] = $(this).val();
+			}
+		});
+		alert(JSON.stringify(result, null, 4));
+		return false;
+	}).addClass('inited');
+}
+
+/**
+ * Initialize send message form
+ **/
+function initMessageForm() {
+	$(this).on('submit', function () {
 		function Submit() {
 			$('[required]', this).each(function () {
 				result[$(this).attr('name')] = $(this).val()
@@ -245,95 +306,116 @@ function initForms(scope, data) {
 			alert('Send message form submit!\n' + JSON.stringify(result, null, 4));
 		}
 
-		var result = {};
-		$(this).on('submit', function () {
-			var gifts = +$('.checkbox-gift :checkbox', this).filter(':checked').length;
-			if (gifts > 0) {
-				var r = confirm("A total of " + gifts * 5 + " credits will be deducted for the gifts.\nWould you like to send the message?");
-				if (r === true) {
-					Submit.call(this);
-				}
-			} else {
+		var result = {}, gifts = +$('.checkbox-gift :checkbox', this).filter(':checked').length;
+		if (gifts > 0) {
+			var r = confirm("A total of " + gifts * 5 + " credits will be deducted for the gifts.\nWould you like to send the message?");
+			if (r === true) {
 				Submit.call(this);
 			}
-			return false;
-		}).addClass('inited');
-	});
-
-
-	/** Offer form */
-	$('[data-form="offer"]:not(.inited)', scope).each(function () {
-		/** Clear form*/
-		function Clear() {
-			total.val('');
-			gifts.removeAttr('checked').closest('label').removeClass('checked');
-			offers.removeAttr('checked').closest('label').removeClass('checked');
+		} else {
+			Submit.call(this);
 		}
+		return false;
+	}).addClass('inited');
+}
 
-		var form = $(this),
-			total = $('.total', form), username = $('.username', form),
-			gifts = $('.checkbox-gift :checkbox', form), offers = $('.radio-offer :radio', form),
-			el = $(data.items[data.index].el), item = el.closest('[data-id]');
+/**
+ * Initialize offer form
+ **/
+function initOfferForm(data) {
+	/** Clear form*/
+	function Clear() {
+		total.val('');
+		gifts.removeAttr('checked').closest('label').removeClass('checked');
+		offers.removeAttr('checked').closest('label').removeClass('checked');
+	}
 
-		username.text(item.data('user'));
+	var form = $(this),
+		total = $('.total', form), username = $('.username', form),
+		gifts = $('.checkbox-gift :checkbox', form), offers = $('.radio-offer :radio', form),
+		el = $(data.items[data.index].el), item = el.closest('[data-id]');
 
-		offers.each(function () {
-			var radio = $(this);
-			radio.on('change', function () {
-				if (radio.is(':checked')) {
-					total.val('$' + radio.val());
-				}
-			});
-		});
+	username.text(item.data('user'));
 
-		total.on('keypress', function (event) {
-			return event.charCode >= 48 && event.charCode <= 57;
-		}).on('change', function () {
-			if (total.val().indexOf('$') < 0) {
-				total.val('$' + total.val());
+	offers.each(function () {
+		var radio = $(this);
+		radio.on('change', function () {
+			if (radio.is(':checked')) {
+				total.val('$' + radio.val());
 			}
 		});
-
-		form.on('submit', function () {
-			var i = item.data('id'),
-				t = +total.val().replace('$', ''),
-				g = [], gs = '';
-			gifts.filter(':checked').each(function () {
-				g.push(+$(this).val());
-			});
-			if ((t > 500)) {
-				$('button', form).blur();
-				alert('Your offer must be $500 or less');
-			} else {
-				var request = sendRequest({'MakeOffer': {'id_user': i, 'amount': t, 'gifts': g}});
-				request.done(function (data) {
-					alert(data);
-				});
-				var h = el.addClass('hidden').siblings('.sent').removeClass('hidden');
-				if (t > 0) {
-					h.text('$' + t + ' Offer Sent');
-				} else {
-					h.text('Offer Sent');
-				}
-				$.magnificPopup.close();
-			}
-			return false;
-		}).addClass('inited');
-
-		Clear();
 	});
+
+	total.on('keypress', function (event) {
+		return event.charCode >= 48 && event.charCode <= 57;
+	}).on('change', function () {
+		if (total.val().indexOf('$') < 0) {
+			total.val('$' + total.val());
+		}
+	});
+
+	form.on('submit', function () {
+		var i = item.data('id'),
+			t = +total.val().replace('$', ''),
+			g = [], gs = '';
+		gifts.filter(':checked').each(function () {
+			g.push(+$(this).val());
+		});
+		if ((t > 500)) {
+			$('button', form).blur();
+			alert('Your offer must be $500 or less');
+		} else {
+			MakeOffer({'id_user': i, 'amount': t, 'gifts': g});
+		}
+		return false;
+	}).addClass('inited');
+
+	Clear();
+}
+
+/** Offer should contain id_offer=20001, panel is the div element */
+function MakeOffer(offer, panel) {
+	console.log(offer);
+	alert('Make_Offer: ' + offer.toSource());
+	var h = el.addClass('hidden').siblings('.sent').removeClass('hidden');
+	if (t > 0) {
+		h.text('$' + t + ' Offer Sent');
+	} else {
+		h.text('Offer Sent');
+	}
+	$.magnificPopup.close();
+}
+
+
+function AcceptOffer(id_offer) {
+	sendRequest('AcceptOffer', {'AcceptOffer': {'id_offer': id_offer}});
+}
+
+function RejectOffer(id_offer) {
+	sendRequest('RejectOffer', {'AcceptOffer': {'id_offer': id_offer}});
+}
+
+function WithdrawOffer(id_offer) {
+	sendRequest('WithdrawOffer', {'AcceptOffer': {'id_offer': id_offer}});
 }
 
 
 /**
  * Sends AJAX request to server-side widget
  **/
-function sendRequest(data) {
-	return request = $.ajax({
-		url: 'webservice.php',
-		method: 'POST',
-		data: data,
-		context: document.body
+function sendRequest(method, data) {
+	console.log(method);
+	console.log(data);
+
+	$.ajax({
+		type: "POST",
+		url: 'http://pricepointdate.com/webService.asmx/' + method,
+		data: {id_offer: '20001'}, // here we are specifing the data as a JSON object, not a string in JSON format
+		contentType: "application/json; charset=utf-8", // we are sending in JSON format so we need to specify this
+		dataType: "json", // the data type we want back.  The data will come back in JSON format
+		success: function (data) {
+			console.log(data);
+		}
 	});
 }
 
