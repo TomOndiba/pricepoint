@@ -388,15 +388,15 @@ function MakeOffer(offer, panel) {
 
 
 function AcceptOffer(id_offer) {
-	sendRequest('AcceptOffer', {'AcceptOffer': {'id_offer': id_offer}});
+	sendRequest('AcceptOffer', {'id_offer': id_offer});
 }
 
 function RejectOffer(id_offer) {
-	sendRequest('RejectOffer', {'AcceptOffer': {'id_offer': id_offer}});
+	sendRequest('RejectOffer', {'id_offer': id_offer});
 }
 
 function WithdrawOffer(id_offer) {
-	sendRequest('WithdrawOffer', {'AcceptOffer': {'id_offer': id_offer}});
+	sendRequest('WithdrawOffer', {'id_offer': id_offer});
 }
 
 
@@ -404,15 +404,14 @@ function WithdrawOffer(id_offer) {
  * Sends AJAX request to server-side widget
  **/
 function sendRequest(method, data) {
-	console.log(method);
 	console.log(data);
 
 	$.ajax({
 		type: "POST",
 		url: 'http://pricepointdate.com/webService.asmx/' + method,
-		data: {id_offer: '20001'}, // here we are specifing the data as a JSON object, not a string in JSON format
-		contentType: "application/json; charset=utf-8", // we are sending in JSON format so we need to specify this
-		dataType: "json", // the data type we want back.  The data will come back in JSON format
+		data: data,
+		contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+		dataType: "text",
 		success: function (data) {
 			console.log(data);
 		}
