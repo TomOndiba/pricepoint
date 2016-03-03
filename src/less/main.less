@@ -4961,10 +4961,10 @@ body {
       }
     }
 
-    .button-paypal { margin-bottom: 5px;}
+    .button-paypal { margin-bottom: 5px; }
 
     @media @md {
-      .h { margin-bottom: -1px;float: left;font-size: 14px;}
+      .h { margin-bottom: -1px; float: left; font-size: 14px; }
       .button-paypal { margin: 0; float: right; }
     }
   }
@@ -5051,5 +5051,74 @@ body {
     margin-bottom: 12px;
 
     .button { margin: 0; }
+  }
+}
+/* ==========================================================================
+   _RECENTS
+   ========================================================================== */
+.recents {
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 11px;
+    line-height: 12px;
+    font-weight: bold;
+
+    li {
+      min-height: 56px;
+      margin-bottom: 14px;
+      padding-left: 62px;
+      padding-top: 2px;
+      position: relative;
+
+      p {
+        margin-bottom: 6px;
+      }
+
+      .photo {
+        width: 56px;
+        height: 56px;
+        margin: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        a, img {
+          width: 100%;
+          height: 100%;
+          display: block;
+        }
+      }
+
+      .name {
+        margin: 0;
+        font-size: 13px;
+        line-height: 18px;
+        color: @color-blue;
+        a {color: @color-blue;}
+      }
+
+      .time {
+        margin: 0;
+        font-style: italic;
+      }
+      
+      .link {
+        display: inline-block;
+        padding: 2px 6px;
+        font-size: 8px;
+        line-height: 8px;
+        font-weight: 500;
+        background: @color-white;
+        border: 1px solid @color-beige;
+        border-radius: 2px;
+        text-transform: uppercase;
+        color: @color-rosy;
+
+        &:hover, &:focus, &:active { text-decoration: none; }
+      }
+    }
   }
 }
