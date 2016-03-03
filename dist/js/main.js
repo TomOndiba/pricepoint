@@ -121,6 +121,16 @@ function initUI() {
 		});
 	});
 
+	/** Hide attention block **/
+	$('.attention').each(function(){
+		var _self = $(this);
+
+		$('.button-hide', _self).on('click', function(){
+			_self.fadeOut(200);
+			return false;
+		})
+	});
+
 	initPhotoSwipe('.my-gallery');
 }
 
