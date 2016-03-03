@@ -4851,20 +4851,62 @@ body > form {
   }
 }
 .popup .heading {
-  margin: -24px 0 14px;
-  padding-right: 44px;
+  padding: 2px 44px 2px 0;
+  margin: -24px 0 7px;
   font-weight: 500;
   font-size: 18px;
-  line-height: normal;
+  line-height: 20px;
 }
 @media (min-width: 750px) {
   .popup .heading {
+    padding-top: 7px;
+    padding-bottom: 7px;
     margin-top: -44px;
     font-size: 24px;
   }
 }
 .popup .username {
   color: #e74b90;
+}
+.popup.popup-message {
+  max-width: 400px;
+}
+.popup.popup-message .heading {
+  color: #a5ceec;
+}
+.popup.popup-message .message-text {
+  width: 100%;
+  min-height: 50px;
+  max-height: 200px;
+  padding: 0 5px;
+  font-size: 12px;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+.popup.popup-message .button-close {
+  width: 100px;
+  margin: 10px auto 0;
+  display: block;
+}
+.popup.popup-error {
+  max-width: 500px;
+}
+.popup.popup-error .heading {
+  color: #e71818;
+}
+.popup.popup-error .error-text {
+  width: 100%;
+  min-height: 50px;
+  max-height: 200px;
+  padding: 10px 5px;
+  font-size: 12px;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+.popup.popup-error .button-close {
+  width: 100px;
+  margin: 10px auto 0;
+  display: block;
 }
 .form-offer {
   -webkit-user-select: none;
@@ -5144,8 +5186,14 @@ form.inited .form-filter {
 .offers .panel.panel-accepted .head:before {
   background-position: -210px -95px;
 }
+.offers .panel.panel-accepted .show-new {
+  display: none !important;
+}
 .offers .panel.panel-new .head:before {
   background-position: -110px -130px;
+}
+.offers .panel.panel-new .show-accepted {
+  display: none !important;
 }
 .offers .panel.panel-pending .head:before {
   background-position: -35px -130px;

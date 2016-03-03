@@ -12,6 +12,19 @@ $(document).ready(function () {
 
 
 /**
+ * Magnific Popup settings
+ **/
+$.extend(true, $.magnificPopup.defaults, {
+	closeMarkup: '<span title="%title%" class="mfp-close"><span class="mfp-in"></span></span>',
+	mainClass: 'mfp-zoom-in',
+	midClick: true,
+	removalDelay: 300,
+	settings: {cache: false},
+	autoFocusLast: false
+});
+
+
+/**
  * Init UI
  **/
 function initUI() {
@@ -59,12 +72,6 @@ function initUI() {
 	/** Init popups */
 	$('.js-popup').magnificPopup({
 		type: 'ajax',
-		closeMarkup: '<span title="%title%" class="mfp-close"><span class="mfp-in"></span></span>',
-		settings: {cache: false},
-		mainClass: 'mfp-zoom-in',
-		midClick: true,
-		removalDelay: 300,
-		autoFocusLast: false,
 		callbacks: {
 			ajaxContentAdded: function () {
 				initForms(this.content, this);
@@ -386,27 +393,87 @@ function initOfferForm(data) {
 /** Offer should contain id_offer=20001, panel is the div element */
 function MakeOffer(offer, panel) {
 	console.log(offer);
-	alert('Make_Offer: ' + offer.toSource());
-	var h = el.addClass('hidden').siblings('.sent').removeClass('hidden');
-	if (t > 0) {
-		h.text('$' + t + ' Offer Sent');
-	} else {
-		h.text('Offer Sent');
+	/*
+	 alert('Make_Offer: ' + offer.toSource());
+	 var h = el.addClass('hidden').siblings('.sent').removeClass('hidden');
+	 if (t > 0) {
+	 h.text('$' + t + ' Offer Sent');
+	 } else {
+	 h.text('Offer Sent');
+	 }
+	 $.magnificPopup.close();
+	 */
+
+	function onOK(data, textStatus, jqXHR) {
+		showAlert('Succesful', data.d);
+		$(panel).removeClass('panel-new').addClass('panel-accepted').find('.head-new');
 	}
-	$.magnificPopup.close();
+
+	function onDone(data, textStatus, jqXHR) {
+		if (jqXHR.statusText === 'OK') {
+			onOK(data, textStatus, jqXHR);
+		} else if (jqXHR.statusText === 'ERROR') {
+			showError(eval(data).d);
+		}
+	}
+
+	sendRequest('MakeOffer', offer).done(onDone).error(onError);
 }
 
 
-function AcceptOffer(id_offer) {
-	sendRequest('AcceptOffer', {'id_offer': id_offer});
+function AcceptOffer(id_offer, panel) {
+	function onOK(data, textStatus, jqXHR) {
+		showAlert('Succesful', data.d);
+		$(panel).removeClass('panel-new').addClass('panel-accepted').find('.head-new');
+	}
+
+	function onDone(data, textStatus, jqXHR) {
+		if (jqXHR.statusText === 'OK') {
+			onOK(data, textStatus, jqXHR);
+		} else if (jqXHR.statusText === 'ERROR') {
+			showError(eval(data).d);
+		}
+	}
+
+	sendRequest('AcceptOffer', {'id_offer': id_offer}).done(onDone).error(onError);
 }
 
-function RejectOffer(id_offer) {
-	sendRequest('RejectOffer', {'id_offer': id_offer});
+function RejectOffer(id_offer, panel) {
+	function onOK(data, textStatus, jqXHR) {
+		showAlert('Succesful', data.d);
+		$(panel).fadeOut(function () {
+			$(this).closest('.pure-u-1').remove();
+		});
+	}
+
+	function onDone(data, textStatus, jqXHR) {
+		if (jqXHR.statusText === 'OK') {
+			onOK(data, textStatus, jqXHR);
+		} else if (jqXHR.statusText === 'ERROR') {
+			showError(eval(data).d);
+		}
+	}
+
+	sendRequest('RejectOffer', {'id_offer': id_offer}).done(onDone).error(onError);
 }
 
-function WithdrawOffer(id_offer) {
-	sendRequest('WithdrawOffer', {'id_offer': id_offer});
+function WithdrawOffer(id_offer, panel) {
+	function onOK(data, textStatus, jqXHR) {
+		showAlert('Succesful', data.d);
+		$(panel).fadeOut(function () {
+			$(this).closest('.pure-u-1').remove();
+		});
+	}
+
+	function onDone(data, textStatus, jqXHR) {
+		if (jqXHR.statusText === 'OK') {
+			onOK(data, textStatus, jqXHR);
+		} else if (jqXHR.statusText === 'ERROR') {
+			showError(eval(data).d);
+		}
+	}
+
+	sendRequest('WithdrawOffer', {'id_offer': id_offer}).done(onDone).error(onError);
 }
 
 
@@ -414,18 +481,58 @@ function WithdrawOffer(id_offer) {
  * Sends AJAX request to server-side widget
  **/
 function sendRequest(method, data) {
-	console.log(data);
-
-	$.ajax({
+	return $.ajax({
 		type: "POST",
+		data: JSON.stringify(data),
 		url: 'http://pricepointdate.com/webService.asmx/' + method,
-		data: data,
-		contentType: "application/x-www-form-urlencoded; charset=UTF-8",
-		dataType: "text",
-		success: function (data) {
-			console.log(data);
+		contentType: "application/json"
+	});
+}
+
+
+/**
+ * Shows alert window
+ **/
+function showAlert(heading, text) {
+	$.magnificPopup.open({
+		items: {
+			src: '<div class="popup popup-message"><h2 class="h2 heading">' + heading + '</h2><div class="message-text">' + text + '</div><a href="#" class="button button-close">Close</a></div>',
+			type: 'inline'
 		}
 	});
+	setTimeout(function () {
+		$('.popup-message .button-close').on('click', function (event) {
+			$.magnificPopup.close();
+			event.preventDefault();
+		});
+	}, 50);
+}
+
+
+/**
+ * On ajax error
+ **/
+function onError(data) {
+	showError('Error ' + data.status + ': ' + data.statusText, data.responseText);
+}
+
+
+/**
+ * Shows error window
+ **/
+function showError(heading, text) {
+	$.magnificPopup.open({
+		items: {
+			src: '<div class="popup popup-error"><h2 class="h2 heading">' + heading + '</h2><div class="error-text">' + text + '</div><a href="#" class="button button-close">Close</a></div>',
+			type: 'inline'
+		}
+	});
+	setTimeout(function () {
+		$('.popup-error .button-close').on('click', function (event) {
+			$.magnificPopup.close();
+			event.preventDefault();
+		});
+	}, 50);
 }
 
 

@@ -4390,19 +4390,63 @@ body {
   }
 
   .heading {
-    margin: -24px 0 14px;
-    padding-right: 44px;
+    padding: 2px 44px 2px 0;
+    margin: -24px 0 7px;
     font-weight: 500;
     font-size: 18px;
-    line-height: normal;
+    line-height: 20px;
 
     @media @md {
+      padding-top: 7px;
+      padding-bottom: 7px;
       margin-top: -44px;
       font-size: 24px;
     }
   }
 
   .username { color: @color-rosy; }
+
+  &.popup-message {
+    max-width: 400px;
+    .heading {
+      color: @color-sky;
+    }
+    .message-text {
+      width: 100%;
+      min-height: 50px;
+      max-height: 200px;
+      padding: 0 5px;
+      font-size: 12px;
+      overflow: hidden;
+      overflow-y: scroll;
+    }
+    .button-close {
+      width: 100px;
+      margin: 10px auto 0;
+      display: block;
+    }
+  }
+
+  &.popup-error {
+    max-width: 500px;
+    .heading {
+      color: @color-red;
+    }
+    .error-text {
+      width: 100%;
+      min-height: 50px;
+      max-height: 200px;
+      padding: 10px 5px;
+      font-size: 12px;
+      overflow: hidden;
+      overflow-y: scroll;
+    }
+    .button-close {
+      width: 100px;
+      margin: 10px auto 0;
+      display: block;
+    }
+  }
 }
 .form-offer {
   .unselectable;
@@ -4666,15 +4710,16 @@ body {
       .head {
         color: @color-white;
         background: @color-cerulean-dark;
-
         &:before { background-position: -210px -95px; }
       }
+      .show-new { display: none !important; }
     }
 
     &.panel-new {
       .head {
         &:before { background-position: -110px -130px; }
       }
+      .show-accepted { display: none !important; }
     }
 
     &.panel-pending {
@@ -4876,7 +4921,7 @@ body {
   margin-bottom: 5px;
   background: @color-white;
   border: 1px solid @color-gray-new;
-  
+
   .heading {
     margin: 0;
     padding: 12px;
@@ -4893,7 +4938,7 @@ body {
     list-style: none;
     font-size: 15px;
     font-weight: bold;
-    
+
     li {
       min-height: 36px;
       margin-bottom: 10px;
