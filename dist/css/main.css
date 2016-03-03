@@ -5617,9 +5617,8 @@ form.inited .form-filter {
 }
 .recents ul li .link {
   display: inline-block;
-  padding: 2px 6px;
-  font-size: 8px;
-  line-height: 8px;
+  padding: 6px;
+  line-height: 14px;
   font-weight: 500;
   background: #fff;
   border: 1px solid #e5e5e5;
@@ -5631,6 +5630,14 @@ form.inited .form-filter {
 .recents ul li .link:focus,
 .recents ul li .link:active {
   text-decoration: none;
+}
+@media (min-width: 750px) {
+  .recents ul li .link {
+    padding-top: 2px;
+    padding-bottom: 2px;
+    font-size: 8px;
+    line-height: 8px;
+  }
 }
 /* ==========================================================================
    _FEATURED

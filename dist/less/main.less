@@ -5157,9 +5157,8 @@ body {
       
       .link {
         display: inline-block;
-        padding: 2px 6px;
-        font-size: 8px;
-        line-height: 8px;
+        padding: 6px;
+        line-height: 14px;
         font-weight: 500;
         background: @color-white;
         border: 1px solid @color-beige;
@@ -5168,6 +5167,13 @@ body {
         color: @color-rosy;
 
         &:hover, &:focus, &:active { text-decoration: none; }
+
+        @media @md {
+          padding-top: 2px;
+          padding-bottom: 2px;
+          font-size: 8px;
+          line-height: 8px;
+        }
       }
     }
   }
