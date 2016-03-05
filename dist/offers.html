@@ -107,7 +107,10 @@
 
 					<div class="pure-u-1 pure-u-sm-12-24 pure-u-lg-8-24">
 						<div class="panel panel-wink" data-id_offer="20001" data-id="10021" data-user="Jemma21">
-							<p class="head">Wink
+							<p class="head">
+								<span class="show-wink">Wink</span>
+								<span class="show-rejected">Rejected Offer</span>
+								<span class="show-pending">Pending Offer</span>
 								<time class="date" datetime="2016/01/13">1/13/16</time>
 								<img class="icon" src="" alt="">
 							</p>
@@ -118,16 +121,25 @@
 									<p class="location">21 / New York, NY</p>
 									<p class="type">Wink</p>
 								</div>
-								<div class="buttons">
+								<div class="buttons show-wink">
 									<div class="cell"><a class="button js-popup" href="popup-offer.html">Make Offer</a></div>
 									<div class="cell"><a class="button button-black js-reject-offer" href="#">Reject</a></div>
+								</div>
+								<div class="buttons show-rejected">
+									<div class="cell"><a class="button js-popup" href="popup-offer.html">Make New Offer</a></div>
+									<div class="cell"><p class="text js-reject-offer"><span class="h">Reason</span> Not interested</p></div>
+								</div>
+								<div class="buttons show-pending">
+									<div class="cell"><a class="button button-black js-withdraw-offer" href="#">Withdraw Offer</a></div>
 								</div>
 							</div>
 						</div>
 					</div>
 					<div class="pure-u-1 pure-u-sm-12-24 pure-u-lg-8-24">
 						<div class="panel panel-rejected" data-id_offer="20002" data-id="10022" data-user="Manuella">
-							<p class="head">Rejected Offer
+							<p class="head">
+								<span class="show-rejected">Rejected Offer</span>
+								<span class="show-pending">Pending Offer</span>
 								<time class="date" datetime="2016/01/13">1/13/16</time>
 							</p>
 							<div class="panel-space">
@@ -137,9 +149,12 @@
 									<p class="location">33 / California, LA</p>
 									<p class="type">&#36;120</p>
 								</div>
-								<div class="buttons">
+								<div class="buttons show-rejected">
 									<div class="cell"><a class="button js-popup" href="popup-offer.html">Make New Offer</a></div>
 									<div class="cell"><p class="text js-reject-offer"><span class="h">Reason</span> Not interested</p></div>
+								</div>
+								<div class="buttons show-pending">
+									<div class="cell"><a class="button button-black js-withdraw-offer" href="#">Withdraw Offer</a></div>
 								</div>
 							</div>
 						</div>
@@ -149,6 +164,8 @@
 							<p class="head">
 								<span class="show-new">New Offer</span>
 								<span class="show-accepted">Accepted Offer</span>
+								<span class="show-rejected">Rejected Offer</span>
+								<span class="show-pending">Pending Offer</span>
 								<time class="date" datetime="2106/01/01">1/1/16</time>
 							</p>
 							<div class="panel-space">
@@ -160,18 +177,26 @@
 								</div>
 								<div class="buttons show-new">
 									<div class="cell"><a class="button js-accept-offer" href="#">Accept</a></div>
-									<div class="cell"><a class="button button-blue js-popup" href="popup-offer.html">Counter</a></div>
+									<div class="cell"><a class="button button-blue js-popup" href="popup-offer.html" data-counter>Counter</a></div>
 									<div class="cell"><a class="button button-black js-reject-offer" href="#">Reject</a></div>
 								</div>
 								<div class="buttons show-accepted">
 									<div class="cell"><a class="button" href="messages.html">Send Message</a></div>
+								</div>
+								<div class="buttons show-rejected">
+									<div class="cell"><a class="button js-popup" href="popup-offer.html">Make New Offer</a></div>
+									<div class="cell"><p class="text js-reject-offer"><span class="h">Reason</span> Not interested</p></div>
+								</div>
+								<div class="buttons show-pending">
+									<div class="cell"><a class="button button-black js-withdraw-offer" href="#">Withdraw Offer</a></div>
 								</div>
 							</div>
 						</div>
 					</div>
 					<div class="pure-u-1 pure-u-sm-12-24 pure-u-lg-8-24">
 						<div class="panel panel-pending" data-id_offer="20004" data-id="10024" data-user="Manuella">
-							<p class="head">Pending Offer
+							<p class="head">
+								<span class="show-pending">Pending Offer</span>
 								<time class="date" datetime="2016/01/13">1/13/16</time>
 							</p>
 							<div class="panel-space">
@@ -181,7 +206,7 @@
 									<p class="location">33 / California, LA</p>
 									<p class="type">&#36;100</p>
 								</div>
-								<div class="buttons">
+								<div class="buttons show-pending">
 									<div class="cell"><a class="button button-black js-withdraw-offer" href="#">Withdraw Offer</a></div>
 								</div>
 							</div>
@@ -226,6 +251,9 @@
 		</div>
 	</footer>
 	<!-- /Footer -->
+
+	<!-- Ohsnap -->
+	<div id="ohsnap" class="ohsnap"></div>
 
 	<!-- Photoswipe popup -->
 	<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">

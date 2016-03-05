@@ -25,6 +25,7 @@
     "fastclick": "^1.0.6",
     "magnific-popup": "^1.0.1",
     "photoswipe": "^4.1.1",
-    "bootstrap-multiselect": "^0.9.13"
+    "bootstrap-multiselect": "^0.9.13",
+    "oh-snap": "*"
   }
 }

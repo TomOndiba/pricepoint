@@ -4613,6 +4613,7 @@ body > form {
   padding-top: 8px;
   padding-bottom: 8px;
   float: right;
+  text-transform: uppercase;
 }
 @media (min-width: 750px) {
   .form-message .text .button {
@@ -4872,7 +4873,7 @@ body > form {
   max-width: 400px;
 }
 .popup.popup-message .heading {
-  color: #a5ceec;
+  color: lightseagreen;
 }
 .popup.popup-message .message-text {
   width: 100%;
@@ -4887,6 +4888,9 @@ body > form {
   width: 100px;
   margin: 10px auto 0;
   display: block;
+}
+.popup.popup-message .mfp-close {
+  display: none;
 }
 .popup.popup-error {
   max-width: 500px;
@@ -4908,6 +4912,9 @@ body > form {
   margin: 10px auto 0;
   display: block;
 }
+.popup.popup-error .mfp-close {
+  display: none;
+}
 .form-offer {
   -webkit-user-select: none;
   -moz-user-select: -moz-none;
@@ -4921,6 +4928,9 @@ body > form {
 .form-offer .radio-offer {
   width: 20%;
   float: left;
+}
+.form-offer .radio-offer .circle {
+  top: 0;
 }
 .form-offer .total-area {
   display: inline-block;
@@ -4965,6 +4975,8 @@ body > form {
   }
 }
 .form-offer .form-line-submit {
+  margin-top: 15px;
+  margin-bottom: 0;
   text-align: right;
 }
 .form-offer .form-line-submit .button {
@@ -4976,6 +4988,9 @@ body > form {
   .form-offer .form-line-submit .button {
     min-width: 140px;
   }
+}
+.form-offer.form-offer-counter .presents {
+  display: none;
 }
 .form-filter {
   opacity: 0;
@@ -5176,8 +5191,20 @@ form.inited .form-filter {
 .offers .panel.panel-wink .head:before {
   background-position: -35px -95px;
 }
+.offers .panel.panel-wink .show-new,
+.offers .panel.panel-wink .show-accepted,
+.offers .panel.panel-wink .show-rejected,
+.offers .panel.panel-wink .show-pending {
+  display: none !important;
+}
 .offers .panel.panel-rejected .head:before {
   background-position: -110px -95px;
+}
+.offers .panel.panel-rejected .show-new,
+.offers .panel.panel-rejected .show-accepted,
+.offers .panel.panel-rejected .show-pending,
+.offers .panel.panel-rejected .show-wink {
+  display: none !important;
 }
 .offers .panel.panel-accepted .head {
   color: #fff;
@@ -5186,17 +5213,29 @@ form.inited .form-filter {
 .offers .panel.panel-accepted .head:before {
   background-position: -210px -95px;
 }
-.offers .panel.panel-accepted .show-new {
+.offers .panel.panel-accepted .show-new,
+.offers .panel.panel-accepted .show-rejected,
+.offers .panel.panel-accepted .show-pending,
+.offers .panel.panel-accepted .show-wink {
   display: none !important;
 }
 .offers .panel.panel-new .head:before {
   background-position: -110px -130px;
 }
-.offers .panel.panel-new .show-accepted {
+.offers .panel.panel-new .show-accepted,
+.offers .panel.panel-new .show-rejected,
+.offers .panel.panel-new .show-pending,
+.offers .panel.panel-new .show-wink {
   display: none !important;
 }
 .offers .panel.panel-pending .head:before {
   background-position: -35px -130px;
+}
+.offers .panel.panel-pending .show-new,
+.offers .panel.panel-pending .show-accepted,
+.offers .panel.panel-pending .show-rejected,
+.offers .panel.panel-pending .show-wink {
+  display: none !important;
 }
 .offers .panel .panel-space {
   padding: 5px;
@@ -5917,4 +5956,48 @@ form.inited .form-filter {
   .attention .form-subscribe input {
     min-width: 350px;
   }
+}
+/* ==========================================================================
+   _OHSNAP
+   ========================================================================== */
+.ohsnap {
+  overflow: hidden;
+  position: fixed;
+  right: 10px;
+  bottom: 0;
+  z-index: 10000;
+  cursor: default;
+  -webkit-user-select: none;
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+.alert {
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  display: block;
+  float: right;
+  clear: right;
+}
+.alert-red {
+  color: white;
+  background-color: #da4453;
+}
+.alert-green {
+  color: white;
+  background-color: #37bc9b;
+}
+.alert-blue {
+  color: white;
+  background-color: #4a89dc;
+}
+.alert-yellow {
+  color: white;
+  background-color: #f6bb42;
+}
+.alert-orange {
+  color: white;
+  background-color: #e9573f;
 }

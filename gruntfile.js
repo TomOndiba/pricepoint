@@ -37,7 +37,7 @@ module.exports = function (grunt) {
 
 		clean: {
 			pre: [dist.root, src.css, src.js + 'vendor'],
-			after: [src.js + 'vendor/fastclick.js', src.css + 'temp'],
+			after: [src.js + 'vendor/fastclick.js',src.js + 'vendor/bootstrap-multiselect.js', src.css + 'temp'],
 			dist: [dist.js + 'custom.js']
 		},
 		copy: {
@@ -55,7 +55,8 @@ module.exports = function (grunt) {
 							src.vendor + 'magnific-popup/dist/jquery.magnific-popup.min.js',
 							src.vendor + 'photoswipe/dist/photoswipe.min.js',
 							src.vendor + 'photoswipe/dist/photoswipe-ui-default.min.js',
-							src.vendor + 'bootstrap-multiselect/dist/js/bootstrap-multiselect.js'
+							src.vendor + 'bootstrap-multiselect/dist/js/bootstrap-multiselect.js',
+							src.vendor + 'oh-snap/ohsnap.min.js'
 						],
 						dest: src.js + 'vendor'
 					}, {
@@ -112,7 +113,8 @@ module.exports = function (grunt) {
 							src.js + 'vendor/jquery.magnific-popup.min.js',
 							src.js + 'vendor/photoswipe.min.js',
 							src.js + 'vendor/photoswipe-ui-default.min.js',
-							src.js + 'vendor/bootstrap-multiselect.js'
+							src.js + 'vendor/bootstrap-multiselect.min.js',
+							src.js + 'vendor/ohsnap.min.js'
 						],
 						dest: src.js + 'plugins.js'
 					}, {
@@ -165,7 +167,7 @@ module.exports = function (grunt) {
 				files: [{
 					expand: true,
 					cwd: src.js + 'vendor',
-					src: 'fastclick.js',
+					src: ['fastclick.js', 'bootstrap-multiselect.js'],
 					dest: src.js + 'vendor',
 					ext: '.min.js'
 				}]

@@ -4182,6 +4182,7 @@ body {
       padding-top: 8px;
       padding-bottom: 8px;
       float: right;
+      text-transform: uppercase;
 
       @media @md {
         float: none;
@@ -4409,7 +4410,7 @@ body {
   &.popup-message {
     max-width: 400px;
     .heading {
-      color: @color-sky;
+      color: lightseagreen;
     }
     .message-text {
       width: 100%;
@@ -4425,6 +4426,7 @@ body {
       margin: 10px auto 0;
       display: block;
     }
+    .mfp-close { display: none; }
   }
 
   &.popup-error {
@@ -4446,6 +4448,7 @@ body {
       margin: 10px auto 0;
       display: block;
     }
+    .mfp-close { display: none; }
   }
 }
 .form-offer {
@@ -4456,6 +4459,7 @@ body {
   .radio-offer {
     width: 20%;
     float: left;
+    .circle { top: 0; }
   }
 
   .total-area {
@@ -4504,6 +4508,8 @@ body {
   }
 
   .form-line-submit {
+    margin-top: 15px;
+    margin-bottom: 0;
     text-align: right;
 
     .button {
@@ -4515,6 +4521,9 @@ body {
         min-width: 140px;
       }
     }
+  }
+  &.form-offer-counter {
+    .presents { display: none; }
   }
 }
 .form-filter {
@@ -4698,12 +4707,14 @@ body {
       .head {
         &:before { background-position: -35px -95px; }
       }
+      .show-new, .show-accepted, .show-rejected, .show-pending { display: none !important; }
     }
 
     &.panel-rejected {
       .head {
         &:before { background-position: -110px -95px; }
       }
+      .show-new, .show-accepted, .show-pending, .show-wink { display: none !important; }
     }
 
     &.panel-accepted {
@@ -4712,20 +4723,21 @@ body {
         background: @color-cerulean-dark;
         &:before { background-position: -210px -95px; }
       }
-      .show-new { display: none !important; }
+      .show-new, .show-rejected, .show-pending, .show-wink { display: none !important; }
     }
 
     &.panel-new {
       .head {
         &:before { background-position: -110px -130px; }
       }
-      .show-accepted { display: none !important; }
+      .show-accepted, .show-rejected, .show-pending, .show-wink { display: none !important; }
     }
 
     &.panel-pending {
       .head {
         &:before { background-position: -35px -130px; }
       }
+      .show-new, .show-accepted, .show-rejected, .show-wink { display: none !important; }
     }
 
     .panel-space {
@@ -5199,7 +5211,7 @@ body {
         margin: 0;
         font-style: italic;
       }
-      
+
       .link {
         display: inline-block;
         padding: 6px;
@@ -5315,7 +5327,7 @@ body {
   position: relative;
 
   &:after { .clearfix; }
-  
+
   &.attention-blue {
     background: @color-azure-light;
   }
@@ -5423,4 +5435,44 @@ body {
       input { min-width: 350px; }
     }
   }
+}
+/* ==========================================================================
+   _OHSNAP
+   ========================================================================== */
+.ohsnap {
+  overflow: hidden;
+  position: fixed;
+  right: 10px;
+  bottom: 0;
+  z-index: 10000;
+  cursor: default;
+  .unselectable;
+}
+.alert {
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  display: block;
+  float: right;
+  clear: right;
+}
+.alert-red {
+  color: white;
+  background-color: #da4453;
+}
+.alert-green {
+  color: white;
+  background-color: #37bc9b;
+}
+.alert-blue {
+  color: white;
+  background-color: #4a89dc;
+}
+.alert-yellow {
+  color: white;
+  background-color: #f6bb42;
+}
+.alert-orange {
+  color: white;
+  background-color: #e9573f;
 }
