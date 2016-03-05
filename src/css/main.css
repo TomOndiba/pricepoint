@@ -5352,6 +5352,14 @@ form.inited .form-filter {
 /* ==========================================================================
    _PACKAGES
    ========================================================================== */
+.packages {
+  cursor: default;
+  -webkit-user-select: none;
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
 .packages .pure-g {
   margin: 0 -5px;
 }
@@ -5455,6 +5463,7 @@ form.inited .form-filter {
   list-style: none;
   font-size: 15px;
   font-weight: bold;
+  cursor: default;
 }
 .benefits ul li {
   min-height: 36px;
@@ -5495,6 +5504,9 @@ form.inited .form-filter {
 /* ==========================================================================
    _FORM-ORDER
    ========================================================================== */
+.form-order {
+  cursor: default;
+}
 .form-order .head:after {
   display: table;
   content: '\0020';

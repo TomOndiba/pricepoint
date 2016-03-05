@@ -33,6 +33,8 @@ function initUI() {
 		FastClick.attach(document.body);
 	}
 
+	$('<div id="ohsnap" class="ohsnap"></div>').appendTo('body');
+
 	/** Toggle settings dropdown in the header  */
 	$('.header').each(function () {
 		body = $('body');
@@ -110,15 +112,6 @@ function initUI() {
 			WithdrawOffer($(this).data('id_offer'), $(this));
 		});
 		event.preventDefault();
-	});
-
-	$('.packages').each(function () {
-		var _self = $(this), _package = $('.panel', this), _active = $('.panel.active', this);
-
-		$('.button', _package).on('click', function () {
-			$(this).closest(_package).addClass('active').parent().siblings().find('.active').removeClass('active');
-			return false;
-		});
 	});
 
 	/** Hide attention block **/
@@ -252,6 +245,14 @@ function initForms(scope, data) {
 
 	$('[data-form="offer"]:not(.inited)', scope).each(function () {
 		initOfferForm.call(this, data);
+	});
+
+	$('[data-form="membership"]:not(.inited)', scope).each(function () {
+		initMembershipForm.call(this, data);
+	});
+
+	$('[data-form="subscribe"]:not(.inited)', scope).each(function () {
+		initSubscribeForm.call(this, data);
 	});
 }
 
@@ -398,6 +399,41 @@ function initOfferForm(data) {
 	}).addClass('inited');
 
 	Clear();
+}
+
+
+/**
+ * Initialize membership form
+ **/
+function initMembershipForm() {
+	var form = $(this);
+
+	$('.packages', form).each(function () {
+		var self = $(this), package = $('[name="package"]', form), total = $('.total .t', form);
+		$('.button-select', this).on('click', function (event) {
+			var panel = $(this).closest('.panel');
+			self.find('.panel.active').removeClass('active');
+			panel.addClass('active');
+			package.val(panel.data('value'));
+			total.html(panel.data('price'));
+			event.preventDefault();
+		});
+	});
+
+
+	$(this).on('submit', function () {
+		alert('Membership form submitted!');
+	}).addClass('inited');
+}
+
+
+/**
+ * Initialize subscribe form
+ **/
+function initSubscribeForm() {
+	$(this).on('submit', function () {
+		alert('Subscribe form submitted!');
+	}).addClass('inited');
 }
 
 

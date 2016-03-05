@@ -8,9 +8,9 @@
 	<meta name="viewport" content="width=device-width, user-scalable=no">
 	<meta name="format-detection" content="telephone=no">
 
-	<link rel="stylesheet" href="css/pure.css">
-	<link rel="stylesheet" href="css/plugins.css">
-	<link rel="stylesheet" href="css/main.css">
+	<link href="css/pure.css" rel="stylesheet">
+	<link href="css/plugins.css" rel="stylesheet">
+	<link href="css/main.css" rel="stylesheet">
 
 	<link rel="apple-touch-icon" sizes="57x57" href="img/favicon/apple-touch-icon-57x57.png">
 	<link rel="apple-touch-icon" sizes="60x60" href="img/favicon/apple-touch-icon-60x60.png">
@@ -35,7 +35,7 @@
 	<meta name="theme-color" content="#ffffff">
 </head>
 <body>
-	<form action="#" method="post" data-form="order">
+	<form action="membership.html" method="post" data-form="membership">
 
 		<!-- Header -->
 		<header class="header">
@@ -51,7 +51,7 @@
 								<a href="person.html">View My Profile</a>
 							</figure>
 							<div class="info">
-								<p class="name">Roberto2011</p>
+								<p class="firstname">Roberto2011</p>
 								<a class="button button-white-bordered" href="upload.html">Manage Photos</a>
 								<a class="button button-white-bordered" href="#">Edit My Profile</a>
 								<a class="button button-white-bordered" href="#">Settings</a>
@@ -65,7 +65,7 @@
 						<div class="entry">
 							<p class="fn">100 Credits Remaining</p>
 							<div class="buttons-group">
-								<p class="cell"><a class="button" href="#">Buy Credits</a></p>
+								<p class="cell"><a class="button" href="membership.html">Buy Credits</a></p>
 								<p class="cell"><a class="button button-white-bordered" href="index.html">Log Out</a></p>
 							</div>
 						</div>
@@ -85,7 +85,7 @@
 					<li><a href="#"><span class="icon icon-date"></span> Dates <span class="mobile-hidden">-</span> <strong>91</strong></a></li>
 					<li><a href="messages.html"><span class="icon icon-messages"></span> Messages <span class="mobile-hidden">-</span> <strong>59</strong></a></li>
 				</ul>
-				<p class="buy"><a class="button" href="#">Buy Credits</a></p>
+				<p class="buy"><a class="button" href="membership.html">Buy Credits</a></p>
 			</div>
 		</div>
 		<!-- /Top -->
@@ -95,66 +95,66 @@
 		<main class="container">
 			<div class="wrapper">
 
-				<!-- Packages -->
-				<div class="packages">
-					<div class="pure-g">
-						<div class="pure-u-1 pure-u-sm-12-24 pure-u-lg-8-24">
-							<div class="panel active">
-								<p class="head">&#36;49</p>
-								<div class="panel-space">
-									<p class="small">One Time Charge</p>
-									<p class="credits">100 credits</p>
-									<a class="button selected" href="#">Package Selected</a>
-									<a class="button button-blue" href="#">Select Package</a>
-									<input type="hidden" value="1">
-									<p class="name">Basic</p>
+				<!-- Form-Order -->
+				<div class="form-order">
+					<!-- Packages -->
+					<div class="packages">
+						<div class="pure-g">
+							<div class="pure-u-1 pure-u-sm-12-24 pure-u-lg-8-24">
+								<div class="panel active" data-value="1" data-price="49">
+									<p class="head">&#36;49</p>
+									<div class="panel-space">
+										<p class="small">One Time Charge</p>
+										<p class="credits">100 credits</p>
+										<a class="button selected" href="#select">Package Selected</a>
+										<a class="button button-blue button-select" href="#select">Select Package</a>
+										<input type="hidden" value="1">
+										<p class="name">Basic</p>
+									</div>
 								</div>
 							</div>
-						</div>
-						<div class="pure-u-1 pure-u-sm-12-24 pure-u-lg-8-24">
-							<div class="panel">
-								<p class="head">&#36;99</p>
-								<div class="panel-space">
-									<p class="small">One Time Charge</p>
-									<p class="credits">450 credits</p>
-									<a class="button selected" href="#">Package Selected</a>
-									<a class="button button-blue" href="#">Select Package</a>
-									<input type="hidden" value="2">
-									<p class="name">VIP Gold</p>
+							<div class="pure-u-1 pure-u-sm-12-24 pure-u-lg-8-24">
+								<div class="panel" data-value="2" data-price="99">
+									<p class="head">&#36;99</p>
+									<div class="panel-space">
+										<p class="small">One Time Charge</p>
+										<p class="credits">450 credits</p>
+										<a class="button selected" href="#select">Package Selected</a>
+										<a class="button button-blue button-select" href="#select">Select Package</a>
+										<input type="hidden" value="2">
+										<p class="name">VIP Gold</p>
+									</div>
 								</div>
 							</div>
-						</div>
-						<div class="pure-u-1 pure-u-sm-12-24 pure-u-lg-8-24">
-							<div class="panel">
-								<p class="head">&#36;199</p>
-								<div class="panel-space">
-									<p class="small">One Time Charge</p>
-									<p class="credits">1000 credits</p>
-									<a class="button selected" href="#">Package Selected</a>
-									<a class="button button-blue" href="#">Select Package</a>
-									<input type="hidden" value="3">
-									<p class="name">VIP Platinum</p>
+							<div class="pure-u-1 pure-u-sm-12-24 pure-u-lg-8-24">
+								<div class="panel" data-value="3" data-price="199">
+									<p class="head">&#36;199</p>
+									<div class="panel-space">
+										<p class="small">One Time Charge</p>
+										<p class="credits">1000 credits</p>
+										<a class="button selected" href="#select">Package Selected</a>
+										<a class="button button-blue button-select" href="#select">Select Package</a>
+										<input type="hidden" value="3">
+										<p class="name">VIP Platinum</p>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-				<!-- /Packages -->
+					<!-- /Packages -->
 
-				<!-- Benefits -->
-				<div class="benefits">
-					<p class="heading">Membership Benefits</p>
-					<ul>
-						<li><span class="icon"><img src="img/icons/date.png" alt=""></span> Send a First Date Offer</li>
-						<li><span class="icon"><img src="img/icons/graph.png" alt=""></span> Unlock and Send Messages</li>
-						<li><span class="icon"><img src="img/icons/profile.png" alt=""></span> Profile Highlighted</li>
-						<li><span class="icon"><img src="img/icons/smile.png" alt=""></span> Profile Prominently Featured</li>
-					</ul>
-				</div>
-				<!-- /Benefits -->
+					<!-- Benefits -->
+					<div class="benefits">
+						<p class="heading">Membership Benefits</p>
+						<ul>
+							<li><span class="icon"><img src="img/icons/date.png" alt=""></span> Send a First Date Offer</li>
+							<li><span class="icon"><img src="img/icons/graph.png" alt=""></span> Unlock and Send Messages</li>
+							<li><span class="icon"><img src="img/icons/profile.png" alt=""></span> Profile Highlighted</li>
+							<li><span class="icon"><img src="img/icons/smile.png" alt=""></span> Profile Prominently Featured</li>
+						</ul>
+					</div>
+					<!-- /Benefits -->
 
-				<!-- Form-Order -->
-				<div class="form-order">
 					<div class="head">
 						<a class="button button-paypal" href="#">Check out with <img src="img/icons/paypal.png" width="90" alt=""></a>
 						<p class="h">Credit or Debit Card</p>
@@ -167,62 +167,63 @@
 							<img src="img/icons/discover.jpg" width="44" height="28" alt="">
 							<img src="img/icons/express.jpg" width="44" height="28" alt="">
 						</div>
+						<input type="hidden" name="package" value="1">
 						<div class="pure-g">
 							<div class="pure-u-1 pure-u-md-12-24">
 								<div class="pure-g">
 									<div class="pure-u-1 pure-u-sm-12-24">
 										<div class="form-line">
-											<label for="name">First Name</label>
-											<input class="form-beige" id="name" type="text" value="">
+											<label for="firstname">First Name</label>
+											<input class="form-beige" id="firstname" name="firstname" type="text" value="">
 										</div>
 									</div>
 									<div class="pure-u-1 pure-u-sm-12-24">
 										<div class="form-line">
-											<label for="surname">Last Name</label>
-											<input class="form-beige" id="surname" type="text" value="">
+											<label for="lastname">Last Name</label>
+											<input class="form-beige" id="lastname" name="lastname" type="text" value="">
 										</div>
 									</div>
 									<div class="pure-u-1">
 										<div class="form-line">
-											<label for="cardnumber">Card Number</label>
-											<input class="form-beige" id="cardnumber" type="text" value="">
+											<label for="card">Card Number</label>
+											<input class="form-beige" id="card" name="card" type="text" value="">
 										</div>
 									</div>
 									<div class="pure-u-1 pure-u-sm-12-24">
 										<div class="form-line">
-											<label for="expiry">Expiry Date</label>
-											<input class="form-beige" id="expiry" type="text" value="">
+											<label for="expires">Expiry Date</label>
+											<input class="form-beige" id="expires" name="expires" type="text" value="">
 										</div>
 									</div>
 									<div class="pure-u-1 pure-u-sm-12-24">
 										<div class="form-line">
-											<label for="code">Security Code</label>
-											<input class="form-beige" id="code" type="text" value="">
+											<label for="cvv2">Security Code</label>
+											<input class="form-beige" id="cvv2" name="cvv2" type="text" value="">
 										</div>
 									</div>
 									<div class="pure-u-1">
 										<div class="form-line">
 											<label for="address">Street Address</label>
-											<input class="form-beige" id="address" type="text" value="">
+											<input class="form-beige" id="address" name="address" type="text" value="">
 										</div>
 									</div>
 									<div class="pure-u-1">
 										<div class="form-line">
 											<label for="country">Country</label>
 											<div class="select-beige">
-												<select id="country" class="select">
+												<select id="country" name="country" class="select">
 													<option value="" selected disabled>Country</option>
-													<option value="Austria">Austria</option>
-													<option value="Brazil">Brazil</option>
-													<option value="Canada">Canada</option>
-													<option value="France">France</option>
-													<option value="Greece">Greece</option>
-													<option value="Germany">Germany</option>
-													<option value="Italy">Italy</option>
-													<option value="Peru">Peru</option>
-													<option value="Spain">Spain</option>
-													<option value="USA">United States</option>
-													<option value="United-Kingdom">United Kingdom</option>
+													<option value="au">Austria</option>
+													<option value="br">Brazil</option>
+													<option value="ca">Canada</option>
+													<option value="fr">France</option>
+													<option value="gr">Greece</option>
+													<option value="de">Germany</option>
+													<option value="it">Italy</option>
+													<option value="pe">Peru</option>
+													<option value="sp">Spain</option>
+													<option value="us">United States</option>
+													<option value="uk">United Kingdom</option>
 												</select>
 											</div>
 										</div>
@@ -230,23 +231,23 @@
 									<div class="pure-u-1 pure-u-sm-12-24">
 										<div class="form-line">
 											<label for="city">City</label>
-											<input class="form-beige" id="city" type="text" value="">
+											<input class="form-beige" id="city" name="city" type="text" value="">
 										</div>
 									</div>
 									<div class="pure-u-1 pure-u-sm-12-24">
 										<div class="form-line">
 											<label for="state">State</label>
-											<input class="form-beige" id="state" type="text" value="">
+											<input class="form-beige" id="state" name="state" type="text" value="">
 										</div>
 									</div>
 									<div class="pure-u-1">
 										<div class="form-line">
 											<label for="zip">Zip / Postal Code</label>
-											<input class="form-beige" id="zip" type="text" value="">
+											<input class="form-beige" id="zip" name="zip" type="text" value="">
 										</div>
 									</div>
 								</div>
-								<p class="total">Total: $49</p>
+								<p class="total">Total: $<span class="t">49</span></p>
 								<p class="form-submit">
 									<button class="button" type="submit">Submit Order</button>
 								</p>
@@ -275,9 +276,6 @@
 		</footer>
 		<!-- /Footer -->
 
-		<!-- Ohsnap -->
-		<div id="ohsnap" class="ohsnap"></div>
-
 
 		<!-- Photoswipe popup -->
 		<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
@@ -300,7 +298,7 @@
 						<div class="pswp__counter"></div>
 						<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
 						<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-						<!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+						<!-- Preloader demo http://cvv2pen.io/dimsemenov/pen/yyBWoR -->
 						<!-- element will get class pswp__preloader--active when preloader is running -->
 						<div class="pswp__preloader">
 							<div class="pswp__preloader__icn">
@@ -323,7 +321,6 @@
 				</div>
 			</div>
 		</div>
-		<!-- /Photoswipe popup -->
 	</form>
 
 

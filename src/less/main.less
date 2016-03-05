@@ -4853,6 +4853,8 @@ body {
    _PACKAGES
    ========================================================================== */
 .packages {
+  cursor: default;
+  .unselectable;
 
   .pure-g {
     margin: 0 -5px;
@@ -4913,9 +4915,9 @@ body {
       left: -1px;
       right: -1px;
     }
-    
+
     .button {
-      &.selected { display: none;}
+      &.selected { display: none; }
     }
 
     &.active {
@@ -4923,17 +4925,16 @@ body {
 
       .price { border-bottom-color: @color-rosy; }
       .credits { color: @color-rosy; }
-  
+
       .button {
-        &.selected { display: block;}
-        &.button-blue { display: none;}
+        &.selected { display: block; }
+        &.button-blue { display: none; }
       }
 
       @media @md {
         .panel-space { padding-top: 78px; padding-bottom: 95px; }
-
         .button {
-          &.selected { display: inline-block;}
+          &.selected { display: inline-block; }
         }
       }
     }
@@ -4963,6 +4964,7 @@ body {
     list-style: none;
     font-size: 15px;
     font-weight: bold;
+    cursor: default;
 
     li {
       min-height: 36px;
@@ -5009,6 +5011,7 @@ body {
    _FORM-ORDER
    ========================================================================== */
 .form-order {
+  cursor: default;
 
   .head {
 
