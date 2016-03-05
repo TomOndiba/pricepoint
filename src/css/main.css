@@ -5418,7 +5418,7 @@ form.inited .form-filter {
   color: #e74b90;
 }
 .packages .panel.active .button.selected {
-  display: inline-block;
+  display: block;
 }
 .packages .panel.active .button.button-blue {
   display: none;
@@ -5427,6 +5427,9 @@ form.inited .form-filter {
   .packages .panel.active .panel-space {
     padding-top: 78px;
     padding-bottom: 95px;
+  }
+  .packages .panel.active .button.selected {
+    display: inline-block;
   }
 }
 /* ==========================================================================

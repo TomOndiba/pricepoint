@@ -4925,12 +4925,16 @@ body {
       .credits { color: @color-rosy; }
   
       .button {
-        &.selected { display: inline-block;}
+        &.selected { display: block;}
         &.button-blue { display: none;}
       }
 
       @media @md {
         .panel-space { padding-top: 78px; padding-bottom: 95px; }
+
+        .button {
+          &.selected { display: inline-block;}
+        }
       }
     }
   }
