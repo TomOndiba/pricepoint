@@ -117,11 +117,6 @@ function initUI() {
 
 		$('.button', _package).on('click', function () {
 			$(this).closest(_package).addClass('active').parent().siblings().find('.active').removeClass('active');
-			if (_package.hasClass('active')) {
-				$('.button', this).text('Package Selected').removeClass('.button-blue');
-			} else {
-				$('.button', this).text('Select Package').addClass('.button-blue');
-			}
 			return false;
 		});
 	});

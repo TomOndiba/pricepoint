@@ -5405,6 +5405,9 @@ form.inited .form-filter {
   left: -1px;
   right: -1px;
 }
+.packages .panel .button.selected {
+  display: none;
+}
 .packages .panel.active {
   background: #fff;
 }
@@ -5413,6 +5416,12 @@ form.inited .form-filter {
 }
 .packages .panel.active .credits {
   color: #e74b90;
+}
+.packages .panel.active .button.selected {
+  display: inline-block;
+}
+.packages .panel.active .button.button-blue {
+  display: none;
 }
 @media (min-width: 750px) {
   .packages .panel.active .panel-space {
