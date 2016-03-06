@@ -4857,67 +4857,124 @@ body {
   .unselectable;
 
   .pure-g {
-    margin: 0 -5px;
+    margin: 0 -2px !important;
 
     [class*="pure-u"] {
-      padding: 0 5px;
+      padding: 0 2px !important;
+    }
+
+    @media @md {
+      margin: 0 -5px !important;
+
+      [class*="pure-u"] {
+        padding: 0 5px !important;
+      }
     }
   }
 
   .panel {
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     text-align: center;
     position: relative;
     background: url("@{images}/bg.jpg") 0 0 repeat;
     border: 1px solid @color-gray-new;
 
+    @media @md {
+      margin-bottom: 30px;
+    }
+
     .head {
       margin: -1px -1px 0;
-      font-size: 48px;
-      line-height: 78px;
+      font-size: 14px;
+      line-height: 26px;
       color: @color-white;
       font-weight: bold;
       background: @color-sea;
-      border-bottom: 10px solid @color-blue;
+      border-bottom: 4px solid @color-blue;
+
+      @media @md {
+        font-size: 38px;
+        line-height: 68px;
+        border-bottom-width: 10px;
+      }
+
+      @media @lg {
+        font-size: 48px;
+        line-height: 78px;
+      }
     }
 
     .panel-space {
-      padding: 44px 20px 90px;
+      padding: 16px 4px 4px;
       position: relative;
+
+      @media @md {
+        padding: 44px 20px 90px;
+      }
     }
 
     .small {
-      margin: 0;
-      color: #b2b2b2;
-      font-size: 13px;
-      position: absolute;
-      top: 7px;
-      left: 0;
-      right: 0;
+      display: none;
+
+      @media @md {
+        margin: 0;
+        display: block;
+        color: #b2b2b2;
+        font-size: 13px;
+        position: absolute;
+        top: 7px;
+        left: 0;
+        right: 0;
+      }
     }
 
     .credits {
-      margin-bottom: 6px;
-      font-size: 40px;
+      margin-bottom: 16px;
+      font-size: 14px;
       line-height: normal;
       font-weight: bold;
       color: @color-blue;
+
+      @media @md {
+        margin-bottom: 6px;
+        font-size: 30px;
+      }
+
+      @media @lg {
+        font-size: 40px;
+      }
     }
 
     .name {
-      margin: 0;
-      font-size: 24px;
-      line-height: 42px;
-      color: @color-white;
-      background: @color-sea;
-      position: absolute;
-      bottom: -1px;
-      left: -1px;
-      right: -1px;
+      display: none;
+
+      @media @md {
+        margin: 0;
+        display: block;
+        font-size: 24px;
+        line-height: 42px;
+        color: @color-white;
+        background: @color-sea;
+        position: absolute;
+        bottom: -1px;
+        left: -1px;
+        right: -1px;
+      }
     }
 
     .button {
+      padding-top: 5px;
+      padding-bottom: 5px;
+
       &.selected { display: none; }
+
+      .block { display: block;}
+
+      @media @md {
+        padding-top: 8px;
+        padding-bottom: 8px;
+        .block { display: inline;}
+      }
     }
 
     &.active {
@@ -4950,44 +5007,61 @@ body {
 
   .heading {
     margin: 0;
-    padding: 12px;
+    padding: 4px 12px;
     color: @color-white;
     text-align: center;
-    font-size: 24px;
+    font-size: 12px;
     line-height: normal;
-    background: @color-blue;
+    background: #aaa;
+
+    @media @md {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      font-size: 24px;
+      background: @color-blue;
+    }
   }
 
   ul {
     margin: 0;
     padding: 10px 0;
     list-style: none;
-    font-size: 15px;
+    font-size: 9px;
+    line-height: normal;
     font-weight: bold;
     cursor: default;
 
+    @media @md {
+      font-size: 15px;
+      line-height: 18px;
+    }
+
+    &:after {.clearfix;}
+
     li {
-      min-height: 36px;
-      margin-bottom: 10px;
-      padding: 10px 10px 10px 56px;
+      width: 50%;
+      margin-bottom: 4px;
+      float: left;
+      padding: 6px 6px 6px 36px;
       position: relative;
 
       &:last-of-type { margin-bottom: 0; }
+      &:nth-child(2n+1) {clear: left;}
 
       .icon {
-        width: 36px;
-        height: 36px;
+        width: 22px;
+        height: 22px;
         display: block;
         vertical-align: middle;
         background: @color-font;
         border-radius: 50%;
         position: absolute;
         top: 0;
-        left: 10px;
+        left: 8px;
 
         img {
-          width: 20px;
-          height: 20px;
+          width: 10px;
+          height: 10px;
           margin: auto auto;
           display: block;
           position: absolute;
@@ -5002,7 +5076,25 @@ body {
     @media @md {
 
       li {
+        width: auto;
+        min-height: 36px;
+        margin-bottom: 10px;
+        padding: 10px 10px 10px 56px;
         display: inline-block;
+        float: none;
+
+        &:nth-child(2n+1) {clear: none;}
+
+        .icon {
+          width: 36px;
+          height: 36px;
+          left: 10px;
+
+          img {
+            width: 20px;
+            height: 20px;
+          }
+        }
       }
     }
   }
@@ -5129,7 +5221,11 @@ body {
   .form-submit {
     margin-bottom: 12px;
 
-    .button { margin: 0; }
+    .button { margin: 0; width: 100%; }
+
+    @media @md {
+      .button { width: auto; }
+    }
   }
 }
 /* ==========================================================================
