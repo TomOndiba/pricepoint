@@ -363,7 +363,7 @@ fieldset {
   margin: 0;
   border: none;
 }
-.expirydate 
+.expirydate
 {
   border: 1px solid #e5e5e5;
   border-radius: 2px;
@@ -5976,8 +5976,9 @@ color:silver;
    _ATTENTION
    ========================================================================== */
 .attention {
+  max-width:760px;
   min-height: 100px;
-  margin-bottom: 30px;
+  margin: 0 auto 30px;
   padding: 12px 22px;
   font-size: 13px;
   color: #333a42;
