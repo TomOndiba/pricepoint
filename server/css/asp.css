@@ -1,0 +1,203 @@
+﻿.requiredValidator {
+    color:red;
+}
+
+input.err,  textarea.err,
+ table.err, div.err {
+    border: 1px red solid !important;
+    margin-top: 0;
+}
+
+ label.err,
+ span.err {
+    color: red !important;
+}
+
+td.alterRow {
+    background-color:#FFD4BA;
+}
+
+.clearCheckbox input{
+  height: initial;
+  padding: initial;
+  border: initial;
+  border-radius: initial;
+  color: initial;
+  font: initial;
+  background: initial;
+  transition: initial;
+  -webkit-appearance: checkbox;
+  margin:2px 2px 2px 10px;
+}
+
+/* CSS-Checkbox */
+span.css-checkbox input[type=checkbox]{
+  position: absolute;
+  z-index: -1000;
+  left: -1000px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+}
+span.css-checkbox input[type=checkbox] + label {
+  padding-left: 24px;
+  display: inline-block;
+  font-size: 13px;
+  line-height: 18px;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  vertical-align: middle;
+  cursor: pointer;
+}
+@media (min-width: 750px) {
+  span.css-checkbox input[type=checkbox] + label {
+    font-size: 15px;
+  }
+}
+span.css-checkbox input[type=checkbox]:checked + label {
+  background-position: 0 -18px;
+}
+span.css-checkbox label {
+  background-image: url(http://csscheckbox.com/checkboxes/u/csscheckbox_e7d0bf58d1556e5a8ef49f2491d9a183.png);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Form Upload*/
+.form-upload .photos tr {
+  margin: 0 -10px;
+  padding: 0;
+  list-style: none;
+}
+.form-upload .photos tr td {
+  width: 50%;
+  padding: 0 9px;
+  float: left;
+}
+@media (min-width: 568px) {
+  .form-upload .photos tr td {
+    width: 25%;
+  }
+}
+.form-upload .photos tr td .photo {
+  margin: 0 0 9px;
+  position: relative;
+}
+.form-upload .photos tr td .photo img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+.form-upload .photos tr td .photo.private:before {
+  display: block;
+  content: '\0020';
+  overflow: hidden;
+  width: 40px;
+  height: 40px;
+  background: url("../img/sprite.png") 0 -165px no-repeat;
+  background-size: 250px auto;
+  -webkit-transform: scale(0.8);
+  -moz-transform: scale(0.8);
+  -ms-transform: scale(0.8);
+  -o-transform: scale(0.8);
+  transform: scale(0.8);
+  -webkit-backface-visibility: hidden;
+  position: absolute;
+  bottom: 0;
+  right: -3px;
+}
+@media (min-width: 750px) {
+  .form-upload .photos tr td .photo.private:before {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+    -webkit-backface-visibility: hidden;
+    bottom: 5px;
+    right: 5px;
+  }
+}
+.form-upload .photos tr td .button {
+  width: 100%;
+  margin-bottom: 8px;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+.form-upload .photos tr td .button.button-active {
+  display: block;
+  color: #333a42;
+  background: #dee1e6;
+  border-color: #dee1e6;
+  cursor: default;
+}
+.form-upload .photos tr td .close {
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  display: block;
+  background: #e71818;
+  border-radius: 4px;
+  position: absolute;
+  top: 9px;
+  right: 6px;
+  opacity: 1;
+  cursor: pointer;
+}
+.form-upload .photos tr td .close:before,
+.form-upload .photos tr td .close:after {
+  width: 14px;
+  height: 2px;
+  margin: auto auto;
+  overflow: hidden;
+  display: block;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+}
+.form-upload .photos tr td .close:before {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -webkit-backface-visibility: hidden;
+}
+.form-upload .photos tr td .close:after {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -webkit-backface-visibility: hidden;
+}
+@media (min-width: 750px) {
+  .form-upload .photos tr td .close {
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+  }
+  .form-upload .photos tr td .close:before,
+  .form-upload .photos tr td .close:after {
+    width: 18px;
+    height: 4px;
+  }
+}
+
+.cardselect input {
+    height:auto;
+    
+    margin: 5px;
+}
