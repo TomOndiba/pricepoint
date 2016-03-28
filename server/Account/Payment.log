@@ -1,0 +1,732 @@
+3/11/2016 2:38:45 PM ===============================
+3/11/2016 2:38:46 PM Pay 10002
+3/11/2016 2:38:47 PM GetOrCreateCustomerProfile
+3/11/2016 2:38:49 PM Message: A duplicate record with ID 39889377 already exists.
+3/11/2016 2:39:18 PM SetCustomerPaymentProfile
+3/11/2016 2:39:18 PM profile_id:39889377 Ok
+3/11/2016 2:39:19 PM Response Code: Ok
+3/11/2016 2:39:19 PM Message: Successful.
+3/11/2016 2:39:19 PM DIRECT: 1,1,1,This transaction has been approved.,9SBIGP,Y,2252761298,none,Test transaction for ValidateCustomerPaymentProfile.,0.00,CC,auth_only,none,robert,test,,test,test,NY,07310,us,,,email@example.com,,,,,,,,,0.00,0.00,0.00,FALSE,none,892E6BB7A9F427964288BCD8B31CD949,P,2,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/11/2016 2:40:01 PM CreateTransaction
+3/11/2016 2:40:02 PM Response Code: Ok
+3/11/2016 2:40:02 PM Message: Successful.
+3/11/2016 2:40:02 PM DIRECT: 1,1,1,This transaction has been approved.,V8QEBH,Y,2252761323,invoice2:40 PM,,49.00,CC,auth_capture,10002,robert,test,,test,test,NY,07310,us,,,,,,,,,,,,,,,,,492DADF3988476F2299FE78E08DB47E9,,2,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/11/2016 2:40:47 PM ===============================
+3/11/2016 3:53:04 PM ===============================
+3/11/2016 3:53:05 PM Pay 10002
+3/11/2016 3:53:24 PM GetOrCreateCustomerProfile
+3/11/2016 3:53:26 PM Message: A duplicate record with ID 39889377 already exists.
+3/11/2016 3:53:37 PM SetCustomerPaymentProfile
+3/11/2016 3:54:10 PM profile_id:39889377 Ok
+3/11/2016 3:54:16 PM profiles: 1
+3/11/2016 3:54:20 PM customerPaymentProfileId: 36190402
+3/11/2016 3:55:36 PM Response Code: Ok
+3/11/2016 3:55:38 PM Message: Successful.
+3/11/2016 3:55:39 PM DIRECT: 1,1,1,This transaction has been approved.,TP81NM,Y,2252765073,none,Test transaction for ValidateCustomerPaymentProfile.,0.00,CC,auth_only,10002,robert,test,,test,test,NY,07310,us,,,,,,,,,,,,0.00,0.00,0.00,FALSE,none,AD31E9468FDC64EB6CB28AAF900EBDC0,P,2,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/11/2016 3:58:41 PM CreateTransaction
+3/11/2016 3:58:42 PM Response Code: Ok
+3/11/2016 3:58:42 PM Message: Successful.
+3/11/2016 3:58:42 PM DIRECT: 1,1,1,This transaction has been approved.,GCCHT9,Y,2252765175,invoice3:58 PM,,49.00,CC,auth_capture,10002,robert,test,,test,test,NY,07310,us,,,,,,,,,,,,,,,,,EEFD41A67055451C7FF07DA609533B99,,2,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/11/2016 3:58:55 PM ===============================
+3/11/2016 5:31:38 PM ===============================
+3/11/2016 5:31:38 PM Pay 10002
+3/11/2016 5:31:38 PM GetOrCreateCustomerProfile
+3/11/2016 5:31:40 PM Message: A duplicate record with ID 39889377 already exists.
+3/11/2016 5:31:40 PM SetCustomerPaymentProfile
+3/11/2016 5:31:45 PM profile_id:39889377 Ok
+3/11/2016 5:31:45 PM profiles: 1
+3/11/2016 5:31:45 PM customerPaymentProfileId: 36190402
+3/11/2016 5:31:45 PM Response Code: Ok
+3/11/2016 5:31:45 PM Message: Successful.
+3/11/2016 5:31:45 PM DIRECT: 1,1,1,This transaction has been approved.,U50DE4,Y,2252770568,none,Test transaction for ValidateCustomerPaymentProfile.,0.00,CC,auth_only,10002,robert,test,,test,test,NY,07310,us,,,,,,,,,,,,0.00,0.00,0.00,FALSE,none,E8DB843A1C1A2D556C703F81CF07BB76,P,2,,,,,,,,,,,XXXX0015,MasterCard,,,,,,,,,,,,,,,,
+3/11/2016 5:31:46 PM CreateTransaction
+3/11/2016 5:31:46 PM Response Code: Ok
+3/11/2016 5:31:46 PM Message: Successful.
+3/11/2016 5:31:46 PM DIRECT: 1,1,1,This transaction has been approved.,65DU6T,Y,2252770571,invoice5:31 PM,,49.00,CC,auth_capture,10002,robert,test,,test,test,NY,07310,us,,,,,,,,,,,,,,,,,D9411906776272BDE06B8247235F363D,,2,,,,,,,,,,,XXXX0015,MasterCard,,,,,,,,,,,,,,,,
+3/11/2016 5:31:46 PM ===============================
+3/11/2016 5:32:02 PM CreateTransaction
+3/11/2016 5:32:23 PM Response Code: Ok
+3/11/2016 5:32:23 PM Message: Successful.
+3/11/2016 5:32:23 PM DIRECT: 1,1,1,This transaction has been approved.,AWLOAD,Y,2252770610,invoice5:32 PM,,99.00,CC,auth_capture,10002,robert,test,,test,test,NY,07310,us,,,,,,,,,,,,,,,,,F0191C3755A9FA8513F500C5A3FBD4BE,,2,,,,,,,,,,,XXXX0015,MasterCard,,,,,,,,,,,,,,,,
+3/11/2016 5:32:23 PM ===============================
+3/11/2016 5:32:23 PM Exception: Object reference not set to an instance of an object.
+3/11/2016 6:29:42 PM ===============================
+3/11/2016 6:29:42 PM Pay 10002
+3/11/2016 6:29:42 PM GetOrCreateCustomerProfile
+3/11/2016 6:29:44 PM Message: A duplicate record with ID 39889377 already exists.
+3/11/2016 6:29:44 PM SetCustomerPaymentProfile
+3/11/2016 6:29:45 PM profile_id:39889377 Ok
+3/11/2016 6:29:45 PM profiles: 1
+3/11/2016 6:29:45 PM customerPaymentProfileId: 36190402
+3/11/2016 6:29:46 PM Response Code: Ok
+3/11/2016 6:29:46 PM Message: Successful.
+3/11/2016 6:29:46 PM DIRECT: 1,1,1,This transaction has been approved.,XCUB6T,Y,2252772842,none,Test transaction for ValidateCustomerPaymentProfile.,0.00,CC,auth_only,10002,Amy,Mysko,,PO Box 1022,Crestone,CO,81131,US,,,,,,,,,,,,0.00,0.00,0.00,FALSE,none,402C09917D3F8FF75E1A73BE983329A1,P,2,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/11/2016 6:29:46 PM CreateTransaction
+3/11/2016 6:29:47 PM Response Code: Ok
+3/11/2016 6:29:47 PM Message: Successful.
+3/11/2016 6:29:47 PM DIRECT: 1,1,1,This transaction has been approved.,JW533R,Y,2252772844,invoice6:29 PM,,49.00,CC,auth_capture,10002,Amy,Mysko,,PO Box 1022,Crestone,CO,81131,US,,,,,,,,,,,,,,,,,393FEA00D4CF5BD6E3AD7B8A8183E051,,2,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/11/2016 6:29:47 PM ===============================
+3/11/2016 6:29:58 PM ===============================
+3/11/2016 6:29:58 PM Pay 10002
+3/11/2016 6:29:58 PM GetOrCreateCustomerProfile
+3/11/2016 6:29:59 PM Message: A duplicate record with ID 39889377 already exists.
+3/11/2016 6:29:59 PM SetCustomerPaymentProfile
+3/11/2016 6:30:00 PM profile_id:39889377 Ok
+3/11/2016 6:30:00 PM profiles: 1
+3/11/2016 6:30:00 PM customerPaymentProfileId: 36190402
+3/11/2016 6:30:01 PM Response Code: Ok
+3/11/2016 6:30:01 PM Message: Successful.
+3/11/2016 6:30:01 PM DIRECT: 1,1,1,This transaction has been approved.,9CEZWM,Y,2252772859,none,Test transaction for ValidateCustomerPaymentProfile.,0.00,CC,auth_only,10002,Amy,Mysko,,PO Box 1022,Crestone,CO,81131,US,,,,,,,,,,,,0.00,0.00,0.00,FALSE,none,D2C8453B924441EF3648335AF8A67D45,P,2,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/11/2016 6:30:01 PM CreateTransaction
+3/11/2016 6:30:02 PM Response Code: Ok
+3/11/2016 6:30:02 PM Message: Successful.
+3/11/2016 6:30:02 PM DIRECT: 1,1,1,This transaction has been approved.,NNZ6DG,Y,2252772861,invoice6:30 PM,,49.00,CC,auth_capture,10002,Amy,Mysko,,PO Box 1022,Crestone,CO,81131,US,,,,,,,,,,,,,,,,,9C1F9765E7D1AF9B48B408A8CCA11B0C,,2,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/11/2016 6:30:02 PM ===============================
+3/11/2016 6:30:09 PM ===============================
+3/11/2016 6:30:09 PM Pay 10002
+3/11/2016 6:30:09 PM GetOrCreateCustomerProfile
+3/11/2016 6:30:10 PM Message: A duplicate record with ID 39889377 already exists.
+3/11/2016 6:30:10 PM SetCustomerPaymentProfile
+3/11/2016 6:30:10 PM profile_id:39889377 Ok
+3/11/2016 6:30:10 PM profiles: 1
+3/11/2016 6:30:10 PM customerPaymentProfileId: 36190402
+3/11/2016 6:30:11 PM Response Code: Ok
+3/11/2016 6:30:11 PM Message: Successful.
+3/11/2016 6:30:11 PM DIRECT: 1,1,1,This transaction has been approved.,UAU628,Y,2252772867,none,Test transaction for ValidateCustomerPaymentProfile.,0.00,CC,auth_only,10002,Amy,Mysko,,PO Box 1022,Crestone,CO,81131,US,,,,,,,,,,,,0.00,0.00,0.00,FALSE,none,1FB64A359A3B2A6DC157A178F7A69BFD,P,2,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/11/2016 6:30:11 PM CreateTransaction
+3/11/2016 6:30:12 PM Response Code: Error
+3/11/2016 6:30:12 PM Message: A duplicate transaction has been submitted.
+3/11/2016 6:30:12 PM DIRECT: 3,1,11,A duplicate transaction has been submitted.,,P,0,invoice6:30 PM,,49.00,CC,auth_capture,10002,Amy,Mysko,,PO Box 1022,Crestone,CO,81131,US,,,,,,,,,,,,,,,,,2DC07143292478080B01B8726FBB08A1,,,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/11/2016 6:30:12 PM ===============================
+3/11/2016 6:37:51 PM CreateTransaction
+3/11/2016 6:37:52 PM Response Code: Ok
+3/11/2016 6:37:52 PM Message: Successful.
+3/11/2016 6:37:52 PM DIRECT: 1,1,1,This transaction has been approved.,S39L53,Y,2252773100,invoice6:37 PM,,199.00,CC,auth_capture,10002,Amy,Mysko,,PO Box 1022,Crestone,CO,81131,US,,,,,,,,,,,,,,,,,D8F7FDEC801470577C6F9194E575C8A0,,2,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/11/2016 6:37:52 PM ===============================
+3/11/2016 6:37:52 PM Exception: Object reference not set to an instance of an object.
+3/11/2016 6:38:34 PM CreateTransaction
+3/11/2016 6:38:44 PM Response Code: Ok
+3/11/2016 6:38:54 PM Message: Successful.
+3/11/2016 6:38:54 PM DIRECT: 1,1,1,This transaction has been approved.,7BTXHW,Y,2252773145,invoice6:38 PM,,199.00,CC,auth_capture,10002,Amy,Mysko,,PO Box 1022,Crestone,CO,81131,US,,,,,,,,,,,,,,,,,4900863481E214C815975F4007DCB49E,,2,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/11/2016 6:38:54 PM ===============================
+3/11/2016 6:38:54 PM Exception: Object reference not set to an instance of an object.
+3/11/2016 6:39:01 PM CreateTransaction
+3/11/2016 6:39:09 PM Response Code: Ok
+3/11/2016 6:39:26 PM Message: Successful.
+3/11/2016 6:39:36 PM DIRECT: 1,1,1,This transaction has been approved.,1A7S5O,Y,2252773156,invoice6:39 PM,,199.00,CC,auth_capture,10002,Amy,Mysko,,PO Box 1022,Crestone,CO,81131,US,,,,,,,,,,,,,,,,,9CCE6FF08B97C4766695F19DC2CFBD89,,2,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/11/2016 6:40:14 PM ===============================
+3/11/2016 6:40:31 PM Exception: Object reference not set to an instance of an object.
+3/11/2016 6:41:31 PM CreateTransaction
+3/11/2016 6:41:32 PM Response Code: Ok
+3/11/2016 6:41:32 PM Message: Successful.
+3/11/2016 6:41:32 PM DIRECT: 1,1,1,This transaction has been approved.,CCOE9S,Y,2252773226,invoice6:41 PM,,49.00,CC,auth_capture,10002,Amy,Mysko,,PO Box 1022,Crestone,CO,81131,US,,,,,,,,,,,,,,,,,0756067C05790393E2593720FADE7D5F,,2,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/11/2016 6:42:00 PM CreateTransaction
+3/11/2016 6:42:01 PM Response Code: Ok
+3/11/2016 6:42:01 PM Message: Successful.
+3/11/2016 6:42:01 PM DIRECT: 1,1,1,This transaction has been approved.,BHK3VY,Y,2252773232,invoice6:42 PM,,199.00,CC,auth_capture,10002,Amy,Mysko,,PO Box 1022,Crestone,CO,81131,US,,,,,,,,,,,,,,,,,BBEAE161386C2DA7121F658FB4509C68,,2,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/11/2016 6:45:49 PM ===============================
+3/11/2016 6:45:49 PM Pay 10002
+3/11/2016 6:45:49 PM GetOrCreateCustomerProfile
+3/11/2016 6:45:50 PM Message: A duplicate record with ID 39889377 already exists.
+3/11/2016 6:45:50 PM SetCustomerPaymentProfile
+3/11/2016 6:45:51 PM profile_id:39889377 Ok
+3/11/2016 6:45:51 PM profiles: 1
+3/11/2016 6:45:51 PM customerPaymentProfileId: 36190402
+3/11/2016 6:45:53 PM Response Code: Error
+3/11/2016 6:45:53 PM Message: The transaction has been declined because of an AVS mismatch. The address provided does not match billing address of cardholder.
+3/11/2016 6:45:53 PM DIRECT: 2,2,27,The transaction has been declined because of an AVS mismatch. The address provided does not match billing address of cardholder.,CBCDP0,N,2252773390,none,Test transaction for ValidateCustomerPaymentProfile.,0.00,CC,auth_only,10002,Robert,Vozdecky,,1115 broadway ste 1234,New York,NY,46205,US,,,,,,,,,,,,0.00,0.00,0.00,FALSE,none,A6DDA4A1B9ED1B615C81A2E0F48224CA,P,2,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/11/2016 6:45:53 PM CreateTransaction
+3/11/2016 6:45:53 PM Response Code: Error
+3/11/2016 6:45:53 PM Message: Customer Payment Profile ID is required.
+3/11/2016 6:45:53 PM DIRECT: 
+3/11/2016 6:45:53 PM ===============================
+3/11/2016 6:46:38 PM ===============================
+3/11/2016 6:46:38 PM Pay 10002
+3/11/2016 6:46:38 PM GetOrCreateCustomerProfile
+3/11/2016 6:46:39 PM Message: A duplicate record with ID 39889377 already exists.
+3/11/2016 6:46:39 PM SetCustomerPaymentProfile
+3/11/2016 6:46:40 PM profile_id:39889377 Ok
+3/11/2016 6:46:40 PM profiles: 1
+3/11/2016 6:46:40 PM customerPaymentProfileId: 36190402
+3/11/2016 6:46:41 PM Response Code: Error
+3/11/2016 6:46:41 PM Message: A duplicate transaction has been submitted.
+3/11/2016 6:46:41 PM DIRECT: 3,1,11,A duplicate transaction has been submitted.,,P,0,none,Test transaction for ValidateCustomerPaymentProfile.,0.00,CC,auth_only,10002,Robert,Vozdecky,,1115 broadway ste 1234,New York,NY,46205,US,,,,,,,,,,,,0.00,0.00,0.00,FALSE,none,F68A9C87C1E1472521704EF38C21F647,,,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/11/2016 6:46:41 PM CreateTransaction
+3/11/2016 6:46:41 PM Response Code: Error
+3/11/2016 6:46:41 PM Message: Customer Payment Profile ID is required.
+3/11/2016 6:46:41 PM DIRECT: 
+3/11/2016 6:46:41 PM ===============================
+3/11/2016 6:46:48 PM ===============================
+3/11/2016 6:46:48 PM Pay 10002
+3/11/2016 6:46:48 PM GetOrCreateCustomerProfile
+3/11/2016 6:46:49 PM Message: A duplicate record with ID 39889377 already exists.
+3/11/2016 6:46:49 PM SetCustomerPaymentProfile
+3/11/2016 6:46:50 PM profile_id:39889377 Ok
+3/11/2016 6:46:50 PM profiles: 1
+3/11/2016 6:46:50 PM customerPaymentProfileId: 36190402
+3/11/2016 6:46:50 PM Response Code: Error
+3/11/2016 6:46:50 PM Message: A duplicate transaction has been submitted.
+3/11/2016 6:46:50 PM DIRECT: 3,1,11,A duplicate transaction has been submitted.,,P,0,none,Test transaction for ValidateCustomerPaymentProfile.,0.00,CC,auth_only,10002,Robert,Vozdecky,,1115 broadway ste 1234,New York,NY,46205,US,,,,,,,,,,,,0.00,0.00,0.00,FALSE,none,F68A9C87C1E1472521704EF38C21F647,,,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/11/2016 6:46:50 PM CreateTransaction
+3/11/2016 6:46:51 PM Response Code: Error
+3/11/2016 6:46:51 PM Message: Customer Payment Profile ID is required.
+3/11/2016 6:46:51 PM DIRECT: 
+3/11/2016 6:46:51 PM ===============================
+3/11/2016 6:47:24 PM ===============================
+3/11/2016 6:47:24 PM Pay 10002
+3/11/2016 6:47:24 PM GetOrCreateCustomerProfile
+3/11/2016 6:47:25 PM Message: A duplicate record with ID 39889377 already exists.
+3/11/2016 6:47:25 PM SetCustomerPaymentProfile
+3/11/2016 6:47:26 PM profile_id:39889377 Ok
+3/11/2016 6:47:26 PM profiles: 1
+3/11/2016 6:47:26 PM customerPaymentProfileId: 36190402
+3/11/2016 6:47:27 PM Response Code: Error
+3/11/2016 6:47:57 PM Message: A duplicate transaction has been submitted.
+3/11/2016 6:47:57 PM DIRECT: 3,1,11,A duplicate transaction has been submitted.,,P,0,none,Test transaction for ValidateCustomerPaymentProfile.,0.00,CC,auth_only,10002,Robert,Vozdecky,,1115 broadway ste 1234,New York,NY,46205,US,,,,,,,,,,,,0.00,0.00,0.00,FALSE,none,F68A9C87C1E1472521704EF38C21F647,,,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/11/2016 6:47:57 PM CreateTransaction
+3/11/2016 6:47:58 PM Response Code: Error
+3/11/2016 6:48:41 PM Message: Customer Payment Profile ID is required.
+3/11/2016 6:48:41 PM DIRECT: 
+3/11/2016 6:48:41 PM ===============================
+3/11/2016 6:48:46 PM ===============================
+3/11/2016 6:48:46 PM Pay 10002
+3/11/2016 6:48:51 PM GetOrCreateCustomerProfile
+3/11/2016 6:48:52 PM Message: A duplicate record with ID 39889377 already exists.
+3/11/2016 6:48:58 PM SetCustomerPaymentProfile
+3/11/2016 6:48:58 PM profile_id:39889377 Ok
+3/11/2016 6:48:58 PM profiles: 1
+3/11/2016 6:48:58 PM customerPaymentProfileId: 36190402
+3/11/2016 6:49:00 PM Response Code: Error
+3/11/2016 6:49:08 PM Message: The transaction has been declined because of an AVS mismatch. The address provided does not match billing address of cardholder.
+3/11/2016 6:49:13 PM DIRECT: 2,2,27,The transaction has been declined because of an AVS mismatch. The address provided does not match billing address of cardholder.,PNROOE,N,2252773478,none,Test transaction for ValidateCustomerPaymentProfile.,0.00,CC,auth_only,10002,Robert,Vozdecky,,1115 broadway ste 1234,New York,NY,46205,US,,,,,,,,,,,,0.00,0.00,0.00,FALSE,none,F5DD9D97CE0DE0EB5549932805748689,P,2,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/11/2016 6:49:37 PM CreateTransaction
+3/11/2016 6:49:38 PM Response Code: Error
+3/11/2016 6:49:38 PM Message: Customer Payment Profile ID is required.
+3/11/2016 6:49:38 PM DIRECT: 
+3/11/2016 6:49:38 PM ===============================
+3/11/2016 7:04:02 PM ===============================
+3/11/2016 7:04:02 PM Pay 10002
+3/11/2016 7:04:02 PM GetOrCreateCustomerProfile
+3/11/2016 7:04:05 PM Message: A duplicate record with ID 39889377 already exists.
+3/11/2016 7:04:05 PM SetCustomerPaymentProfile
+3/11/2016 7:04:06 PM profile_id:39889377 Ok
+3/11/2016 7:04:06 PM profiles: 1
+3/11/2016 7:04:06 PM customerPaymentProfileId: 36190402
+3/11/2016 7:04:07 PM Response Code: Ok
+3/11/2016 7:04:07 PM Message: Successful.
+3/11/2016 7:04:07 PM DIRECT: 1,1,1,This transaction has been approved.,G22R17,Y,2252773787,none,Test transaction for ValidateCustomerPaymentProfile.,0.00,CC,auth_only,10002,robert,test,,test,test,LA,07310,US,,,,,,,,,,,,0.00,0.00,0.00,FALSE,none,44D2E520E2D9FE71E394E1049E73B55C,P,2,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/11/2016 7:04:07 PM CreateTransaction
+3/11/2016 7:04:08 PM Response Code: Ok
+3/11/2016 7:04:08 PM Message: Successful.
+3/11/2016 7:04:08 PM DIRECT: 1,1,1,This transaction has been approved.,RNCIL9,Y,2252773788,invoice7:04 PM,,49.00,CC,auth_capture,10002,robert,test,,test,test,LA,07310,US,,,,,,,,,,,,,,,,,B7C08F2FC81F47527C9BDE7A831D1BCD,,2,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/11/2016 7:04:08 PM ===============================
+3/11/2016 7:04:16 PM ===============================
+3/11/2016 7:04:16 PM Pay 10002
+3/11/2016 7:04:16 PM GetOrCreateCustomerProfile
+3/11/2016 7:04:17 PM Message: A duplicate record with ID 39889377 already exists.
+3/11/2016 7:04:17 PM SetCustomerPaymentProfile
+3/11/2016 7:04:17 PM profile_id:39889377 Ok
+3/11/2016 7:04:17 PM profiles: 1
+3/11/2016 7:04:17 PM customerPaymentProfileId: 36190402
+3/11/2016 7:04:18 PM Response Code: Ok
+3/11/2016 7:04:18 PM Message: Successful.
+3/11/2016 7:04:18 PM DIRECT: 1,1,1,This transaction has been approved.,WFHKLW,Y,2252773794,none,Test transaction for ValidateCustomerPaymentProfile.,0.00,CC,auth_only,10002,robert,test,,test,test,LA,07310,US,,,,,,,,,,,,0.00,0.00,0.00,FALSE,none,AE7C372C5248A88D872383AA3F889855,P,2,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/11/2016 7:04:18 PM CreateTransaction
+3/11/2016 7:04:19 PM Response Code: Error
+3/11/2016 7:04:19 PM Message: A duplicate transaction has been submitted.
+3/11/2016 7:04:19 PM DIRECT: 3,1,11,A duplicate transaction has been submitted.,,P,0,invoice7:04 PM,,49.00,CC,auth_capture,10002,robert,test,,test,test,LA,07310,US,,,,,,,,,,,,,,,,,2DC07143292478080B01B8726FBB08A1,,,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/11/2016 7:04:19 PM ===============================
+3/11/2016 7:12:05 PM ===============================
+3/11/2016 7:12:05 PM Pay 10002
+3/11/2016 7:12:05 PM GetOrCreateCustomerProfile
+3/11/2016 7:12:07 PM Message: A duplicate record with ID 39889377 already exists.
+3/11/2016 7:12:07 PM SetCustomerPaymentProfile
+3/11/2016 7:12:08 PM profile_id:39889377 Ok
+3/11/2016 7:12:08 PM profiles: 1
+3/11/2016 7:12:08 PM customerPaymentProfileId: 36190402
+3/11/2016 7:12:10 PM Response Code: Ok
+3/11/2016 7:12:10 PM Message: Successful.
+3/11/2016 7:12:10 PM DIRECT: 1,1,1,This transaction has been approved.,75CT7A,Y,2252773952,none,Test transaction for ValidateCustomerPaymentProfile.,0.00,CC,auth_only,10002,robert,test,,test,test,HI,07310,US,,,,,,,,,,,,0.00,0.00,0.00,FALSE,none,E4AFECC577717CCD18985F02D226EC9A,P,2,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/11/2016 7:12:10 PM CreateTransaction
+3/11/2016 7:12:11 PM Response Code: Ok
+3/11/2016 7:12:11 PM Message: Successful.
+3/11/2016 7:12:11 PM DIRECT: 1,1,1,This transaction has been approved.,72JHTJ,Y,2252773955,invoice7:12 PM,,49.00,CC,auth_capture,10002,robert,test,,test,test,HI,07310,US,,,,,,,,,,,,,,,,,2464059E17E36CCA5CE1FBB99F976154,,2,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/11/2016 7:12:11 PM ===============================
+3/11/2016 7:12:24 PM ===============================
+3/11/2016 7:12:24 PM Pay 10002
+3/11/2016 7:12:24 PM GetOrCreateCustomerProfile
+3/11/2016 7:12:25 PM Message: A duplicate record with ID 39889377 already exists.
+3/11/2016 7:12:25 PM SetCustomerPaymentProfile
+3/11/2016 7:12:26 PM profile_id:39889377 Ok
+3/11/2016 7:12:26 PM profiles: 1
+3/11/2016 7:12:26 PM customerPaymentProfileId: 36190402
+3/11/2016 7:12:27 PM Response Code: Ok
+3/11/2016 7:12:27 PM Message: Successful.
+3/11/2016 7:12:27 PM DIRECT: 1,1,1,This transaction has been approved.,NE5FJS,Y,2252773967,none,Test transaction for ValidateCustomerPaymentProfile.,0.00,CC,auth_only,10002,robert,test,,test,test,HI,07310,US,,,,,,,,,,,,0.00,0.00,0.00,FALSE,none,1C6B41DEC8D31398A91CDE8E2345D3BD,P,2,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/11/2016 7:12:27 PM CreateTransaction
+3/11/2016 7:12:28 PM Response Code: Error
+3/11/2016 7:12:28 PM Message: A duplicate transaction has been submitted.
+3/11/2016 7:12:28 PM DIRECT: 3,1,11,A duplicate transaction has been submitted.,,P,0,invoice7:12 PM,,49.00,CC,auth_capture,10002,robert,test,,test,test,HI,07310,US,,,,,,,,,,,,,,,,,2DC07143292478080B01B8726FBB08A1,,,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/11/2016 7:12:28 PM ===============================
+3/11/2016 7:20:08 PM ===============================
+3/11/2016 7:20:08 PM Pay 0
+3/11/2016 7:20:08 PM CreateTransaction
+3/11/2016 7:20:10 PM Response Code: Ok
+3/11/2016 7:20:10 PM Message: Successful.
+3/11/2016 7:20:10 PM DIRECT: 1,1,1,This transaction has been approved.,4PC14Q,Y,2252774136,invoice7:20 PM,,49.00,CC,auth_capture,10002,robert,test,,test,test,HI,07310,US,,,,,,,,,,,,,,,,,568A977BC45784FC0E7256D7EEB39055,,2,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/11/2016 7:20:10 PM ===============================
+3/11/2016 7:20:15 PM ===============================
+3/11/2016 7:20:15 PM Pay 0
+3/11/2016 7:20:15 PM CreateTransaction
+3/11/2016 7:20:15 PM Response Code: Error
+3/11/2016 7:20:15 PM Message: A duplicate transaction has been submitted.
+3/11/2016 7:20:15 PM DIRECT: 3,1,11,A duplicate transaction has been submitted.,4PC14Q,Y,2252774136,invoice7:20 PM,,49.00,CC,auth_capture,10002,robert,test,,test,test,HI,07310,US,,,,,,,,,,,,,,,,,568A977BC45784FC0E7256D7EEB39055,,,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/11/2016 7:20:15 PM ===============================
+3/11/2016 7:20:54 PM ===============================
+3/11/2016 7:20:54 PM Pay 0
+3/11/2016 7:20:54 PM CreateTransaction
+3/11/2016 7:20:55 PM Response Code: Ok
+3/11/2016 7:20:55 PM Message: Successful.
+3/11/2016 7:20:55 PM DIRECT: 1,1,1,This transaction has been approved.,GKALJ6,Y,2252774165,invoice7:20 PM,,49.00,CC,auth_capture,10002,robert,test,,test,test,HI,07310,US,,,,,,,,,,,,,,,,,F16E80FD83910545DEAFC7E831713626,,2,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/11/2016 7:20:55 PM ===============================
+3/11/2016 7:21:09 PM ===============================
+3/11/2016 7:21:09 PM Pay 0
+3/11/2016 7:21:09 PM CreateTransaction
+3/11/2016 7:21:10 PM Response Code: Ok
+3/11/2016 7:21:10 PM Message: Successful.
+3/11/2016 7:21:10 PM DIRECT: 1,1,1,This transaction has been approved.,XE0KUH,Y,2252774169,invoice7:21 PM,,49.00,CC,auth_capture,10002,robert,test,,test,test,HI,07310,US,,,,,,,,,,,,,,,,,52EE72A9C851742A6A1053E503421F1F,,2,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/11/2016 7:21:10 PM ===============================
+3/11/2016 7:21:14 PM ===============================
+3/11/2016 7:21:14 PM Pay 0
+3/11/2016 7:21:14 PM CreateTransaction
+3/11/2016 7:21:15 PM Response Code: Error
+3/11/2016 7:21:15 PM Message: A duplicate transaction has been submitted.
+3/11/2016 7:21:15 PM DIRECT: 3,1,11,A duplicate transaction has been submitted.,XE0KUH,Y,2252774169,invoice7:21 PM,,49.00,CC,auth_capture,10002,robert,test,,test,test,HI,07310,US,,,,,,,,,,,,,,,,,52EE72A9C851742A6A1053E503421F1F,,,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/11/2016 7:21:15 PM ===============================
+3/11/2016 7:21:20 PM ===============================
+3/11/2016 7:21:20 PM Pay 0
+3/11/2016 7:21:20 PM CreateTransaction
+3/11/2016 7:21:20 PM Response Code: Error
+3/11/2016 7:21:20 PM Message: A duplicate transaction has been submitted.
+3/11/2016 7:21:20 PM DIRECT: 3,1,11,A duplicate transaction has been submitted.,XE0KUH,Y,2252774169,invoice7:21 PM,,49.00,CC,auth_capture,10002,robert,test,,test,test,HI,07310,US,,,,,,,,,,,,,,,,,52EE72A9C851742A6A1053E503421F1F,,,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/11/2016 7:21:20 PM ===============================
+3/11/2016 7:23:35 PM ===============================
+3/11/2016 7:23:35 PM Pay 0
+3/11/2016 7:23:35 PM CreateTransaction
+3/11/2016 7:23:37 PM Response Code: Ok
+3/11/2016 7:23:37 PM Message: Successful.
+3/11/2016 7:23:37 PM DIRECT: 1,1,1,This transaction has been approved.,P0LFXX,Y,2252774246,invoice7:23 PM,,49.00,CC,auth_capture,10002,robert,test,,test,test,HI,07310,US,,,,,,,,,,,,,,,,,2E3D427648232B2660571DF4E65F8F11,,2,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/11/2016 7:23:37 PM ===============================
+3/11/2016 7:23:41 PM ===============================
+3/11/2016 7:23:41 PM Pay 0
+3/11/2016 7:23:41 PM CreateTransaction
+3/11/2016 7:23:42 PM Response Code: Error
+3/11/2016 7:23:42 PM Message: A duplicate transaction has been submitted.
+3/11/2016 7:23:42 PM Exception: String cannot be of zero length.
+Parameter name: oldValue
+3/11/2016 7:23:55 PM ===============================
+3/11/2016 7:23:55 PM Pay 0
+3/11/2016 7:23:55 PM CreateTransaction
+3/11/2016 7:23:56 PM Response Code: Error
+3/11/2016 7:23:56 PM Message: A duplicate transaction has been submitted.
+3/11/2016 7:24:21 PM Exception: String cannot be of zero length.
+Parameter name: oldValue
+3/11/2016 7:26:05 PM ===============================
+3/11/2016 7:26:05 PM Pay 0
+3/11/2016 7:26:05 PM CreateTransaction
+3/11/2016 7:26:07 PM Response Code: Ok
+3/11/2016 7:26:07 PM Message: Successful.
+3/11/2016 7:26:07 PM DIRECT: 1,1,1,This transaction has been approved.,UZQL9F,Y,2252774292,invoice7:26 PM,,49.00,CC,auth_capture,10002,robert,test,,test,test,HI,07310,US,,,,,,,,,,,,,,,,,AE5E771D7602F85EE560A31E05F86EE0,,2,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/11/2016 7:26:07 PM ===============================
+3/11/2016 7:26:12 PM ===============================
+3/11/2016 7:26:12 PM Pay 0
+3/11/2016 7:26:12 PM CreateTransaction
+3/11/2016 7:26:13 PM Response Code: Error
+3/11/2016 7:26:13 PM Message: A duplicate transaction has been submitted.
+3/11/2016 7:26:13 PM DIRECT: 3,1,11,A duplicate transaction has been submitted.,UZQL9F,Y,2252774292,invoice7:26 PM,,49.00,CC,auth_capture,10002,robert,test,,test,test,HI,07310,US,,,,,,,,,,,,,,,,,AE5E771D7602F85EE560A31E05F86EE0,,,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/11/2016 7:26:13 PM ===============================
+3/11/2016 7:26:22 PM ===============================
+3/11/2016 7:26:22 PM Pay 0
+3/11/2016 7:26:22 PM CreateTransaction
+3/11/2016 7:26:23 PM Response Code: Error
+3/11/2016 7:26:23 PM Message: A duplicate transaction has been submitted.
+3/11/2016 7:26:23 PM DIRECT: 3,1,11,A duplicate transaction has been submitted.,UZQL9F,Y,2252774292,invoice7:26 PM,,49.00,CC,auth_capture,10002,robert,test,,test,test,HI,07310,US,,,,,,,,,,,,,,,,,AE5E771D7602F85EE560A31E05F86EE0,,,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/11/2016 7:26:23 PM ===============================
+3/11/2016 7:26:56 PM ===============================
+3/11/2016 7:26:56 PM Pay 0
+3/11/2016 7:26:56 PM CreateTransaction
+3/11/2016 7:26:57 PM Response Code: Ok
+3/11/2016 7:26:57 PM Message: Successful.
+3/11/2016 7:26:57 PM DIRECT: 1,1,1,This transaction has been approved.,TLF1WX,Y,2252774312,invoice7:26 PM,,49.00,CC,auth_capture,10002,robert,test,,test,test,HI,07310,US,,,,,,,,,,,,,,,,,BD3A64FF6D51F16209FFFAFDBDF46AA7,,2,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/11/2016 7:26:57 PM ===============================
+3/11/2016 7:29:10 PM ===============================
+3/11/2016 7:29:10 PM Pay 10002
+3/11/2016 7:29:10 PM GetOrCreateCustomerProfile
+3/11/2016 7:29:11 PM Message: A duplicate record with ID 39889377 already exists.
+3/11/2016 7:29:11 PM SetCustomerPaymentProfile
+3/11/2016 7:29:12 PM profile_id:39889377 Ok
+3/11/2016 7:29:12 PM profiles: 1
+3/11/2016 7:29:12 PM customerPaymentProfileId: 36190402
+3/11/2016 7:29:12 PM Response Code: Ok
+3/11/2016 7:29:12 PM Message: Successful.
+3/11/2016 7:29:12 PM DIRECT: 1,1,1,This transaction has been approved.,CAONZ1,Y,2252774359,none,Test transaction for ValidateCustomerPaymentProfile.,0.00,CC,auth_only,10002,robert,test,,test,test,IL,07310,US,,,,,,,,,,,,0.00,0.00,0.00,FALSE,none,38E2BC0EFEF9F50FE056466792D5E08F,P,2,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/11/2016 7:29:12 PM CreateTransaction
+3/11/2016 7:29:13 PM Response Code: Ok
+3/11/2016 7:29:13 PM Message: Successful.
+3/11/2016 7:29:13 PM DIRECT: 1,1,1,This transaction has been approved.,RZBX1I,Y,2252774360,invoice7:29 PM,,49.00,CC,auth_capture,10002,robert,test,,test,test,IL,07310,US,,,,,,,,,,,,,,,,,CE7F93414924D18F6F696E3BE971371E,,2,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/11/2016 7:29:13 PM ===============================
+3/11/2016 7:29:18 PM ===============================
+3/11/2016 7:29:18 PM Pay 10002
+3/11/2016 7:29:18 PM GetOrCreateCustomerProfile
+3/11/2016 7:29:19 PM Message: A duplicate record with ID 39889377 already exists.
+3/11/2016 7:29:19 PM SetCustomerPaymentProfile
+3/11/2016 7:29:20 PM profile_id:39889377 Ok
+3/11/2016 7:29:20 PM profiles: 1
+3/11/2016 7:29:20 PM customerPaymentProfileId: 36190402
+3/11/2016 7:29:20 PM Response Code: Ok
+3/11/2016 7:29:20 PM Message: Successful.
+3/11/2016 7:29:20 PM DIRECT: 1,1,1,This transaction has been approved.,QO36YO,Y,2252774362,none,Test transaction for ValidateCustomerPaymentProfile.,0.00,CC,auth_only,10002,robert,test,,test,test,IL,07310,US,,,,,,,,,,,,0.00,0.00,0.00,FALSE,none,C3658CB4B5E23335F0BD2CEAD5E03F11,P,2,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/11/2016 7:29:20 PM CreateTransaction
+3/11/2016 7:29:21 PM Response Code: Error
+3/11/2016 7:29:21 PM Message: A duplicate transaction has been submitted.
+3/11/2016 7:29:21 PM DIRECT: 3,1,11,A duplicate transaction has been submitted.,RZBX1I,Y,2252774360,invoice7:29 PM,,49.00,CC,auth_capture,10002,robert,test,,test,test,IL,07310,US,,,,,,,,,,,,,,,,,CE7F93414924D18F6F696E3BE971371E,,,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/11/2016 7:29:21 PM ===============================
+3/11/2016 7:30:57 PM ===============================
+3/11/2016 7:30:57 PM Pay 0
+3/11/2016 7:30:57 PM CreateTransaction
+3/11/2016 7:30:58 PM Response Code: Ok
+3/11/2016 7:30:58 PM Message: Successful.
+3/11/2016 7:30:58 PM DIRECT: 1,1,1,This transaction has been approved.,WWYQF1,Y,2252774393,invoice7:30 PM,,49.00,CC,auth_capture,10002,robert,test,,test,test,IL,07310,US,,,,,,,,,,,,,,,,,BF66BEC5F349205C74B427B0D391A32F,,2,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/11/2016 7:30:58 PM ===============================
+3/11/2016 7:31:03 PM ===============================
+3/11/2016 7:31:03 PM Pay 0
+3/11/2016 7:31:03 PM CreateTransaction
+3/11/2016 7:31:04 PM Response Code: Ok
+3/11/2016 7:31:04 PM Message: Successful.
+3/11/2016 7:31:04 PM DIRECT: 1,1,1,This transaction has been approved.,MZE3IV,Y,2252774397,invoice7:31 PM,,49.00,CC,auth_capture,10002,robert,test,,test,test,IL,07310,US,,,,,,,,,,,,,,,,,3A36F5DAB55014EA19F1FEAED488D4AD,,2,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/11/2016 7:31:04 PM ===============================
+3/11/2016 7:31:08 PM ===============================
+3/11/2016 7:31:08 PM Pay 0
+3/11/2016 7:31:08 PM CreateTransaction
+3/11/2016 7:31:09 PM Response Code: Error
+3/11/2016 7:31:09 PM Message: A duplicate transaction has been submitted.
+3/11/2016 7:31:09 PM DIRECT: 3,1,11,A duplicate transaction has been submitted.,MZE3IV,Y,2252774397,invoice7:31 PM,,49.00,CC,auth_capture,10002,robert,test,,test,test,IL,07310,US,,,,,,,,,,,,,,,,,3A36F5DAB55014EA19F1FEAED488D4AD,,,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/11/2016 7:31:09 PM ===============================
+3/11/2016 7:31:51 PM ===============================
+3/11/2016 7:31:51 PM Pay 0
+3/11/2016 7:31:51 PM CreateTransaction
+3/11/2016 7:31:52 PM Response Code: Ok
+3/11/2016 7:31:52 PM Message: Successful.
+3/11/2016 7:31:52 PM DIRECT: 1,1,1,This transaction has been approved.,3B434X,Y,2252774409,invoice7:31 PM,,49.00,CC,auth_capture,10002,robert,test,,test,test,IL,07310,US,,,,,,,,,,,,,,,,,EE029B4BC6481B7AB8403DF54C6F805E,,2,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/11/2016 7:31:52 PM ===============================
+3/11/2016 7:32:02 PM ===============================
+3/11/2016 7:32:02 PM Pay 0
+3/11/2016 7:32:02 PM CreateTransaction
+3/11/2016 7:32:03 PM Response Code: Ok
+3/11/2016 7:32:03 PM Message: Successful.
+3/11/2016 7:32:03 PM DIRECT: 1,1,1,This transaction has been approved.,KPT6RN,Y,2252774411,invoice7:32 PM,,49.00,CC,auth_capture,10002,robert,test,,test,test,IL,07310,US,,,,,,,,,,,,,,,,,2A658EC68B7347627C867030FDA2ADE4,,2,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/11/2016 7:32:03 PM ===============================
+3/11/2016 7:34:34 PM ===============================
+3/11/2016 7:34:34 PM Pay 0
+3/11/2016 7:34:34 PM CreateTransaction
+3/11/2016 7:34:34 PM Response Code: Ok
+3/11/2016 7:34:34 PM Message: Successful.
+3/11/2016 7:34:34 PM DIRECT: 1,1,1,This transaction has been approved.,28T6QH,Y,2252774464,invoice7:34 PM,,49.00,CC,auth_capture,10002,robert,test,,test,test,IL,07310,US,,,,,,,,,,,,,,,,,F037A5313088442D750B3BE022D57A2F,,2,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/11/2016 7:34:34 PM ===============================
+3/11/2016 8:02:38 PM ===============================
+3/11/2016 8:02:38 PM Pay 0
+3/11/2016 8:02:38 PM CreateTransaction
+3/11/2016 8:02:40 PM Response Code: Ok
+3/11/2016 8:02:40 PM Message: Successful.
+3/11/2016 8:02:40 PM DIRECT: 1,1,1,This transaction has been approved.,RKKTG7,Y,2252775151,invoice8:02 PM,,49.00,CC,auth_capture,10002,robert,test,,test,test,IL,07310,US,,,,,,,,,,,,,,,,,338732D400E0160EC12429EADA82C035,,2,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/11/2016 8:02:40 PM ===============================
+3/11/2016 8:02:45 PM ===============================
+3/11/2016 8:02:45 PM Pay 0
+3/11/2016 8:02:45 PM CreateTransaction
+3/11/2016 8:02:45 PM Response Code: Error
+3/11/2016 8:02:45 PM Message: A duplicate transaction has been submitted.
+3/11/2016 8:02:45 PM DIRECT: 3,1,11,A duplicate transaction has been submitted.,RKKTG7,Y,2252775151,invoice8:02 PM,,49.00,CC,auth_capture,10002,robert,test,,test,test,IL,07310,US,,,,,,,,,,,,,,,,,338732D400E0160EC12429EADA82C035,,,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/11/2016 8:02:45 PM ===============================
+3/11/2016 8:06:06 PM ===============================
+3/11/2016 8:06:06 PM Pay 0
+3/11/2016 8:06:06 PM CreateTransaction
+3/11/2016 8:06:06 PM Response Code: Ok
+3/11/2016 8:06:06 PM Message: Successful.
+3/11/2016 8:06:06 PM DIRECT: 1,1,1,This transaction has been approved.,8BAMZD,Y,2252775237,invoice8:06 PM,,49.00,CC,auth_capture,10002,robert,test,,test,test,IL,07310,US,,,,,,,,,,,,,,,,,D0F6D6F449432F0FEF940D4E4D01D196,,2,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/11/2016 8:06:06 PM ===============================
+3/11/2016 8:06:12 PM ===============================
+3/11/2016 8:06:12 PM Pay 0
+3/11/2016 8:06:12 PM CreateTransaction
+3/11/2016 8:06:13 PM Response Code: Error
+3/11/2016 8:06:13 PM Message: A duplicate transaction has been submitted.
+3/11/2016 8:06:13 PM DIRECT: 3,1,11,A duplicate transaction has been submitted.,8BAMZD,Y,2252775237,invoice8:06 PM,,49.00,CC,auth_capture,10002,robert,test,,test,test,IL,07310,US,,,,,,,,,,,,,,,,,D0F6D6F449432F0FEF940D4E4D01D196,,,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/11/2016 8:06:13 PM ===============================
+3/11/2016 8:06:34 PM ===============================
+3/11/2016 8:06:34 PM Pay 0
+3/11/2016 8:06:34 PM CreateTransaction
+3/11/2016 8:06:35 PM Response Code: Ok
+3/11/2016 8:06:35 PM Message: Successful.
+3/11/2016 8:06:35 PM DIRECT: 1,1,1,This transaction has been approved.,JIJSRL,Y,2252775246,invoice8:06 PM,,99.00,CC,auth_capture,10002,robert,test,,test,test,IL,07310,US,,,,,,,,,,,,,,,,,1CA0A17C59A7F503EF4C655FABD1A416,,2,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/11/2016 8:06:35 PM ===============================
+3/11/2016 8:09:12 PM ===============================
+3/11/2016 8:09:30 PM Pay 0
+3/11/2016 8:09:30 PM CreateTransaction
+3/11/2016 8:09:31 PM Response Code: Ok
+3/11/2016 8:09:31 PM Message: Successful.
+3/11/2016 8:09:31 PM DIRECT: 1,1,1,This transaction has been approved.,ST859W,Y,2252775375,invoice8:09 PM,,49.00,CC,auth_capture,10002,robert,test,,test,test,IL,07310,US,,,,,,,,,,,,,,,,,01A5654C3213C7D6C0DB002614874417,,2,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/11/2016 8:09:31 PM ===============================
+3/11/2016 8:10:02 PM ===============================
+3/11/2016 8:10:07 PM Pay 10002
+3/11/2016 8:10:07 PM CreateTransaction
+3/11/2016 8:10:08 PM Response Code: Ok
+3/11/2016 8:10:08 PM Message: Successful.
+3/11/2016 8:10:08 PM DIRECT: 1,1,1,This transaction has been approved.,VBE59Z,Y,2252775404,invoice8:10 PM,,199.00,CC,auth_capture,10002,robert,test,,test,test,IL,07310,US,,,,,,,,,,,,,,,,,8F19967E4DAC06D9065E9D707A8AC105,,2,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/11/2016 8:10:08 PM ===============================
+3/11/2016 8:10:13 PM ===============================
+3/11/2016 8:10:13 PM Pay 10002
+3/11/2016 8:10:13 PM CreateTransaction
+3/11/2016 8:10:14 PM Response Code: Error
+3/11/2016 8:10:14 PM Message: A duplicate transaction has been submitted.
+3/11/2016 8:10:14 PM DIRECT: 3,1,11,A duplicate transaction has been submitted.,VBE59Z,Y,2252775404,invoice8:10 PM,,199.00,CC,auth_capture,10002,robert,test,,test,test,IL,07310,US,,,,,,,,,,,,,,,,,8F19967E4DAC06D9065E9D707A8AC105,,,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/11/2016 8:10:14 PM ===============================
+3/11/2016 8:10:20 PM ===============================
+3/11/2016 8:10:20 PM Pay 10002
+3/11/2016 8:10:20 PM CreateTransaction
+3/11/2016 8:10:21 PM Response Code: Error
+3/11/2016 8:10:21 PM Message: A duplicate transaction has been submitted.
+3/11/2016 8:10:21 PM DIRECT: 3,1,11,A duplicate transaction has been submitted.,VBE59Z,Y,2252775404,invoice8:10 PM,,199.00,CC,auth_capture,10002,robert,test,,test,test,IL,07310,US,,,,,,,,,,,,,,,,,8F19967E4DAC06D9065E9D707A8AC105,,,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/11/2016 8:10:21 PM ===============================
+3/11/2016 8:10:37 PM ===============================
+3/11/2016 8:10:37 PM Pay 10002
+3/11/2016 8:10:37 PM CreateTransaction
+3/11/2016 8:10:38 PM Response Code: Error
+3/11/2016 8:10:38 PM Message: A duplicate transaction has been submitted.
+3/11/2016 8:10:38 PM DIRECT: 3,1,11,A duplicate transaction has been submitted.,VBE59Z,Y,2252775404,invoice8:10 PM,,199.00,CC,auth_capture,10002,robert,test,,test,test,IL,07310,US,,,,,,,,,,,,,,,,,8F19967E4DAC06D9065E9D707A8AC105,,,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/11/2016 8:10:38 PM ===============================
+3/11/2016 8:10:57 PM ===============================
+3/11/2016 8:10:57 PM Pay 10002
+3/11/2016 8:10:57 PM CreateTransaction
+3/11/2016 8:10:58 PM Response Code: Ok
+3/11/2016 8:10:58 PM Message: Successful.
+3/11/2016 8:10:58 PM DIRECT: 1,1,1,This transaction has been approved.,EZ6HR9,Y,2252775446,invoice8:10 PM,,199.00,CC,auth_capture,10002,robert,test,,test,test,IL,07310,US,,,,,,,,,,,,,,,,,6422D54578658D711792444A26096BE7,,2,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/11/2016 8:10:58 PM ===============================
+3/11/2016 8:11:03 PM ===============================
+3/11/2016 8:11:03 PM Pay 10002
+3/11/2016 8:11:03 PM CreateTransaction
+3/11/2016 8:11:04 PM Response Code: Ok
+3/11/2016 8:11:04 PM Message: Successful.
+3/11/2016 8:11:04 PM DIRECT: 1,1,1,This transaction has been approved.,4G3X1W,Y,2252775455,invoice8:11 PM,,199.00,CC,auth_capture,10002,robert,test,,test,test,IL,07310,US,,,,,,,,,,,,,,,,,5F7436282F3531813300E8C0E3864333,,2,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/11/2016 8:11:04 PM ===============================
+3/11/2016 8:11:08 PM ===============================
+3/11/2016 8:11:08 PM Pay 10002
+3/11/2016 8:11:08 PM CreateTransaction
+3/11/2016 8:11:09 PM Response Code: Error
+3/11/2016 8:11:09 PM Message: A duplicate transaction has been submitted.
+3/11/2016 8:11:09 PM DIRECT: 3,1,11,A duplicate transaction has been submitted.,4G3X1W,Y,2252775455,invoice8:11 PM,,199.00,CC,auth_capture,10002,robert,test,,test,test,IL,07310,US,,,,,,,,,,,,,,,,,5F7436282F3531813300E8C0E3864333,,,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/11/2016 8:11:09 PM ===============================
+3/13/2016 11:34:25 AM ===============================
+3/13/2016 11:34:25 AM Pay 10002
+3/13/2016 11:34:25 AM GetOrCreateCustomerProfile
+3/13/2016 11:34:28 AM Message: A duplicate record with ID 39889377 already exists.
+3/13/2016 11:34:28 AM SetCustomerPaymentProfile
+3/13/2016 11:34:28 AM profile_id:39889377 Ok
+3/13/2016 11:34:28 AM profiles: 1
+3/13/2016 11:34:28 AM customerPaymentProfileId: 36190402
+3/13/2016 11:34:29 AM Response Code: Error
+3/13/2016 11:34:29 AM Message: The credit card has expired.
+3/13/2016 11:34:29 AM DIRECT: 3,1,8,The credit card has expired.,,P,0,none,Test transaction for ValidateCustomerPaymentProfile.,0.00,CC,auth_only,10002,robert,test,,test,test,CT,46205,US,,,,,,,,,,,,0.00,0.00,0.00,FALSE,none,F68A9C87C1E1472521704EF38C21F647,,,,,,,,,,,,,XXXX0015,MasterCard,,,,,,,,,,,,,,,,
+3/13/2016 11:34:29 AM ===============================
+3/13/2016 11:35:03 AM ===============================
+3/13/2016 11:35:03 AM Pay 10002
+3/13/2016 11:35:03 AM GetOrCreateCustomerProfile
+3/13/2016 11:35:03 AM Message: A duplicate record with ID 39889377 already exists.
+3/13/2016 11:35:03 AM SetCustomerPaymentProfile
+3/13/2016 11:35:04 AM profile_id:39889377 Ok
+3/13/2016 11:35:04 AM profiles: 1
+3/13/2016 11:35:04 AM customerPaymentProfileId: 36190402
+3/13/2016 11:35:05 AM Response Code: Error
+3/13/2016 11:35:05 AM Message: The transaction has been declined because of an AVS mismatch. The address provided does not match billing address of cardholder.
+3/13/2016 11:35:05 AM DIRECT: 2,2,27,The transaction has been declined because of an AVS mismatch. The address provided does not match billing address of cardholder.,KZNGBB,N,2252843630,none,Test transaction for ValidateCustomerPaymentProfile.,0.00,CC,auth_only,10002,robert,test,,test,test,CT,46205,US,,,,,,,,,,,,0.00,0.00,0.00,FALSE,none,245C6752E4C6B71E87A137E9A2FE5915,P,2,,,,,,,,,,,XXXX0015,MasterCard,,,,,,,,,,,,,,,,
+3/13/2016 11:35:05 AM ===============================
+3/13/2016 6:04:07 PM ===============================
+3/13/2016 6:04:07 PM Pay 10002
+3/13/2016 6:04:07 PM CreateTransaction
+3/13/2016 6:04:09 PM Response Code: Ok
+3/13/2016 6:04:09 PM Message: Successful.
+3/13/2016 6:04:09 PM DIRECT: 1,1,1,This transaction has been approved.,23RH7N,Y,2252850321,Invoice 635934890474,,99.00,CC,auth_capture,10002,robert,test,,test,test,IL,07310,US,,,,,,,,,,,,,,,,,579FA6A354591D152FB9442CE78F416D,,2,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/13/2016 6:04:10 PM ===============================
+3/13/2016 6:06:32 PM ===============================
+3/13/2016 6:06:32 PM Pay 10002
+3/13/2016 6:06:32 PM GetOrCreateCustomerProfile
+3/13/2016 6:06:33 PM Message: A duplicate record with ID 39889377 already exists.
+3/13/2016 6:06:33 PM SetCustomerPaymentProfile
+3/13/2016 6:06:33 PM profile_id:39889377 Ok
+3/13/2016 6:06:33 PM profiles: 1
+3/13/2016 6:06:33 PM customerPaymentProfileId: 36190402
+3/13/2016 6:06:34 PM Response Code: Error
+3/13/2016 6:06:34 PM Message: The credit card number is invalid.
+3/13/2016 6:06:34 PM DIRECT: 3,1,6,The credit card number is invalid.,,P,0,none,Test transaction for ValidateCustomerPaymentProfile.,0.00,CC,auth_only,10002,robert,vozd,,test,test,CO,07310,US,,,,,,,,,,,,0.00,0.00,0.00,FALSE,none,F68A9C87C1E1472521704EF38C21F647,,,,,,,,,,,,,XXXX1112,,,,,,,,,,,,,,,,,
+3/13/2016 6:06:34 PM ===============================
+3/13/2016 6:06:44 PM ===============================
+3/13/2016 6:06:44 PM Pay 10002
+3/13/2016 6:06:44 PM GetOrCreateCustomerProfile
+3/13/2016 6:06:45 PM Message: A duplicate record with ID 39889377 already exists.
+3/13/2016 6:06:45 PM SetCustomerPaymentProfile
+3/13/2016 6:06:45 PM profile_id:39889377 Ok
+3/13/2016 6:06:45 PM profiles: 1
+3/13/2016 6:06:45 PM customerPaymentProfileId: 36190402
+3/13/2016 6:06:46 PM Response Code: Error
+3/13/2016 6:06:46 PM Message: The credit card number is invalid.
+3/13/2016 6:06:46 PM DIRECT: 3,1,6,The credit card number is invalid.,,P,0,none,Test transaction for ValidateCustomerPaymentProfile.,0.00,CC,auth_only,10002,robert,vozd,,test,test,CO,07310,US,,,,,,,,,,,,0.00,0.00,0.00,FALSE,none,F68A9C87C1E1472521704EF38C21F647,,,,,,,,,,,,,XXXX1112,,,,,,,,,,,,,,,,,
+3/13/2016 6:06:46 PM ===============================
+3/13/2016 6:06:50 PM ===============================
+3/13/2016 6:06:50 PM Pay 10002
+3/13/2016 6:06:50 PM GetOrCreateCustomerProfile
+3/13/2016 6:06:50 PM Message: A duplicate record with ID 39889377 already exists.
+3/13/2016 6:06:50 PM SetCustomerPaymentProfile
+3/13/2016 6:06:51 PM profile_id:39889377 Ok
+3/13/2016 6:06:51 PM profiles: 1
+3/13/2016 6:06:51 PM customerPaymentProfileId: 36190402
+3/13/2016 6:06:51 PM Response Code: Error
+3/13/2016 6:06:51 PM Message: The credit card number is invalid.
+3/13/2016 6:06:51 PM DIRECT: 3,1,6,The credit card number is invalid.,,P,0,none,Test transaction for ValidateCustomerPaymentProfile.,0.00,CC,auth_only,10002,robert,vozd,,test,test,CO,07310,US,,,,,,,,,,,,0.00,0.00,0.00,FALSE,none,F68A9C87C1E1472521704EF38C21F647,,,,,,,,,,,,,XXXX1112,,,,,,,,,,,,,,,,,
+3/13/2016 6:06:51 PM ===============================
+3/13/2016 6:06:57 PM ===============================
+3/13/2016 6:06:57 PM Pay 10002
+3/13/2016 6:06:57 PM GetOrCreateCustomerProfile
+3/13/2016 6:06:57 PM Message: A duplicate record with ID 39889377 already exists.
+3/13/2016 6:06:57 PM SetCustomerPaymentProfile
+3/13/2016 6:06:58 PM profile_id:39889377 Ok
+3/13/2016 6:06:58 PM profiles: 1
+3/13/2016 6:06:58 PM customerPaymentProfileId: 36190402
+3/13/2016 6:06:58 PM Response Code: Error
+3/13/2016 6:06:58 PM Message: The credit card number is invalid.
+3/13/2016 6:06:58 PM DIRECT: 3,1,6,The credit card number is invalid.,,P,0,none,Test transaction for ValidateCustomerPaymentProfile.,0.00,CC,auth_only,10002,robert,vozd,,test,test,CO,07310,US,,,,,,,,,,,,0.00,0.00,0.00,FALSE,none,F68A9C87C1E1472521704EF38C21F647,,,,,,,,,,,,,XXXX1112,,,,,,,,,,,,,,,,,
+3/13/2016 6:06:58 PM ===============================
+3/13/2016 6:07:06 PM ===============================
+3/13/2016 6:07:06 PM Pay 10002
+3/13/2016 6:07:06 PM GetOrCreateCustomerProfile
+3/13/2016 6:07:06 PM Message: A duplicate record with ID 39889377 already exists.
+3/13/2016 6:07:06 PM SetCustomerPaymentProfile
+3/13/2016 6:07:07 PM profile_id:39889377 Ok
+3/13/2016 6:07:07 PM profiles: 1
+3/13/2016 6:07:07 PM customerPaymentProfileId: 36190402
+3/13/2016 6:07:08 PM Response Code: Error
+3/13/2016 6:07:08 PM Message: The credit card number is invalid.
+3/13/2016 6:07:08 PM DIRECT: 3,1,6,The credit card number is invalid.,,P,0,none,Test transaction for ValidateCustomerPaymentProfile.,0.00,CC,auth_only,10002,robert,vozd,,test,test,CO,07310,US,,,,,,,,,,,,0.00,0.00,0.00,FALSE,none,F68A9C87C1E1472521704EF38C21F647,,,,,,,,,,,,,XXXX1112,,,,,,,,,,,,,,,,,
+3/13/2016 6:07:08 PM ===============================
+3/13/2016 6:07:54 PM ===============================
+3/13/2016 6:07:54 PM Pay 10002
+3/13/2016 6:07:54 PM GetOrCreateCustomerProfile
+3/13/2016 6:07:54 PM Message: A duplicate record with ID 39889377 already exists.
+3/13/2016 6:07:54 PM SetCustomerPaymentProfile
+3/13/2016 6:07:55 PM profile_id:39889377 Ok
+3/13/2016 6:07:55 PM profiles: 1
+3/13/2016 6:07:55 PM customerPaymentProfileId: 36190402
+3/13/2016 6:07:56 PM Response Code: Error
+3/13/2016 6:07:56 PM Message: The credit card number is invalid.
+3/13/2016 6:07:56 PM DIRECT: 3,1,6,The credit card number is invalid.,,P,0,none,Test transaction for ValidateCustomerPaymentProfile.,0.00,CC,auth_only,10002,robert,vozd,,test,test,CO,07310,US,,,,,,,,,,,,0.00,0.00,0.00,FALSE,none,F68A9C87C1E1472521704EF38C21F647,,,,,,,,,,,,,XXXX1112,,,,,,,,,,,,,,,,,
+3/13/2016 6:07:56 PM ===============================
+3/13/2016 6:08:00 PM ===============================
+3/13/2016 6:08:00 PM Pay 10002
+3/13/2016 6:08:00 PM GetOrCreateCustomerProfile
+3/13/2016 6:08:01 PM Message: A duplicate record with ID 39889377 already exists.
+3/13/2016 6:08:01 PM SetCustomerPaymentProfile
+3/13/2016 6:08:01 PM profile_id:39889377 Ok
+3/13/2016 6:08:01 PM profiles: 1
+3/13/2016 6:08:01 PM customerPaymentProfileId: 36190402
+3/13/2016 6:08:02 PM Response Code: Error
+3/13/2016 6:08:02 PM Message: The credit card number is invalid.
+3/13/2016 6:08:02 PM DIRECT: 3,1,6,The credit card number is invalid.,,P,0,none,Test transaction for ValidateCustomerPaymentProfile.,0.00,CC,auth_only,10002,robert,vozd,,test,test,CO,07310,US,,,,,,,,,,,,0.00,0.00,0.00,FALSE,none,F68A9C87C1E1472521704EF38C21F647,,,,,,,,,,,,,XXXX1112,,,,,,,,,,,,,,,,,
+3/13/2016 6:08:02 PM ===============================
+3/13/2016 6:08:06 PM ===============================
+3/13/2016 6:08:06 PM Pay 10002
+3/13/2016 6:08:06 PM GetOrCreateCustomerProfile
+3/13/2016 6:08:06 PM Message: A duplicate record with ID 39889377 already exists.
+3/13/2016 6:08:06 PM SetCustomerPaymentProfile
+3/13/2016 6:08:07 PM profile_id:39889377 Ok
+3/13/2016 6:08:07 PM profiles: 1
+3/13/2016 6:08:07 PM customerPaymentProfileId: 36190402
+3/13/2016 6:08:07 PM Response Code: Error
+3/13/2016 6:08:07 PM Message: The credit card number is invalid.
+3/13/2016 6:08:07 PM DIRECT: 3,1,6,The credit card number is invalid.,,P,0,none,Test transaction for ValidateCustomerPaymentProfile.,0.00,CC,auth_only,10002,robert,vozd,,test,test,CO,07310,US,,,,,,,,,,,,0.00,0.00,0.00,FALSE,none,F68A9C87C1E1472521704EF38C21F647,,,,,,,,,,,,,XXXX1112,,,,,,,,,,,,,,,,,
+3/13/2016 6:08:07 PM ===============================
+3/13/2016 6:08:13 PM ===============================
+3/13/2016 6:08:13 PM Pay 10002
+3/13/2016 6:08:13 PM GetOrCreateCustomerProfile
+3/13/2016 6:08:14 PM Message: A duplicate record with ID 39889377 already exists.
+3/13/2016 6:08:14 PM SetCustomerPaymentProfile
+3/13/2016 6:08:14 PM profile_id:39889377 Ok
+3/13/2016 6:08:14 PM profiles: 1
+3/13/2016 6:08:14 PM customerPaymentProfileId: 36190402
+3/13/2016 6:08:15 PM Response Code: Error
+3/13/2016 6:08:15 PM Message: The credit card number is invalid.
+3/13/2016 6:08:15 PM DIRECT: 3,1,6,The credit card number is invalid.,,P,0,none,Test transaction for ValidateCustomerPaymentProfile.,0.00,CC,auth_only,10002,robert,vozd,,test,test,CO,07310,US,,,,,,,,,,,,0.00,0.00,0.00,FALSE,none,F68A9C87C1E1472521704EF38C21F647,,,,,,,,,,,,,XXXX1112,,,,,,,,,,,,,,,,,
+3/13/2016 6:08:15 PM ===============================
+3/13/2016 6:08:47 PM ===============================
+3/13/2016 6:08:47 PM Pay 10002
+3/13/2016 6:08:47 PM GetOrCreateCustomerProfile
+3/13/2016 6:08:47 PM Message: A duplicate record with ID 39889377 already exists.
+3/13/2016 6:08:47 PM SetCustomerPaymentProfile
+3/13/2016 6:08:48 PM profile_id:39889377 Ok
+3/13/2016 6:08:48 PM profiles: 1
+3/13/2016 6:08:48 PM customerPaymentProfileId: 36190402
+3/13/2016 6:08:48 PM Response Code: Error
+3/13/2016 6:08:48 PM Message: The credit card number is invalid.
+3/13/2016 6:08:48 PM DIRECT: 3,1,6,The credit card number is invalid.,,P,0,none,Test transaction for ValidateCustomerPaymentProfile.,0.00,CC,auth_only,10002,robert,vozd,,test,test,CO,07310,US,,,,,,,,,,,,0.00,0.00,0.00,FALSE,none,F68A9C87C1E1472521704EF38C21F647,,,,,,,,,,,,,XXXX1112,,,,,,,,,,,,,,,,,
+3/13/2016 6:08:48 PM ===============================
+3/13/2016 6:08:57 PM ===============================
+3/13/2016 6:08:57 PM Pay 10002
+3/13/2016 6:08:57 PM GetOrCreateCustomerProfile
+3/13/2016 6:08:58 PM Message: A duplicate record with ID 39889377 already exists.
+3/13/2016 6:08:58 PM SetCustomerPaymentProfile
+3/13/2016 6:08:58 PM profile_id:39889377 Ok
+3/13/2016 6:08:58 PM profiles: 1
+3/13/2016 6:08:58 PM customerPaymentProfileId: 36190402
+3/13/2016 6:08:59 PM Response Code: Error
+3/13/2016 6:08:59 PM Message: The credit card has expired.
+3/13/2016 6:08:59 PM DIRECT: 3,1,8,The credit card has expired.,,P,0,none,Test transaction for ValidateCustomerPaymentProfile.,0.00,CC,auth_only,10002,robert,vozd,,test,test,CO,07310,US,,,,,,,,,,,,0.00,0.00,0.00,FALSE,none,F68A9C87C1E1472521704EF38C21F647,,,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/13/2016 6:08:59 PM ===============================
+3/13/2016 6:09:05 PM ===============================
+3/13/2016 6:09:05 PM Pay 10002
+3/13/2016 6:09:05 PM GetOrCreateCustomerProfile
+3/13/2016 6:09:06 PM Message: A duplicate record with ID 39889377 already exists.
+3/13/2016 6:09:06 PM SetCustomerPaymentProfile
+3/13/2016 6:09:06 PM profile_id:39889377 Ok
+3/13/2016 6:09:06 PM profiles: 1
+3/13/2016 6:09:06 PM customerPaymentProfileId: 36190402
+3/13/2016 6:09:07 PM Response Code: Error
+3/13/2016 6:09:07 PM Message: The credit card has expired.
+3/13/2016 6:09:07 PM DIRECT: 3,1,8,The credit card has expired.,,P,0,none,Test transaction for ValidateCustomerPaymentProfile.,0.00,CC,auth_only,10002,robert,vozd,,test,test,CO,07310,US,,,,,,,,,,,,0.00,0.00,0.00,FALSE,none,F68A9C87C1E1472521704EF38C21F647,,,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/13/2016 6:09:07 PM ===============================
+3/13/2016 6:09:12 PM ===============================
+3/13/2016 6:09:12 PM Pay 10002
+3/13/2016 6:09:12 PM GetOrCreateCustomerProfile
+3/13/2016 6:09:12 PM Message: A duplicate record with ID 39889377 already exists.
+3/13/2016 6:09:12 PM SetCustomerPaymentProfile
+3/13/2016 6:09:13 PM profile_id:39889377 Ok
+3/13/2016 6:09:13 PM profiles: 1
+3/13/2016 6:09:13 PM customerPaymentProfileId: 36190402
+3/13/2016 6:09:14 PM Response Code: Error
+3/13/2016 6:09:14 PM Message: The credit card has expired.
+3/13/2016 6:09:14 PM DIRECT: 3,1,8,The credit card has expired.,,P,0,none,Test transaction for ValidateCustomerPaymentProfile.,0.00,CC,auth_only,10002,robert,vozd,,test,test,CO,07310,US,,,,,,,,,,,,0.00,0.00,0.00,FALSE,none,F68A9C87C1E1472521704EF38C21F647,,,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/13/2016 6:09:14 PM ===============================
+3/13/2016 6:09:23 PM ===============================
+3/13/2016 6:09:23 PM Pay 10002
+3/13/2016 6:09:23 PM CreateTransaction
+3/13/2016 6:09:23 PM Response Code: Ok
+3/13/2016 6:09:23 PM Message: Successful.
+3/13/2016 6:09:23 PM DIRECT: 1,1,1,This transaction has been approved.,2ELLHV,Y,2252850427,Invoice 635934893630,,49.00,CC,auth_capture,10002,robert,test,,test,test,IL,07310,US,,,,,,,,,,,,,,,,,3650F0736B4B02F7576355E6B2FA5567,,2,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/13/2016 6:09:23 PM ===============================
+3/16/2016 10:16:39 PM ===============================
+3/16/2016 10:16:39 PM Pay 10002
+3/16/2016 10:16:39 PM GetOrCreateCustomerProfile
+3/16/2016 10:16:41 PM Message: A duplicate record with ID 39889377 already exists.
+3/16/2016 10:16:41 PM SetCustomerPaymentProfile
+3/16/2016 10:16:42 PM profile_id:39889377 Ok
+3/16/2016 10:16:42 PM profiles: 1
+3/16/2016 10:16:42 PM customerPaymentProfileId: 36190402
+3/16/2016 10:16:42 PM Response Code: Error
+3/16/2016 10:16:42 PM Message: Expiration Date is invalid.
+3/16/2016 10:16:42 PM DIRECT: 
+3/16/2016 10:16:42 PM ===============================

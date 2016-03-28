@@ -1,0 +1,65 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+public partial class Account_Offers : System.Web.UI.Page
+{
+    public int Winks = 0;
+    public int NewOffers = 0;
+    public int Accepted = 0;
+    public int Pending = 0;
+    public int Rejected = 0;
+
+
+    protected void but_Click(object sender, EventArgs aa)
+    {
+        Button bbb = sender as Button;
+        //        RepeaterCommandEventArgs e = aa as RepeaterCommandEventArgs;
+        Int32 id = Convert.ToInt32(bbb.CommandArgument);
+        Utils.GoToSendMessage(id);
+    }
+
+
+    DB_Helper db = new DB_Helper();
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        Page.Form.Attributes["data-form"] = "offersform";
+
+        offermenu.Visible = Request.QueryString["dates"] != "1";
+        winksmenu.Visible = MyUtils.GetUserField("sex").ToString() == "M";
+            string type = Request.QueryString["type"];
+
+
+        if (type == "Dates") type = "Accepted";
+
+        DataSet d = db.GetDataSet("exec GET_OFFER_LIST " + MyUtils.ID_USER);
+        DataView v = new DataView(d.Tables[0]);
+        v.RowFilter = "type='"+type+"'";
+        if (type == "New") v.RowFilter += " or type='Countered'";
+        Repeater1.DataSource = v;
+        Repeater1.DataBind();
+
+        foreach (DataRow r in d.Tables[0].Rows)
+        {
+            string s = r["type"].ToString();
+            if (s == "Wink") Winks++;
+            if (s == "New" || s== "Countered") NewOffers++;
+            if (s == "Accepted") Accepted++;
+            if (s == "Pending") Pending++;
+            if (s == "Rejected") Rejected++;
+        }
+
+        empty.Visible = d.Tables[0].Rows.Count == 0;
+        if (empty.Visible)
+        {
+            empty.Text = "You have no offers. " + (MyUtils.GetUserField("sex").ToString() == "M" ? "Start with a search then send offers to the ladies you like." : "Start with a search then send winks to the men you like.");
+        }
+
+
+
+    }
+}
