@@ -136,6 +136,7 @@ a.SW_OFFERSENT,a.SW_OFFERREJECTED{cursor:pointer}
 							<a class="alink" onclick="return viewprofile(this)" href="#">
 								<img class="photoM" src='<%#MyUtils.GetImageUrl(Eval("mainphoto"),MyUtils.ImageSize.MEDIUM)%>' width="313" height="313" alt=""><div <%#MyUtils.IsOnline((int)Eval("id_user")) ? "":"style='display:none'"%> class="rib-wrapper">
 								<div class="rib">Online</div></div>
+								<span class="vip">VIP</span>
 							</a>
 						</figure>
 						<div class="info">
