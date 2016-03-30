@@ -66,9 +66,9 @@
 </style>
 <li>
 <div id="DIV_ACCEPTCOUNTERREJECT" visible="false" runat="server" class="buttons show-new">
-<div class="cell"><a class="button js-accept-offer" href="#">Accept <%=accepttext%></a></div>
-<div class="cell"><a class="button button-blue js-popup" href="popup-offer.html" data-counter="1">Counter</a></div>
-<div class="cell"><a class="button button-black js-reject-offer" href="#">Reject</a></div>
+<span class="cell"><a class="button js-accept-offer" href="#">Accept <%=accepttext%></a></span>
+<span class="cell"><a class="button button-blue js-popup" href="popup-offer.html" data-counter="1">Counter</a></span>
+<span class="cell"><a class="button button-black js-reject-offer" href="#">Reject</a></span>
 </div>
 <a id="BUT_SENDOFFER" visible="false" runat="server" class='button button-icon js-popup sendofferbutton' href='popup-offer.html'><span class='icon icon-offer'></span> <%=MyUtils.IsFemale ? "Name Your Price":"Send Offer" %></a>
 <a id="OfferText" runat="server" class='button button-icon sendofferbuttonDONE' style="display:none;background-color:#00cb50;color:white;cursor:default;border:1px solid #00ab30" href='#'>Offer was sent</a>
@@ -85,7 +85,7 @@ function MakeOfferDone(panel,amount)
     </script>
 
                                 <li class="hf">
-								<span class="cell"><a class="button button-gray button-icon js-favorite <%= userRow["favorite"].ToString()=="1" ? "active" : "" %>" href="#favorite"><span class="icon icon-fav"></span> Favorite</a></span>
+                                <span class="col"><a class="button button-gray button-icon js-favorite <%= userRow["favorite"].ToString()=="1" ? "active" : "" %>" href="#favorite"><span class="icon icon-fav"></span> Favorite</a></span>
                                 <span class="col"><%=MyUtils.ShowIfLogedinUserField("sex","F","<a class='button button-gray button-icon js-wink "+(userRow["wink"].ToString()=="1"?"active":"")+"' href='#wink'> <span class='icon icon-wink'></span> <span class='sendwink'>Send Wink</span><span class='sentwink'>Wink Sent</span></a>") %></span>
                                 </li>
                             </ul>

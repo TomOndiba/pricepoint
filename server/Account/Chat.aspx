@@ -41,7 +41,10 @@
                 })
 
             });
-        })
+            if ($('.presents-female').length > 0) {
+                $('.conversation-page').addClass('conversation-page-female');
+            }
+        });
 
         $.urlParam = function (name) {
             var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
@@ -51,7 +54,7 @@
             else {
                 return results[1] || 0;
             }
-        }
+        };
         //invokes page method with AJAX
         function invoke(method, data, successCallback, errorCallBack) {
             var pagePath = window.location.pathname;
@@ -215,7 +218,7 @@
             <button class="button" type="button" id="send_message">Send Message</button>
         </div>
 
-        <div class='presents' <%=MyUtils.GetUserField("sex").ToString()=="F" ? "style='display:none'" :""%>>
+        <div class="presents <%=MyUtils.GetUserField("sex").ToString()=="F" ? "presents-female" :""%>">
             <p class="h">
                 <strong>Make her Smile :)</strong>
                 <br>
