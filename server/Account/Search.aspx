@@ -2,8 +2,7 @@
 
 <%@ Register src="~/OfferPopup.ascx" tagname="OfferPopup" tagprefix="uc1" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-</asp:Content>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server"></asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 <input type="hidden" id="searchjson" name="searchjson" />
 <script src="/js/SearchScroll.js"></script>
@@ -48,7 +47,7 @@ a.SW_OFFERSENT,a.SW_OFFERREJECTED{cursor:pointer}
 
 			<!-- Sort -->
 			<div class="sort">
-                <div class="form-filter">
+				<div class="form-filter">
 					<div class="buttons-group">
 						<div class="cell">
 							<label for="sort"></label>
@@ -63,7 +62,7 @@ a.SW_OFFERSENT,a.SW_OFFERREJECTED{cursor:pointer}
 						</div>
 					</div>
 					<div class="line">
-						<div class="form-line">
+						<div class="form-line form-line-distance">
 							<label for="distance"></label>
 							<select id="distance" name="distancemax" class="multiselect" required >
 								<option <%=IsSelected("distance",0)%> value="0">Anywhere</option>
@@ -80,7 +79,7 @@ a.SW_OFFERSENT,a.SW_OFFERREJECTED{cursor:pointer}
 								<option value="true" <%=IsSelected("photo",1)%>>Only With Photos</option>
 							</select>
 						</div>
-						<div class="form-line">
+						<div class="form-line form-line-age">
 							<div class="btn-group select-age" data-min="16" data-max="70">
 								<a class="toggle" href="#">Age <span class="agemin">18</span> to <span class="agemax">35</span> <span class="arrow"></span></a>
 								<ul>
@@ -115,10 +114,9 @@ a.SW_OFFERSENT,a.SW_OFFERREJECTED{cursor:pointer}
 							</select>
 						</div>
 					</div>
-                    </div>
+				</div>
 			</div>
 			<!-- /Sort -->
-
 
 			<!-- Warning -->
 			<div class="warning" runat="server" id="warning">
@@ -130,52 +128,51 @@ a.SW_OFFERSENT,a.SW_OFFERREJECTED{cursor:pointer}
 			<!-- Catalog -->
 			<section class="catalog">
 				<div id="usersdiv">
-                <asp:Repeater ID="UserList" runat="server">
-                <ItemTemplate>
-                <div class="item" data-id='<%# Eval("id_user") %>' data-user='<%# Eval("usr") %>'>
+				<asp:Repeater ID="UserList" runat="server">
+				<ItemTemplate>
+				<div class="item" data-id='<%# Eval("id_user") %>' data-user='<%# Eval("usr") %>'>
 					<div class="space">
-						<figure class="photo"><a class="alink" onclick="return viewprofile(this)" href='#'><img class="photoM" src='<%#MyUtils.GetImageUrl(Eval("mainphoto"),MyUtils.ImageSize.MEDIUM)%>' width="313" height="313" alt=""><div <%#MyUtils.IsOnline((int)Eval("id_user")) ? "":"style='display:none'"%> class="rib-wrapper"><div class="rib">Online</div></div>
-						                      </a></figure>
+						<figure class="photo">
+							<a class="alink" onclick="return viewprofile(this)" href="#">
+								<img class="photoM" src='<%#MyUtils.GetImageUrl(Eval("mainphoto"),MyUtils.ImageSize.MEDIUM)%>' width="313" height="313" alt=""><div <%#MyUtils.IsOnline((int)Eval("id_user")) ? "":"style='display:none'"%> class="rib-wrapper">
+								<div class="rib">Online</div></div>
+							</a>
+						</figure>
 						<div class="info">
 							<p class="name"><%# Eval("usr") %></p>
-                            <p class="location"><span class="age"><%# Eval("age") %></span> / <span class="loc"><%# Eval("plc") %></span><span class="range"><span class='dist'><%# Convert.ToInt32(Eval("dis"))%></span> miles</span></p>
+							<p class="location"><span class="age"><%# Eval("age") %></span> / <span class="loc"><%# Eval("plc") %></span><span class="range"><span class='dist'><%# Convert.ToInt32(Eval("dis"))%></span> miles</span></p>
 							<p class="status"><%# Eval("tit") %></p>
 							<div class="actions">
-							<span class="cell SW <%# Eval("button_switch")%>">
-    
-    <a class='button button-icon js-popup SW_SENDOFFER' href="popup-offer.html"><span class='icon icon-offer'></span> Send Offer</a>
-    <a class='button SW_OFFERSENT' href='#' onclick="return false;"> Offer Sent</a>
-    <a class='button SW_OFFERREJECTED' href='#' onclick="return false;"> Rejected</a>
-    <a class='button SW_ACCEPT' href='#' onclick="AcceptOffer(this)"><span class='icon icon-offer'></span> Accept Offer</a>
-    <a class='button button-gray button-icon js-wink SW_WINK' href='#wink'> <span class='icon icon-wink'></span> <span class='sendwink'>Send Wink</span><span class='sentwink'>Wink Sent</span></a>
-    <a class='button button-blue button-icon SW_MESSAGE' onclick="SendMessage(this)"><span class='icon icon-message'></span> Send Message</a>
-
+								<span class="cell SW <%# Eval("button_switch")%>">
+									<a class='button button-icon js-popup SW_SENDOFFER' href="popup-offer.html"><span class='icon icon-offer'></span> Send Offer</a>
+									<a class='button SW_OFFERSENT' href='#' onclick="return false;"> Offer Sent</a>
+									<a class='button SW_OFFERREJECTED' href='#' onclick="return false;"> Rejected</a>
+									<a class='button SW_ACCEPT' href='#' onclick="AcceptOffer(this)"><span class='icon icon-offer'></span> Accept Offer</a>
+									<a class='button button-gray button-icon js-wink SW_WINK' href='#wink'> <span class='icon icon-wink'></span> <span class='sendwink'>Send Wink</span><span class='sentwink'>Wink Sent</span></a>
+									<a class='button button-blue button-icon SW_MESSAGE' onclick="SendMessage(this)"><span class='icon icon-message'></span> Send Message</a>
 								</span>
 								<span class="cell"><a class="button button-gray button-icon js-favorite <%# Eval("favorite").ToString()=="1" ? "active" : "" %>" href="#favorite"><span class="icon icon-fav"></span> Favorite</a></span>
 							</div>
 						</div>
 					</div>
 				</div>
-                </ItemTemplate>
-                </asp:Repeater>
-                </div>
+				</ItemTemplate>
+				</asp:Repeater>
+				</div>
 			</section>
 			<!-- /Catalog -->
 
-<div style="width:100%;text-align:center">
-        <img id="loader" alt="" src="/img/loading.gif" style="display: none" />
-</div>
+	<div style="width:100%;text-align:center">
+		<img id="loader" alt="" src="/img/loading.gif" style="display: none">
+	</div>
 
-    <script type="text/javascript">
-        filterjson = '<%=filterjson%>';
-        $('.agemin', document).text(<%=f.agemin%>);
-        $('.agemax', document).text(<%=f.agemax%>);
-    </script>
+	<script type="text/javascript">
+		filterjson = '<%=filterjson%>';
+		$('.agemin', document).text(<%=f.agemin%>);
+		$('.agemax', document).text(<%=f.agemax%>);
+	</script>
 
-
-				<uc1:OfferPopup ID="OfferPopup1" runat="server" />
-
-   <!-- <%=sql %> -->
+	<uc1:OfferPopup ID="OfferPopup1" runat="server" />
+	<!-- <%=sql %> -->
 
 </asp:Content>
-

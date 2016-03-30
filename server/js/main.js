@@ -81,13 +81,13 @@ function initUI() {
 		}
 	});
 
-    /** Init wink */
+	/** Init wink */
 	$('.js-wink').on('click', function (event) {
-	    var self = $(this);
-	    $(this).blur().closest('[data-id]').each(function () {
-	        if (!self.hasClass('active')) sendWink($(this).data('id'), $(this));
-	    });
-	    event.preventDefault();
+		var self = $(this);
+		$(this).blur().closest('[data-id]').each(function () {
+			if (!self.hasClass('active')) sendWink($(this).data('id'), $(this));
+		});
+		event.preventDefault();
 	});
 
 	/** Init favorite */
@@ -190,6 +190,7 @@ function initFormElements(scope, data) {
 			} else {
 				Hide();
 			}
+			return false;
 		});
 		self.addClass('inited');
 	});
@@ -419,9 +420,9 @@ function initMembershipForm() {
 	var form = $(this);
 
 	$('.packages', form).each(function () {
-	    //var self = $(this), package = $('[name="package"]', form), total = $('.total .t', form);
-	    var self = $(this), package = $('[id="ContentPlaceHolder1_hiddenPackage"]', form), total = $('.total .t', form);
-	    
+		//var self = $(this), package = $('[name="package"]', form), total = $('.total .t', form);
+		var self = $(this), package = $('[id="ContentPlaceHolder1_hiddenPackage"]', form), total = $('.total .t', form);
+
 		$('.button-select', this).on('click', function (event) {
 			var panel = $(this).closest('.panel');
 			self.find('.panel.active').removeClass('active');
@@ -453,9 +454,9 @@ function initSubscribeForm() {
  * Toggle favorite action
  **/
 function toggleFavorite(id_user, on_off, panel) {
-    function onOK(data, textStatus, jqXHR) {
-        if (on_off) $('.js-favorite', panel).addClass("active"); else $('.js-favorite', panel).removeClass("active");
-        showAlert(data.d.replace('OK: ', ''));
+	function onOK(data, textStatus, jqXHR) {
+		if (on_off) $('.js-favorite', panel).addClass("active"); else $('.js-favorite', panel).removeClass("active");
+		showAlert(data.d.replace('OK: ', ''));
 	}
 
 	function onDone(data, textStatus, jqXHR) {
@@ -476,26 +477,25 @@ function toggleFavorite(id_user, on_off, panel) {
  * Send wink action
  **/
 function sendWink(id_user, panel) {
-    function onOK(data, textStatus, jqXHR) {
-        $('.js-wink', panel).addClass("active"); 
-        showAlert(data.d.replace('OK: ', ''));
-    }
+	function onOK(data, textStatus, jqXHR) {
+		$('.js-wink', panel).addClass("active");
+		showAlert(data.d.replace('OK: ', ''));
+	}
 
-    function onDone(data, textStatus, jqXHR) {
-        if (data.d.indexOf('OK') >= 0) {
-            onOK(data, textStatus, jqXHR);
-        } else {
-            showError(data.d.replace('ERROR: ', ''));
-        }
-    }
+	function onDone(data, textStatus, jqXHR) {
+		if (data.d.indexOf('OK') >= 0) {
+			onOK(data, textStatus, jqXHR);
+		} else {
+			showError(data.d.replace('ERROR: ', ''));
+		}
+	}
 
-    sendRequest('SendWink', {
-        'id_user': id_user
-    }).done(onDone).error(onError);
+	sendRequest('SendWink', {
+		'id_user': id_user
+	}).done(onDone).error(onError);
 }
 
-function MakeOfferDone(panel,amount)
-{
+function MakeOfferDone(panel, amount) {
 }
 
 /**
@@ -516,7 +516,7 @@ function MakeOffer(offer, panel) {
 
 	function onDone(data, textStatus, jqXHR) {
 		if (data.d.indexOf('OK') >= 0) {
-		    onOK(data, textStatus, jqXHR);
+			onOK(data, textStatus, jqXHR);
 		} else {
 			showError(data.d.replace('ERROR: ', ''));
 		}
@@ -530,17 +530,18 @@ function MakeOffer(offer, panel) {
  * Accept offer action
  **/
 function AcceptOffer(id_offer, panel) {
-    function onOK(data, textStatus, jqXHR) {
-            showAlert(data.d.replace('OK: ', ''));
+	function onOK(data, textStatus, jqXHR) {
+		showAlert(data.d.replace('OK: ', ''));
 		$(panel).removeClass(function (index, css) {
 			return (css.match(/(^|\s)panel-\S+/g) || []).join(' ');
 		}).addClass('panel-accepted');
 	}
 
 	function onDone(data, textStatus, jqXHR) {
-        if (data.d.indexOf('REDIR:') == 0) {
-            window.location.href = data.d.replace('REDIR:', ''); return
-			}
+		if (data.d.indexOf('REDIR:') == 0) {
+			window.location.href = data.d.replace('REDIR:', '');
+			return
+		}
 		if (data.d.indexOf('OK') >= 0) {
 			onOK(data, textStatus, jqXHR);
 		} else {
@@ -557,10 +558,10 @@ function AcceptOffer(id_offer, panel) {
  **/
 function RejectOffer(id_offer, panel) {
 	function onOK(data, textStatus, jqXHR) {
-	    showAlert(data.d.replace('OK: ', ''));
-	    $(panel).fadeOut(500, function () {
-	        $(this).closest('.pure-u-1').remove();
-	    });
+		showAlert(data.d.replace('OK: ', ''));
+		$(panel).fadeOut(500, function () {
+			$(this).closest('.pure-u-1').remove();
+		});
 
 //		$(panel).removeClass(function (index, css) {
 //			return (css.match(/(^|\s)panel-\S+/g) || []).join(' ');
@@ -604,14 +605,14 @@ function WithdrawOffer(id_offer, panel) {
 }
 
 function ShowLoading(e) {
-    var div = document.createElement('div');
-    var img = document.createElement('img');
-    img.src = '/img/loading.gif';
-    //div.innerHTML = "Loading...<br />";
-    div.style.cssText = 'position: fixed; top: 20%; left: 50%; z-index: 5000;';
-    div.appendChild(img);
-    document.body.appendChild(div);
-    return true;
+	var div = document.createElement('div');
+	var img = document.createElement('img');
+	img.src = '/img/loading.gif';
+	//div.innerHTML = "Loading...<br />";
+	div.style.cssText = 'position: fixed; top: 20%; left: 50%; z-index: 5000;';
+	div.appendChild(img);
+	document.body.appendChild(div);
+	return true;
 }
 
 
@@ -858,13 +859,10 @@ function initPhotoSwipe(gallerySelector) {
 
 
 function NotEnoughCredits() {
-    var s = 'You don\'t have enough credits. Please use our secure checkout to buy credits.';
-    alert(s);
-    window.location.href = '/Account/BuyCredits.aspx';
+	var s = 'You don\'t have enough credits. Please use our secure checkout to buy credits.';
+	alert(s);
+	window.location.href = '/Account/BuyCredits.aspx';
 }
-
-
-
 
 
 /**
@@ -893,8 +891,8 @@ function ohSnap(text, options) {
 		'icon': null,     // class of the icon to show before the alert text
 		'duration': '5000',   // duration of the notification in ms
 		'container-id': 'ohsnap', // id of the alert container
-		'fade-duration': 'fast',  // duration of the fade in/out of the alerts. fast, slow or integer in ms
-	}
+		'fade-duration': 'fast'  // duration of the fade in/out of the alerts. fast, slow or integer in ms
+	};
 
 	options = (typeof options == 'object') ? $.extend(defaultOptions, options) : defaultOptions;
 

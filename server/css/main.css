@@ -3109,33 +3109,32 @@ body > form {
 /* ==========================================================================
    _SORT
    ========================================================================== */
-.sort {
-  margin-bottom: 16px;
-}
-.sort:after {
-  display: table;
-  content: '\0020';
-  clear: both;
-}
-@media (min-width: 568px) {
-  .sort .line {
-    margin: 0 -1px;
-  }
-}
-@media (min-width: 750px) {
-  .sort .line {
-    margin-left: 216px;
-  }
+.sort { margin-bottom: 16px; }
+.sort:after { display: table; content: '\0020'; clear: both; }
+.sort .form-filter > .line {
+  margin-left: -2px;
+  margin-right: -2px;
 }
 .sort .line .form-line {
+  width: 50%;
+  padding: 0 2px;
   margin-bottom: 4px;
+  float: left;
+}
+.sort .line .form-line-body {
+  width: 100%;
 }
 @media (min-width: 568px) {
+  .sort .form-filter > .line {
+    margin: 0 -1px;
+  }
   .sort .line .form-line {
     width: 154px;
+    padding: 0;
     margin-left: 1px;
     margin-right: 1px;
     display: inline-block;
+    float: none;
     vertical-align: middle;
   }
   .sort .line .form-line.form-line-photos {
@@ -3143,6 +3142,11 @@ body > form {
   }
   .sort .line .form-line.form-line-ethnicity {
     width: 248px;
+  }
+}
+@media (min-width: 750px) {
+  .sort .form-filter > .line {
+    margin-left: 216px;
   }
 }
 .sort .type {
