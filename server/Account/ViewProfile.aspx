@@ -14,7 +14,7 @@
 
 			<section>
 				<!-- Profile -->
-				<div class="profile" >
+				<div class="profile" data-id="<%=userRow["id_user"].ToString()%>" data-id_offer="<%=userRow["id_offer_state"].ToString()%>" data-user="<%=userRow["username"].ToString()%>">
 					<div class="photo my-gallery" data-gallery="1" itemscope itemtype="http://schema.org/ImageGallery">
 						<figure itemprop="associatedMedia" style="position:relative" itemscope itemtype="http://schema.org/ImageObject">
 							<a href='<%=MyUtils.GetImageUrl(userRow, MyUtils.ImageSize.ORIGINAL_SIZE)%>' itemprop="contentUrl" data-size='<%=GetImageSize(userRow) %>'>
@@ -42,7 +42,7 @@
 								<asp:Literal runat="server" ID="ltStatus" />
 							</p>
 						</div>
-						<div class="actions" data-id="<%=userRow["id_user"].ToString()%>"  data-user="<%=userRow["username"].ToString()%>">
+						<div class="actions">
 							<!-- Not done yet -->
 							<ul class="list" runat="server" id="lActions">
 
@@ -68,7 +68,7 @@
 <div id="DIV_ACCEPTCOUNTERREJECT" visible="false" runat="server" class="buttons show-new">
 <span class="cell"><a class="button js-accept-offer" href="#">Accept <%=accepttext%></a></span>
 <span class="cell"><a class="button button-blue js-popup" href="popup-offer.html" data-counter="1">Counter</a></span>
-<span class="cell"><a class="button button-black js-reject-offer" href="#">Reject</a></span>
+<span class="cell"><a class="button button-black js-popup" href="popup-reject.html">Reject</a></span>
 </div>
 <a id="BUT_SENDOFFER" visible="false" runat="server" class='button button-icon js-popup sendofferbutton' href='popup-offer.html'><span class='icon icon-offer'></span> <%=MyUtils.IsFemale ? "Name Your Price":"Send Offer" %></a>
 <a id="OfferText" runat="server" class='button button-icon sendofferbuttonDONE' style="display:none;background-color:#00cb50;color:white;cursor:default;border:1px solid #00ab30" href='#'>Offer was sent</a>

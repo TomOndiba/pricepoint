@@ -28,6 +28,7 @@ $.extend(true, $.magnificPopup.defaults, {
  * Init UI
  **/
 function initUI() {
+
 	/** Fastclick */
 	if (!(/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream)) {
 		FastClick.attach(document.body);
@@ -94,7 +95,7 @@ function initUI() {
 	$('.js-favorite').on('click', function (event) {
 		var self = $(this);
 		$(this).blur().closest('[data-id]').each(function () {
-			toggleFavorite($(this).data('id'), !self.hasClass('active'), $(this));
+			ToggleFavorite($(this).data('id'), !self.hasClass('active'), $(this));
 		});
 		event.preventDefault();
 	});
@@ -126,7 +127,6 @@ function initUI() {
 	/** Hide attention block **/
 	$('.attention').each(function () {
 		var _self = $(this);
-
 		$('.button-hide', _self).on('click', function () {
 			_self.fadeOut(200);
 			return false;
@@ -140,7 +140,7 @@ function initUI() {
 /**
  * Init form elements
  **/
-function initFormElements(scope, data) {
+function initFormElements(scope) {
 	/** Custom selectbox */
 	$('select.select', scope).selectric({
 		maxHeight: 200,
@@ -232,7 +232,6 @@ function initForms(scope, data) {
 
 	initFormElements(scope, data);
 
-	/** Login form */
 	$('[data-form="login"]:not(.inited)', scope).each(function () {
 		initLoginForm.call(this);
 	});
@@ -255,6 +254,10 @@ function initForms(scope, data) {
 
 	$('[data-form="offer"]:not(.inited)', scope).each(function () {
 		initOfferForm.call(this, data);
+	});
+
+	$('[data-form="reject"]:not(.inited)', scope).each(function () {
+		initRejectForm.call(this, data);
 	});
 
 	$('[data-form="membership"]:not(.inited)', scope).each(function () {
@@ -391,9 +394,7 @@ function initOfferForm(data) {
 		$(this).blur();
 	});
 	form.on('submit', function () {
-		var i = item.data('id'),
-			t = +total.val().replace('$', ''),
-			g = [], gs = '';
+		var i = item.data('id'), t = +total.val().replace('$', ''), g = [];
 		gifts.filter(':checked').each(function () {
 			g.push(+$(this).val());
 		});
@@ -414,11 +415,25 @@ function initOfferForm(data) {
 
 
 /**
+ * Initialize reject form
+ **/
+function initRejectForm(data) {
+	var form = $(this), el = $(data.items[data.index].el), item = el.closest('[data-id]');
+	$('.button', form).on('click', function () {
+		form.attr('data-reason', $(this).data('reason'));
+	});
+	form.on('submit', function () {
+		RejectOfferV2(item.data('id_offer'), form.data('reason'), item);
+		return false;
+	}).addClass('inited');
+}
+
+
+/**
  * Initialize membership form
  **/
 function initMembershipForm() {
 	var form = $(this);
-
 	$('.packages', form).each(function () {
 		//var self = $(this), package = $('[name="package"]', form), total = $('.total .t', form);
 		var self = $(this), package = $('[id="ContentPlaceHolder1_hiddenPackage"]', form), total = $('.total .t', form);
@@ -432,8 +447,6 @@ function initMembershipForm() {
 			event.preventDefault();
 		});
 	});
-
-
 	$(this).on('submit', function () {
 //		alert('Membership form submitted!');
 	}).addClass('inited');
@@ -453,7 +466,7 @@ function initSubscribeForm() {
 /**
  * Toggle favorite action
  **/
-function toggleFavorite(id_user, on_off, panel) {
+function ToggleFavorite(id_user, on_off, panel) {
 	function onOK(data, textStatus, jqXHR) {
 		if (on_off) $('.js-favorite', panel).addClass("active"); else $('.js-favorite', panel).removeClass("active");
 		showAlert(data.d.replace('OK: ', ''));
@@ -554,7 +567,7 @@ function AcceptOffer(id_offer, panel) {
 
 
 /**
- * Accept offer action
+ * Reject offer action
  **/
 function RejectOffer(id_offer, panel) {
 	function onOK(data, textStatus, jqXHR) {
@@ -577,6 +590,29 @@ function RejectOffer(id_offer, panel) {
 	}
 
 	sendRequest('RejectOffer', {'id_offer': id_offer}).done(onDone).error(onError);
+}
+
+
+/**
+ * Reject V2 offer action
+ **/
+function RejectOfferV2(id_offer, reason, panel) {
+	function onOK(data, textStatus, jqXHR) {
+		showAlert(data.d.replace('OK: ', ''));
+		$(panel).fadeOut(500, function () {
+			$(this).closest('.pure-u-1').remove();
+		});
+	}
+
+	function onDone(data, textStatus, jqXHR) {
+		if (data.d.indexOf('OK') >= 0) {
+			onOK(data, textStatus, jqXHR);
+		} else {
+			showError(data.d.replace('ERROR: ', ''));
+		}
+	}
+
+	sendRequest('RejectOfferV2', {'id_offer': id_offer, 'reason': reason}).done(onDone).error(onError);
 }
 
 
