@@ -6370,7 +6370,8 @@ h2.h2.heading.counter {
    _FORM-REJECT
    ========================================================================== */
 .popup-reject {
-  width: 400px;
+  width: auto;
+  max-width: 400px;
 }
 .form-reject {
   padding: 30px 0;

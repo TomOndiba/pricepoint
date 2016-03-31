@@ -28,7 +28,6 @@ $.extend(true, $.magnificPopup.defaults, {
  * Init UI
  **/
 function initUI() {
-
 	/** Fastclick */
 	if (!(/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream)) {
 		FastClick.attach(document.body);
@@ -82,20 +81,20 @@ function initUI() {
 		}
 	});
 
-	/** Init wink */
+    /** Init wink */
 	$('.js-wink').on('click', function (event) {
-		var self = $(this);
-		$(this).blur().closest('[data-id]').each(function () {
-			if (!self.hasClass('active')) sendWink($(this).data('id'), $(this));
-		});
-		event.preventDefault();
+	    var self = $(this);
+	    $(this).blur().closest('[data-id]').each(function () {
+	        if (!self.hasClass('active')) sendWink($(this).data('id'), $(this));
+	    });
+	    event.preventDefault();
 	});
 
 	/** Init favorite */
 	$('.js-favorite').on('click', function (event) {
 		var self = $(this);
 		$(this).blur().closest('[data-id]').each(function () {
-			ToggleFavorite($(this).data('id'), !self.hasClass('active'), $(this));
+			toggleFavorite($(this).data('id'), !self.hasClass('active'), $(this));
 		});
 		event.preventDefault();
 	});
@@ -108,13 +107,6 @@ function initUI() {
 		event.preventDefault();
 	});
 
-	/** Init reject offer */
-	$('.js-reject-offer').on('click', function (event) {
-		$(this).blur().closest('[data-id_offer]').each(function () {
-			RejectOffer($(this).data('id_offer'), $(this));
-		});
-		event.preventDefault();
-	});
 
 	/** Init withdraw offer */
 	$('.js-withdraw-offer').on('click', function (event) {
@@ -140,7 +132,7 @@ function initUI() {
 /**
  * Init form elements
  **/
-function initFormElements(scope) {
+function initFormElements(scope, data) {
 	/** Custom selectbox */
 	$('select.select', scope).selectric({
 		maxHeight: 200,
@@ -232,6 +224,7 @@ function initForms(scope, data) {
 
 	initFormElements(scope, data);
 
+	/** Login form */
 	$('[data-form="login"]:not(.inited)', scope).each(function () {
 		initLoginForm.call(this);
 	});
@@ -434,10 +427,11 @@ function initRejectForm(data) {
  **/
 function initMembershipForm() {
 	var form = $(this);
-	$('.packages', form).each(function () {
-		//var self = $(this), package = $('[name="package"]', form), total = $('.total .t', form);
-		var self = $(this), package = $('[id="ContentPlaceHolder1_hiddenPackage"]', form), total = $('.total .t', form);
 
+	$('.packages', form).each(function () {
+	    //var self = $(this), package = $('[name="package"]', form), total = $('.total .t', form);
+	    var self = $(this), package = $('[id="ContentPlaceHolder1_hiddenPackage"]', form), total = $('.total .t', form);
+	    
 		$('.button-select', this).on('click', function (event) {
 			var panel = $(this).closest('.panel');
 			self.find('.panel.active').removeClass('active');
@@ -447,6 +441,8 @@ function initMembershipForm() {
 			event.preventDefault();
 		});
 	});
+
+
 	$(this).on('submit', function () {
 //		alert('Membership form submitted!');
 	}).addClass('inited');
@@ -466,10 +462,10 @@ function initSubscribeForm() {
 /**
  * Toggle favorite action
  **/
-function ToggleFavorite(id_user, on_off, panel) {
-	function onOK(data, textStatus, jqXHR) {
-		if (on_off) $('.js-favorite', panel).addClass("active"); else $('.js-favorite', panel).removeClass("active");
-		showAlert(data.d.replace('OK: ', ''));
+function toggleFavorite(id_user, on_off, panel) {
+    function onOK(data, textStatus, jqXHR) {
+        if (on_off) $('.js-favorite', panel).addClass("active"); else $('.js-favorite', panel).removeClass("active");
+        showAlert(data.d.replace('OK: ', ''));
 	}
 
 	function onDone(data, textStatus, jqXHR) {
@@ -490,22 +486,22 @@ function ToggleFavorite(id_user, on_off, panel) {
  * Send wink action
  **/
 function sendWink(id_user, panel) {
-	function onOK(data, textStatus, jqXHR) {
-		$('.js-wink', panel).addClass("active");
-		showAlert(data.d.replace('OK: ', ''));
-	}
+    function onOK(data, textStatus, jqXHR) {
+        $('.js-wink', panel).addClass("active"); 
+        showAlert(data.d.replace('OK: ', ''));
+    }
 
-	function onDone(data, textStatus, jqXHR) {
-		if (data.d.indexOf('OK') >= 0) {
-			onOK(data, textStatus, jqXHR);
-		} else {
-			showError(data.d.replace('ERROR: ', ''));
-		}
-	}
+    function onDone(data, textStatus, jqXHR) {
+        if (data.d.indexOf('OK') >= 0) {
+            onOK(data, textStatus, jqXHR);
+        } else {
+            showError(data.d.replace('ERROR: ', ''));
+        }
+    }
 
-	sendRequest('SendWink', {
-		'id_user': id_user
-	}).done(onDone).error(onError);
+    sendRequest('SendWink', {
+        'id_user': id_user
+    }).done(onDone).error(onError);
 }
 
 function MakeOfferDone(panel, amount) {
@@ -516,8 +512,11 @@ function MakeOfferDone(panel, amount) {
  * Offer should contain id_offer=20001, panel is the div element
  **/
 function MakeOffer(offer, panel) {
-	function onOK(data, textStatus, jqXHR) {
-		showAlert(data.d.replace('OK: ', ''));
+    function onOK(data, textStatus, jqXHR) {
+
+        var txt=data.d.split('|');
+        if (txt.length > 1) setCredits(txt[1]);
+		showAlert(txt[0].replace('OK: ', ''));
 		$.magnificPopup.close();
 
 		MakeOfferDone(panel, offer.amount);
@@ -529,11 +528,14 @@ function MakeOffer(offer, panel) {
 
 	function onDone(data, textStatus, jqXHR) {
 		if (data.d.indexOf('OK') >= 0) {
-			onOK(data, textStatus, jqXHR);
+		    onOK(data, textStatus, jqXHR);
 		} else {
 			showError(data.d.replace('ERROR: ', ''));
 		}
 	}
+
+	var cr = CheckGiftCredits(offer.gifts);
+	if (!cr) return;
 
 	sendRequest('MakeOffer', offer).done(onDone).error(onError);
 }
@@ -543,20 +545,19 @@ function MakeOffer(offer, panel) {
  * Accept offer action
  **/
 function AcceptOffer(id_offer, panel) {
-	function onOK(data, textStatus, jqXHR) {
-		showAlert(data.d.replace('OK: ', ''));
+    function onOK(data, textStatus, jqXHR) {
+            showAlert(data.d.replace('OK: ', ''));
 		$(panel).removeClass(function (index, css) {
 			return (css.match(/(^|\s)panel-\S+/g) || []).join(' ');
 		}).addClass('panel-accepted');
 	}
 
 	function onDone(data, textStatus, jqXHR) {
-		if (data.d.indexOf('REDIR:') == 0) {
-			window.location.href = data.d.replace('REDIR:', '');
-			return
-		}
+        if (data.d.indexOf('REDIR:') == 0) {
+            window.location.href = data.d.replace('REDIR:', ''); return
+			}
 		if (data.d.indexOf('OK') >= 0) {
-			onOK(data, textStatus, jqXHR);
+		    onOK(data, textStatus, jqXHR);
 		} else {
 			showError(data.d.replace('ERROR: ', ''));
 		}
@@ -566,31 +567,6 @@ function AcceptOffer(id_offer, panel) {
 }
 
 
-/**
- * Reject offer action
- **/
-function RejectOffer(id_offer, panel) {
-	function onOK(data, textStatus, jqXHR) {
-		showAlert(data.d.replace('OK: ', ''));
-		$(panel).fadeOut(500, function () {
-			$(this).closest('.pure-u-1').remove();
-		});
-
-//		$(panel).removeClass(function (index, css) {
-//			return (css.match(/(^|\s)panel-\S+/g) || []).join(' ');
-//		}).removeClass('panel-wink').addClass('panel-rejected');
-	}
-
-	function onDone(data, textStatus, jqXHR) {
-		if (data.d.indexOf('OK') >= 0) {
-			onOK(data, textStatus, jqXHR);
-		} else {
-			showError(data.d.replace('ERROR: ', ''));
-		}
-	}
-
-	sendRequest('RejectOffer', {'id_offer': id_offer}).done(onDone).error(onError);
-}
 
 
 /**
@@ -610,6 +586,7 @@ function RejectOfferV2(id_offer, reason, panel) {
 		} else {
 			showError(data.d.replace('ERROR: ', ''));
 		}
+		$.magnificPopup.close();
 	}
 
 	sendRequest('RejectOfferV2', {'id_offer': id_offer, 'reason': reason}).done(onDone).error(onError);
@@ -641,14 +618,14 @@ function WithdrawOffer(id_offer, panel) {
 }
 
 function ShowLoading(e) {
-	var div = document.createElement('div');
-	var img = document.createElement('img');
-	img.src = '/img/loading.gif';
-	//div.innerHTML = "Loading...<br />";
-	div.style.cssText = 'position: fixed; top: 20%; left: 50%; z-index: 5000;';
-	div.appendChild(img);
-	document.body.appendChild(div);
-	return true;
+    var div = document.createElement('div');
+    var img = document.createElement('img');
+    img.src = '/img/loading.gif';
+    //div.innerHTML = "Loading...<br />";
+    div.style.cssText = 'position: fixed; top: 20%; left: 50%; z-index: 5000;';
+    div.appendChild(img);
+    document.body.appendChild(div);
+    return true;
 }
 
 
@@ -659,7 +636,7 @@ function sendRequest(method, data) {
 	return $.ajax({
 		type: "POST",
 		data: JSON.stringify(data),
-		url: 'http://pricepointdate.com/webService.asmx/' + method,
+		url: '/webService.asmx/' + method,
 		contentType: "application/json"
 	});
 }
@@ -678,6 +655,7 @@ function showAlert(text) {
  **/
 function onError(data) {
 	showError('Error ' + data.status + ": " + data.statusText);
+	$.magnificPopup.close();
 }
 
 
@@ -895,10 +873,13 @@ function initPhotoSwipe(gallerySelector) {
 
 
 function NotEnoughCredits() {
-	var s = 'You don\'t have enough credits. Please use our secure checkout to buy credits.';
-	alert(s);
-	window.location.href = '/Account/BuyCredits.aspx';
+    var s = 'You don\'t have enough credits. Please use our secure checkout to buy credits.';
+    alert(s);
+    window.location.href = '/Account/Upgrade.aspx';
 }
+
+
+
 
 
 /**
@@ -977,4 +958,28 @@ function ohSnapX(element, options) {
 			$(this).remove();
 		});
 	}
+}
+
+function setCredits(Credits)
+{
+    if (Credits != -1) {
+        $('.credits').html(Credits + ' credits');
+        ppd_credits = Credits;
+    }
+}
+
+function CheckGiftCredits(gifts) {
+    if (gifts.length > 0) {
+        var cost = gifts.length * 5;
+
+        if (cost > ppd_credits) {
+            alert('You don\'t have enough credits (' + cost + ') to send the virtual gifts');
+            return false;
+        }
+        var r = confirm("A total of " + cost + " credits will be deducted for the virtual gifts.\nWould you like to send the offer?");
+        if (r === false) {
+            return false;
+        }
+    }
+    return true;
 }
