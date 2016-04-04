@@ -2075,8 +2075,7 @@ body > form {
    _FOOTER
    ========================================================================== */
 .footer {
-  height: 120px;
-  padding: 20px 0;
+  padding: 20px 0 10px;
   color: #fff;
   background: #333a42;
   font-size: 12px;
@@ -2099,11 +2098,18 @@ body > form {
 @media (min-width: 750px) {
   .footer {
     height: 168px;
+    padding-bottom: 20px;
     font-size: 14px;
   }
 }
 .footer .copyright {
   margin: 0;
+  text-align: center;
+}
+.footer .terms {
+  margin:10px 30px 5px 30px;
+  font-size: 11px;
+  line-height: normal;
   text-align: center;
 }
 @media (min-width: 750px) {
@@ -2115,10 +2121,22 @@ body > form {
   }
 }
 .footer .links {
-  margin: 0 0 14px;
+  margin: 0 0 5px;
   padding: 0;
   list-style: none;
   text-align: center;
+}
+.footer .links li {
+  display: inline-block;
+}
+.footer .links li.b { margin: 0 4px; font-size: 15px; font-weight: bold; }
+.footer .links li.b:first-child:after { margin-left: 12px; content: '|'; display: inline-block; }
+.footer .links li.s { margin: 18px 4px 0; }
+.footer .links li.n { display: block; }
+.footer .links li a { color: #fff; }
+.footer .links li a:hover, .footer .links li a:focus, .footer .links li a:active {
+  text-decoration: none;
+  color: #e74b90;
 }
 @media (min-width: 750px) {
   .footer .links {
@@ -2127,21 +2145,22 @@ body > form {
     right: 10px;
     top: 50%;
   }
-}
-@media (min-width: 750px) {
   .footer .links li {
     padding: 0 0 0 20px;
     display: inline-block;
   }
-}
-.footer .links li a {
-  color: #fff;
-}
-.footer .links li a:hover,
-.footer .links li a:focus,
-.footer .links li a:active {
-  text-decoration: none;
-  color: #e74b90;
+  .footer .links li.b { margin:0; font-size: inherit; font-weight: inherit; }
+  .footer .links li:after { display: none !important; }
+  .footer .links li.s { margin: 0; }
+  .footer .links li.n { display: none;}
+  .footer .terms {
+    margin: 0;
+    font-size: 12px;
+    position: absolute;
+    right: 0;
+    bottom: -5px;
+    left: 0;
+  }
 }
 /* ==========================================================================
    _LINKS-GROUP
