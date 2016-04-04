@@ -15,10 +15,13 @@ public partial class Account_Activate : System.Web.UI.Page
         try
         {
             lblAcitvated.Text = "";
-            if (Request.QueryString["ActivateId"] != null)
+            if (Request.QueryString["id"] != null)
             {
+                string[] ids = Request.QueryString["id"].Split(new char[] { '-' }, 2);
+                
+
                 int id = -1;
-                if (int.TryParse(Request.QueryString["ActivateId"], out id))
+                if (int.TryParse(ids[0], out id) && ids[1] == Hash.CalculateMD5HashWithSalt(ids[0]))
                 {
                     db.Execute(string.Format("update Users set email_verified=1 where id_user = {0}", id));
                     MyUtils.RefreshUserRow();

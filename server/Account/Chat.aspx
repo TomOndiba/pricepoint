@@ -250,7 +250,7 @@
             <button class="button" type="button" id="send_message">Send Message</button>
         </div>
 
-        <div class='presents' <%=MyUtils.GetUserField("sex").ToString()=="F" ? "style='display:none'" :""%>>
+        <div class="presents <%=MyUtils.GetUserField("sex").ToString()=="F" ? "presents-female" :""%>">
             <p class="h">
                 <strong>Make her Smile :)</strong>
                 <br>
