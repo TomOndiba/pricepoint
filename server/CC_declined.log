@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="utf-16"?>
+<CustomerInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <id_user>10002</id_user>
+  <firstname>Robert</firstname>
+  <lastname>Vozdecky</lastname>
+  <bill_address>1115 broadway ste 1234</bill_address>
+  <city>New York</city>
+  <state_code>NY</state_code>
+  <zip>46205</zip>
+  <country_code>US</country_code>
+  <CC_number>4111111111111111</CC_number>
+  <CC_exp_month>11</CC_exp_month>
+  <CC_exp_year>18</CC_exp_year>
+  <CC_csv>123</CC_csv>
+  <customer_profile_id>39889377</customer_profile_id>
+  <payment_profile_id>0</payment_profile_id>
+</CustomerInfo>
+
+
+<?xml version="1.0" encoding="utf-16"?>
+<CustomerInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <id_user>10002</id_user>
+  <firstname>Robert</firstname>
+  <lastname>Vozdecky</lastname>
+  <bill_address>1115 broadway ste 1234</bill_address>
+  <city>New York</city>
+  <state_code>NY</state_code>
+  <zip>46205</zip>
+  <country_code>US</country_code>
+  <CC_number>4111111111111111</CC_number>
+  <CC_exp_month>11</CC_exp_month>
+  <CC_exp_year>18</CC_exp_year>
+  <CC_csv>123</CC_csv>
+  <customer_profile_id>39889377</customer_profile_id>
+  <payment_profile_id>0</payment_profile_id>
+</CustomerInfo>
+
+
+<?xml version="1.0" encoding="utf-16"?>
+<CustomerInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <id_user>10002</id_user>
+  <firstname>Robert</firstname>
+  <lastname>Vozdecky</lastname>
+  <bill_address>1115 broadway ste 1234</bill_address>
+  <city>New York</city>
+  <state_code>NY</state_code>
+  <zip>46205</zip>
+  <country_code>US</country_code>
+  <CC_number>4111111111111111</CC_number>
+  <CC_exp_month>11</CC_exp_month>
+  <CC_exp_year>18</CC_exp_year>
+  <CC_csv>123</CC_csv>
+  <customer_profile_id>39889377</customer_profile_id>
+  <payment_profile_id>0</payment_profile_id>
+</CustomerInfo>
+
+
+<?xml version="1.0" encoding="utf-16"?>
+<CustomerInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <id_user>10002</id_user>
+  <firstname>Robert</firstname>
+  <lastname>Vozdecky</lastname>
+  <bill_address>1115 broadway ste 1234</bill_address>
+  <city>New York</city>
+  <state_code>NY</state_code>
+  <zip>46205</zip>
+  <country_code>US</country_code>
+  <CC_number>4111111111111111</CC_number>
+  <CC_exp_month>11</CC_exp_month>
+  <CC_exp_year>18</CC_exp_year>
+  <CC_csv>123</CC_csv>
+  <customer_profile_id>39889377</customer_profile_id>
+  <payment_profile_id>0</payment_profile_id>
+</CustomerInfo>
+
+
+<?xml version="1.0" encoding="utf-16"?>
+<CustomerInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <id_user>10002</id_user>
+  <firstname>Robert</firstname>
+  <lastname>Vozdecky</lastname>
+  <bill_address>1115 broadway ste 1234</bill_address>
+  <city>New York</city>
+  <state_code>NY</state_code>
+  <zip>46205</zip>
+  <country_code>US</country_code>
+  <CC_number>4111111111111111</CC_number>
+  <CC_exp_month>11</CC_exp_month>
+  <CC_exp_year>18</CC_exp_year>
+  <CC_csv>123</CC_csv>
+  <customer_profile_id>39889377</customer_profile_id>
+  <payment_profile_id>0</payment_profile_id>
+</CustomerInfo>
+
+
+<?xml version="1.0" encoding="utf-16"?>
+<CustomerInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <id_user>10002</id_user>
+  <firstname>robert</firstname>
+  <lastname>test</lastname>
+  <bill_address>test</bill_address>
+  <city>test</city>
+  <state_code>CT</state_code>
+  <zip>46205</zip>
+  <country_code>US</country_code>
+  <CC_number>5424000000000015</CC_number>
+  <CC_exp_month>12</CC_exp_month>
+  <CC_exp_year>11</CC_exp_year>
+  <CC_csv>123</CC_csv>
+  <customer_profile_id>39889377</customer_profile_id>
+  <payment_profile_id>0</payment_profile_id>
+</CustomerInfo>
+
+
+<?xml version="1.0" encoding="utf-16"?>
+<CustomerInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <id_user>10002</id_user>
+  <firstname>robert</firstname>
+  <lastname>test</lastname>
+  <bill_address>test</bill_address>
+  <city>test</city>
+  <state_code>CT</state_code>
+  <zip>46205</zip>
+  <country_code>US</country_code>
+  <CC_number>5424000000000015</CC_number>
+  <CC_exp_month>12</CC_exp_month>
+  <CC_exp_year>16</CC_exp_year>
+  <CC_csv>123</CC_csv>
+  <customer_profile_id>39889377</customer_profile_id>
+  <payment_profile_id>0</payment_profile_id>
+</CustomerInfo>
+
+
+<?xml version="1.0" encoding="utf-16"?>
+<CustomerInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <id_user>10002</id_user>
+  <firstname>robert</firstname>
+  <lastname>vozd</lastname>
+  <bill_address>test</bill_address>
+  <city>test</city>
+  <state_code>CO</state_code>
+  <zip>07310</zip>
+  <country_code>US</country_code>
+  <CC_number>4111111111111112</CC_number>
+  <CC_exp_month>11</CC_exp_month>
+  <CC_exp_year>11</CC_exp_year>
+  <CC_csv>123</CC_csv>
+  <customer_profile_id>39889377</customer_profile_id>
+  <payment_profile_id>0</payment_profile_id>
+</CustomerInfo>
+
+
+<?xml version="1.0" encoding="utf-16"?>
+<CustomerInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <id_user>10002</id_user>
+  <firstname>robert</firstname>
+  <lastname>vozd</lastname>
+  <bill_address>test</bill_address>
+  <city>test</city>
+  <state_code>CO</state_code>
+  <zip>07310</zip>
+  <country_code>US</country_code>
+  <CC_number>4111111111111112</CC_number>
+  <CC_exp_month>11</CC_exp_month>
+  <CC_exp_year>11</CC_exp_year>
+  <CC_csv>123</CC_csv>
+  <customer_profile_id>39889377</customer_profile_id>
+  <payment_profile_id>0</payment_profile_id>
+</CustomerInfo>
+
+
+<?xml version="1.0" encoding="utf-16"?>
+<CustomerInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <id_user>10002</id_user>
+  <firstname>robert</firstname>
+  <lastname>vozd</lastname>
+  <bill_address>test</bill_address>
+  <city>test</city>
+  <state_code>CO</state_code>
+  <zip>07310</zip>
+  <country_code>US</country_code>
+  <CC_number>4111111111111112</CC_number>
+  <CC_exp_month>11</CC_exp_month>
+  <CC_exp_year>11</CC_exp_year>
+  <CC_csv>123</CC_csv>
+  <customer_profile_id>39889377</customer_profile_id>
+  <payment_profile_id>0</payment_profile_id>
+</CustomerInfo>
+
+
+<?xml version="1.0" encoding="utf-16"?>
+<CustomerInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <id_user>10002</id_user>
+  <firstname>robert</firstname>
+  <lastname>vozd</lastname>
+  <bill_address>test</bill_address>
+  <city>test</city>
+  <state_code>CO</state_code>
+  <zip>07310</zip>
+  <country_code>US</country_code>
+  <CC_number>4111111111111112</CC_number>
+  <CC_exp_month>11</CC_exp_month>
+  <CC_exp_year>11</CC_exp_year>
+  <CC_csv>123</CC_csv>
+  <customer_profile_id>39889377</customer_profile_id>
+  <payment_profile_id>0</payment_profile_id>
+</CustomerInfo>
+
+
+<?xml version="1.0" encoding="utf-16"?>
+<CustomerInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <id_user>10002</id_user>
+  <firstname>robert</firstname>
+  <lastname>vozd</lastname>
+  <bill_address>test</bill_address>
+  <city>test</city>
+  <state_code>CO</state_code>
+  <zip>07310</zip>
+  <country_code>US</country_code>
+  <CC_number>4111111111111112</CC_number>
+  <CC_exp_month>11</CC_exp_month>
+  <CC_exp_year>11</CC_exp_year>
+  <CC_csv>123</CC_csv>
+  <customer_profile_id>39889377</customer_profile_id>
+  <payment_profile_id>0</payment_profile_id>
+</CustomerInfo>
+
+
+<?xml version="1.0" encoding="utf-16"?>
+<CustomerInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <id_user>10002</id_user>
+  <firstname>robert</firstname>
+  <lastname>vozd</lastname>
+  <bill_address>test</bill_address>
+  <city>test</city>
+  <state_code>CO</state_code>
+  <zip>07310</zip>
+  <country_code>US</country_code>
+  <CC_number>4111111111111112</CC_number>
+  <CC_exp_month>11</CC_exp_month>
+  <CC_exp_year>11</CC_exp_year>
+  <CC_csv>123</CC_csv>
+  <customer_profile_id>39889377</customer_profile_id>
+  <payment_profile_id>0</payment_profile_id>
+</CustomerInfo>
+
+
+<?xml version="1.0" encoding="utf-16"?>
+<CustomerInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <id_user>10002</id_user>
+  <firstname>robert</firstname>
+  <lastname>vozd</lastname>
+  <bill_address>test</bill_address>
+  <city>test</city>
+  <state_code>CO</state_code>
+  <zip>07310</zip>
+  <country_code>US</country_code>
+  <CC_number>4111111111111112</CC_number>
+  <CC_exp_month>11</CC_exp_month>
+  <CC_exp_year>11</CC_exp_year>
+  <CC_csv>123</CC_csv>
+  <customer_profile_id>39889377</customer_profile_id>
+  <payment_profile_id>0</payment_profile_id>
+</CustomerInfo>
+
+
+<?xml version="1.0" encoding="utf-16"?>
+<CustomerInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <id_user>10002</id_user>
+  <firstname>robert</firstname>
+  <lastname>vozd</lastname>
+  <bill_address>test</bill_address>
+  <city>test</city>
+  <state_code>CO</state_code>
+  <zip>07310</zip>
+  <country_code>US</country_code>
+  <CC_number>4111111111111112</CC_number>
+  <CC_exp_month>11</CC_exp_month>
+  <CC_exp_year>11</CC_exp_year>
+  <CC_csv>123</CC_csv>
+  <customer_profile_id>39889377</customer_profile_id>
+  <payment_profile_id>0</payment_profile_id>
+</CustomerInfo>
+
+
+<?xml version="1.0" encoding="utf-16"?>
+<CustomerInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <id_user>10002</id_user>
+  <firstname>robert</firstname>
+  <lastname>vozd</lastname>
+  <bill_address>test</bill_address>
+  <city>test</city>
+  <state_code>CO</state_code>
+  <zip>07310</zip>
+  <country_code>US</country_code>
+  <CC_number>4111111111111112</CC_number>
+  <CC_exp_month>11</CC_exp_month>
+  <CC_exp_year>11</CC_exp_year>
+  <CC_csv>123</CC_csv>
+  <customer_profile_id>39889377</customer_profile_id>
+  <payment_profile_id>0</payment_profile_id>
+</CustomerInfo>
+
+
+<?xml version="1.0" encoding="utf-16"?>
+<CustomerInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <id_user>10002</id_user>
+  <firstname>robert</firstname>
+  <lastname>vozd</lastname>
+  <bill_address>test</bill_address>
+  <city>test</city>
+  <state_code>CO</state_code>
+  <zip>07310</zip>
+  <country_code>US</country_code>
+  <CC_number>4111111111111112</CC_number>
+  <CC_exp_month>11</CC_exp_month>
+  <CC_exp_year>11</CC_exp_year>
+  <CC_csv>123</CC_csv>
+  <customer_profile_id>39889377</customer_profile_id>
+  <payment_profile_id>0</payment_profile_id>
+</CustomerInfo>
+
+
+<?xml version="1.0" encoding="utf-16"?>
+<CustomerInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <id_user>10002</id_user>
+  <firstname>robert</firstname>
+  <lastname>vozd</lastname>
+  <bill_address>test</bill_address>
+  <city>test</city>
+  <state_code>CO</state_code>
+  <zip>07310</zip>
+  <country_code>US</country_code>
+  <CC_number>4111111111111111</CC_number>
+  <CC_exp_month>11</CC_exp_month>
+  <CC_exp_year>11</CC_exp_year>
+  <CC_csv>123</CC_csv>
+  <customer_profile_id>39889377</customer_profile_id>
+  <payment_profile_id>0</payment_profile_id>
+</CustomerInfo>
+
+
+<?xml version="1.0" encoding="utf-16"?>
+<CustomerInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <id_user>10002</id_user>
+  <firstname>robert</firstname>
+  <lastname>vozd</lastname>
+  <bill_address>test</bill_address>
+  <city>test</city>
+  <state_code>CO</state_code>
+  <zip>07310</zip>
+  <country_code>US</country_code>
+  <CC_number>4111111111111111</CC_number>
+  <CC_exp_month>11</CC_exp_month>
+  <CC_exp_year>11</CC_exp_year>
+  <CC_csv>123</CC_csv>
+  <customer_profile_id>39889377</customer_profile_id>
+  <payment_profile_id>0</payment_profile_id>
+</CustomerInfo>
+
+
+<?xml version="1.0" encoding="utf-16"?>
+<CustomerInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <id_user>10002</id_user>
+  <firstname>robert</firstname>
+  <lastname>vozd</lastname>
+  <bill_address>test</bill_address>
+  <city>test</city>
+  <state_code>CO</state_code>
+  <zip>07310</zip>
+  <country_code>US</country_code>
+  <CC_number>4111111111111111</CC_number>
+  <CC_exp_month>11</CC_exp_month>
+  <CC_exp_year>11</CC_exp_year>
+  <CC_csv>123</CC_csv>
+  <customer_profile_id>39889377</customer_profile_id>
+  <payment_profile_id>0</payment_profile_id>
+</CustomerInfo>
+
+
+<?xml version="1.0" encoding="utf-16"?>
+<CustomerInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <id_user>10002</id_user>
+  <firstname>robert</firstname>
+  <lastname>test</lastname>
+  <bill_address>test</bill_address>
+  <city>test</city>
+  <state_code>CO</state_code>
+  <zip>07310</zip>
+  <country_code>US</country_code>
+  <CC_number>5424000000000015</CC_number>
+  <CC_exp_month>0</CC_exp_month>
+  <CC_exp_year>99</CC_exp_year>
+  <CC_csv>111</CC_csv>
+  <customer_profile_id>39889377</customer_profile_id>
+  <payment_profile_id>0</payment_profile_id>
+</CustomerInfo>
+
+

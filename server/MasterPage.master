@@ -1,0 +1,185 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" EnableViewState="false" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>Price Point Dating</title>
+	<meta name="description" content="" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+	<meta name="format-detection" content="telephone=no" />
+
+	<link rel="stylesheet" href="/css/pure.css" />
+	<link rel="stylesheet" href="/css/plugins.css" />
+	<link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/asp.css" />
+
+	<link rel="apple-touch-icon" sizes="57x57" href="/img/favicon/apple-touch-icon-57x57.png" />
+	<link rel="apple-touch-icon" sizes="60x60" href="/img/favicon/apple-touch-icon-60x60.png" />
+	<link rel="apple-touch-icon" sizes="72x72" href="/img/favicon/apple-touch-icon-72x72.png" />
+	<link rel="apple-touch-icon" sizes="76x76" href="/img/favicon/apple-touch-icon-76x76.png" />
+	<link rel="apple-touch-icon" sizes="114x114" href="/img/favicon/apple-touch-icon-114x114.png" />
+	<link rel="apple-touch-icon" sizes="120x120" href="/img/favicon/apple-touch-icon-120x120.png" />
+	<link rel="apple-touch-icon" sizes="144x144" href="/img/favicon/apple-touch-icon-144x144.png" />
+	<link rel="apple-touch-icon" sizes="152x152" href="/img/favicon/apple-touch-icon-152x152.png" />
+	<link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon-180x180.png" />
+	<link rel="icon" type="image/png" href="/img/favicon/favicon-32x32.png" sizes="32x32" />
+	<link rel="icon" type="image/png" href="/img/favicon/favicon-194x194.png" sizes="194x194" />
+	<link rel="icon" type="image/png" href="/img/favicon/favicon-96x96.png" sizes="96x96" />
+	<link rel="icon" type="image/png" href="/img/favicon/android-chrome-192x192.png" sizes="192x192" />
+	<link rel="icon" type="image/png" href="/img/favicon/favicon-16x16.png" sizes="16x16" />
+	<link rel="manifest" href="/img/favicon/manifest.json" />
+	<link rel="mask-icon" href="/img/favicon/safari-pinned-tab.svg" style="color:#5bbad5" />
+	<link rel="shortcut icon" href="/img/favicon/favicon.ico" />
+	<meta name="msapplication-TileColor" content="#da532c" />
+	<meta name="msapplication-TileImage" content="/img/favicon/mstile-144x144.png" />
+	<meta name="msapplication-config" content="/img/favicon/browserconfig.xml" />
+	<meta name="theme-color" content="#ffffff" />
+
+
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+<script type="text/javascript">
+    function ShowLoading(e) {
+        var div = document.createElement('div');
+        var img = document.createElement('img');
+        img.src = '/img/loading.gif';
+        //div.innerHTML = "Loading...<br />";
+        div.style.cssText = 'position: fixed; top: 20%; left: 50%; z-index: 5000;';
+        div.appendChild(img);
+        document.body.appendChild(div);
+        return true;
+        // These 2 lines cancel form submission, so only use if needed.
+        //window.event.cancelBubble = true;
+        //e.stopPropagation();
+    }
+    var ppd_credits=<%= MyUtils.IsLoggedIn() ? MyUtils.GetUserField("credits") : "-1" %>;
+</script>
+</head>
+<body class='<%=cssclassname %>'>
+<asp:ContentPlaceHolder ID="beforeform" runat="server"></asp:ContentPlaceHolder>
+<form id="form1" runat="server" onsubmit="return ShowLoading();">
+
+<asp:ScriptManager ID="sm1" runat="server">
+<Scripts><asp:ScriptReference Name="jquery"/></Scripts>
+</asp:ScriptManager>
+	<!--script src="/js/vendor/jquery.min.js"><!/script!-->
+	<script src="/js/plugins.js"></script>
+	<script src="/js/main.js"></script>
+    <script src="/js/validators.js"></script>
+
+    <script type="text/javascript">
+        function sendRequest(method, data) {
+            return $.ajax({
+                type: "POST",
+                data: JSON.stringify(data),
+                url: '/webService.asmx/' + method,
+                contentType: "application/json"
+            });
+        }
+    </script>
+
+	<!-- Header -->
+	<header class="header">
+		<div class="wrapper">
+
+			<h1 class="hidden">Price Point Date</h1>
+
+			<!-- logo -->
+			<p class="logo"><a href='<%=HomeLink%>'><img src="/img/logo.png" width="246" height="36" alt="Price Point Date" /></a></p>
+
+			<!-- Sign in -->
+			<div class="buttons" id="divButtons" runat="server">
+				<a href="/Login" runat="server" id="btnLogin"><span class="button button-white">Log In</span> <span class="icon icon-login"></span></a>
+				<a href="/Sign-up" runat="server" id="btnSignUp"><span class="button">Sign Up</span> <span class="icon icon-signup"></span></a>
+			</div>
+
+			<!-- username -->
+			<div class="username" id="divUserName" runat="server">
+				<a class="switch" href="#"><asp:Label runat="server" ID="lblUserName"></asp:Label><%=MyUtils.IsUserAdmin()?" - Admin":"" %> <span class="credits"><%=Utils.GetCreditsOrUserType()%></span></a>
+				<div class="settings">
+					<div class="entry">
+						<figure class="image">
+                            <a href='<%=Utils.GetProfileLink(MyUtils.ID_USER)%>'>
+                                <asp:Image runat="server" width="124" height="124" alt="" ID ="imgUserMainPhoto"/>
+							View My Profile</a>
+						</figure>
+						<div class="info">
+							<p class="name"><%=MyUtils.GetUserField("username")%></p>
+							<a class="button button-white-bordered" href="/Account/UploadPhotos">Manage Photos</a>
+							<a class="button button-white-bordered" href="/Account/EditProfile">Edit My Profile</a>
+							<a class="button button-white-bordered" href="/Account/Settings">Settings</a>
+						</div>
+					</div>
+					<div class="entry">
+						<a class="button button-black" href="/Account/List?t=favorites">My Favorites</a>
+						<a class="button button-black" href="/Account/List?t=viewed">Who Viewed Me</a>
+						<a class="button button-black" href="/Account/List?t=favorited">Who Favorited Me</a>
+						<a class="button button-black" href="/Account/List?t=blocked">Blocked List</a>
+                        <a class="button button-black" href="/Admin/Profiles" runat="server" id="hrefProfiles" visible="false">Admin - Approve Profiles</a>
+                        <a class="button button-black" href="/Admin/Photos" runat="server" id="hrefPhotos" visible="false">Admin - Approve Photos</a>
+					</div>
+					<div class="entry">
+						<p class="fn"><span class="credits"><%=Utils.GetCreditsOrUserType()%></span></p>
+						<div class="buttons-group">
+							<p class="cell"><a class="button" href="/Account/Upgrade"><%=MyUtils.IsMale ? "Buy Credits":"Upgrade" %></a></p>
+							<p class="cell">
+                                <a class="button button-white-bordered" href="/Login?logout=1">Log Out</a>
+
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</header>
+	<!-- /Header -->
+
+
+    <!-- Top -->
+	<div class="top" runat="server" id="topdiv" visible="false">
+		<div class="wrapper">
+			<ul class="links-group">
+				<li><a <%=MyUtils.MenuLink("/Account/Search",true)%> ><span class="icon icon-search"></span> Search</a></li>
+				<li><a <%=MyUtils.MenuLink("/Account/Offers?type=New",true)%> ><span class="icon icon-offers"></span> Offers <%=GetCount("NewOffers") %></a></li>
+				<li><a <%=MyUtils.MenuLink("/Account/Dates",true)%> ><span class="icon icon-date"></span> Dates <%=GetCount("Dates") %></a></li>
+				<li><a <%=MyUtils.MenuLink("/Account/Messages",true)%> ><span class="icon icon-messages"></span> Messages <%=GetCount("Messages") %></a></li>
+			</ul>
+			<p class="buy"><a runat="server" id="buycredits" class="button" href="/Account/Upgrade"><%=MyUtils.IsMale ? "Buy Credits":"Upgrade" %></a></p>
+		</div>
+	</div>
+	<!-- /Top -->
+
+    	<!-- Container -->
+	    <main class="container">
+		    <div class="wrapper" style='<%=WrapperStyle%>'>
+
+                <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+                </asp:ContentPlaceHolder>
+		</div>
+	</main>
+	<!-- /Container -->
+    </form>
+
+	<!-- Footer -->
+	<footer class="footer" runat="server" id="footer">
+		<div class="wrapper">
+			<ul class="links">
+				<li><a href="/faq">FAQ</a></li>
+				<li><a href="/Contact">Contact Us</a></li>
+				<li><a href="/Privacy">Privacy Policy</a></li>
+				<li><a href="/Terms">Terms of Use</a></li>
+			</ul>
+			<p class="copyright">Copyright &copy; <%=DateTime.Now.Year %> <a href="/">PricePointDate.com</a></p>
+		</div>
+	</footer>
+	<!-- /Footer -->
+     <asp:ContentPlaceHolder id="bottom" runat="server">
+    </asp:ContentPlaceHolder>
+</body>
+</html>

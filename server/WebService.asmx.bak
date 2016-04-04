@@ -1,0 +1,207 @@
+﻿<%@ WebService Language="C#" Class="WebService" %>
+
+using System;
+using System.Net;
+using System.IO;
+using System.Web;
+using System.Web.Services;
+using System.Web.Services.Protocols;
+
+[WebService(Namespace = "http://pricepointdate.com/")]
+[WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
+// To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
+[System.Web.Script.Services.ScriptService]
+public class WebService : System.Web.Services.WebService
+{
+
+    DB_Helper db = new DB_Helper();
+
+    [WebMethod(EnableSession = true)]
+    public string AcceptOffer(int id_offer)
+    {
+        try
+        {
+            db.Execute("update offers set accepted=getdate(), id_offer_state=404 where id_offer=" + id_offer);
+            System.Data.DataRow R = db.GetRow("select * from offers where id_offer=" + id_offer);
+//            EmailWrapper.SendTemplateEmail("EMAIL_OFFERACCEPTED", Convert.ToInt32(R["id_user_from"]), Convert.ToInt32(R["id_user_to"]));
+        }
+        catch (Exception e)
+        {
+            return "ERROR:" + e.Message;
+        }
+        return "OK: Offer accepted";
+    }
+
+    [WebMethod(EnableSession = true)]
+    public string RejectOffer(int id_offer)
+    {
+        try
+        {
+            db.Execute("update offers set id_offer_state=405 where id_offer=" + id_offer);
+            System.Data.DataRow R = db.GetRow("select * from offers where id_offer=" + id_offer);
+//            EmailWrapper.SendTemplateEmail("EMAIL_OFFERREJECTED", Convert.ToInt32(R["id_user_from"]), Convert.ToInt32(R["id_user_to"]));
+        }
+        catch (Exception e)
+        {
+            return "ERROR:" + e.Message;
+        }
+
+        return "OK";
+    }
+
+
+    [WebMethod(EnableSession = true)]
+    public string MakeOffer(int id_user, double amount, int[] gifts)
+    {
+	Random r=new Random();
+	if (r.Next(100)<50) return "OK: Offer has been sent";
+	else return "ERROR: You have reached maximum offers per day limit.";
+        try
+        {
+            int todaysent = db.ExecuteScalarInt("select count(*) where datediff(day, getdate(), time) = 0 and id_user_from=" + MyUtils.ID_USER);
+
+            if (todaysent >= 20) return "ERROR: You have reached maximum offers per day limit. Please wait untill tomorrow.";
+
+            return MakeOfferV2("bigapple", MyUtils.ID_USER, id_user, amount, gifts);
+        }
+        catch (Exception e)
+        {
+            return "ERROR:" + e.Message;
+        }
+
+    }
+
+    [WebMethod(EnableSession = true)]
+    public string WithdrawOffer(int id_offer)
+    {
+        try
+        {
+            db.Execute("delete offers where id_offer=" + id_offer);
+            return "OK: Offer has been withdrawn";
+        }
+        catch (Exception e)
+        {
+            return "ERROR:" + e.Message;
+        }
+    }
+
+    [WebMethod(EnableSession = true)]
+    public string CounterOffer(int id_offer, double amount)
+    {
+        try
+        {
+            db.Execute("update offers set id_offer_state=406,amount=" + amount + " where id_offer=" + id_offer);
+            return "OK: Counter Offer was Sent";
+        }
+        catch (Exception e)
+        {
+            return "ERROR:" + e.Message;
+        }
+    }
+
+
+    [WebMethod(EnableSession = true)]
+    public string Favorite(int id_user, bool on_off)
+    {
+        try
+        {
+            if (on_off)
+            {
+                db.Execute("if not exists(select * from favorites where id_user=" + MyUtils.ID_USER + " and id_user_child=" + id_user + ") insert into favorites (id_user,id_user_child) values (" + MyUtils.ID_USER + "," + id_user + ")");
+                //TO DO!!!!!!!!!!
+                //            EmailWrapper.SendTemplateEmail("EMAIL_FAVORITED_HIM", MyUtils.ID_USER, id_user);
+                //          EmailWrapper.SendTemplateEmail("EMAIL_FAVORITED_HER", MyUtils.ID_USER, id_user);
+
+                return "User " + id_user + " was favorited.";
+            }
+            db.Execute("delete favorites where id_user=" + MyUtils.ID_USER + " and id_user_child=" + id_user);
+            return "User " + id_user + " was unfavorited.";
+        }
+        catch (Exception e)
+        {
+            return "ERROR:" + e.Message;
+        }
+    }
+
+
+    string Gifts(int[] gifts)
+    {
+        string s = "";
+        if (gifts.Length == 0) return "no gifts";
+        foreach (int i in gifts)
+        {
+            if (s != "") s += ", ";
+            s += i;
+        }
+        return s;
+    }
+
+
+
+
+
+
+    [WebMethod]
+    public string DownloadImageFromURLAndSave(string url)
+    {
+        string guid = "";
+        try
+        {
+            string f = System.Web.HttpContext.Current.Server.MapPath("~/UserImages") + "\\" + DateTime.Now.Ticks.ToString() + ".jpg";
+            using (WebClient c = new WebClient())
+            {
+                c.DownloadFile(url, f);
+                try
+                {
+                    using (Stream s = c.OpenRead(f))
+                    {
+                        guid = RobsCommonUtils.AmazonS3.SaveImageToFileandAmazon(s, "~/UserImages");
+                    }
+                }
+                finally
+                {
+                    File.Delete(f);
+                }
+            }
+        }
+        catch
+        {
+
+        }
+        return guid;
+
+    }
+
+    [WebMethod(EnableSession = true)]
+    public string MakeOfferV2(string pass, int id_user_from, int id_user_to, double amount, int[] gifts)
+    {
+        if (pass != "bigapple") return "";
+
+        DB_Helper db = new DB_Helper();
+
+
+        if (amount > 500) return "ERROR: You can't offer more than $500.";
+
+        try
+        {
+            string giftss = "";
+            foreach (int i in gifts) giftss += giftss == "" ? i.ToString() : "," + i.ToString();
+
+            int id_offer = db.ExecuteScalarInt("select id_offer from offers where id_user_from=" + id_user_to + " and id_user_to=" + id_user_from);
+            if (id_offer > 0) db.Execute("update offers set amount=" + amount + ",gifts=" + MyUtils.safe(giftss) + " where id_offer_state<>404 and id_offer=" + id_offer);
+            else id_offer = db.ExecuteScalarInt("insert into offers (id_user_to,id_user_from,amount,gifts) values (" + id_user_to + "," + id_user_from + "," + amount + "," + MyUtils.safe(giftss) + ");select @@identity", 0);
+
+            if (id_offer > 0)
+            {
+                return "OK";
+            }
+        }
+        catch (Exception ex)
+        {
+            return "ERROR: " + ex.Message;
+        }
+
+        return "ERROR: offer not sent";
+    }
+
+}
