@@ -132,6 +132,8 @@ public partial class UploadPhotos : System.Web.UI.Page
                 AddPhotoToDataSet(photoPath + fileUploader.PostedFile.FileName, guid, id_photo, false, false);
 
                 MakePhotoMain();
+
+                Session["message"] = "OK: Photo has been successfully uploaded.";
             }
             else
                 if (dsImages.Tables["Images"].Rows.Count == 0)
@@ -420,6 +422,6 @@ public partial class UploadPhotos : System.Web.UI.Page
 
     protected void btnComplete_Click(object sender, EventArgs e)
     {
-        Response.Redirect("~/Account/Default.aspx");
+        Response.Redirect("~/Account/");
     }
 }

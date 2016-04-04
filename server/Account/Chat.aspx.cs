@@ -11,7 +11,7 @@ using System.Web.UI.WebControls;
 public partial class Messages_Chat : System.Web.UI.Page
 {
     public int ID_USER;
-
+    public int ID_USER_CHATWITH;
     public DataRow R;
 
     static DataTable SaveMessage2DBAndSelect(int id_user_from, int id_user_to, string message, string gift_list, int id_offer)
@@ -43,7 +43,7 @@ public partial class Messages_Chat : System.Web.UI.Page
         note.Visible = MyUtils.IsMale;
 
         ID_USER = (int)MyUtils.GetUserField("ID_USER"); //will redirect to login page if not logged in
-        int ID_USER_CHATWITH = Convert.ToInt32(Request.QueryString["id"]);
+        ID_USER_CHATWITH = Convert.ToInt32(Request.QueryString["id"]);
 
         DB_Helper db = new DB_Helper();
 
@@ -92,23 +92,40 @@ public partial class Messages_Chat : System.Web.UI.Page
 
         message = MyUtils.StripHTML(message);
         giftIds = MyUtils.StripHTML(giftIds);
-
-        int id_offer = db.ExecuteScalarInt("exec CAN_MESSAGE_WITH " + Convert.ToInt32(fromUser) + "," + Convert.ToInt32(toUser), 0);
+        int id_user_to = Convert.ToInt32(toUser);
+        int id_offer = db.ExecuteScalarInt("exec CAN_MESSAGE_WITH " + Convert.ToInt32(fromUser) + "," + id_user_to, 0);
         if (id_offer == 0)
         {
-            Message m = new Message();
-            m.Text = "You don't have permission to send messages to this user.";
-            return m;
+            Message mm = new Message();
+            mm.Text = "You don't have permission to send messages to this user.";
+            return mm;
         }
 
         if (message.Trim() == "") return null;
 
+        if (!string.IsNullOrEmpty(giftIds))
+        {
+            Gifts g = new Gifts(giftIds);
+            string err = g.AddGifts2User(MyUtils.ID_USER, id_user_to);
+            if (err != "")
+            {
+                Message mmm = new Message();
+                mmm.Text = err;
+                return mmm;
+            }
+        }
 
-        var table = SaveMessage2DBAndSelect(fromUser, Convert.ToInt32(toUser), message, giftIds, id_offer);
+        var table = SaveMessage2DBAndSelect(fromUser, id_user_to, message, giftIds, id_offer);
+
+        //make sure we don't send too many notification emails
+        int unread_messages_in_10_mins = db.ExecuteScalarInt("select count(*) from Messages where id_user_from=" + fromUser + " and id_user_to=" + id_user_to + " and is_new = 1 and [time] > DATEADD(minute, -10, GETDATE())");
+
+        if (unread_messages_in_10_mins<2) RWorker.AddToEmailQueue("EMAIL_NEWMESSAGE", id_user_to, MyUtils.ID_USER);
+
 
 
         DB_Helper.InvalidateCache("TOPCOUNTS_" + MyUtils.ID_USER);
-        DB_Helper.InvalidateCache("TOPCOUNTS_" + Convert.ToInt32(toUser));
+        DB_Helper.InvalidateCache("TOPCOUNTS_" + id_user_to);
 
         var query = from p in table.AsEnumerable()
                     select new Message
@@ -128,7 +145,13 @@ public partial class Messages_Chat : System.Web.UI.Page
                         DateTime = p.Field<DateTime>("time"),
                         IsFromMe = true
                     };
-        return query.First();
+        Message m= query.First();
+
+        if (!string.IsNullOrEmpty(giftIds))
+        {
+            m.Credits = Convert.ToInt32(MyUtils.GetUserField("credits"));
+        }
+        return m;
     }
 
     [WebMethod]
@@ -172,7 +195,13 @@ public partial class Messages_Chat : System.Web.UI.Page
                         Gifts = p.Field<string>("gift_list")
                     };
         
-        return query.Take(20).OrderBy(r => r.DateTime).ToList();
+        List<Message> list= query.Take(20).OrderBy(r => r.DateTime).ToList();
+
+        Message m = new Message();
+        m.Text = "ONLINE:" + (MyUtils.IsOnline(Convert.ToInt32(toUser)) ? "Y" : "N");
+        list.Add(m);
+
+        return list;
     }
 
     public class Message
@@ -184,7 +213,7 @@ public partial class Messages_Chat : System.Web.UI.Page
         {
             get
             {
-                return DateTime.ToShortTimeString();
+                return (new DateTime(this.DateTime.Ticks, DateTimeKind.Local)).ToString("o");
             }
         }
         public User From { get; set; }
@@ -192,6 +221,11 @@ public partial class Messages_Chat : System.Web.UI.Page
         public int Id { get; set; }
         public bool IsFromMe { get; set; }
         public string Gifts { get; set; }
+        public int Credits { get; set; }
+        public Message()
+        {
+            Credits = -1;
+        }
     }
 
     public class User

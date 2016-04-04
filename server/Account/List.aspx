@@ -4,12 +4,12 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 <ul class="links-group" runat="server" id="Ul1">
-				<li><a <%=MyUtils.MenuLink("/Account/List.aspx?t=favorites")%> ><span class="icon icon-new"></span> My Favorites</a></li>
-				<li><a <%=MyUtils.MenuLink("/Account/List.aspx?t=viewed")%> ><span class="icon icon-tick"></span> Who Viewed Me </a></li>
-				<li runat="server" id="Li1" ><a <%=MyUtils.MenuLink("/Account/List.aspx?t=favorited")%> ><span class="icon icon-wink"></span> Who Favotited Me  </a></li>
-				<li runat="server" id="Li2" ><a <%=MyUtils.MenuLink("/Account/List.aspx?t=blocked")%> ><span class="icon icon-sandglass"></span> Blocked List </a></li>
+				<li><a <%=MyUtils.MenuLink("/Account/List?t=favorites")%> ><span class="icon icon-new"></span> My Favorites</a></li>
+				<li><a <%=MyUtils.MenuLink("/Account/List?t=viewed")%> ><span class="icon icon-tick"></span> Who Viewed Me </a></li>
+				<li runat="server" id="Li1" ><a <%=MyUtils.MenuLink("/Account/List?t=favorited")%> ><span class="icon icon-wink"></span> Who Favotited Me  </a></li>
+				<li runat="server" id="Li2" ><a <%=MyUtils.MenuLink("/Account/List?t=blocked")%> ><span class="icon icon-sandglass"></span> Blocked List </a></li>
 </ul>
-    <br /><br />
+    <br />
 
 <section class="offers">
 <div class="pure-g">
@@ -20,8 +20,8 @@
 						<div class="panel panel-pending" data-id="<%# Eval("id_user") %>" data-user="<%# Eval("username") %>">
 							<div class="panel-space">
 								<div class="info">
-									<a class="photo" href="/Account/ViewProfile.aspx?id=<%# Eval("id_user") %>"><img src='<%# MyUtils.GetImageUrl(Eval("MainPhoto"),MyUtils.ImageSize.TINY) %>' alt=""></a>
-									<p class="name"><a class="name" href="/Account/ViewProfile.aspx?id=<%# Eval("id_user") %>"><%# Eval("username") %></a></p>
+									<a class="photo" href='<%#Utils.GetProfileLink(Container.DataItem)%>'><img src='<%# MyUtils.GetImageUrl(Eval("MainPhoto"),MyUtils.ImageSize.TINY) %>' alt=""></a>
+									<p class="name"><a class="name" href='<%#Utils.GetProfileLink(Container.DataItem)%>'><%# Eval("username") %></a></p>
 									<p class="location"><%# Eval("age") %> / <%# Eval("place") %></p>
 								</div>
                                 <div class="buttons">
@@ -39,7 +39,9 @@
 					</div>
         </ItemTemplate>
     </asp:Repeater>
-    
+    <div class="text" style="margin-left:5px">
+    <asp:Literal runat="server" ID="norecords" Text="No records." Visible="false" />
+    </div>
 </div>
 </section>
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -22,6 +23,7 @@ public partial class Account_Settings : System.Web.UI.Page
         cbxEmailNewMatches.Checked = Utils.GetBoolField(dataRow, "email_new_matches");
         cbxEmailWhenNewMessage.Checked = Utils.GetBoolField(dataRow, "email_when_new_message");
         cbxEmailWhenFavorited.Checked = Utils.GetBoolField(dataRow, "email_when_favorited");
+        cbxemail_when_new_offer.Checked = Utils.GetBoolField(dataRow, "email_when_new_offer");
         cbxEmailNewsletter.Checked = Utils.GetBoolField(dataRow, "email_newsletter");
 
         cbxHideFromSearchResults.Checked = Utils.GetBoolField(dataRow, "hide_from_search_results");
@@ -46,11 +48,12 @@ public partial class Account_Settings : System.Web.UI.Page
             userRow["email_new_matches"] = cbxEmailNewMatches.Checked;
             userRow["email_when_new_message"] = cbxEmailWhenNewMessage.Checked;
             userRow["email_when_favorited"] = cbxEmailWhenFavorited.Checked;
+            userRow["email_when_new_offer"] = cbxemail_when_new_offer.Checked;
             userRow["email_newsletter"] = cbxEmailNewsletter.Checked;
 
             userRow["hide_from_search_results"] = cbxHideFromSearchResults.Checked;
-            userRow["hide_on_viewed_favorited_list"] = cbxHideOnViewedFavoritedList.Checked;
-            userRow["hide_last_logintime"] = cbxHideLastLogintime.Checked;
+//            userRow["hide_on_viewed_favorited_list"] = cbxHideOnViewedFavoritedList.Checked;
+  //          userRow["hide_last_logintime"] = cbxHideLastLogintime.Checked;
 
             db.CommandBuilder_SaveDataset();
         }
@@ -62,6 +65,15 @@ public partial class Account_Settings : System.Web.UI.Page
         MyUtils.RefreshUserRow();
 
         Session["message"] = "Settings have been saved";
-        Response.Redirect("~/Account/Default.aspx");
+        Response.Redirect("~/Account/");
+    }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        db.Execute("update users set status=-10 where id_user="+MyUtils.ID_USER);
+        Session.Clear();
+        Session["message"] = "Your account has been canceled.";
+        FormsAuthentication.SignOut();
+        Response.Redirect("/");
     }
 }

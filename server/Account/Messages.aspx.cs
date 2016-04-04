@@ -27,12 +27,21 @@ public partial class Account_Messages : System.Web.UI.Page
     }
     protected void Page_Load(object sender, EventArgs e)
     {
+        var SendMessageTo = Request.QueryString["SendMessageTo"];
+        if (!string.IsNullOrEmpty(SendMessageTo))
+        {
+            int id = Convert.ToInt32(SendMessageTo);
+            int id_offer = db.ExecuteScalarInt("select id_offer from offers where (id_user_from=" + id + " and id_user_to=" + MyUtils.ID_USER + ") or (id_user_from=" + MyUtils.ID_USER + " and id_user_to=" + id + ")");
+            Utils.GoToSendMessage(id_offer);
+            return;
+        }
 
         DataSet d=db.GetDataSet("exec GET_MESSAGE_LIST "+MyUtils.ID_USER);
-        empty.Visible = d.Tables[0].Rows.Count == 0;
-        if (empty.Visible)
+        QuickStart.Visible = d.Tables[0].Rows.Count == 0;
+        if (QuickStart.Visible)
         {
-            empty.Text = "You have no messages. " + (MyUtils.GetUserField("sex").ToString() == "M" ? "Start with a search then send offers to the ladies you like." : "Start with a search then send winks to the men you like.");
+            NormalHeadline.Visible = false;
+            QuickStart.Title = "<h2>You have no messages yet</h2>";
         }
         Repeater1.DataSource = d;
         Repeater1.DataBind();

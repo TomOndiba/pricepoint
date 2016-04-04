@@ -45,7 +45,7 @@ public partial class RegistrationCtrl : System.Web.UI.UserControl
         else
         {
             h2Title.InnerText = "Update Your Profile";
-            btnCompleteProfile.Text = "Complete Profile";
+            btnCompleteProfile.Text = "Update Profile";
         }
 
         #region Set DropDownLists
@@ -169,12 +169,12 @@ public partial class RegistrationCtrl : System.Web.UI.UserControl
         if (IsRegistration)
         {
             Session["message"] = "Your profile has been saved. Please upload photos.";
-            Response.Redirect("~/Account/UploadPhotos.aspx?hidemenu=1");
+            Response.Redirect("~/Account/UploadPhotos?hidemenu=1");
         }
         else
         {
             Session["message"] = "Your profile has been updated";
-            Response.Redirect("~/Account/ViewProfile.aspx?id=" + ID_USER);
+            Response.Redirect(Utils.GetProfileLink(ID_USER));
         }
     }
 

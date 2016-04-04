@@ -31,7 +31,7 @@ function DoSearch()
 {
     Filter.agemax = 29;
     Filter.agemin = 18;
-    window.location.href = '/Search.aspx?f=' + encodeURIComponent(JSON.stringify(Filter));
+    window.location.href = '/Search?f=' + encodeURIComponent(JSON.stringify(Filter));
     return false;
 }
 
@@ -77,13 +77,13 @@ function GetRecords() {
 function viewprofile(e)
 {
     id = $(e).parents('.item').attr("data-id");
-    window.location.href = '/Account/ViewProfile.aspx?id=' + id;
+    window.location.href = '/Account/ViewProfile?id=' + id;
     return false;
 }
 
 function SendMessage(e) {
     id = $(e).parents('.item').attr("data-id");
-    window.location.href = '/Account/Messages.aspx?SendMessageTo=' + id;
+    window.location.href = '/Account/Messages?SendMessageTo=' + id;
 }
 function AcceptOffer(e) {
     id = $(e).parents('.item').attr("data-id");
@@ -124,7 +124,9 @@ function OnSuccess(response) {
 
         
         $(".rib-wrapper", table).css('display', customer.find("online").text() == "1" ? 'block' : 'none');
-        
+
+        $(".vip", table).css('display', customer.find("VIP").text() == "Y" ? 'block' : 'none');
+
 
         $('.js-popup', table).magnificPopup({
             type: 'ajax',

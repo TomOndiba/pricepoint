@@ -46,7 +46,7 @@
                                 </ItemTemplate>
                             </asp:DataList>
                         </div>
-                        <p class="inform">Photos need to be larger than 400 x 400px and you need to be in the photo. Also, no children in the photo. Pornography is not alowed. Partial nudity is allowed only in private photos. Your private photos will be shown only to users that you have sent an offer or a wink or acepted thier offer.</p>
+                        <p class="inform">Photos need to be larger than 400 x 400px and you need to be in the photo. Also, no children in the photo. Nudity is not alowed. Your private photos will be shown only to users that YOU have sent an offer, winked at them, favorited them or acepted thier offer.</p>
 
                         <p class="small">
                             <strong>DISCLAIMER:</strong> We review all photos and reserve the right to modify photos as necessary before they are visible to other members. Most photos are reviewed within 24 hours. Once approved, they will appear as visible photos on your profile. If your photo does not meet the photo guidelines it will be deleted. We reserve the right to delete any photo for any reason.

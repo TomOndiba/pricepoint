@@ -16,13 +16,12 @@
 
             <section>
                 <!-- Profile -->
-				<div class="profile" data-id="<%=userRow["id_user"].ToString()%>" data-id_offer="<%=userRow["ID_OFFER_REAL"].ToString()%>" data-user="<%=userRow["username"].ToString()%>">
+                <div class="profile" >
                     <div class="photo my-gallery" data-gallery="1" itemscope itemtype="http://schema.org/ImageGallery">
                         <figure itemprop="associatedMedia" style="position:relative" itemscope itemtype="http://schema.org/ImageObject">
                             <a href='<%=MyUtils.GetImageUrl(userRow, MyUtils.ImageSize.ORIGINAL_SIZE)%>' itemprop="contentUrl" data-size='<%=GetImageSize(userRow) %>'>
                                 <img src='<%=MyUtils.GetImageUrl(userRow, MyUtils.ImageSize.MEDIUM)%>' width="160" height="160" alt="" />
 <div id="isonline" runat="server" class="rib-wrapper"><div class="rib">Online</div></div>
-								<%=userRow["VIP"].ToString()=="Y"?"<span class='vip'>VIP</span>":""%> 
 <span runat="server" id="agreedprice" visible="false" class="agreedprice">$350</span>
                             </a>
                         </figure>
@@ -45,7 +44,8 @@
                                 <asp:Literal runat="server" ID="ltStatus" />
                             </p>
                         </div>
-                        <div class="actions" data-id="<%=userRow["id_user"].ToString()%>"  data-id_offer="<%=userRow["ID_OFFER_REAL"].ToString()%>"  data-user="<%=userRow["username"].ToString()%>">
+                        <div class="actions" data-id="<%=userRow["id_user"].ToString()%>"  data-user="<%=userRow["username"].ToString()%>">
+                            <!-- Not done yet -->
                             <ul class="list" runat="server" id="lActions">
 
 <!--"<a "+Utils.Hide("offer",userRow["id_offer_state"])+" class='button button-icon js-popup' href='popup-offer.html'><span class='icon icon-offer'></span> Send Offer</a><span  "+Utils.Hide("offersent",userRow["id_offer_state"])+" class='cell'>Offer Sent</span><a "+Utils.Hide("message",userRow["id_offer_state"])+" class='button button-blue button-icon js-popup' href='#popup-message'><span class='icon icon-message'></span> Send Message</a>"-->
@@ -68,9 +68,9 @@
 </style>
 <li>
 <div id="DIV_ACCEPTCOUNTERREJECT" visible="false" runat="server" class="buttons show-new">
-<span class="cell"><a class="button js-accept-offer" href="#">Accept <%=accepttext%></a></span>
-<span class="cell"><a class="button button-blue js-popup" href="popup-offer.html" data-counter="1">Counter</a></span>
-<span class="cell"><a class="button button-black js-popup" href="popup-reject.html">Reject</a></span>
+<div class="cell"><a class="button js-accept-offer" href="#">Accept <%=accepttext%></a></div>
+<div class="cell"><a class="button button-blue js-popup" href="popup-offer.html" data-counter="1">Counter</a></div>
+<div class="cell"><a class="button button-black js-reject-offer" href="#">Reject</a></div>
 </div>
 <a id="BUT_SENDOFFER" visible="false" runat="server" class='button button-icon js-popup sendofferbutton' href='popup-offer.html'><span class='icon icon-offer'></span> <%=MyUtils.IsFemale ? "Name Your Price":"Send Offer" %></a>
 <a id="OfferText" runat="server" class='button button-icon sendofferbuttonDONE' style="display:none;background-color:#00cb50;color:white;cursor:default;border:1px solid #00ab30" href='#'>Offer was sent</a>
@@ -87,7 +87,7 @@ function MakeOfferDone(panel,amount)
     </script>
 
                                 <li class="hf">
-								<span class="col"><a class="button button-gray button-icon js-favorite <%= userRow["favorite"].ToString()=="1" ? "active" : "" %>" href="#favorite"><span class="icon icon-fav"></span> Favorite</a></span>
+								<span class="cell"><a class="button button-gray button-icon js-favorite <%= userRow["favorite"].ToString()=="1" ? "active" : "" %>" href="#favorite"><span class="icon icon-fav"></span> Favorite</a></span>
                                 <span class="col"><%=MyUtils.ShowIfLogedinUserField("sex","F","<a class='button button-gray button-icon js-wink "+(userRow["wink"].ToString()=="1"?"active":"")+"' href='#wink'> <span class='icon icon-wink'></span> <span class='sendwink'>Send Wink</span><span class='sentwink'>Wink Sent</span></a>") %></span>
                                 </li>
                             </ul>

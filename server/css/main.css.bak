@@ -461,9 +461,9 @@ textarea:focus {
   clear: both;
 }
 /* BUTTONS */
-.button:not(.mfp-arrow),
-button:not(.mfp-arrow),
-input[type="submit"]:not(.mfp-arrow) {
+.button:not(.pswp__button),
+button:not(.pswp__button),
+input[type="submit"]:not(.pswp__button) {
   max-width: 400px;
   height: auto;
   margin: 0 auto;
@@ -478,160 +478,159 @@ input[type="submit"]:not(.mfp-arrow) {
   border-radius: 2px;
   transition: background-color 0.2s, border-color 0.2s, color 0.2s;
 }
-
 @media (min-width: 750px) {
-  .button:not(.mfp-arrow),
-  button:not(.mfp-arrow),
-  input[type="submit"]:not(.mfp-arrow) {
+  .button:not(.pswp__button),
+  button:not(.pswp__button),
+  input[type="submit"]:not(.pswp__button) {
     max-width: none;
     display: inline-block;
     font-size: 13px;
     padding: 8px 28px;
   }
-  .button:not(.mfp-arrow).button-large,
-  button:not(.mfp-arrow).button-large,
-  input[type="submit"]:not(.mfp-arrow).button-large {
+  .button:not(.pswp__button).button-large,
+  button:not(.pswp__button).button-large,
+  input[type="submit"]:not(.pswp__button).button-large {
     padding-top: 12px;
     padding-bottom: 12px;
     font-size: 15px;
     line-height: 18px;
   }
 }
-.button:not(.mfp-arrow):hover,
-button:not(.mfp-arrow):hover,
-input[type="submit"]:not(.mfp-arrow):hover,
-.button:not(.mfp-arrow):focus,
-button:not(.mfp-arrow):focus,
-input[type="submit"]:not(.mfp-arrow):focus {
+.button:not(.pswp__button):hover,
+button:not(.pswp__button):hover,
+input[type="submit"]:not(.pswp__button):hover,
+.button:not(.pswp__button):focus,
+button:not(.pswp__button):focus,
+input[type="submit"]:not(.pswp__button):focus {
   color: #e74b90;
   background-color: transparent;
   text-decoration: none;
 }
-.button:not(.mfp-arrow).button-black,
-button:not(.mfp-arrow).button-black,
-input[type="submit"]:not(.mfp-arrow).button-black {
+.button:not(.pswp__button).button-black,
+button:not(.pswp__button).button-black,
+input[type="submit"]:not(.pswp__button).button-black {
   color: #fff;
   background: #333a42;
   border-color: #333a42;
 }
-.button:not(.mfp-arrow).button-black:hover,
-button:not(.mfp-arrow).button-black:hover,
-input[type="submit"]:not(.mfp-arrow).button-black:hover,
-.button:not(.mfp-arrow).button-black:focus,
-button:not(.mfp-arrow).button-black:focus,
-input[type="submit"]:not(.mfp-arrow).button-black:focus,
-.button:not(.mfp-arrow).button-black:active,
-button:not(.mfp-arrow).button-black:active,
-input[type="submit"]:not(.mfp-arrow).button-black:active {
+.button:not(.pswp__button).button-black:hover,
+button:not(.pswp__button).button-black:hover,
+input[type="submit"]:not(.pswp__button).button-black:hover,
+.button:not(.pswp__button).button-black:focus,
+button:not(.pswp__button).button-black:focus,
+input[type="submit"]:not(.pswp__button).button-black:focus,
+.button:not(.pswp__button).button-black:active,
+button:not(.pswp__button).button-black:active,
+input[type="submit"]:not(.pswp__button).button-black:active {
   color: #333a42;
   background-color: transparent;
   text-decoration: none;
 }
-.button:not(.mfp-arrow).button-white,
-button:not(.mfp-arrow).button-white,
-input[type="submit"]:not(.mfp-arrow).button-white {
+.button:not(.pswp__button).button-white,
+button:not(.pswp__button).button-white,
+input[type="submit"]:not(.pswp__button).button-white {
   color: #4c9eda;
   background: #fff;
   border: 1px solid transparent;
   transition: border-color 0.2s, background-color 0.2s;
 }
-.button:not(.mfp-arrow).button-white:hover,
-button:not(.mfp-arrow).button-white:hover,
-input[type="submit"]:not(.mfp-arrow).button-white:hover,
-.button:not(.mfp-arrow).button-white:focus,
-button:not(.mfp-arrow).button-white:focus,
-input[type="submit"]:not(.mfp-arrow).button-white:focus,
-.button:not(.mfp-arrow).button-white:active,
-button:not(.mfp-arrow).button-white:active,
-input[type="submit"]:not(.mfp-arrow).button-white:active {
+.button:not(.pswp__button).button-white:hover,
+button:not(.pswp__button).button-white:hover,
+input[type="submit"]:not(.pswp__button).button-white:hover,
+.button:not(.pswp__button).button-white:focus,
+button:not(.pswp__button).button-white:focus,
+input[type="submit"]:not(.pswp__button).button-white:focus,
+.button:not(.pswp__button).button-white:active,
+button:not(.pswp__button).button-white:active,
+input[type="submit"]:not(.pswp__button).button-white:active {
   border-color: #4c9eda;
   background-color: transparent;
 }
-.button:not(.mfp-arrow).button-white-bordered,
-button:not(.mfp-arrow).button-white-bordered,
-input[type="submit"]:not(.mfp-arrow).button-white-bordered {
+.button:not(.pswp__button).button-white-bordered,
+button:not(.pswp__button).button-white-bordered,
+input[type="submit"]:not(.pswp__button).button-white-bordered {
   color: #4c9eda;
   background: #fff;
   border: 1px solid #4c9eda;
   transition: background-color 0.2s;
 }
-.button:not(.mfp-arrow).button-white-bordered:hover,
-button:not(.mfp-arrow).button-white-bordered:hover,
-input[type="submit"]:not(.mfp-arrow).button-white-bordered:hover,
-.button:not(.mfp-arrow).button-white-bordered:focus,
-button:not(.mfp-arrow).button-white-bordered:focus,
-input[type="submit"]:not(.mfp-arrow).button-white-bordered:focus,
-.button:not(.mfp-arrow).button-white-bordered:active,
-button:not(.mfp-arrow).button-white-bordered:active,
-input[type="submit"]:not(.mfp-arrow).button-white-bordered:active {
+.button:not(.pswp__button).button-white-bordered:hover,
+button:not(.pswp__button).button-white-bordered:hover,
+input[type="submit"]:not(.pswp__button).button-white-bordered:hover,
+.button:not(.pswp__button).button-white-bordered:focus,
+button:not(.pswp__button).button-white-bordered:focus,
+input[type="submit"]:not(.pswp__button).button-white-bordered:focus,
+.button:not(.pswp__button).button-white-bordered:active,
+button:not(.pswp__button).button-white-bordered:active,
+input[type="submit"]:not(.pswp__button).button-white-bordered:active {
   background-color: transparent;
 }
-.button:not(.mfp-arrow).button-gray,
-button:not(.mfp-arrow).button-gray,
-input[type="submit"]:not(.mfp-arrow).button-gray {
+.button:not(.pswp__button).button-gray,
+button:not(.pswp__button).button-gray,
+input[type="submit"]:not(.pswp__button).button-gray {
   color: #fff;
   border-color: #707a85;
   background: #707a85;
 }
-.button:not(.mfp-arrow).button-gray:not(.js-favorite,.js-wink):hover,
-button:not(.mfp-arrow).button-gray:not(.js-favorite):hover,
-input[type="submit"]:not(.mfp-arrow).button-gray:not(.js-favorite,.js-wink):hover,
-.button:not(.mfp-arrow).button-gray:not(.js-favorite,.js-wink):focus,
-button:not(.mfp-arrow).button-gray:not(.js-favorite,.js-wink):focus,
-input[type="submit"]:not(.mfp-arrow).button-gray:not(.js-favorite,.js-wink):focus,
-.button:not(.mfp-arrow).button-gray:not(.js-favorite,.js-wink):active,
-button:not(.mfp-arrow).button-gray:not(.js-favorite,.js-wink):active,
-input[type="submit"]:not(.mfp-arrow).button-gray:not(.js-favorite,.js-wink):active {
+.button:not(.pswp__button).button-gray:not(.js-favorite,.js-wink):hover,
+button:not(.pswp__button).button-gray:not(.js-favorite):hover,
+input[type="submit"]:not(.pswp__button).button-gray:not(.js-favorite,.js-wink):hover,
+.button:not(.pswp__button).button-gray:not(.js-favorite,.js-wink):focus,
+button:not(.pswp__button).button-gray:not(.js-favorite,.js-wink):focus,
+input[type="submit"]:not(.pswp__button).button-gray:not(.js-favorite,.js-wink):focus,
+.button:not(.pswp__button).button-gray:not(.js-favorite,.js-wink):active,
+button:not(.pswp__button).button-gray:not(.js-favorite,.js-wink):active,
+input[type="submit"]:not(.pswp__button).button-gray:not(.js-favorite,.js-wink):active {
   color: #707a85;
   text-decoration: none;
   background-color: transparent;
 }
-.button:not(.mfp-arrow).button-gray .icon:before,
-button:not(.mfp-arrow).button-gray .icon:before,
-input[type="submit"]:not(.mfp-arrow).button-gray .icon:before {
+.button:not(.pswp__button).button-gray .icon:before,
+button:not(.pswp__button).button-gray .icon:before,
+input[type="submit"]:not(.pswp__button).button-gray .icon:before {
   opacity: 1 !important;
 }
-.button:not(.mfp-arrow).button-gray .icon:after,
-button:not(.mfp-arrow).button-gray .icon:after,
-input[type="submit"]:not(.mfp-arrow).button-gray .icon:after {
+.button:not(.pswp__button).button-gray .icon:after,
+button:not(.pswp__button).button-gray .icon:after,
+input[type="submit"]:not(.pswp__button).button-gray .icon:after {
   display: none !important;
 }
-.button:not(.mfp-arrow).button-gray.active,
-button:not(.mfp-arrow).button-gray.active,
-input[type="submit"]:not(.mfp-arrow).button-gray.active {
+.button:not(.pswp__button).button-gray.active,
+button:not(.pswp__button).button-gray.active,
+input[type="submit"]:not(.pswp__button).button-gray.active {
   border-color: #e19933;
   color: #fff;
   background: #f0ad4e;
 }
-.button:not(.mfp-arrow).button-blue,
-button:not(.mfp-arrow).button-blue,
-input[type="submit"]:not(.mfp-arrow).button-blue {
+.button:not(.pswp__button).button-blue,
+button:not(.pswp__button).button-blue,
+input[type="submit"]:not(.pswp__button).button-blue {
   color: #fff;
   background: #4c9eda;
   border-color: #4c9eda;
 }
-.button:not(.mfp-arrow).button-blue:hover,
-button:not(.mfp-arrow).button-blue:hover,
-input[type="submit"]:not(.mfp-arrow).button-blue:hover,
-.button:not(.mfp-arrow).button-blue:focus,
-button:not(.mfp-arrow).button-blue:focus,
-input[type="submit"]:not(.mfp-arrow).button-blue:focus,
-.button:not(.mfp-arrow).button-blue:active,
-button:not(.mfp-arrow).button-blue:active,
-input[type="submit"]:not(.mfp-arrow).button-blue:active {
+.button:not(.pswp__button).button-blue:hover,
+button:not(.pswp__button).button-blue:hover,
+input[type="submit"]:not(.pswp__button).button-blue:hover,
+.button:not(.pswp__button).button-blue:focus,
+button:not(.pswp__button).button-blue:focus,
+input[type="submit"]:not(.pswp__button).button-blue:focus,
+.button:not(.pswp__button).button-blue:active,
+button:not(.pswp__button).button-blue:active,
+input[type="submit"]:not(.pswp__button).button-blue:active {
   color: #4c9eda;
   background-color: transparent;
   text-decoration: none;
 }
-.button:not(.mfp-arrow).button-icon,
-button:not(.mfp-arrow).button-icon,
-input[type="submit"]:not(.mfp-arrow).button-icon {
+.button:not(.pswp__button).button-icon,
+button:not(.pswp__button).button-icon,
+input[type="submit"]:not(.pswp__button).button-icon {
   padding-left: 4px;
   padding-right: 4px;
 }
-.button:not(.mfp-arrow).button-icon .icon,
-button:not(.mfp-arrow).button-icon .icon,
-input[type="submit"]:not(.mfp-arrow).button-icon .icon {
+.button:not(.pswp__button).button-icon .icon,
+button:not(.pswp__button).button-icon .icon,
+input[type="submit"]:not(.pswp__button).button-icon .icon {
   width: 14px;
   height: 14px;
   margin-top: -1px;
@@ -639,12 +638,12 @@ input[type="submit"]:not(.mfp-arrow).button-icon .icon {
   vertical-align: top;
   position: relative;
 }
-.button:not(.mfp-arrow).button-icon .icon:before,
-button:not(.mfp-arrow).button-icon .icon:before,
-input[type="submit"]:not(.mfp-arrow).button-icon .icon:before,
-.button:not(.mfp-arrow).button-icon .icon:after,
-button:not(.mfp-arrow).button-icon .icon:after,
-input[type="submit"]:not(.mfp-arrow).button-icon .icon:after {
+.button:not(.pswp__button).button-icon .icon:before,
+button:not(.pswp__button).button-icon .icon:before,
+input[type="submit"]:not(.pswp__button).button-icon .icon:before,
+.button:not(.pswp__button).button-icon .icon:after,
+button:not(.pswp__button).button-icon .icon:after,
+input[type="submit"]:not(.pswp__button).button-icon .icon:after {
   display: block;
   content: '\0020';
   overflow: hidden;
@@ -658,67 +657,67 @@ input[type="submit"]:not(.mfp-arrow).button-icon .icon:after {
   left: 0;
   transition: opacity 0.2s;
 }
-.button:not(.mfp-arrow).button-icon .icon:before,
-button:not(.mfp-arrow).button-icon .icon:before,
-input[type="submit"]:not(.mfp-arrow).button-icon .icon:before {
+.button:not(.pswp__button).button-icon .icon:before,
+button:not(.pswp__button).button-icon .icon:before,
+input[type="submit"]:not(.pswp__button).button-icon .icon:before {
   background-position: 0 0;
   opacity: 1;
 }
-.button:not(.mfp-arrow).button-icon .icon:after,
-button:not(.mfp-arrow).button-icon .icon:after,
-input[type="submit"]:not(.mfp-arrow).button-icon .icon:after {
+.button:not(.pswp__button).button-icon .icon:after,
+button:not(.pswp__button).button-icon .icon:after,
+input[type="submit"]:not(.pswp__button).button-icon .icon:after {
   background-position: 0 -20px;
   opacity: 0;
 }
-.button:not(.mfp-arrow).button-icon .icon.icon-fav:before,
-button:not(.mfp-arrow).button-icon .icon.icon-fav:before,
-input[type="submit"]:not(.mfp-arrow).button-icon .icon.icon-fav:before {
+.button:not(.pswp__button).button-icon .icon.icon-fav:before,
+button:not(.pswp__button).button-icon .icon.icon-fav:before,
+input[type="submit"]:not(.pswp__button).button-icon .icon.icon-fav:before {
   background-position: 0 0;
 }
-.button:not(.mfp-arrow).button-icon .icon.icon-fav:after,
-button:not(.mfp-arrow).button-icon .icon.icon-fav:after,
-input[type="submit"]:not(.mfp-arrow).button-icon .icon.icon-fav:after {
+.button:not(.pswp__button).button-icon .icon.icon-fav:after,
+button:not(.pswp__button).button-icon .icon.icon-fav:after,
+input[type="submit"]:not(.pswp__button).button-icon .icon.icon-fav:after {
   background-position: 0 -20px;
 }
-.button:not(.mfp-arrow).button-icon .icon.icon-message:before,
-button:not(.mfp-arrow).button-icon .icon.icon-message:before,
-input[type="submit"]:not(.mfp-arrow).button-icon .icon.icon-message:before {
+.button:not(.pswp__button).button-icon .icon.icon-message:before,
+button:not(.pswp__button).button-icon .icon.icon-message:before,
+input[type="submit"]:not(.pswp__button).button-icon .icon.icon-message:before {
   background-position: -40px 0;
 }
-.button:not(.mfp-arrow).button-icon .icon.icon-message:after,
-button:not(.mfp-arrow).button-icon .icon.icon-message:after,
-input[type="submit"]:not(.mfp-arrow).button-icon .icon.icon-message:after {
+.button:not(.pswp__button).button-icon .icon.icon-message:after,
+button:not(.pswp__button).button-icon .icon.icon-message:after,
+input[type="submit"]:not(.pswp__button).button-icon .icon.icon-message:after {
   background-position: -40px -20px;
 }
-.button:not(.mfp-arrow).button-icon .icon.icon-offer:before,
-button:not(.mfp-arrow).button-icon .icon.icon-offer:before,
-input[type="submit"]:not(.mfp-arrow).button-icon .icon.icon-offer:before {
+.button:not(.pswp__button).button-icon .icon.icon-offer:before,
+button:not(.pswp__button).button-icon .icon.icon-offer:before,
+input[type="submit"]:not(.pswp__button).button-icon .icon.icon-offer:before {
   background-position: -20px 0;
 }
-.button:not(.mfp-arrow).button-icon .icon.icon-offer:after,
-button:not(.mfp-arrow).button-icon .icon.icon-offer:after,
-input[type="submit"]:not(.mfp-arrow).button-icon .icon.icon-offer:after {
+.button:not(.pswp__button).button-icon .icon.icon-offer:after,
+button:not(.pswp__button).button-icon .icon.icon-offer:after,
+input[type="submit"]:not(.pswp__button).button-icon .icon.icon-offer:after {
   background-position: -20px -20px;
 }
-.button:not(.mfp-arrow).button-icon:hover .icon:before,
-button:not(.mfp-arrow).button-icon:hover .icon:before,
-input[type="submit"]:not(.mfp-arrow).button-icon:hover .icon:before,
-.button:not(.mfp-arrow).button-icon:focus .icon:before,
-button:not(.mfp-arrow).button-icon:focus .icon:before,
-input[type="submit"]:not(.mfp-arrow).button-icon:focus .icon:before {
+.button:not(.pswp__button).button-icon:hover .icon:before,
+button:not(.pswp__button).button-icon:hover .icon:before,
+input[type="submit"]:not(.pswp__button).button-icon:hover .icon:before,
+.button:not(.pswp__button).button-icon:focus .icon:before,
+button:not(.pswp__button).button-icon:focus .icon:before,
+input[type="submit"]:not(.pswp__button).button-icon:focus .icon:before {
   opacity: 0;
 }
-.button:not(.mfp-arrow).button-icon:hover .icon:after,
-button:not(.mfp-arrow).button-icon:hover .icon:after,
-input[type="submit"]:not(.mfp-arrow).button-icon:hover .icon:after,
-.button:not(.mfp-arrow).button-icon:focus .icon:after,
-button:not(.mfp-arrow).button-icon:focus .icon:after,
-input[type="submit"]:not(.mfp-arrow).button-icon:focus .icon:after {
+.button:not(.pswp__button).button-icon:hover .icon:after,
+button:not(.pswp__button).button-icon:hover .icon:after,
+input[type="submit"]:not(.pswp__button).button-icon:hover .icon:after,
+.button:not(.pswp__button).button-icon:focus .icon:after,
+button:not(.pswp__button).button-icon:focus .icon:after,
+input[type="submit"]:not(.pswp__button).button-icon:focus .icon:after {
   opacity: 1;
 }
-.button:not(.mfp-arrow).button-paypal,
-button:not(.mfp-arrow).button-paypal,
-input[type="submit"]:not(.mfp-arrow).button-paypal {
+.button:not(.pswp__button).button-paypal,
+button:not(.pswp__button).button-paypal,
+input[type="submit"]:not(.pswp__button).button-paypal {
   padding-top: 9px;
   padding-bottom: 9px;
   color: #000;
@@ -732,9 +731,9 @@ input[type="submit"]:not(.mfp-arrow).button-paypal {
   position: relative;
   z-index: 1;
 }
-.button:not(.mfp-arrow).button-paypal:before,
-button:not(.mfp-arrow).button-paypal:before,
-input[type="submit"]:not(.mfp-arrow).button-paypal:before {
+.button:not(.pswp__button).button-paypal:before,
+button:not(.pswp__button).button-paypal:before,
+input[type="submit"]:not(.pswp__button).button-paypal:before {
   display: block;
   content: '\0020';
   overflow: hidden;
@@ -748,9 +747,9 @@ input[type="submit"]:not(.mfp-arrow).button-paypal:before {
   top: 1px;
   z-index: -1;
 }
-.button:not(.mfp-arrow).button-paypal img,
-button:not(.mfp-arrow).button-paypal img,
-input[type="submit"]:not(.mfp-arrow).button-paypal img {
+.button:not(.pswp__button).button-paypal img,
+button:not(.pswp__button).button-paypal img,
+input[type="submit"]:not(.pswp__button).button-paypal img {
   width: 90px;
   margin: 0 0 0 2px;
   display: inline-block;
@@ -3001,11 +3000,11 @@ body > form {
   display: block;
   position: relative;
   z-index: 1;
-  -webkit-transform: scale(1);
-  -moz-transform: scale(1);
-  -ms-transform: scale(1);
-  -o-transform: scale(1);
-  transform: scale(1);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  transform: scale(1.1);
   -webkit-backface-visibility: hidden;
   transition: transform 0.2s;
 }
@@ -3027,11 +3026,11 @@ body > form {
   opacity: 1;
 }
 .catalog .photo a:hover img {
-  -webkit-transform: scale(1.1);
-  -moz-transform: scale(1.1);
-  -ms-transform: scale(1.1);
-  -o-transform: scale(1.1);
-  transform: scale(1.1);
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
   -webkit-backface-visibility: hidden;
 }
 .catalog .info .name {
@@ -4413,7 +4412,6 @@ body > form {
 }
 .conversation .entry {
   margin-bottom: 10px;
-  margin-top: 10px;
 }
 .conversation .entry:after {
   display: table;
@@ -6304,8 +6302,7 @@ span.cell.sw-sentoffer {
     top: 14px;
     width: 120px;
     background-color: #00cb50;
-    color: white;
-    z-index: 10;
+    color: white
 }
 .rib-wrapper {
     height: 125px;
@@ -6330,22 +6327,22 @@ span.cell.sw-sentoffer {
     }
 
 
-.button:not(.mfp-arrow).favactive,
-button:not(.mfp-arrow).favactive,
-input[type="submit"]:not(.mfp-arrow).favactive {
+.button:not(.pswp__button).favactive,
+button:not(.pswp__button).favactive,
+input[type="submit"]:not(.pswp__button).favactive {
   color: #fff;
   background: #f0ad4e;
   border-color: #e19933;
 }
-.button:not(.mfp-arrow).button-orange:hover,
-button:not(.mfp-arrow).button-orange:hover,
-input[type="submit"]:not(.mfp-arrow).button-orange:hover,
-.button:not(.mfp-arrow).button-orange:focus,
-button:not(.mfp-arrow).button-orange:focus,
-input[type="submit"]:not(.mfp-arrow).button-orange:focus,
-.button:not(.mfp-arrow).button-orange:active,
-button:not(.mfp-arrow).button-orange:active,
-input[type="submit"]:not(.mfp-arrow).button-orange:active {
+.button:not(.pswp__button).button-orange:hover,
+button:not(.pswp__button).button-orange:hover,
+input[type="submit"]:not(.pswp__button).button-orange:hover,
+.button:not(.pswp__button).button-orange:focus,
+button:not(.pswp__button).button-orange:focus,
+input[type="submit"]:not(.pswp__button).button-orange:focus,
+.button:not(.pswp__button).button-orange:active,
+button:not(.pswp__button).button-orange:active,
+input[type="submit"]:not(.pswp__button).button-orange:active {
   color: #f0ad4e;
   background-color: transparent;
   text-decoration: none;
@@ -6378,8 +6375,7 @@ cursor:default;text-decoration:none !important;
    _FORM-REJECT
    ========================================================================== */
 .popup-reject {
-  width: auto;
-  max-width: 400px;
+  width: 400px;
 }
 .form-reject {
   padding: 30px 0;

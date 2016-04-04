@@ -16,7 +16,7 @@
         }
 
         .conversation .img-gifts {
-            margin-top: 10px;
+            margin-top: 25px;
         }
 
         .conversation .congrats {
@@ -41,10 +41,7 @@
                 })
 
             });
-            if ($('.presents-female').length > 0) {
-                $('.conversation-page').addClass('conversation-page-female');
-            }
-        });
+        })
 
         $.urlParam = function (name) {
             var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
@@ -54,13 +51,13 @@
             else {
                 return results[1] || 0;
             }
-        };
+        }
         //invokes page method with AJAX
         function invoke(method, data, successCallback, errorCallBack) {
             var pagePath = window.location.pathname;
             $.ajax({
                 type: "POST",
-                url: "Chat.aspx/" + method,
+                url: pagePath + "/" + method,
                 contentType: "application/json; charset=utf-8",
                 data: JSON.stringify(data),
                 dataType: "json",
@@ -125,14 +122,12 @@
         }
 
         function runPolling(initial) {
-            if (initial) lastMessageId = 0;
             var newMessage = false;
             invoke("GetChatHistory", { toUser: $.urlParam("id"), lastMessageId: lastMessageId }, function (data) {
-                var gotmessage = false;
                 for (var i = 0; i < data.length; i++) {
                     var item = data[i];
                     if (item.Text == "REDIRTOLOGIN") {
-                        window.location.href = '/Login';
+                        window.location.href = '/Login.aspx';
                         return;
                     }
                     if (item.Text == "ONLINE:Y") {
@@ -143,19 +138,17 @@
                         SetOnlineFlag(false);
                         continue;
                     }
-                    gotmessage = true;
+
                     var gifts = [];
                     if (item.Gifts) {
                         gifts = item.Gifts.split(',');
                     }
-                    if (item.Id > lastMessageId) {
-                        addArticle(item.Text.replace(/\n/g, '<br/>'), item.From.Name, item.Sent, item.IsFromMe, gifts);
-                        if (!item.IsFromMe)
-                            newMessage = true;
-                    }
+                    addArticle(item.Text.replace(/\n/g,'<br/>'), item.From.Name, item.Sent, item.IsFromMe, gifts);
+                    if (!item.IsFromMe)
+                        newMessage = true;
                     lastMessageId = item.Id;
                 }
-                if (gotmessage)
+                if (data.length > 0)
                 {
                     var x = $("div.space article:last()").get(0);
                     if (typeof x != 'undefined') x.scrollIntoView();

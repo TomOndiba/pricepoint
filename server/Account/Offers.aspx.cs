@@ -14,7 +14,25 @@ public partial class Account_Offers : System.Web.UI.Page
     public int Pending = 0;
     public int Rejected = 0;
 
+    public string Gifts(string s)
+    {
+        Gifts g = new global::Gifts(s);
+        return g.HTML(30);
+    }
+    public string GetReason(object oreason)
+    {
+        if (oreason==System.DBNull.Value) return "N/A";
+        int r = Convert.ToInt32(oreason);
+        switch (r)
+        {
+            case 1: return "Bid is too low";
+            case 2: return "Too far away";
+            case 3: return "Not interested";
+        }
 
+        return "N/A";
+
+    }
     protected void but_Click(object sender, EventArgs aa)
     {
         Button bbb = sender as Button;
@@ -31,10 +49,11 @@ public partial class Account_Offers : System.Web.UI.Page
 
         offermenu.Visible = Request.QueryString["dates"] != "1";
         winksmenu.Visible = MyUtils.GetUserField("sex").ToString() == "M";
-            string type = Request.QueryString["type"];
+        string otype = Request.QueryString["type"];
 
-
+        string type = otype;
         if (type == "Dates") type = "Accepted";
+        if (MyUtils.GetOriginalURL().ToLower().Contains("/dates")) otype = "Dates";
 
         DataSet d = db.GetDataSet("exec GET_OFFER_LIST " + MyUtils.ID_USER);
         DataView v = new DataView(d.Tables[0]);
@@ -53,10 +72,20 @@ public partial class Account_Offers : System.Web.UI.Page
             if (s == "Rejected") Rejected++;
         }
 
-        empty.Visible = d.Tables[0].Rows.Count == 0;
-        if (empty.Visible)
+        QuickStart.Visible = v.Count == 0;
+        if (QuickStart.Visible)
         {
-            empty.Text = "You have no offers. " + (MyUtils.GetUserField("sex").ToString() == "M" ? "Start with a search then send offers to the ladies you like." : "Start with a search then send winks to the men you like.");
+//            string howtostart = (MyUtils.GetUserField("sex").ToString() == "M" ? "Start with a search then send offers to the ladies you like." : "Start with a search then send winks to the men you like.");
+
+            string x = "Quick Start";
+            if (type == "New") x = "<h2>You have no new offers yet</h2>";
+            if (type == "Wink") x = "<h2>You have no winks yet </h2>";
+            if (type == "Accepted") x = "<h2>You have no accepted offers </h2>";
+            if (otype == "Dates") x = "<h2>You have no dates yet </h2>";
+            if (type == "Pending") x = "<h2>You have no pending offers </h2>";
+            if (type == "Rejected") x = "<h2>You have no rejected offers </h2>";
+
+            QuickStart.Title = x;
         }
 
 

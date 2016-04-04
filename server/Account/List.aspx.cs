@@ -22,7 +22,14 @@ public partial class Account_List : System.Web.UI.Page
         DataSet d= db.GetDataSet(sql);
         Repeater1.DataSource = d;
         Repeater1.DataBind();
-
+        if (d.Tables[0].Rows.Count==0)
+        {
+            norecords.Visible = true;
+            if (t == "favorites") norecords.Text = "You don't have any favorites yet.";
+            if (t == "viewed") norecords.Text = "Nobody viewed your profile yet.";
+            if (t == "favorited") norecords.Text = "Nobody favorited your profile yet.";
+            if (t == "blocked") norecords.Text = "You don't have any blocked users.";
+        }
 
     }
 }

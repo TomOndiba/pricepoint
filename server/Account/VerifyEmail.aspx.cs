@@ -9,6 +9,16 @@ public partial class Account_VerifyEmail : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        DB_Helper db = new DB_Helper();
+
+        int v  = db.ExecuteScalarInt("select email_verified from users where id_user=" +MyUtils.ID_USER,0);
+        if (v==1)
+        {
+            MyUtils.RefreshUserRow();
+            Response.Redirect("/Account/");
+            return;
+        }
+
         if (!IsPostBack) txtEmail.Text = MyUtils.GetUserField("email").ToString();
 
     }

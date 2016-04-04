@@ -730,3 +730,35 @@ Parameter name: oldValue
 3/16/2016 10:16:42 PM Message: Expiration Date is invalid.
 3/16/2016 10:16:42 PM DIRECT: 
 3/16/2016 10:16:42 PM ===============================
+3/26/2016 4:00:15 PM ===============================
+3/26/2016 4:00:15 PM Pay 13155
+3/26/2016 4:00:15 PM GetOrCreateCustomerProfile
+3/26/2016 4:00:18 PM Message: Successful.
+3/26/2016 4:00:18 PM Response Code: Ok
+3/26/2016 4:00:18 PM New ID = 40156844
+3/26/2016 4:00:18 PM SetCustomerPaymentProfile
+3/26/2016 4:00:18 PM profile_id:40156844 Ok
+3/26/2016 4:00:19 PM Response Code: Ok
+3/26/2016 4:00:19 PM Message: Successful.
+3/26/2016 4:00:19 PM DIRECT: 1,1,1,This transaction has been approved.,XRW8TQ,Y,2253753494,none,Test transaction for ValidateCustomerPaymentProfile.,0.00,CC,auth_only,none,Robert,Vozdecky,,515 east 72nd st,New York,NY,10021,US,,,email@example.com,,,,,,,,,0.00,0.00,0.00,FALSE,none,C2E6B2EB8A306CC60235E6A003CEBBC7,P,2,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/26/2016 4:00:20 PM CreateTransaction
+3/26/2016 4:00:21 PM Response Code: Ok
+3/26/2016 4:00:21 PM Message: Successful.
+3/26/2016 4:00:21 PM DIRECT: 1,1,1,This transaction has been approved.,1L5AC1,Y,2253753495,Invoice 635946048202,,49.00,CC,auth_capture,13155,Robert,Vozdecky,,515 east 72nd st,New York,NY,10021,US,,,,,,,,,,,,,,,,,36790D452137C4159A6C008CA4C5876E,P,2,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/26/2016 4:00:21 PM ===============================
+3/30/2016 12:15:37 AM ===============================
+3/30/2016 12:15:37 AM Pay 15673
+3/30/2016 12:15:37 AM GetOrCreateCustomerProfile
+3/30/2016 12:15:40 AM Message: Successful.
+3/30/2016 12:15:40 AM Response Code: Ok
+3/30/2016 12:15:40 AM New ID = 40198479
+3/30/2016 12:15:40 AM SetCustomerPaymentProfile
+3/30/2016 12:15:40 AM profile_id:40198479 Ok
+3/30/2016 12:15:44 AM Response Code: Ok
+3/30/2016 12:15:44 AM Message: Successful.
+3/30/2016 12:15:44 AM DIRECT: 1,1,1,This transaction has been approved.,5B0AGG,Y,2253963926,none,Test transaction for ValidateCustomerPaymentProfile.,0.00,CC,auth_only,none,Robert,Vozdecky,,515 east 74nd st,New York,NY,10021,US,,,email@example.com,,,,,,,,,0.00,0.00,0.00,FALSE,none,2A63B0D60744BF5DAD2CD4C29338DC25,P,2,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/30/2016 12:15:44 AM CreateTransaction
+3/30/2016 12:15:45 AM Response Code: Ok
+3/30/2016 12:15:45 AM Message: Successful.
+3/30/2016 12:15:45 AM DIRECT: 1,1,1,This transaction has been approved.,5GF9SM,Y,2253963928,Invoice 635948937442,,49.00,CC,auth_capture,15673,Robert,Vozdecky,,515 east 74nd st,New York,NY,10021,US,,,,,,,,,,,,,,,,,DE7B225CC36FAFAF067E7B4DF1729691,P,2,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+3/30/2016 12:15:45 AM ===============================

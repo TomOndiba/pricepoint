@@ -51,10 +51,13 @@
                             <asp:CheckBox runat="server" ID ="cbxEmailWhenNewMessage" class="css-checkbox" Text ="Let me know when I receive a new message."></asp:CheckBox>
                         </div>
                         <div class="form-line form-line-checkbox">
-                            <asp:CheckBox runat="server" ID ="cbxEmailWhenFavorited" class="css-checkbox" Text ="Let me know when someone favorites me"></asp:CheckBox>
+                            <asp:CheckBox runat="server" ID ="cbxEmailWhenFavorited" class="css-checkbox" Text ="Let me know when someone favorites me."></asp:CheckBox>
                         </div>
                         <div class="form-line form-line-checkbox">
-                            <asp:CheckBox runat="server" ID ="cbxEmailNewsletter" class="css-checkbox" Text ="Let me know about new and update offers."></asp:CheckBox>
+                            <asp:CheckBox runat="server" ID ="cbxemail_when_new_offer" class="css-checkbox" Text ="Let me know when someone sends me an offer."></asp:CheckBox>
+                        </div>
+                        <div class="form-line form-line-checkbox">
+                            <asp:CheckBox runat="server" ID ="cbxEmailNewsletter" class="css-checkbox" Text ="Email me a newsletter."></asp:CheckBox>
                         </div>
                     </section>
                     <section>
@@ -62,17 +65,24 @@
                         <div class="form-line form-line-checkbox">
                             <asp:CheckBox runat="server" ID ="cbxHideFromSearchResults" class="css-checkbox" Text ="Hide me from search results."></asp:CheckBox>
                         </div>
-                        <div class="form-line form-line-checkbox">
+                        <!--div class="form-line form-line-checkbox">
                             <asp:CheckBox runat="server" ID ="cbxHideOnViewedFavoritedList" class="css-checkbox" Text ="Will not show in other user`s favorite list."></asp:CheckBox>
                         </div>
                         <div class="form-line form-line-checkbox">
                             <asp:CheckBox runat="server" ID ="cbxHideLastLogintime" class="css-checkbox" Text ="Hide my last login date & time."></asp:CheckBox>
-                        </div>
+                        </div-->
                     </section>
 
 					<div class="form-submit">
-                        <asp:Button runat="server" ID="btnUpdate" CssClass="button button-large button-sign" Text="Update" OnClick="btnUpdate_Click" />
+                        <asp:Button runat="server" ID="btnUpdate" CssClass="button button-large button-sign" Text="Update My Settings" OnClick="btnUpdate_Click" />
 					</div>
+
+
+                        <h2 class="title" style="color:silver">Cancel Account</h2>
+                        <div class="form-line form-line-checkbox">
+                        <asp:Button runat="server" ID="Button1" CssClass="button button-gray" width="195px" Text="Cancel My Account" OnClientClick="return confirm('Are you sure you want to cancel your account?')===true" OnClick="Button1_Click" />
+                        </div>
+
 				</div>
     		</div>
 		</div>

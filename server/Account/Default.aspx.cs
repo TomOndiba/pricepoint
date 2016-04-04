@@ -21,6 +21,15 @@ public partial class _Default : System.Web.UI.Page
         l.Items.Insert(0, "");
     }
 
+    public string GetLink(object o)
+    {
+        DataRowView r = ((DataRowView)o);
+        if (r["ActionType"].ToString() == "Messaged") return "/Account/Chat?id=" + r["id_user"].ToString();
+
+        string profile =  Utils.GetProfileLink(o);
+        return profile;
+    }
+
     protected void Page_Load(object sender, EventArgs e)
     {
 
@@ -33,21 +42,31 @@ public partial class _Default : System.Web.UI.Page
         sql = "exec GET_RECENT_ACTIVITY "+MyUtils.ID_USER;
         db.IgnoreDuplicateKeys = true; //getting multiple id_user in GET_RECENT_ACTIVITY
         DataSet d1 = GetUsers(sql,MyUtils.ImageSize.TINY);
+
+
         db.IgnoreDuplicateKeys = false;
         repRecentUsersList.DataSource = d1;
         repRecentUsersList.DataBind();
         noactivity.Visible = d1.Tables[0].Rows.Count == 0;
-        sql = "exec SEARCH_USERS 1,10,0," + MyUtils.ID_USER + ",'cast (datediff(year,birthdate,getdate()-datepart(dy,birthdate)+1) as int) BETWEEN 18 and 29 and id_photo is not null and sex=''" + sex + "''',1,'GUID, UsersTable.id_user, username as usr,place as plc,title as tit,distance as dis,age,lastlogin_time','id_user desc'";
+
+        Filter f = new Filter();
+        f.orderby = orderby_type.NEWEST;
+        sql = f.GetSQL(1, 10);
+
+//        sql = "exec SEARCH_USERS 1,10,0," + MyUtils.ID_USER + ",'cast (datediff(year,birthdate,getdate()-datepart(dy,birthdate)+1) as int) BETWEEN 18 and 29 and id_photo is not null and sex=''" + sex + "''',1,'GUID, UsersTable.id_user, username as usr,place as plc,title as tit,distance as dis,age,lastlogin_time','id_user desc'";
         DataSet d2 = GetUsers(sql);
         repNewUsers.DataSource = d2;
         repNewUsers.DataBind();
 
-        sql = "exec SEARCH_USERS 1,10,0," + MyUtils.ID_USER + ",'cast (datediff(year,birthdate,getdate()-datepart(dy,birthdate)+1) as int) BETWEEN 18 and 29 and id_photo is not null and sex=''" + sex + "''',1,'GUID, UsersTable.id_user, username as usr,place as plc,title as tit,distance as dis,age,lastlogin_time','lastlogin_time desc'";
+        f.orderby = orderby_type.RECENT;
+        sql = f.GetSQL(1, 10);
+//        sql = "exec SEARCH_USERS 1,10,0," + MyUtils.ID_USER + ",'cast (datediff(year,birthdate,getdate()-datepart(dy,birthdate)+1) as int) BETWEEN 18 and 29 and id_photo is not null and sex=''" + sex + "''',1,'GUID, UsersTable.id_user, username as usr,place as plc,title as tit,distance as dis,age,lastlogin_time','lastlogin_time desc'";
         DataSet d3 = GetUsers(sql);
         repRecently.DataSource = d3;
         repRecently.DataBind();
 
     }
+
 
     private DataSet GetUsers(string sql,MyUtils.ImageSize sz=MyUtils.ImageSize.SMALL)
     {
@@ -77,14 +96,7 @@ public partial class _Default : System.Web.UI.Page
 
     public string GetActivity(object id_user, object time)
     {
-
         string s=MyUtils.TimeAgo(Convert.ToDateTime(time));
-        /*        if (MyUtils.IsOnline((int)id_user))
-                {
-                    return "Is Online";
-                }
-                return (lastlogin_time is DBNull ? "n /a" : DateTime.Now.Subtract((DateTime)lastlogin_time).ToString(@"d'd 'h'h'") + " ago");
-                */
         return s;
     }
 
@@ -136,7 +148,7 @@ public partial class _Default : System.Web.UI.Page
         if (userRow["TheyOfferedMe"] != DBNull.Value) offeredamount = Convert.ToDouble(userRow["TheyOfferedMe"]).ToString("C0");
 
         //pending
-        if (mystate == 403 && thierstate == null) res = offeredamount + " offer was sent";
+        if (mystate == 403 && thierstate == null) res = "You sent "+ offeredamount + " offer";
         if (mystate == null && thierstate == 403)
         {
             //they are asking...
@@ -166,7 +178,7 @@ public partial class _Default : System.Web.UI.Page
 
         //if (res != "") OfferText.Style["display"] = "block";
 
-        //        BUT_SENDMESSAGE.HRef = "/Account/Chat.aspx?id=" + userRow["id_user"].ToString();
+        //        BUT_SENDMESSAGE.HRef = "/Account/Chat?id=" + userRow["id_user"].ToString();
         //BUT_SENDMESSAGE.ServerClick += BUT_SENDMESSAGE_ServerClick;
 
         //        if (MyUtils.IsFemale) BUT_SENDOFFER.Attributes.Add("data-counter", "1");

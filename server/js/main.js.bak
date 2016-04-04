@@ -125,26 +125,7 @@ function initUI() {
 		})
 	});
 
-    //	initPhotoSwipe('.my-gallery');
-
-
-	$('.my-gallery').magnificPopup({
-	    delegate: 'a',
-	    type: 'image',
-	    tLoading: 'Loading image #%curr%...',
-	    mainClass: 'mfp-img-mobile',
-	    gallery: {
-	        enabled: true,
-	        navigateByImgClick: true,
-	        preload: [0, 1] // Will preload 0 - before current, and 1 after the current image
-	    },
-	    image: {
-	        tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
-	        titleSrc: function (item) {
-	            return '';
-	        }
-	    }
-	});
+	initPhotoSwipe('.my-gallery');
 }
 
 
@@ -572,7 +553,10 @@ function AcceptOffer(id_offer, panel) {
 	}
 
 	function onDone(data, textStatus, jqXHR) {
-	    if (data.d.indexOf('OK') >= 0) {
+        if (data.d.indexOf('REDIR:') == 0) {
+            window.location.href = data.d.replace('REDIR:', ''); return
+			}
+		if (data.d.indexOf('OK') >= 0) {
 		    onOK(data, textStatus, jqXHR);
 		} else {
 			showError(data.d.replace('ERROR: ', ''));
@@ -602,7 +586,6 @@ function RejectOfferV2(id_offer, reason, panel) {
 		} else {
 			showError(data.d.replace('ERROR: ', ''));
 		}
-		$.magnificPopup.close();
 	}
 
 	sendRequest('RejectOfferV2', {'id_offer': id_offer, 'reason': reason}).done(onDone).error(onError);
@@ -662,13 +645,6 @@ function sendRequest(method, data) {
  * Shows alert window
  **/
 function showAlert(text) {
-    if (text.indexOf('REDIR:') == 0) {
-        window.location.href = text.replace('REDIR:', ''); return;
-    }
-    if (text.indexOf('REFRESH') == 0) {
-        window.location.reload(true); return;
-    }
-
 	ohSnap(text, {color: 'green'});
 }
 
@@ -678,7 +654,6 @@ function showAlert(text) {
  **/
 function onError(data) {
 	showError('Error ' + data.status + ": " + data.statusText);
-	$.magnificPopup.close();
 }
 
 

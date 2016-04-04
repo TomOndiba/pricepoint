@@ -63,7 +63,7 @@ a.SW_OFFERSENT,a.SW_OFFERREJECTED{cursor:pointer}
 						</div>
 					</div>
 					<div class="line">
-						<div class="form-line form-line-distance">
+						<div class="form-line">
 							<label for="distance"></label>
 							<select id="distance" name="distancemax" class="multiselect" required >
 								<option <%=IsSelected("distance",0)%> value="0">Anywhere</option>
@@ -80,7 +80,7 @@ a.SW_OFFERSENT,a.SW_OFFERREJECTED{cursor:pointer}
 								<option value="true" <%=IsSelected("photo",1)%>>Only With Photos</option>
 							</select>
 						</div>
-						<div class="form-line form-line-age">
+						<div class="form-line">
 							<div class="btn-group select-age" data-min="16" data-max="70">
 								<a class="toggle" href="#">Age <span class="agemin">18</span> to <span class="agemax">35</span> <span class="arrow"></span></a>
 								<ul>
@@ -134,13 +134,8 @@ a.SW_OFFERSENT,a.SW_OFFERREJECTED{cursor:pointer}
                 <ItemTemplate>
                 <div class="item" data-id='<%# Eval("id_user") %>' data-user='<%# Eval("usr") %>'>
 					<div class="space">
-						<figure class="photo">
-							<a class="alink" onclick="return viewprofile(this)" href="#">
-								<img class="photoM" src='<%#MyUtils.GetImageUrl(Eval("mainphoto"),MyUtils.ImageSize.MEDIUM)%>' width="313" height="313" alt=""><div <%#MyUtils.IsOnline((int)Eval("id_user")) ? "":"style='display:none'"%> class="rib-wrapper">
-								<div class="rib">Online</div></div>
-								<span class='vip' <%# Eval("VIP").ToString()=="Y"?"":"style='display:none'"%>>VIP</span> 
-							</a>
-						</figure>
+						<figure class="photo"><a class="alink" onclick="return viewprofile(this)" href='#'><img class="photoM" src='<%#MyUtils.GetImageUrl(Eval("mainphoto"),MyUtils.ImageSize.MEDIUM)%>' width="313" height="313" alt=""><div <%#MyUtils.IsOnline((int)Eval("id_user")) ? "":"style='display:none'"%> class="rib-wrapper"><div class="rib">Online</div></div>
+						                      </a></figure>
 						<div class="info">
 							<p class="name"><%# Eval("usr") %></p>
                             <p class="location"><span class="age"><%# Eval("age") %></span> / <span class="loc"><%# Eval("plc") %></span><span class="range"><span class='dist'><%# Convert.ToInt32(Eval("dis"))%></span> miles</span></p>

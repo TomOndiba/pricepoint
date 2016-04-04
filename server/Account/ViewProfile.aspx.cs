@@ -78,8 +78,8 @@ public partial class Account_ViewProfile : System.Web.UI.Page
         if (userRow["TheyOfferedMe"] != DBNull.Value) offeredamount = Convert.ToDouble(userRow["TheyOfferedMe"]).ToString("C0");
 
         //pending
-        if (mystate == 403 && thierstate == null) OfferText.InnerText = offeredamount+" offer was sent";
-        if (mystate == null && thierstate == 403)
+        if ((mystate == 403 || mystate == 406) && thierstate == null) OfferText.InnerText = "You sent " + offeredamount + " offer"; 
+        if (mystate == null && (thierstate == 403 || thierstate == 406))
         {
             //they are asking...
             DIV_ACCEPTCOUNTERREJECT.Visible = true;
@@ -130,98 +130,107 @@ public partial class Account_ViewProfile : System.Web.UI.Page
 
     protected void Page_Init(object sender, EventArgs e)
     {
-//        if(IsUserBlockedYou())
-  //      {
-    //        Response.Clear();
-      //      Response.Write("This user doesn't exist.");
-        //    Response.End();
-          //  return;
-//            Response.Redirect("~/Account/Default.aspx");
-        //}
+
+        if (currentUser == -1)
+        {
+            DoesntExist();
+            return;
+        }
 
         userRow = GetUserData(out userPhotos);
 
-        if (userRow==null)
+        if (userRow == null)
         {
-            Response.Clear();
-            Response.Write("This user either doesn't exist, deleted thier account, or you don't have a permission to view this profile.");
-            Response.End();
-            return;
-            //            Response.Redirect("~/Account/Default.aspx");
-        }
-
-        if (Convert.ToInt32(userRow["id_user"])!=MyUtils.ID_USER && userRow["sex"].ToString().ToUpper()==MyUtils.GetUserField("sex").ToString().ToUpper() && (!MyUtils.IsUserAdmin() || !MyUtils.IsUserStaff()))
-        {
-            Response.Clear();
-            Response.Write("You are not allowed to view this profile.");
-            Response.End();
+            DoesntExist();
             return;
         }
 
-
-
-        if (userRow != null)
+        int status = (int)userRow["status"];
+        if (status < 0 && !MyUtils.IsUserAdminOrStaff())
         {
-            #region UserName
-            ltUserName.Text = userRow["username"].ToString();
-            #endregion
-
-            #region Gender
-            var userGender = userRow["sex"].ToString();
-
-            lblGender.Text = userGender == "F" ? "(Female)" : "(Male)";
-            #endregion
-
-            #region Activity
-            var lastLogin = userRow["lastlogin_time"];
-            isonline.Visible = false;
-            if (MyUtils.IsOnline((int)userRow["id_user"]))
-            {
-                ltActivity.Text = "Is Online";
-                isonline.Visible = true;
-            }
-            else ltActivity.Text = "Last login: " + (lastLogin is DBNull ? "n /a" : MyUtils.TimeAgo(Convert.ToDateTime(lastLogin)));
-
-            #endregion
-
-            #region Age, Location, Distance
-            var birthDate = Convert.ToDateTime(userRow["birthdate"]);
-            var age = (DateTime.Now.Year - birthDate.Year);
-            if (birthDate > DateTime.Now.AddYears(-age))
-            {
-                age--;
-            }
-            ltAge.Text = age.ToString();
-
-            ltLocation.Text = userRow["place"].ToString();
-
-            ltDistance.Text = userRow["distance"].ToString();
-            #endregion
-
-            #region Status
-            ltStatus.Text = userRow["title"].ToString();
-            #endregion
-
-            #region About Me
-            ltAbout.Text = userRow["description"].ToString();
-            #endregion
-
-            #region First Date
-            ltFirstDate.Text = userRow["firstdate"].ToString();
-            #endregion
-
-            #region GetUserPersonalData
-            userPersData.userData = GetUserPersonalData(userRow);
-
-            //for mobile
-            userPersDataForMobiles.userData = userPersData.userData;
-            #endregion
-
-            #region Extention Data
-            userPersDataExtention.userData = GetUserExtentionData(userRow);
-            #endregion
-
+            DoesntExist();
+            return;
         }
+        if (status<0 && MyUtils.IsUserAdminOrStaff())
+        {
+            h2deleted.Visible = true;
+            h2deleted.InnerHtml = "STATUS: " + status;
+        }
+
+        if (Convert.ToInt32(userRow["id_user"]) != MyUtils.ID_USER && userRow["sex"].ToString().ToUpper() == MyUtils.GetUserField("sex").ToString().ToUpper() && !MyUtils.IsUserAdminOrStaff() )
+        {
+            DoesntExist();
+            return;
+        }
+
+
+
+        #region UserName
+        ltUserName.Text = userRow["username"].ToString();
+        #endregion
+
+        #region Gender
+        var userGender = userRow["sex"].ToString();
+
+        lblGender.Text = userGender == "F" ? "(Female)" : "(Male)";
+        #endregion
+
+        #region Activity
+        var lastLogin = userRow["lastlogin_time"];
+        isonline.Visible = false;
+        if (MyUtils.IsOnline((int)userRow["id_user"]))
+        {
+            ltActivity.Text = "Is Online";
+            isonline.Visible = true;
+        }
+        else ltActivity.Text = "Last login: " + (lastLogin is DBNull ? "n /a" : MyUtils.TimeAgo(Convert.ToDateTime(lastLogin)));
+
+        #endregion
+
+        #region Age, Location, Distance
+        var birthDate = Convert.ToDateTime(userRow["birthdate"]);
+        var age = (DateTime.Now.Year - birthDate.Year);
+        if (birthDate > DateTime.Now.AddYears(-age))
+        {
+            age--;
+        }
+        ltAge.Text = age.ToString();
+
+        ltLocation.Text = userRow["place"].ToString();
+
+        ltDistance.Text = userRow["distance"].ToString();
+        #endregion
+
+        #region Status
+        ltStatus.Text = userRow["title"].ToString();
+        #endregion
+
+        #region About Me
+        ltAbout.Text = userRow["description"].ToString();
+        #endregion
+
+        #region First Date
+        ltFirstDate.Text = userRow["firstdate"].ToString();
+        #endregion
+
+        #region GetUserPersonalData
+        userPersData.userData = GetUserPersonalData(userRow);
+
+        //for mobile
+        userPersDataForMobiles.userData = userPersData.userData;
+        #endregion
+
+        #region Extention Data
+        userPersDataExtention.userData = GetUserExtentionData(userRow);
+        #endregion
+
+    }
+
+    private void DoesntExist()
+    {
+        maincontainer.Visible = false;
+        h2deleted.Visible = true;
+        h2deleted.InnerHtml = "This profile either doesn't exist, deleted thier account, has been suspended, or you don't have a permission to view this profile.";
     }
 
     protected void Page_Load(object sender, EventArgs e)
@@ -229,9 +238,7 @@ public partial class Account_ViewProfile : System.Web.UI.Page
 
 
         this.btnBan.Visible = btEdit.Visible= MyUtils.IsUserAdmin();
-        //        this.EditButton.Visible = MyUtils.IsUserAdmin();
-        //      this.EditButton.HRef = "/Account/EditProfile.aspx?id=" + Convert.ToInt32(Request.QueryString["id"]);
-        this.btEdit.OnClientClick = "window.location.href='" + "/Account/EditProfile.aspx?id=" + Convert.ToInt32(Request.QueryString["id"]) + "';return false;";
+        this.btEdit.OnClientClick = "window.location.href='" + "/Account/EditProfile?id=" + Convert.ToInt32(Request.QueryString["id"]) + "';return false;";
 
         if (!IsPostBack)
         {
@@ -248,6 +255,9 @@ public partial class Account_ViewProfile : System.Web.UI.Page
         }
 
         ltPhotosCount.Text = GetPhotosCount().ToString();
+        photoslabel.Visible = ltPhotosCount.Text != "0";
+
+        if (currentUser < 0 || userRow==null) return;
 
         if (currentUser == (int)MyUtils.GetUserField("id_user"))
         {
@@ -256,7 +266,7 @@ public partial class Account_ViewProfile : System.Web.UI.Page
             divMobileReport.Visible = false;
             liHistory.Visible = false;
         }
-        else
+        else 
         {
             SetButtonBlock();
 
@@ -278,7 +288,7 @@ public partial class Account_ViewProfile : System.Web.UI.Page
     {
         List<string> girfts = new List<string>();
 
-        if (!(userRow["gifts"] is DBNull))
+        if (userRow != null && !(userRow["gifts"] is DBNull))
         {
             girfts = userRow["gifts"].ToString().Split(',').ToList();
         }
@@ -366,12 +376,12 @@ public partial class Account_ViewProfile : System.Web.UI.Page
     {
         var userData = new List<Tuple<string, string>>();
 
-        userData.Add(new Tuple<string, string>("Occupation:", userD["occupation"].ToString()));
-        userData.Add(new Tuple<string, string>("Income Level:", GetFromLookups(userD["id_income"].ToString())));
-        userData.Add(new Tuple<string, string>("Net Worth:", GetFromLookups(userD["id_networth"].ToString())));
-        userData.Add(new Tuple<string, string>("Relationship Status:", GetFromLookups(userD["id_relationship"].ToString())));
+        userData.Add(new Tuple<string, string>("Occupation", userD["occupation"].ToString()));
+        userData.Add(new Tuple<string, string>("Income Level", GetFromLookups(userD["id_income"].ToString())));
+        userData.Add(new Tuple<string, string>("Net Worth", GetFromLookups(userD["id_networth"].ToString())));
+        userData.Add(new Tuple<string, string>("Relationship Status", GetFromLookups(userD["id_relationship"].ToString())));
         //userData.Add(new Tuple<string, string>("Looking To Meet:", ""));
-        userData.Add(new Tuple<string, string>("Interested In:", GetInterestFromLookups(userD)));
+        userData.Add(new Tuple<string, string>("Interested In", GetInterestFromLookups(userD)));
 
         return userData;
 
@@ -381,14 +391,14 @@ public partial class Account_ViewProfile : System.Web.UI.Page
     {
         var userData = new List<Tuple<string, string>>();
 
-        userData.Add(new Tuple<string, string>("Age:", userD["age"].ToString() + "(" + GetZodiacSigh(Convert.ToDateTime(userD["birthdate"].ToString())) + ")"));
-        userData.Add(new Tuple<string, string>("Body Type:", GetFromLookups(userD["id_height"].ToString()) + " - " + GetFromLookups(userD["id_bodytype"].ToString())));
-        userData.Add(new Tuple<string, string>("Hair / Eyes:", GetFromLookups(userD["id_haircolor"].ToString()) + " / " + GetFromLookups(userD["id_eyecolor"].ToString())));
-        userData.Add(new Tuple<string, string>("Education:", GetFromLookups(userD["id_education"].ToString())));
-        userData.Add(new Tuple<string, string>("Children:", GetFromLookups(userD["id_children"].ToString())));
-        userData.Add(new Tuple<string, string>("Ethnicity:", GetFromLookups(userD["id_ethnicity"].ToString())));
-        userData.Add(new Tuple<string, string>("Religion:", GetFromLookups(userD["id_religion"].ToString())));
-        userData.Add(new Tuple<string, string>("Smoking / Drinking:", GetFromLookups(userD["id_smoking"].ToString()) + " / " + GetFromLookups(userD["id_drinking"].ToString())));
+        userData.Add(new Tuple<string, string>("Age", userD["age"].ToString() + " - " + GetZodiacSigh(Convert.ToDateTime(userD["birthdate"].ToString())) ));
+        userData.Add(new Tuple<string, string>("Body Type", GetFromLookups(userD["id_height"].ToString()) + " - " + GetFromLookups(userD["id_bodytype"].ToString())));
+        userData.Add(new Tuple<string, string>("Hair / Eyes", GetFromLookups(userD["id_haircolor"].ToString()) + " / " + GetFromLookups(userD["id_eyecolor"].ToString())));
+        userData.Add(new Tuple<string, string>("Education", GetFromLookups(userD["id_education"].ToString())));
+        userData.Add(new Tuple<string, string>("Children", GetFromLookups(userD["id_children"].ToString())));
+        userData.Add(new Tuple<string, string>("Ethnicity", GetFromLookups(userD["id_ethnicity"].ToString())));
+        userData.Add(new Tuple<string, string>("Religion", GetFromLookups(userD["id_religion"].ToString())));
+        userData.Add(new Tuple<string, string>("Smoking / Drinking", GetFromLookups(userD["id_smoking"].ToString()) + " / " + GetFromLookups(userD["id_drinking"].ToString())));
 
         return userData;
 
@@ -606,9 +616,12 @@ public partial class Account_ViewProfile : System.Web.UI.Page
 
     #region ViewHistory
 
-    private void GetOffers()
+    private void GetOffers(string table)
     {
-        DataSet ds = db.CommandBuilder_LoadDataSet(string.Format("select * from offers where (id_user_from = {0} and id_user_to = {1}) or (id_user_to = {0} and id_user_from = {1})", (int)MyUtils.GetUserField("id_user"), currentUser));
+        bool is_history = (table == "offers_history") ;
+
+            DataSet ds = db.GetDataSet(string.Format("select * from "+ table + " where (id_user_from = {0} and id_user_to = {1}) or (id_user_to = {0} and id_user_from = {1}) ", (int)MyUtils.GetUserField("id_user"), currentUser));
+
         string curUserName = currentUserData != null ? currentUserData["username"].ToString() : "";
         bool isMyOffer;
         if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
@@ -617,12 +630,34 @@ public partial class Account_ViewProfile : System.Web.UI.Page
             {
                 string amount = ((decimal)r["amount"]).ToString("C0");
                 isMyOffer = (int)r["id_user_from"] == (int)MyUtils.GetUserField("id_user");
-                history.Add(new Tuple<DateTime, string>((DateTime)r["time"], string.Format("{0} sent " + (isMyOffer ? "" : "you ") + amount+" offer", isMyOffer ? "You" : curUserName)));
+                int id_offer_state = (int)r["id_offer_state"];
+                string counter = id_offer_state == 406 ? "counter " : "";
 
+                DateTime d=DateTime.MinValue;
+                
+                if (r["time"] != DBNull.Value && Convert.ToDateTime(r["time"]) > d) d = Convert.ToDateTime(r["time"]);
+                if (r["accepted"] != DBNull.Value && Convert.ToDateTime(r["accepted"]) > d) d = Convert.ToDateTime(r["accepted"]);
+                if (r["rejected"] != DBNull.Value && Convert.ToDateTime(r["rejected"]) > d) d = Convert.ToDateTime(r["rejected"]);
+                if (r["withdrawn"] != DBNull.Value && Convert.ToDateTime(r["withdrawn"]) > d) d = Convert.ToDateTime(r["withdrawn"]);
+                if (r["updated"] != DBNull.Value && Convert.ToDateTime(r["updated"]) > d) d = Convert.ToDateTime(r["updated"]);
+
+                if (!(r["rejected"] is DBNull))
+                {
+                    history.Add(new Tuple<DateTime, string>(d, string.Format("{0} rejected {1} offer", !isMyOffer ? "You" : curUserName, amount)));
+                }
+                else
                 if (!(r["accepted"] is DBNull))
                 {
-                    history.Add(new Tuple<DateTime, string>((DateTime)r["accepted"], string.Format("{0} accepted {1} offer", !isMyOffer ? "You" : curUserName, amount)));
+                    history.Add(new Tuple<DateTime, string>(d, string.Format("{0} accepted {1} offer", !isMyOffer ? "You" : curUserName, amount)));
                 }
+                else
+                if (!(r["withdrawn"] is DBNull))
+                {
+                    history.Add(new Tuple<DateTime, string>(d, string.Format("{0} withdrew " + (isMyOffer ? "" : "you ") + amount + " " + counter + "offer", isMyOffer ? "You" : curUserName)));
+                }
+                else
+                    history.Add(new Tuple<DateTime, string>(d, string.Format("{0} sent " + (isMyOffer ? "" : "you ") + amount + " " + counter + "offer", isMyOffer ? "You" : curUserName)));
+
             }
 
             isAnyHistory = true;
@@ -687,7 +722,7 @@ public partial class Account_ViewProfile : System.Web.UI.Page
                 isMyMessage = (int)r["id_user_from"] == (int)MyUtils.GetUserField("id_user");
                 string mess = r["text"].ToString();
                 if (!isMyMessage && id_user_unlocked == 0 && MyUtils.IsMale) mess = "**************** [Message is locked. Please unlock messaging]";
-                history.Add(new Tuple<DateTime, string>((DateTime)r["time"], string.Format("{0} sent message: <span style =\"color:blue\">{1} </span><br/>", isMyMessage ? "You" : curUserName, mess)));
+                history.Add(new Tuple<DateTime, string>((DateTime)r["time"], string.Format("{0} sent message: <span style =\"color:blue\">{1} </span>", isMyMessage ? "You" : curUserName, mess)));
 
             }
 
@@ -702,7 +737,8 @@ public partial class Account_ViewProfile : System.Web.UI.Page
     {
         if (IsPostBack)
         {
-            GetOffers();
+            GetOffers("offers");
+            GetOffers("offers_history");
             GetLikes();
             GetFavorites();
             GetMessages();
@@ -719,7 +755,7 @@ public partial class Account_ViewProfile : System.Web.UI.Page
                     history = history.OrderByDescending(x => x.Item1).ToList();
                     foreach (var r in history)
                     {
-                        lblHistory.Text += r.Item1.ToString("MM/dd/yyyy") + "<span style = \"color:black\"> " + r.Item2.ToString() + "</span><br>";
+                        lblHistory.Text += MyUtils.TimeAgo(r.Item1) + "<span style = \"color:black\"> " + r.Item2.ToString() + "</span><br>";
                     }
                 }
             }
