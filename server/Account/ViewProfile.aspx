@@ -65,31 +65,29 @@
     border-radius: 2px;
     }
 </style>
-<li>
+<li class="hf">
 <div id="DIV_ACCEPTCOUNTERREJECT" visible="false" runat="server" class="buttons show-new">
 <span class="cell"><a class="button js-accept-offer" href="#">Accept <%=accepttext%></a></span>
 <span class="cell"><a class="button button-blue js-popup" href="popup-offer.aspx" data-counter="1">Counter</a></span>
 <span class="cell"><a class="button button-black js-popup" href="popup-reject.aspx">Reject</a></span>
 </div>
-<a id="OfferText" runat="server" class='button button-icon sendofferbuttonDONE SW_OFFERSENT' style="display:none" href='#'>Offer was sent</a>
-<a id="BUT_SENDOFFER" visible="false" runat="server" class='button button-icon js-popup sendofferbutton' href="popup-offer.aspx"><span class='icon icon-offer'></span> <%=SendOfferText %></a>
-<a id="BUT_SENDMESSAGE" visible="false" runat="server"  class='button button-blue button-icon' href=''><span class='icon icon-message'></span> [SEND MESSAGE]</a>
 </li>
 <script>
-function MakeOfferDone(panel,amount)
-{
+function MakeOfferDone(panel,amount) {
     $('.sendofferbutton').hide();
     $('.sendofferbuttonDONE').html('You sent $'+amount+' offer');
     $('.sendofferbuttonDONE').show();
-    
 }
-    </script>
+</script>
 
-                                <li class="hf">
-								<span class="col"><a class="button button-gray button-icon js-favorite <%= userRow["favorite"].ToString()=="1" ? "active" : "" %>" href="#favorite"><span class="icon icon-fav"></span> Favorite</a></span>
-                                <span class="col"><%=MyUtils.ShowIfLogedinUserField("sex","F","<a class='button button-gray button-icon js-wink "+(userRow["wink"].ToString()=="1"?"active":"")+"' href='#wink'> <span class='icon icon-wink'></span> <span class='sendwink'>Send Wink</span><span class='sentwink'>Wink Sent</span></a>") %></span>
-                                </li>
-                            </ul>
+								<li class="hf">
+									<span class="col <%=userRow["sex"].ToString()=="M" ? "col-full" :""%>"><a id="OfferText" runat="server" class='button button-icon sendofferbuttonDONE SW_OFFERSENT' style="display:none" href='#'>Offer was sent</a></span>
+									<span class="col <%=userRow["sex"].ToString()=="M" ? "col-full" :""%>"><a id="BUT_SENDOFFER" visible="false" runat="server" class='button button-icon js-popup sendofferbutton' href="popup-offer.aspx"><span class='icon icon-offer'></span> <%=SendOfferText %></a></span>
+									<span class="col <%=userRow["sex"].ToString()=="M" ? "col-full" :""%>"><a id="BUT_SENDMESSAGE" visible="false" runat="server"  class='button button-blue button-icon' href=''><span class='icon icon-message'></span> [SEND MESSAGE]</a></span>
+									<span class="col"><a class="button button-gray button-icon js-favorite <%= userRow["favorite"].ToString()=="1" ? "active" : "" %>" href="#favorite"><span class="icon icon-fav"></span> Favorite</a></span>
+									<span class="col"><%=MyUtils.ShowIfLogedinUserField("sex","F","<a class='button button-gray button-icon js-wink "+(userRow["wink"].ToString()=="1"?"active":"")+"' href='#wink'> <span class='icon icon-wink'></span> <span class='sendwink'>Send Wink</span><span class='sentwink'>Wink Sent</span></a>") %></span>
+								</li>
+							</ul>
                             <!-- Report -->
                             <div class="report" runat="server" id="divReport">
                                 <asp:LinkButton runat="server" ID="btEdit" CssClass="button button-white" Text="Edit" Visible="false"/>

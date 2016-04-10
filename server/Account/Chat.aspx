@@ -237,9 +237,11 @@
     <div class="form-message">
 
         <figure class="photo">
-<a href='<%=Utils.GetProfileLink(R,"id_user")%>' style="display: inline-block"><img src='<%=MyUtils.GetImageUrl(R,MyUtils.ImageSize.SMALL)%>' width="160" height="160" alt=""/></a>
-            <div <%=MyUtils.IsOnline(ID_USER_CHATWITH) ? "":"style='display:none'"%> class="rib-wrapper onlineflag"><div class="rib">Online</div></div>
-            <span class="price">&#36;<%=Convert.ToInt32(Offer["Amount"]) %></span>
+            <a class="link" href='<%=Utils.GetProfileLink(R,"id_user")%>'>
+                <img src='<%=MyUtils.GetImageUrl(R,MyUtils.ImageSize.SMALL)%>' width="160" height="160" alt=""/>
+                <div <%=MyUtils.IsOnline(ID_USER_CHATWITH) ? "":"style='display:none'"%> class="rib-wrapper onlineflag"><div class="rib">Online</div></div>
+                <span class="price">&#36;<%=Convert.ToInt32(Offer["Amount"]) %></span>
+            </a>
         </figure>
         <div class="text">
             <p class="name"><a href='<%=Utils.GetProfileLink(R,"id_user")%>'><%=R["username"] %></a> <span class="small"><%=R["age"] %> / <%=R["place"] %></span></p>

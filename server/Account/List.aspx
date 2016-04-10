@@ -4,10 +4,10 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 <ul class="links-group" runat="server" id="Ul1">
-				<li><a <%=MyUtils.MenuLink("/Account/List?t=favorites")%> ><span class="icon icon-new"></span> Favorites</a></li>
+				<li><a <%=MyUtils.MenuLink("/Account/List?t=favorites")%> ><span class="icon icon-heart"></span> Favorites</a></li>
 				<li><a <%=MyUtils.MenuLink("/Account/List?t=viewed")%> ><span class="icon icon-tick"></span> Viewed Me </a></li>
 				<li runat="server" id="Li1" ><a <%=MyUtils.MenuLink("/Account/List?t=favorited")%> ><span class="icon icon-wink"></span> Favorited Me  </a></li>
-				<li runat="server" id="Li2" ><a <%=MyUtils.MenuLink("/Account/List?t=blocked")%> ><span class="icon icon-sandglass"></span> I Blocked</a></li>
+				<li runat="server" id="Li2" ><a <%=MyUtils.MenuLink("/Account/List?t=blocked")%> ><span class="icon icon-close"></span> I Blocked</a></li>
 </ul>
     <br />
 

@@ -50,7 +50,7 @@
 						<div class="attention" id="photospromo" runat="server">
 							<p class="alert"><img src="/img/icons/attention.png" alt=""></p>
 							<a href="/Account/UploadPhotos"><img class="avatar" style="border:solid 1px silver" src="/img/NoPhoto<%=(MyUtils.IsMale?"M":"F")%>-T.jpg" alt=""></a>
-							<div class="text" style="padding-left:90px">
+							<div class="text">
 								<p><span style="color:red;font-weight:bold">ATTENTION:</span> <%=(MyUtils.IsMale?"Most":"96% of")%> <%=(MyUtils.IsMale?"women":"men")%> are <%=(MyUtils.IsMale?"responding only to":"searching only for")%> <%=(MyUtils.IsMale?"men":"women")%> with photos! Your photo is the most important part of your profile. A good quality photo will increase your chances of getting more dates by 900% <%=(MyUtils.IsMale?"You have the option to make it private.":"")%></p>
 							</div>
 							<div class="submit"><a class="button button-black" href="/Account/UploadPhotos">Upload Photo</a></div>

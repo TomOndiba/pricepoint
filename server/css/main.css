@@ -2304,6 +2304,18 @@ body > form {
   .links-group li a .icon.icon-sandglass:after {
     background-position: -60px -130px;
   }
+  .links-group li a .icon.icon-close:before {
+    background-position: -160px -95px;
+  }
+  .links-group li a .icon.icon-close:after {
+    background-position: -135px -95px;
+  }
+  .links-group li a .icon.icon-heart:before {
+    background-position: -230px 0;
+  }
+  .links-group li a .icon.icon-heart:after {
+    background-position: -230px -50px;
+  }
   .links-group li a:hover .icon:before,
   .links-group li a:focus .icon:before,
   .links-group li a:active .icon:before,
@@ -2490,6 +2502,7 @@ figure .vip {
 .profile .inform .location .range {
   min-height: 20px;
   padding-left: 18px;
+  margin-left: -5px;
   display: inline-block;
   vertical-align: middle;
   font-weight: 500;
@@ -2506,7 +2519,7 @@ figure .vip {
   background-size: 200px auto;
   position: absolute;
   left: 2px;
-  top: 1px;
+  top: 0;
 }
 @media (min-width: 568px) {
   .profile .inform .location .range {
@@ -2582,6 +2595,12 @@ figure .vip {
   padding: 0 2px;
   float: left;
 }
+.profile .inform .actions .list li.hf .col.col-full {
+  width: 100%;
+}
+.profile .inform .actions .list li.hf .col.col-full .button {
+  margin-bottom: 10px;
+}
 @media (min-width: 568px) {
   .profile .inform .actions .list li {
     margin: 0;
@@ -2599,14 +2618,19 @@ figure .vip {
     padding: 0;
     float: none;
   }
+  .profile .inform .actions .list li.hf .col.col-full .button {
+    margin-bottom: 0;
+  }
 }
 .profile .inform .actions .list .button {
   max-width: none;
-  padding-left: 24px;
-  padding-right: 24px;
+  padding-left: 8px;
+  padding-right: 8px;
 }
 @media (min-width: 568px) {
   .profile .inform .actions .list .button {
+    padding-left: 24px;
+    padding-right: 24px;
     display: inline-block;
   }
 }
@@ -4600,6 +4624,14 @@ figure .vip {
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 5;
+}
+.form-message .photo .link {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: relative;
+  z-index: 0;
 }
 .form-message .photo img {
   width: 102px;
