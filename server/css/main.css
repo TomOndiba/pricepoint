@@ -32,7 +32,7 @@ body {
   width: 100%;
   min-width: 320px;
   min-height: 100%;
-  padding: 40px 0 120px;
+  padding: 40px 0 150px;
   background: #f4f4f4;
   position: relative;
 }
@@ -44,6 +44,11 @@ body.conversation-page {
   height: 100%;
   padding-top: 88px;
   padding-bottom: 0;
+}
+@media (min-width: 375px) {
+  body {
+    padding-bottom: 120px;
+  }
 }
 @media (min-width: 750px) {
   html {
@@ -6439,4 +6444,17 @@ a.SW_OFFERSENT, a.SW_OFFERREJECTED { cursor: pointer }
 }
 .area span.vip {
   margin-bottom: 19px;
+}
+/* ==========================================================================
+   _CONTACT US
+   ========================================================================== */
+.contacts-email {
+  display: block;
+}
+.contacts-address {
+  max-width: 100%;
+  margin-bottom: 20px;
+  display: block;
+  clear: both;
+  vertical-align: top;
 }
