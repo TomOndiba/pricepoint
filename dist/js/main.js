@@ -81,6 +81,20 @@ function initUI() {
 		}
 	});
 
+	$('.js-popup-inline').magnificPopup({
+	    type: 'inline'
+	});
+	
+
+    /** Init wink */
+	$('.js-wink').on('click', function (event) {
+	    var self = $(this);
+	    $(this).blur().closest('[data-id]').each(function () {
+	        if (!self.hasClass('active')) sendWink($(this).data('id'), $(this));
+	    });
+	    event.preventDefault();
+	});
+
 	/** Init favorite */
 	$('.js-favorite').on('click', function (event) {
 		var self = $(this);
@@ -98,13 +112,6 @@ function initUI() {
 		event.preventDefault();
 	});
 
-	/** Init reject offer */
-	$('.js-reject-offer').on('click', function (event) {
-		$(this).blur().closest('[data-id_offer]').each(function () {
-			RejectOffer($(this).data('id_offer'), $(this));
-		});
-		event.preventDefault();
-	});
 
 	/** Init withdraw offer */
 	$('.js-withdraw-offer').on('click', function (event) {
@@ -117,14 +124,32 @@ function initUI() {
 	/** Hide attention block **/
 	$('.attention').each(function () {
 		var _self = $(this);
-
 		$('.button-hide', _self).on('click', function () {
 			_self.fadeOut(200);
 			return false;
 		})
 	});
 
-	initPhotoSwipe('.my-gallery');
+    //	initPhotoSwipe('.my-gallery');
+
+
+	$('.my-gallery').magnificPopup({
+	    delegate: 'a',
+	    type: 'image',
+	    tLoading: 'Loading image #%curr%...',
+	    mainClass: 'mfp-img-mobile',
+	    gallery: {
+	        enabled: true,
+	        navigateByImgClick: true,
+	        preload: [0, 1] // Will preload 0 - before current, and 1 after the current image
+	    },
+	    image: {
+	        tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
+	        titleSrc: function (item) {
+	            return '';
+	        }
+	    }
+	});
 }
 
 
@@ -134,10 +159,11 @@ function initUI() {
 function initFormElements(scope, data) {
 	/** Custom selectbox */
 	$('select.select', scope).selectric({
-		maxHeight: 200,
+		maxHeight: 400,
 		disableOnMobile: false,
 		responsive: true
 	});
+
 
 	/** Multiselect selectbox */
 	$('select.multiselect', scope).each(function () {
@@ -181,6 +207,7 @@ function initFormElements(scope, data) {
 			} else {
 				Hide();
 			}
+			return false;
 		});
 		self.addClass('inited');
 	});
@@ -212,6 +239,8 @@ function initFormElements(scope, data) {
 }
 
 
+
+
 /**
  * Init all forms
  **/
@@ -219,6 +248,8 @@ function initForms(scope, data) {
 	if (typeof scope === 'undefined') {
 		scope = document;
 	}
+
+	HookupUnlockConfirmation(scope);
 
 	initFormElements(scope, data);
 
@@ -247,6 +278,10 @@ function initForms(scope, data) {
 		initOfferForm.call(this, data);
 	});
 
+	$('[data-form="reject"]:not(.inited)', scope).each(function () {
+		initRejectForm.call(this, data);
+	});
+
 	$('[data-form="membership"]:not(.inited)', scope).each(function () {
 		initMembershipForm.call(this, data);
 	});
@@ -254,6 +289,12 @@ function initForms(scope, data) {
 	$('[data-form="subscribe"]:not(.inited)', scope).each(function () {
 		initSubscribeForm.call(this, data);
 	});
+
+//	$('[data-form="subscribe"]:not(.inited)', scope).each(function () {
+	//    initSubscribeForm.call(this, data);
+	//});
+
+
 }
 
 
@@ -262,7 +303,7 @@ function initForms(scope, data) {
  **/
 function initLoginForm() {
 	$(this).on('submit', function () {
-		alert('Login form submitted!');
+//		alert('Login form submitted!');
 	}).addClass('inited');
 }
 
@@ -272,7 +313,7 @@ function initLoginForm() {
  **/
 function initSignUpForm() {
 	$(this).on('submit', function () {
-		alert('Sign Up form submitted!');
+//		alert('Sign Up form submitted!');
 	}).addClass('inited');
 }
 
@@ -282,7 +323,7 @@ function initSignUpForm() {
  **/
 function initRegistrationForm() {
 	$(this).on('submit', function () {
-		alert('Registration form submitted!');
+//		alert('Registration form submitted!');
 	}).addClass('inited');
 }
 
@@ -300,7 +341,8 @@ function initFilterForm() {
 				result[$(this).attr('name')] = $(this).val();
 			}
 		});
-		alert(JSON.stringify(result, null, 4));
+		SubmitSearch(result);
+//		alert(JSON.stringify(result, null, 4));
 		return false;
 	}).addClass('inited');
 }
@@ -319,12 +361,12 @@ function initMessageForm() {
 			$('.checkbox-gift :checkbox', this).filter(':checked').each(function () {
 				result['gifts'].push($(this).val());
 			});
-			alert('Send message form submit!\n' + JSON.stringify(result, null, 4));
+//			alert('Send message form submit!\n' + JSON.stringify(result, null, 4));
 		}
 
 		var result = {}, gifts = +$('.checkbox-gift :checkbox', this).filter(':checked').length;
 		if (gifts > 0) {
-			var r = confirm("A total of " + gifts * 5 + " credits will be deducted for the gifts.\nWould you like to send the message?");
+		    var r = CheckGiftCredits(gifts);
 			if (r === true) {
 				Submit.call(this);
 			}
@@ -380,9 +422,7 @@ function initOfferForm(data) {
 		$(this).blur();
 	});
 	form.on('submit', function () {
-		var i = item.data('id'),
-			t = +total.val().replace('$', ''),
-			g = [], gs = '';
+		var i = item.data('id'), t = +total.val().replace('$', ''), g = [];
 		gifts.filter(':checked').each(function () {
 			g.push(+$(this).val());
 		});
@@ -403,13 +443,36 @@ function initOfferForm(data) {
 
 
 /**
+ * Initialize reject form
+ **/
+function initRejectForm(data) {
+	var form = $(this), el = $(data.items[data.index].el), item = el.closest('[data-id]');
+	$('.button', form).on('click', function () {
+		form.attr('data-reason', $(this).data('reason'));
+	});
+	form.on('submit', function () {
+		RejectOfferV2(item.data('id_offer'), form.data('reason'), item);
+		return false;
+	}).addClass('inited');
+}
+
+
+/**
  * Initialize membership form
  **/
 function initMembershipForm() {
 	var form = $(this);
 
+	$('.selectric').selectric({
+	    maxHeight: 400,
+	    disableOnMobile: false,
+	    responsive: true
+	});
+
 	$('.packages', form).each(function () {
-		var self = $(this), package = $('[name="package"]', form), total = $('.total .t', form);
+	    //var self = $(this), package = $('[name="package"]', form), total = $('.total .t', form);
+	    var self = $(this), package = $('[id="ContentPlaceHolder1_hiddenPackage"]', form), total = $('.total .t', form);
+	    
 		$('.button-select', this).on('click', function (event) {
 			var panel = $(this).closest('.panel');
 			self.find('.panel.active').removeClass('active');
@@ -422,7 +485,7 @@ function initMembershipForm() {
 
 
 	$(this).on('submit', function () {
-		alert('Membership form submitted!');
+//		alert('Membership form submitted!');
 	}).addClass('inited');
 }
 
@@ -432,7 +495,7 @@ function initMembershipForm() {
  **/
 function initSubscribeForm() {
 	$(this).on('submit', function () {
-		alert('Subscribe form submitted!');
+//		alert('Subscribe form submitted!');
 	}).addClass('inited');
 }
 
@@ -441,8 +504,9 @@ function initSubscribeForm() {
  * Toggle favorite action
  **/
 function toggleFavorite(id_user, on_off, panel) {
-	function onOK(data, textStatus, jqXHR) {
-		showAlert(data.d.replace('OK: ', ''));
+    function onOK(data, textStatus, jqXHR) {
+        if (on_off) $('.js-favorite', panel).addClass("active"); else $('.js-favorite', panel).removeClass("active");
+        showAlert(data.d.replace('OK: ', ''));
 	}
 
 	function onDone(data, textStatus, jqXHR) {
@@ -459,27 +523,61 @@ function toggleFavorite(id_user, on_off, panel) {
 	}).done(onDone).error(onError);
 }
 
+/**
+ * Send wink action
+ **/
+function sendWink(id_user, panel) {
+    function onOK(data, textStatus, jqXHR) {
+        $('.js-wink', panel).addClass("active"); 
+        showAlert(data.d.replace('OK: ', ''));
+    }
+
+    function onDone(data, textStatus, jqXHR) {
+        if (data.d.indexOf('OK') >= 0) {
+            onOK(data, textStatus, jqXHR);
+        } else {
+            showError(data.d.replace('ERROR: ', ''));
+        }
+    }
+
+    sendRequest('SendWink', {
+        'id_user': id_user
+    }).done(onDone).error(onError);
+}
+
+function MakeOfferDone(panel, amount) {
+}
 
 /**
  * Make offer action
  * Offer should contain id_offer=20001, panel is the div element
  **/
 function MakeOffer(offer, panel) {
-	function onOK(data, textStatus, jqXHR) {
-		showAlert(data.d.replace('OK: ', ''));
+    function onOK(data, textStatus, jqXHR) {
+
+        var txt=data.d.split('|');
+        if (txt.length > 1) setCredits(txt[1]);
+		showAlert(txt[0].replace('OK: ', ''));
 		$.magnificPopup.close();
+
+		MakeOfferDone(panel, offer.amount);
+
 		$(panel).removeClass(function (index, css) {
 			return (css.match(/(^|\s)panel-\S+/g) || []).join(' ');
 		}).addClass('panel-pending').find('.type').html('$' + offer.amount);
-	}
+		RefreshMenuCounts();
+    }
 
 	function onDone(data, textStatus, jqXHR) {
 		if (data.d.indexOf('OK') >= 0) {
-			onOK(data, textStatus, jqXHR);
+		    onOK(data, textStatus, jqXHR);
 		} else {
 			showError(data.d.replace('ERROR: ', ''));
 		}
 	}
+
+	var cr = CheckGiftCredits(offer.gifts);
+	if (!cr) return;
 
 	sendRequest('MakeOffer', offer).done(onDone).error(onError);
 }
@@ -489,17 +587,18 @@ function MakeOffer(offer, panel) {
  * Accept offer action
  **/
 function AcceptOffer(id_offer, panel) {
-	function onOK(data, textStatus, jqXHR) {
-		showAlert(data.d.replace('OK: ', ''));
+    function onOK(data, textStatus, jqXHR) {
+            showAlert(data.d.replace('OK: ', ''));
 		$(panel).removeClass(function (index, css) {
 			return (css.match(/(^|\s)panel-\S+/g) || []).join(' ');
 		}).addClass('panel-accepted');
-	}
+    }
 
 	function onDone(data, textStatus, jqXHR) {
-		if (data.d.indexOf('OK') >= 0) {
-			onOK(data, textStatus, jqXHR);
-		} else {
+	    if (data.d.indexOf('OK') >= 0) {
+		    onOK(data, textStatus, jqXHR);
+		    RefreshMenuCounts();
+        } else {
 			showError(data.d.replace('ERROR: ', ''));
 		}
 	}
@@ -507,16 +606,45 @@ function AcceptOffer(id_offer, panel) {
 	sendRequest('AcceptOffer', {'id_offer': id_offer}).done(onDone).error(onError);
 }
 
+/**
+ * Send report
+ **/
+function SendReport() {
+    function onOK(data, textStatus, jqXHR) {
+        showAlert(data.d.replace('OK: ', ''));
+    };
+
+    function onDone(data, textStatus, jqXHR) {
+        if (data.d.indexOf('OK') >= 0) {
+            onOK(data, textStatus, jqXHR);
+        } else {
+            showError(data.d.replace('ERROR: ', ''));
+        }
+    }
+
+    var message = $('#tbReportText').val();
+    if (message == '') {
+        alert('Please fill in details about your report.');
+        return;
+    }
+    var id_user = $('#tbReportText')[0].getAttribute('data-id_user');
+
+    sendRequest('Report', { 'id_user': id_user, 'message': message }).done(onDone).error(onError);
+    $.magnificPopup.close();
+}
+
+
+
 
 /**
- * Accept offer action
+ * Reject V2 offer action
  **/
-function RejectOffer(id_offer, panel) {
+function RejectOfferV2(id_offer, reason, panel) {
 	function onOK(data, textStatus, jqXHR) {
 		showAlert(data.d.replace('OK: ', ''));
-		$(panel).removeClass(function (index, css) {
-			return (css.match(/(^|\s)panel-\S+/g) || []).join(' ');
-		}).removeClass('panel-wink').addClass('panel-rejected');
+		$(panel).fadeOut(500, function () {
+			$(this).closest('.pure-u-1').remove();
+		});
 	}
 
 	function onDone(data, textStatus, jqXHR) {
@@ -525,14 +653,16 @@ function RejectOffer(id_offer, panel) {
 		} else {
 			showError(data.d.replace('ERROR: ', ''));
 		}
-	}
+		$.magnificPopup.close();
+		RefreshMenuCounts();
+    }
 
-	sendRequest('RejectOffer', {'id_offer': id_offer}).done(onDone).error(onError);
+	sendRequest('RejectOfferV2', {'id_offer': id_offer, 'reason': reason}).done(onDone).error(onError);
 }
 
 
 /**
- * Accept offer action
+ * Withdraw offer action
  **/
 function WithdrawOffer(id_offer, panel) {
 	function onOK(data, textStatus, jqXHR) {
@@ -546,13 +676,25 @@ function WithdrawOffer(id_offer, panel) {
 		if (jqXHR.statusText === 'OK') {
 			if (data.d.indexOf('OK') >= 0) {
 				onOK(data, textStatus, jqXHR);
-			} else {
+				RefreshMenuCounts();
+            } else {
 				showError(data.d.replace('ERROR: ', ''));
 			}
-		}
+        }
 	}
 
 	sendRequest('WithdrawOffer', {'id_offer': id_offer}).done(onDone).error(onError);
+}
+
+function ShowLoading(e) {
+    var div = document.createElement('div');
+    var img = document.createElement('img');
+    img.src = '/img/loading.gif';
+    //div.innerHTML = "Loading...<br />";
+    div.style.cssText = 'position: fixed; top: 20%; left: 50%; z-index: 5000;';
+    div.appendChild(img);
+    document.body.appendChild(div);
+    return true;
 }
 
 
@@ -563,7 +705,7 @@ function sendRequest(method, data) {
 	return $.ajax({
 		type: "POST",
 		data: JSON.stringify(data),
-		url: 'http://pricepointdate.com/webService.asmx/' + method,
+		url: '/webService.asmx/' + method,
 		contentType: "application/json"
 	});
 }
@@ -573,6 +715,13 @@ function sendRequest(method, data) {
  * Shows alert window
  **/
 function showAlert(text) {
+    if (text.indexOf('REDIR:') == 0) {
+        window.location.href = text.replace('REDIR:', ''); return;
+    }
+    if (text.indexOf('REFRESH') == 0) {
+        window.location.reload(true); return;
+    }
+
 	ohSnap(text, {color: 'green'});
 }
 
@@ -582,6 +731,7 @@ function showAlert(text) {
  **/
 function onError(data) {
 	showError('Error ' + data.status + ": " + data.statusText);
+	$.magnificPopup.close();
 }
 
 
@@ -798,6 +948,16 @@ function initPhotoSwipe(gallerySelector) {
 }
 
 
+function NotEnoughCredits() {
+    var s = 'You don\'t have enough credits. Please use our secure checkout to buy credits.';
+    alert(s);
+    window.location.href = '/Account/Upgrade';
+}
+
+
+
+
+
 /**
  * == OhSnap!.js ==
  * A simple jQuery/Zepto notification library designed to be used in mobile apps
@@ -824,8 +984,8 @@ function ohSnap(text, options) {
 		'icon': null,     // class of the icon to show before the alert text
 		'duration': '5000',   // duration of the notification in ms
 		'container-id': 'ohsnap', // id of the alert container
-		'fade-duration': 'fast',  // duration of the fade in/out of the alerts. fast, slow or integer in ms
-	}
+		'fade-duration': 'fast'  // duration of the fade in/out of the alerts. fast, slow or integer in ms
+	};
 
 	options = (typeof options == 'object') ? $.extend(defaultOptions, options) : defaultOptions;
 
@@ -875,3 +1035,97 @@ function ohSnapX(element, options) {
 		});
 	}
 }
+
+function setCredits(Credits)
+{
+    if (Credits != -1) {
+        $('.credits').html(Credits + ' credits');
+        ppd_credits = Credits;
+    }
+}
+
+function CheckGiftCredits(gifts) {
+    if (typeof gifts == 'string') gifts = gifts.split(',');
+    if (gifts.length > 0) {
+        var cost = gifts.length * 5;
+
+        if (cost > ppd_credits) {
+            alert('You don\'t have enough credits (' + cost + ') to send the virtual gifts');
+            return false;
+        }
+        var r = confirm("A total of " + cost + " credits will be deducted for the virtual gifts.\nWould you like to send the offer?");
+        if (r === false) {
+            return false;
+        }
+    }
+    return true;
+}
+
+function isNumberKey(evt) {
+    var charCode = (evt.which) ? evt.which : event.keyCode;
+    if (charCode != 46 && charCode > 31 && (charCode < 48 || charCode > 57)) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
+function SendMessage(e) {
+    var id = $(e).closest('.item').attr("data-id");
+    window.location.href = '/Account/Messages?Confirmed=1&SendMessageTo=' + id;
+    return false;
+}
+
+function ConfirmUnlock(id)
+{
+    $.magnificPopup.open({
+        items: {
+            src: '/Account/Popup-ConfirmUnlock.aspx?id=' + id,
+            type: 'ajax'
+
+        },
+        //add options here, 
+        closeOnBgClick: false,
+        closeOnContentClick: false
+
+    }, 0);
+}
+function HookupUnlockConfirmation(scope) {
+    $('.unlockbutton', scope).click(function (el) {
+        var id = $(el.toElement).closest('.item').attr("data-id");
+
+        ConfirmUnlock(id);
+        return false;
+    });
+}
+
+function SetMenuCount(name,cnt,red)
+{
+    var s = '';
+    if (cnt == 0) {
+        $(name).removeClass('newredcount');
+        $(name).html('');
+        return;
+    }
+
+    if (red) $(name).addClass('newredcount');
+    $(name).html(cnt);
+}
+function RefreshMenuCounts()
+{
+    function onDone(data, textStatus, jqXHR) {
+        SetMenuCount('#menu_Offers',data.d.Offers,true);
+        SetMenuCount('#menu_Dates', data.d.Dates, true);
+        SetMenuCount('#menu_Messages', data.d.Messages, true);
+
+        SetMenuCount('#menu_Winks', data.d.Winks);
+        SetMenuCount('#menu_NewOffers', data.d.NewOffers);
+        SetMenuCount('#menu_Accepted', data.d.Accepted);
+        SetMenuCount('#menu_Pending', data.d.Pending);
+        SetMenuCount('#menu_Rejected', data.d.Rejected);
+    }
+
+    sendRequest('GetMenuCounts', {}).done(onDone).error(onError);
+
+}
+
