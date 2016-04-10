@@ -13,8 +13,11 @@ public partial class Account_Settings : System.Web.UI.Page
 
     protected void Page_Init(object sender, EventArgs e)
     {
-        //Select profile
-        DataRow dataRow = db.GetRow(string.Format("select * from users where id_user={0}", MyUtils.ID_USER));
+        Button_CANCEL_SUB.Visible = MyUtils.SUBSCRIPTION_ACTIVE && MyUtils.GetUserFieldInt("CANCEL_FROM_NEXT_PERIOD", 0) == 0;
+        PAID.Visible = MyUtils.SUBSCRIPTION_ACTIVE && MyUtils.GetUserFieldInt("CANCEL_FROM_NEXT_PERIOD", 1) == 1;
+        if (PAID.Visible) PAID.Text = "<b>Subscription has been canceled, Membership will expire on "+ DateTime.Parse(MyUtils.GetUserField("NextPaymentDate").ToString()).ToString("MM/dd/yyyy")+ "</b><br><br>";
+           //Select profile
+           DataRow dataRow = db.GetRow(string.Format("select * from users where id_user={0}", MyUtils.ID_USER));
 
         //txtPassword.Attributes.Add("value", dataRow["password"].ToString());
 
@@ -33,16 +36,30 @@ public partial class Account_Settings : System.Web.UI.Page
 
     protected void btnUpdate_Click(object sender, EventArgs e)
     {
-
+        bool revalidate = false;
         try
         {
+            string newemail = txtEmail.Text.Trim();
+            int cnt = db.ExecuteScalarInt("select count(*) from users where email=" + MyUtils.safe(newemail) + " and id_user<>" + MyUtils.ID_USER);
+            if (cnt > 0)
+            {
+                Session["message"] = "ERROR: this email is used by other user. You need to provide a new email.";
+                return;
+            }
+
+
             DataSet ds = db.CommandBuilder_LoadDataSet(string.Format("select * from users where id_user={0}", MyUtils.ID_USER));
             DataRow userRow = ds.Tables[0].Rows[0];
 
             if (txtPassword.Text.Trim() != string.Empty)
                 userRow["password"] = txtPassword.Text.Trim();
 
-            userRow["email"] = txtEmail.Text.Trim();
+
+            revalidate = userRow["email"].ToString().ToUpper() != newemail.ToUpper();
+
+
+            userRow["email"] = newemail;
+            if (revalidate) userRow["email_verified"] = 0;
 
             //cbx
             userRow["email_new_matches"] = cbxEmailNewMatches.Checked;
@@ -64,6 +81,11 @@ public partial class Account_Settings : System.Web.UI.Page
 
         MyUtils.RefreshUserRow();
 
+        if (revalidate)
+        {
+            RWorker.AddToEmailQueue("EMAIL_ACTIVATE", MyUtils.ID_USER);
+        }
+
         Session["message"] = "Settings have been saved";
         Response.Redirect("~/Account/");
     }
@@ -75,5 +97,14 @@ public partial class Account_Settings : System.Web.UI.Page
         Session["message"] = "Your account has been canceled.";
         FormsAuthentication.SignOut();
         Response.Redirect("/");
+    }
+
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+        db.Execute("update users set CANCEL_FROM_NEXT_PERIOD=1 where id_user=" + MyUtils.ID_USER);
+        string s=db.ExecuteScalarString("select NextPaymentDate from users where id_user=" + MyUtils.ID_USER);
+        DateTime t = DateTime.Parse(s);
+        Session["message"] = "Your subscription has been canceled and your VIP membership will expire on " + t.ToString("MM/dd/yyyy");
+        MyUtils.RefreshUserRow();
     }
 }

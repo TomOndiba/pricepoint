@@ -83,7 +83,7 @@ ol {
   outline: -webkit-focus-ring-color auto 0;
 }
 a {
-  color: #e74b90;
+  color: #e6005f;
   outline: none;
   text-decoration: none;
   transition: color 0.2s;
@@ -420,6 +420,7 @@ textarea {
   height: 104px;
   display: block;
   resize: none;
+  width:100%;
 }
 @media (min-width: 750px) {
   textarea.large {
@@ -461,176 +462,177 @@ textarea:focus {
   clear: both;
 }
 /* BUTTONS */
-.button:not(.pswp__button),
-button:not(.pswp__button),
-input[type="submit"]:not(.pswp__button) {
+.button:not(.mfp-arrow),
+button:not(.mfp-arrow),
+input[type="submit"]:not(.mfp-arrow) {
   max-width: 400px;
   height: auto;
   margin: 0 auto;
   display: block;
   padding: 15px 12px;
-  font: bold 12px/14px 'Roboto', Arial, sans-serif;
+  font: bold 14px/14px 'Roboto', Arial, sans-serif;
   color: #fff;
   text-align: center;
   text-decoration: none;
-  background: #e74b90;
-  border: 1px solid #e74b90;
+  background: #e6005f;
+  border: 1px solid #e6005f;
   border-radius: 2px;
   transition: background-color 0.2s, border-color 0.2s, color 0.2s;
 }
+
 @media (min-width: 750px) {
-  .button:not(.pswp__button),
-  button:not(.pswp__button),
-  input[type="submit"]:not(.pswp__button) {
+  .button:not(.mfp-arrow),
+  button:not(.mfp-arrow),
+  input[type="submit"]:not(.mfp-arrow) {
     max-width: none;
     display: inline-block;
     font-size: 13px;
     padding: 8px 28px;
   }
-  .button:not(.pswp__button).button-large,
-  button:not(.pswp__button).button-large,
-  input[type="submit"]:not(.pswp__button).button-large {
+  .button:not(.mfp-arrow).button-large,
+  button:not(.mfp-arrow).button-large,
+  input[type="submit"]:not(.mfp-arrow).button-large {
     padding-top: 12px;
     padding-bottom: 12px;
     font-size: 15px;
     line-height: 18px;
   }
 }
-.button:not(.pswp__button):hover,
-button:not(.pswp__button):hover,
-input[type="submit"]:not(.pswp__button):hover,
-.button:not(.pswp__button):focus,
-button:not(.pswp__button):focus,
-input[type="submit"]:not(.pswp__button):focus {
-  color: #e74b90;
+.button:not(.mfp-arrow):hover,
+button:not(.mfp-arrow):hover,
+input[type="submit"]:not(.mfp-arrow):hover,
+.button:not(.mfp-arrow):focus,
+button:not(.mfp-arrow):focus,
+input[type="submit"]:not(.mfp-arrow):focus {
+  color: #e6005f;
   background-color: transparent;
   text-decoration: none;
 }
-.button:not(.pswp__button).button-black,
-button:not(.pswp__button).button-black,
-input[type="submit"]:not(.pswp__button).button-black {
+.button:not(.mfp-arrow).button-black,
+button:not(.mfp-arrow).button-black,
+input[type="submit"]:not(.mfp-arrow).button-black {
   color: #fff;
   background: #333a42;
   border-color: #333a42;
 }
-.button:not(.pswp__button).button-black:hover,
-button:not(.pswp__button).button-black:hover,
-input[type="submit"]:not(.pswp__button).button-black:hover,
-.button:not(.pswp__button).button-black:focus,
-button:not(.pswp__button).button-black:focus,
-input[type="submit"]:not(.pswp__button).button-black:focus,
-.button:not(.pswp__button).button-black:active,
-button:not(.pswp__button).button-black:active,
-input[type="submit"]:not(.pswp__button).button-black:active {
+.button:not(.mfp-arrow).button-black:hover,
+button:not(.mfp-arrow).button-black:hover,
+input[type="submit"]:not(.mfp-arrow).button-black:hover,
+.button:not(.mfp-arrow).button-black:focus,
+button:not(.mfp-arrow).button-black:focus,
+input[type="submit"]:not(.mfp-arrow).button-black:focus,
+.button:not(.mfp-arrow).button-black:active,
+button:not(.mfp-arrow).button-black:active,
+input[type="submit"]:not(.mfp-arrow).button-black:active {
   color: #333a42;
   background-color: transparent;
   text-decoration: none;
 }
-.button:not(.pswp__button).button-white,
-button:not(.pswp__button).button-white,
-input[type="submit"]:not(.pswp__button).button-white {
+.button:not(.mfp-arrow).button-white,
+button:not(.mfp-arrow).button-white,
+input[type="submit"]:not(.mfp-arrow).button-white {
   color: #4c9eda;
   background: #fff;
   border: 1px solid transparent;
   transition: border-color 0.2s, background-color 0.2s;
 }
-.button:not(.pswp__button).button-white:hover,
-button:not(.pswp__button).button-white:hover,
-input[type="submit"]:not(.pswp__button).button-white:hover,
-.button:not(.pswp__button).button-white:focus,
-button:not(.pswp__button).button-white:focus,
-input[type="submit"]:not(.pswp__button).button-white:focus,
-.button:not(.pswp__button).button-white:active,
-button:not(.pswp__button).button-white:active,
-input[type="submit"]:not(.pswp__button).button-white:active {
+.button:not(.mfp-arrow).button-white:hover,
+button:not(.mfp-arrow).button-white:hover,
+input[type="submit"]:not(.mfp-arrow).button-white:hover,
+.button:not(.mfp-arrow).button-white:focus,
+button:not(.mfp-arrow).button-white:focus,
+input[type="submit"]:not(.mfp-arrow).button-white:focus,
+.button:not(.mfp-arrow).button-white:active,
+button:not(.mfp-arrow).button-white:active,
+input[type="submit"]:not(.mfp-arrow).button-white:active {
   border-color: #4c9eda;
   background-color: transparent;
 }
-.button:not(.pswp__button).button-white-bordered,
-button:not(.pswp__button).button-white-bordered,
-input[type="submit"]:not(.pswp__button).button-white-bordered {
+.button:not(.mfp-arrow).button-white-bordered,
+button:not(.mfp-arrow).button-white-bordered,
+input[type="submit"]:not(.mfp-arrow).button-white-bordered {
   color: #4c9eda;
   background: #fff;
   border: 1px solid #4c9eda;
   transition: background-color 0.2s;
 }
-.button:not(.pswp__button).button-white-bordered:hover,
-button:not(.pswp__button).button-white-bordered:hover,
-input[type="submit"]:not(.pswp__button).button-white-bordered:hover,
-.button:not(.pswp__button).button-white-bordered:focus,
-button:not(.pswp__button).button-white-bordered:focus,
-input[type="submit"]:not(.pswp__button).button-white-bordered:focus,
-.button:not(.pswp__button).button-white-bordered:active,
-button:not(.pswp__button).button-white-bordered:active,
-input[type="submit"]:not(.pswp__button).button-white-bordered:active {
+.button:not(.mfp-arrow).button-white-bordered:hover,
+button:not(.mfp-arrow).button-white-bordered:hover,
+input[type="submit"]:not(.mfp-arrow).button-white-bordered:hover,
+.button:not(.mfp-arrow).button-white-bordered:focus,
+button:not(.mfp-arrow).button-white-bordered:focus,
+input[type="submit"]:not(.mfp-arrow).button-white-bordered:focus,
+.button:not(.mfp-arrow).button-white-bordered:active,
+button:not(.mfp-arrow).button-white-bordered:active,
+input[type="submit"]:not(.mfp-arrow).button-white-bordered:active {
   background-color: transparent;
 }
-.button:not(.pswp__button).button-gray,
-button:not(.pswp__button).button-gray,
-input[type="submit"]:not(.pswp__button).button-gray {
+.button:not(.mfp-arrow).button-gray,
+button:not(.mfp-arrow).button-gray,
+input[type="submit"]:not(.mfp-arrow).button-gray {
   color: #fff;
   border-color: #707a85;
   background: #707a85;
 }
-.button:not(.pswp__button).button-gray:not(.js-favorite,.js-wink):hover,
-button:not(.pswp__button).button-gray:not(.js-favorite):hover,
-input[type="submit"]:not(.pswp__button).button-gray:not(.js-favorite,.js-wink):hover,
-.button:not(.pswp__button).button-gray:not(.js-favorite,.js-wink):focus,
-button:not(.pswp__button).button-gray:not(.js-favorite,.js-wink):focus,
-input[type="submit"]:not(.pswp__button).button-gray:not(.js-favorite,.js-wink):focus,
-.button:not(.pswp__button).button-gray:not(.js-favorite,.js-wink):active,
-button:not(.pswp__button).button-gray:not(.js-favorite,.js-wink):active,
-input[type="submit"]:not(.pswp__button).button-gray:not(.js-favorite,.js-wink):active {
+.button:not(.mfp-arrow).button-gray:not(.js-favorite,.js-wink):hover,
+button:not(.mfp-arrow).button-gray:not(.js-favorite):hover,
+input[type="submit"]:not(.mfp-arrow).button-gray:not(.js-favorite,.js-wink):hover,
+.button:not(.mfp-arrow).button-gray:not(.js-favorite,.js-wink):focus,
+button:not(.mfp-arrow).button-gray:not(.js-favorite,.js-wink):focus,
+input[type="submit"]:not(.mfp-arrow).button-gray:not(.js-favorite,.js-wink):focus,
+.button:not(.mfp-arrow).button-gray:not(.js-favorite,.js-wink):active,
+button:not(.mfp-arrow).button-gray:not(.js-favorite,.js-wink):active,
+input[type="submit"]:not(.mfp-arrow).button-gray:not(.js-favorite,.js-wink):active {
   color: #707a85;
   text-decoration: none;
   background-color: transparent;
 }
-.button:not(.pswp__button).button-gray .icon:before,
-button:not(.pswp__button).button-gray .icon:before,
-input[type="submit"]:not(.pswp__button).button-gray .icon:before {
+.button:not(.mfp-arrow).button-gray .icon:before,
+button:not(.mfp-arrow).button-gray .icon:before,
+input[type="submit"]:not(.mfp-arrow).button-gray .icon:before {
   opacity: 1 !important;
 }
-.button:not(.pswp__button).button-gray .icon:after,
-button:not(.pswp__button).button-gray .icon:after,
-input[type="submit"]:not(.pswp__button).button-gray .icon:after {
+.button:not(.mfp-arrow).button-gray .icon:after,
+button:not(.mfp-arrow).button-gray .icon:after,
+input[type="submit"]:not(.mfp-arrow).button-gray .icon:after {
   display: none !important;
 }
-.button:not(.pswp__button).button-gray.active,
-button:not(.pswp__button).button-gray.active,
-input[type="submit"]:not(.pswp__button).button-gray.active {
+.button:not(.mfp-arrow).button-gray.active,
+button:not(.mfp-arrow).button-gray.active,
+input[type="submit"]:not(.mfp-arrow).button-gray.active {
   border-color: #e19933;
   color: #fff;
   background: #f0ad4e;
 }
-.button:not(.pswp__button).button-blue,
-button:not(.pswp__button).button-blue,
-input[type="submit"]:not(.pswp__button).button-blue {
+.button:not(.mfp-arrow).button-blue,
+button:not(.mfp-arrow).button-blue,
+input[type="submit"]:not(.mfp-arrow).button-blue {
   color: #fff;
   background: #4c9eda;
   border-color: #4c9eda;
 }
-.button:not(.pswp__button).button-blue:hover,
-button:not(.pswp__button).button-blue:hover,
-input[type="submit"]:not(.pswp__button).button-blue:hover,
-.button:not(.pswp__button).button-blue:focus,
-button:not(.pswp__button).button-blue:focus,
-input[type="submit"]:not(.pswp__button).button-blue:focus,
-.button:not(.pswp__button).button-blue:active,
-button:not(.pswp__button).button-blue:active,
-input[type="submit"]:not(.pswp__button).button-blue:active {
+.button:not(.mfp-arrow).button-blue:hover,
+button:not(.mfp-arrow).button-blue:hover,
+input[type="submit"]:not(.mfp-arrow).button-blue:hover,
+.button:not(.mfp-arrow).button-blue:focus,
+button:not(.mfp-arrow).button-blue:focus,
+input[type="submit"]:not(.mfp-arrow).button-blue:focus,
+.button:not(.mfp-arrow).button-blue:active,
+button:not(.mfp-arrow).button-blue:active,
+input[type="submit"]:not(.mfp-arrow).button-blue:active {
   color: #4c9eda;
   background-color: transparent;
   text-decoration: none;
 }
-.button:not(.pswp__button).button-icon,
-button:not(.pswp__button).button-icon,
-input[type="submit"]:not(.pswp__button).button-icon {
+.button:not(.mfp-arrow).button-icon,
+button:not(.mfp-arrow).button-icon,
+input[type="submit"]:not(.mfp-arrow).button-icon {
   padding-left: 4px;
   padding-right: 4px;
 }
-.button:not(.pswp__button).button-icon .icon,
-button:not(.pswp__button).button-icon .icon,
-input[type="submit"]:not(.pswp__button).button-icon .icon {
+.button:not(.mfp-arrow).button-icon .icon,
+button:not(.mfp-arrow).button-icon .icon,
+input[type="submit"]:not(.mfp-arrow).button-icon .icon {
   width: 14px;
   height: 14px;
   margin-top: -1px;
@@ -638,12 +640,12 @@ input[type="submit"]:not(.pswp__button).button-icon .icon {
   vertical-align: top;
   position: relative;
 }
-.button:not(.pswp__button).button-icon .icon:before,
-button:not(.pswp__button).button-icon .icon:before,
-input[type="submit"]:not(.pswp__button).button-icon .icon:before,
-.button:not(.pswp__button).button-icon .icon:after,
-button:not(.pswp__button).button-icon .icon:after,
-input[type="submit"]:not(.pswp__button).button-icon .icon:after {
+.button:not(.mfp-arrow).button-icon .icon:before,
+button:not(.mfp-arrow).button-icon .icon:before,
+input[type="submit"]:not(.mfp-arrow).button-icon .icon:before,
+.button:not(.mfp-arrow).button-icon .icon:after,
+button:not(.mfp-arrow).button-icon .icon:after,
+input[type="submit"]:not(.mfp-arrow).button-icon .icon:after {
   display: block;
   content: '\0020';
   overflow: hidden;
@@ -657,67 +659,67 @@ input[type="submit"]:not(.pswp__button).button-icon .icon:after {
   left: 0;
   transition: opacity 0.2s;
 }
-.button:not(.pswp__button).button-icon .icon:before,
-button:not(.pswp__button).button-icon .icon:before,
-input[type="submit"]:not(.pswp__button).button-icon .icon:before {
+.button:not(.mfp-arrow).button-icon .icon:before,
+button:not(.mfp-arrow).button-icon .icon:before,
+input[type="submit"]:not(.mfp-arrow).button-icon .icon:before {
   background-position: 0 0;
   opacity: 1;
 }
-.button:not(.pswp__button).button-icon .icon:after,
-button:not(.pswp__button).button-icon .icon:after,
-input[type="submit"]:not(.pswp__button).button-icon .icon:after {
+.button:not(.mfp-arrow).button-icon .icon:after,
+button:not(.mfp-arrow).button-icon .icon:after,
+input[type="submit"]:not(.mfp-arrow).button-icon .icon:after {
   background-position: 0 -20px;
   opacity: 0;
 }
-.button:not(.pswp__button).button-icon .icon.icon-fav:before,
-button:not(.pswp__button).button-icon .icon.icon-fav:before,
-input[type="submit"]:not(.pswp__button).button-icon .icon.icon-fav:before {
+.button:not(.mfp-arrow).button-icon .icon.icon-fav:before,
+button:not(.mfp-arrow).button-icon .icon.icon-fav:before,
+input[type="submit"]:not(.mfp-arrow).button-icon .icon.icon-fav:before {
   background-position: 0 0;
 }
-.button:not(.pswp__button).button-icon .icon.icon-fav:after,
-button:not(.pswp__button).button-icon .icon.icon-fav:after,
-input[type="submit"]:not(.pswp__button).button-icon .icon.icon-fav:after {
+.button:not(.mfp-arrow).button-icon .icon.icon-fav:after,
+button:not(.mfp-arrow).button-icon .icon.icon-fav:after,
+input[type="submit"]:not(.mfp-arrow).button-icon .icon.icon-fav:after {
   background-position: 0 -20px;
 }
-.button:not(.pswp__button).button-icon .icon.icon-message:before,
-button:not(.pswp__button).button-icon .icon.icon-message:before,
-input[type="submit"]:not(.pswp__button).button-icon .icon.icon-message:before {
+.button:not(.mfp-arrow).button-icon .icon.icon-message:before,
+button:not(.mfp-arrow).button-icon .icon.icon-message:before,
+input[type="submit"]:not(.mfp-arrow).button-icon .icon.icon-message:before {
   background-position: -40px 0;
 }
-.button:not(.pswp__button).button-icon .icon.icon-message:after,
-button:not(.pswp__button).button-icon .icon.icon-message:after,
-input[type="submit"]:not(.pswp__button).button-icon .icon.icon-message:after {
+.button:not(.mfp-arrow).button-icon .icon.icon-message:after,
+button:not(.mfp-arrow).button-icon .icon.icon-message:after,
+input[type="submit"]:not(.mfp-arrow).button-icon .icon.icon-message:after {
   background-position: -40px -20px;
 }
-.button:not(.pswp__button).button-icon .icon.icon-offer:before,
-button:not(.pswp__button).button-icon .icon.icon-offer:before,
-input[type="submit"]:not(.pswp__button).button-icon .icon.icon-offer:before {
+.button:not(.mfp-arrow).button-icon .icon.icon-offer:before,
+button:not(.mfp-arrow).button-icon .icon.icon-offer:before,
+input[type="submit"]:not(.mfp-arrow).button-icon .icon.icon-offer:before {
   background-position: -20px 0;
 }
-.button:not(.pswp__button).button-icon .icon.icon-offer:after,
-button:not(.pswp__button).button-icon .icon.icon-offer:after,
-input[type="submit"]:not(.pswp__button).button-icon .icon.icon-offer:after {
+.button:not(.mfp-arrow).button-icon .icon.icon-offer:after,
+button:not(.mfp-arrow).button-icon .icon.icon-offer:after,
+input[type="submit"]:not(.mfp-arrow).button-icon .icon.icon-offer:after {
   background-position: -20px -20px;
 }
-.button:not(.pswp__button).button-icon:hover .icon:before,
-button:not(.pswp__button).button-icon:hover .icon:before,
-input[type="submit"]:not(.pswp__button).button-icon:hover .icon:before,
-.button:not(.pswp__button).button-icon:focus .icon:before,
-button:not(.pswp__button).button-icon:focus .icon:before,
-input[type="submit"]:not(.pswp__button).button-icon:focus .icon:before {
+.button:not(.mfp-arrow).button-icon:hover .icon:before,
+button:not(.mfp-arrow).button-icon:hover .icon:before,
+input[type="submit"]:not(.mfp-arrow).button-icon:hover .icon:before,
+.button:not(.mfp-arrow).button-icon:focus .icon:before,
+button:not(.mfp-arrow).button-icon:focus .icon:before,
+input[type="submit"]:not(.mfp-arrow).button-icon:focus .icon:before {
   opacity: 0;
 }
-.button:not(.pswp__button).button-icon:hover .icon:after,
-button:not(.pswp__button).button-icon:hover .icon:after,
-input[type="submit"]:not(.pswp__button).button-icon:hover .icon:after,
-.button:not(.pswp__button).button-icon:focus .icon:after,
-button:not(.pswp__button).button-icon:focus .icon:after,
-input[type="submit"]:not(.pswp__button).button-icon:focus .icon:after {
+.button:not(.mfp-arrow).button-icon:hover .icon:after,
+button:not(.mfp-arrow).button-icon:hover .icon:after,
+input[type="submit"]:not(.mfp-arrow).button-icon:hover .icon:after,
+.button:not(.mfp-arrow).button-icon:focus .icon:after,
+button:not(.mfp-arrow).button-icon:focus .icon:after,
+input[type="submit"]:not(.mfp-arrow).button-icon:focus .icon:after {
   opacity: 1;
 }
-.button:not(.pswp__button).button-paypal,
-button:not(.pswp__button).button-paypal,
-input[type="submit"]:not(.pswp__button).button-paypal {
+.button:not(.mfp-arrow).button-paypal,
+button:not(.mfp-arrow).button-paypal,
+input[type="submit"]:not(.mfp-arrow).button-paypal {
   padding-top: 9px;
   padding-bottom: 9px;
   color: #000;
@@ -731,9 +733,9 @@ input[type="submit"]:not(.pswp__button).button-paypal {
   position: relative;
   z-index: 1;
 }
-.button:not(.pswp__button).button-paypal:before,
-button:not(.pswp__button).button-paypal:before,
-input[type="submit"]:not(.pswp__button).button-paypal:before {
+.button:not(.mfp-arrow).button-paypal:before,
+button:not(.mfp-arrow).button-paypal:before,
+input[type="submit"]:not(.mfp-arrow).button-paypal:before {
   display: block;
   content: '\0020';
   overflow: hidden;
@@ -747,9 +749,9 @@ input[type="submit"]:not(.pswp__button).button-paypal:before {
   top: 1px;
   z-index: -1;
 }
-.button:not(.pswp__button).button-paypal img,
-button:not(.pswp__button).button-paypal img,
-input[type="submit"]:not(.pswp__button).button-paypal img {
+.button:not(.mfp-arrow).button-paypal img,
+button:not(.mfp-arrow).button-paypal img,
+input[type="submit"]:not(.mfp-arrow).button-paypal img {
   width: 90px;
   margin: 0 0 0 2px;
   display: inline-block;
@@ -1189,7 +1191,7 @@ label.css-label {
   color: #707a85;
 }
 .btn-group .dropdown-menu li.active a {
-  color: #e74b90;
+  color: #e6005f;
 }
 .btn-group .dropdown-menu li:last-of-type {
   border-bottom: none;
@@ -1436,7 +1438,7 @@ body > form {
 .form .form-submit .button.button-sign:focus span:before,
 .form .form-submit .button.button-sign:hover span:after,
 .form .form-submit .button.button-sign:focus span:after {
-  background-color: #e74b90;
+  background-color: #e6005f;
 }
 @media (min-width: 568px) {
   .form .form-submit .button-inline {
@@ -1462,7 +1464,7 @@ body > form {
 .form .title {
   margin: 20px -10px 10px;
   padding: 0 10px 10px;
-  color: #e74b90;
+  color: #e6005f;
   letter-spacing: .054em;
   border-bottom: 1px solid #ddd;
 }
@@ -1569,8 +1571,8 @@ body > form {
   color: #fff;
   text-align: center;
   text-decoration: none;
-  background: #e74b90;
-  border: 1px solid #e74b90;
+  background: #e6005f;
+  border: 1px solid #e6005f;
   text-overflow: ellipsis;
   white-space: nowrap;
   cursor: pointer;
@@ -1590,7 +1592,7 @@ body > form {
 }
 .form.form-upload .filebox .inputlabel:hover,
 .form.form-upload .filebox .inputlabel:focus {
-  color: #e74b90;
+  color: #e6005f;
   background-color: transparent;
   text-decoration: none;
 }
@@ -1614,7 +1616,7 @@ body > form {
   padding: 4px 4px 4px 18px;
   display: block;
   position: relative;
-  color: #e74b90;
+  color: #e6005f;
 }
 @media (min-width: 750px) {
   .form.form-upload .photos .heading {
@@ -1875,7 +1877,7 @@ body > form {
 .header .username .switch:focus,
 .header .username .switch:active {
   text-decoration: none;
-  color: #e74b90;
+  color: #e6005f;
 }
 .header .username .switch:hover:before,
 .header .username .switch:focus:before,
@@ -1988,7 +1990,7 @@ body > form {
   color: #4c9eda;
 }
 .header .username .settings .image a:hover {
-  color: #e74b90;
+  color: #e6005f;
   text-decoration: none;
 }
 .header .username .settings .button {
@@ -2140,7 +2142,7 @@ body > form {
 .footer .links li a:focus,
 .footer .links li a:active {
   text-decoration: none;
-  color: #e74b90;
+  color: #e6005f;
 }
 /* ==========================================================================
    _LINKS-GROUP
@@ -2429,7 +2431,7 @@ body > form {
   margin: 0 0 4px;
   font-size: 18px;
   line-height: 18px;
-  color: #e74b90;
+  color: #e6005f;
   font-weight: normal;
 }
 .profile .inform .name .small {
@@ -2722,7 +2724,7 @@ body > form {
   background-position: -125px -40px;
 }
 .tabs li.active a {
-  color: #e74b90;
+  color: #e6005f;
   background: #fff;
   border-bottom-color: #fff;
 }
@@ -3000,11 +3002,11 @@ body > form {
   display: block;
   position: relative;
   z-index: 1;
-  -webkit-transform: scale(1.1);
-  -moz-transform: scale(1.1);
-  -ms-transform: scale(1.1);
-  -o-transform: scale(1.1);
-  transform: scale(1.1);
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
   -webkit-backface-visibility: hidden;
   transition: transform 0.2s;
 }
@@ -3026,18 +3028,18 @@ body > form {
   opacity: 1;
 }
 .catalog .photo a:hover img {
-  -webkit-transform: scale(1);
-  -moz-transform: scale(1);
-  -ms-transform: scale(1);
-  -o-transform: scale(1);
-  transform: scale(1);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  transform: scale(1.1);
   -webkit-backface-visibility: hidden;
 }
 .catalog .info .name {
   margin: 0;
   font-size: 18px;
   line-height: normal;
-  color: #e74b90;
+  color: #e6005f;
 }
 @media (min-width: 750px) {
   .catalog .info .name {
@@ -3090,7 +3092,7 @@ body > form {
   text-align: center;
   font-weight: 500;
   font-size: 13px;
-  color: #e74b90;
+  color: #e6005f;
 }
 .catalog .info .actions:after {
   display: table;
@@ -3984,7 +3986,7 @@ body > form {
 .call-to-action .button.button-large:hover:after,
 .call-to-action .button.button-large:focus:after,
 .call-to-action .button.button-large:active:after {
-  border-color: transparent transparent transparent #e74b90;
+  border-color: transparent transparent transparent #e6005f;
 }
 @media (min-width: 1000px) {
   .call-to-action .button.button-large {
@@ -4118,7 +4120,7 @@ body > form {
 .steps .area .step:before {
   width: 2px;
   height: 15px;
-  background: #e74b90;
+  background: #e6005f;
   bottom: 6px;
 }
 .steps .area .step:after {
@@ -4126,7 +4128,7 @@ body > form {
   height: 0;
   border-style: solid;
   border-width: 9px 6px 0 6px;
-  border-color: #e74b90 transparent transparent transparent;
+  border-color: #e6005f transparent transparent transparent;
   bottom: -2px;
 }
 @media (min-width: 750px) {
@@ -4149,7 +4151,7 @@ body > form {
   margin: 0;
   font-weight: 500;
   line-height: normal;
-  color: #e74b90;
+  color: #e6005f;
 }
 @media (min-width: 750px) {
   .steps .area .step .h {
@@ -4161,7 +4163,7 @@ body > form {
   height: 64px;
   margin: 0 auto;
   display: block;
-  background: #e74b90;
+  background: #e6005f;
   border-radius: 50%;
   position: relative;
 }
@@ -4412,6 +4414,7 @@ body > form {
 }
 .conversation .entry {
   margin-bottom: 10px;
+  margin-top: 10px;
 }
 .conversation .entry:after {
   display: table;
@@ -4472,7 +4475,7 @@ body > form {
   padding-top: 8px;
   margin-right: 3px;
   float: right;
-  color: #e74b90;
+  color: #e6005f;
   text-align: right;
   font-size: 11px;
   line-height: 14px;
@@ -4637,7 +4640,7 @@ body > form {
     margin-bottom: 6px;
     font-size: 24px;
     display: inline-block;
-    color: #e74b90;
+    color: #e6005f;
   }
 }
 .form-message .text .name .small {
@@ -4944,7 +4947,7 @@ body > form {
   }
 }
 .popup .username {
-  color: #e74b90;
+  color: #e6005f;
 }
 .popup.popup-message {
   max-width: 400px;
@@ -5020,7 +5023,7 @@ body > form {
   vertical-align: middle;
 }
 .form-offer .total-area .total {
-  width: 50px;
+  width: 70px;
   padding-left: 4px;
   padding-right: 4px;
   font-weight: 500;
@@ -5034,7 +5037,7 @@ body > form {
     margin-right: 5px;
   }
   .form-offer .total-area .total {
-    margin-left: 5px;
+    margin-left: 10px;
   }
 }
 @media (min-width: 750px) {
@@ -5354,7 +5357,7 @@ form.inited .form-filter {
   margin: 0;
   font-size: 24px;
   line-height: normal;
-  color: #e74b90;
+  color: #e6005f;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -5576,10 +5579,10 @@ form.inited .form-filter {
   background: #fff;
 }
 .packages .panel.active .price,.agreedprice {
-  border-bottom-color: #e74b90;
+  border-bottom-color: #e6005f;
 }
 .packages .panel.active .credits {
-  color: #e74b90;
+  color: #e6005f;
 }
 .packages .panel.active .button.selected {
   display: block;
@@ -5712,7 +5715,7 @@ form.inited .form-filter {
 .form-order .head .h {
   margin: 0 0 -20px 0;
   padding: 15px 15px 15px 45px;
-  color: #e74b90;
+  color: #e6005f;
   font-weight: 500;
   font-size: 15px;
   background: #fff;
@@ -5938,7 +5941,7 @@ color:silver;
   border: 1px solid #e5e5e5;
   border-radius: 2px;
   text-transform: uppercase;
-  color: #e74b90;
+  color: #e6005f;
 }
 .recents ul li .link:hover,
 .recents ul li .link:focus,
@@ -6302,7 +6305,8 @@ span.cell.sw-sentoffer {
     top: 14px;
     width: 120px;
     background-color: #00cb50;
-    color: white
+    color: white;
+    z-index: 10;
 }
 .rib-wrapper {
     height: 125px;
@@ -6327,22 +6331,22 @@ span.cell.sw-sentoffer {
     }
 
 
-.button:not(.pswp__button).favactive,
-button:not(.pswp__button).favactive,
-input[type="submit"]:not(.pswp__button).favactive {
+.button:not(.mfp-arrow).favactive,
+button:not(.mfp-arrow).favactive,
+input[type="submit"]:not(.mfp-arrow).favactive {
   color: #fff;
   background: #f0ad4e;
   border-color: #e19933;
 }
-.button:not(.pswp__button).button-orange:hover,
-button:not(.pswp__button).button-orange:hover,
-input[type="submit"]:not(.pswp__button).button-orange:hover,
-.button:not(.pswp__button).button-orange:focus,
-button:not(.pswp__button).button-orange:focus,
-input[type="submit"]:not(.pswp__button).button-orange:focus,
-.button:not(.pswp__button).button-orange:active,
-button:not(.pswp__button).button-orange:active,
-input[type="submit"]:not(.pswp__button).button-orange:active {
+.button:not(.mfp-arrow).button-orange:hover,
+button:not(.mfp-arrow).button-orange:hover,
+input[type="submit"]:not(.mfp-arrow).button-orange:hover,
+.button:not(.mfp-arrow).button-orange:focus,
+button:not(.mfp-arrow).button-orange:focus,
+input[type="submit"]:not(.mfp-arrow).button-orange:focus,
+.button:not(.mfp-arrow).button-orange:active,
+button:not(.mfp-arrow).button-orange:active,
+input[type="submit"]:not(.mfp-arrow).button-orange:active {
   color: #f0ad4e;
   background-color: transparent;
   text-decoration: none;
@@ -6375,7 +6379,8 @@ cursor:default;text-decoration:none !important;
    _FORM-REJECT
    ========================================================================== */
 .popup-reject {
-  width: 400px;
+  width: auto;
+  max-width: 400px;
 }
 .form-reject {
   padding: 30px 0;
@@ -6384,4 +6389,17 @@ cursor:default;text-decoration:none !important;
   width: 170px;
   margin:0 auto;
   display: block;
+}
+
+@media (max-width:750px)
+{
+label {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.form-line input {
+    font-size: 20px;
+    color:black;
+}
 }

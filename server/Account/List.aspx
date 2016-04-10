@@ -4,15 +4,17 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 <ul class="links-group" runat="server" id="Ul1">
-				<li><a <%=MyUtils.MenuLink("/Account/List?t=favorites")%> ><span class="icon icon-new"></span> My Favorites</a></li>
-				<li><a <%=MyUtils.MenuLink("/Account/List?t=viewed")%> ><span class="icon icon-tick"></span> Who Viewed Me </a></li>
-				<li runat="server" id="Li1" ><a <%=MyUtils.MenuLink("/Account/List?t=favorited")%> ><span class="icon icon-wink"></span> Who Favotited Me  </a></li>
-				<li runat="server" id="Li2" ><a <%=MyUtils.MenuLink("/Account/List?t=blocked")%> ><span class="icon icon-sandglass"></span> Blocked List </a></li>
+				<li><a <%=MyUtils.MenuLink("/Account/List?t=favorites")%> ><span class="icon icon-new"></span> Favorites</a></li>
+				<li><a <%=MyUtils.MenuLink("/Account/List?t=viewed")%> ><span class="icon icon-tick"></span> Viewed Me </a></li>
+				<li runat="server" id="Li1" ><a <%=MyUtils.MenuLink("/Account/List?t=favorited")%> ><span class="icon icon-wink"></span> Favorited Me  </a></li>
+				<li runat="server" id="Li2" ><a <%=MyUtils.MenuLink("/Account/List?t=blocked")%> ><span class="icon icon-sandglass"></span> I Blocked</a></li>
 </ul>
     <br />
 
 <section class="offers">
+
 <div class="pure-g">
+
                         
     <asp:Repeater ID="Repeater1" runat="server" >
         <ItemTemplate>

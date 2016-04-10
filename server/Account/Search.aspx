@@ -7,44 +7,6 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 <input type="hidden" id="searchjson" name="searchjson" />
 <script src="/js/SearchScroll.js"></script>
-<style type="text/css">
-    
-    .SW a {display:none}
-    
-    a.button.SW_OFFERSENT,a.button.SW_OFFERSENT:hover,a.button.SW_OFFERSENT:active,
-    a.button.SW_OFFERREJECTED,a.button.SW_OFFERREJECTED:hover,a.button.SW_OFFERREJECTED:active
-     {
-        cursor: default;
-        background-color:silver;
-        color:white;
-        border: 1px solid silver;
-    }
-    
-a.SW_OFFERSENT,a.SW_OFFERREJECTED{cursor:pointer}
-
-.SW a {
-    display:none !important;
-}
-.SW_OFFERREJECTED a.SW_OFFERREJECTED {
-  display:block !important;
-}
-.SW_SENDOFFER a.SW_SENDOFFER {
-  display:block !important;
-}
-.SW_OFFERSENT a.SW_OFFERSENT {
-  display:block !important;
-}
-.SW_ACCEPT a.SW_ACCEPT {
-  display:block !important;
-}
-.SW_WINK a.SW_WINK {
-  display:block !important;
-}
-.SW_MESSAGE a.SW_MESSAGE {
-  display:block !important;
-}
-
-</style>
 
 			<!-- Sort -->
 			<div class="sort">
@@ -84,8 +46,8 @@ a.SW_OFFERSENT,a.SW_OFFERREJECTED{cursor:pointer}
 							<div class="btn-group select-age" data-min="16" data-max="70">
 								<a class="toggle" href="#">Age <span class="agemin">18</span> to <span class="agemax">35</span> <span class="arrow"></span></a>
 								<ul>
-									<li><input class="from" id="agemin" name="agemin" type="text" maxlength="2" value='<%=f.agemin %>' required> <label for="agemin">From Age</label></li>
-									<li><input class="to" id="agemax" name="agemax" type="text" maxlength="2" value='<%=f.agemax %>' required> <label for="agemax">To Age</label></li>
+									<li><input class="from" onkeypress="return isNumberKey(event)" id="agemin" name="agemin" type="text" maxlength="2" value='<%=f.agemin %>' required> <label for="agemin">From Age</label></li>
+									<li><input class="to" onkeypress="return isNumberKey(event)" id="agemax" name="agemax" type="text" maxlength="2" value='<%=f.agemax %>' required> <label for="agemax">To Age</label></li>
 								</ul>
 							</div>
 						</div>
@@ -142,18 +104,19 @@ a.SW_OFFERSENT,a.SW_OFFERREJECTED{cursor:pointer}
 							</a>
 						</figure>
 						<div class="info">
-							<p class="name"><%# Eval("usr") %></p>
+							<a class="alink name" onclick="return viewprofile(this)" href="#"><%# Eval("usr") %></a>
                             <p class="location"><span class="age"><%# Eval("age") %></span> / <span class="loc"><%# Eval("plc") %></span><span class="range"><span class='dist'><%# Convert.ToInt32(Eval("dis"))%></span> miles</span></p>
 							<p class="status"><%# Eval("tit") %></p>
 							<div class="actions">
 							<span class="cell SW <%# Eval("button_switch")%>">
     
-    <a class='button button-icon js-popup SW_SENDOFFER' href="popup-offer.html"><span class='icon icon-offer'></span> Send Offer</a>
+    <a class='button button-icon js-popup SW_SENDOFFER' href="popup-offer.aspx"><span class='icon icon-offer'></span> Send Offer</a>
     <a class='button SW_OFFERSENT' href='#' onclick="return false;"> Offer Sent</a>
     <a class='button SW_OFFERREJECTED' href='#' onclick="return false;"> Rejected</a>
     <a class='button SW_ACCEPT' href='#' onclick="AcceptOffer(this)"><span class='icon icon-offer'></span> Accept Offer</a>
-    <a class='button button-gray button-icon js-wink SW_WINK' href='#wink'> <span class='icon icon-wink'></span> <span class='sendwink'>Send Wink</span><span class='sentwink'>Wink Sent</span></a>
+    <a class='button button-gray button-icon js-wink <%# Eval("wink").ToString()=="1" ? "active":""%> SW_WINK' href='#wink'> <span class='icon icon-wink'></span> <span class='sendwink'>Send Wink</span><span class='sentwink'>Wink Sent</span></a>
     <a class='button button-blue button-icon SW_MESSAGE' onclick="SendMessage(this)"><span class='icon icon-message'></span> Send Message</a>
+    <a class='button button-green button-icon SW_MESSAGE_UNLOCK unlockbutton'><span class='icon icon-message'></span> Unlock </a>
 
 								</span>
 								<span class="cell"><a class="button button-gray button-icon js-favorite <%# Eval("favorite").ToString()=="1" ? "active" : "" %>" href="#favorite"><span class="icon icon-fav"></span> Favorite</a></span>

@@ -10,22 +10,22 @@
 
 
 <ul class="links-group" runat="server" id="offermenu">
-				<li><a <%=MyUtils.MenuLink("/Account/Offers?type=New")%> ><span class="icon icon-new"></span> New <span class="mobile-hidden">Offers <%=NewOffers%></span> </a></li>
-				<li><a <%=MyUtils.MenuLink("/Account/Offers?type=Accepted")%> ><span class="icon icon-tick"></span> Accepted <span class="mobile-hidden">Offers <%=Accepted%></span> </a></li>
-				<li runat="server" id="winksmenu" ><a <%=MyUtils.MenuLink("/Account/Offers?type=Wink")%> ><span class="icon icon-wink"></span> Winks <span class="mobile-hidden"><%=Winks%></span> </a></li>
-				<li runat="server" id="pendingmenu" ><a <%=MyUtils.MenuLink("/Account/Offers?type=Pending")%> ><span class="icon icon-sandglass"></span> Pending <span class="mobile-hidden">Offers <%=Pending%></span> </a></li>
-				<li><a <%=MyUtils.MenuLink("/Account/Offers?type=Rejected")%> ><span class="icon icon-sandglass"></span> Rejected <span class="mobile-hidden">Offers <%=Rejected%></span> </a></li>
+				<li><a <%=MyUtils.MenuLink("/Account/Offers?type=New")%> ><span class="icon icon-new"></span> New <span class="mobile-hidden">Offers <span id="menu_NewOffers"><%=(u.NewOffers==0?"":u.NewOffers.ToString())%></span></span> </a></li>
+				<li><a <%=MyUtils.MenuLink("/Account/Offers?type=Accepted")%> ><span class="icon icon-tick"></span> Accepted <span class="mobile-hidden">Offers <span id="menu_Accepted"><%=(u.Accepted==0?"":u.Accepted.ToString())%></span></span> </a></li>
+				<li runat="server" id="winksmenu" ><a <%=MyUtils.MenuLink("/Account/Offers?type=Wink")%> ><span class="icon icon-wink"></span> Winks <span class="mobile-hidden"><span id="menu_Winks"><%=(u.Winks==0?"":u.Winks.ToString())%></span></span> </a></li>
+				<li runat="server" id="pendingmenu" ><a <%=MyUtils.MenuLink("/Account/Offers?type=Pending")%> ><span class="icon icon-sandglass"></span> Pending <span class="mobile-hidden">Offers <span id="menu_Pending"><%=(u.Pending==0?"":u.Pending.ToString())%></span></span> </a></li>
+				<li><a <%=MyUtils.MenuLink("/Account/Offers?type=Rejected")%> ><span class="icon icon-sandglass"></span> Rejected <span class="mobile-hidden">Offers <span id="menu_Rejected"><%=(u.Rejected==0?"":u.Rejected.ToString())%></span></span> </a></li>
 </ul>
 
 <!-- Offers -->
 <section class="offers">
 <div class="pure-g">
-                        <asp:Repeater ID="Repeater1" runat="server">
+                        <asp:Repeater ID="Repeater1" runat="server" OnItemDataBound="Repeater1_ItemDataBound">
         <ItemTemplate>
 
 
 					<div class="pure-u-1 pure-u-sm-12-24 pure-u-lg-8-24">
-						<div class="panel panel-<%# Eval("type").ToString().ToLower() %>" data-id_offer="<%# Eval("id_offer") %>" data-id="<%# Eval("id_user") %>" data-user="<%# Eval("username") %>">
+						<div class="item panel panel-<%# Eval("type").ToString().ToLower() %>" data-id_offer="<%# Eval("id_offer") %>" data-id="<%# Eval("id_user") %>" data-user="<%# Eval("username") %>">
 							<p class="head"><%# Eval("type") %>
 								<time class="date" datetime="<%#Convert.ToDateTime(Eval("time")).ToString("yyyy/MM/dd")%>"><%#Convert.ToDateTime(Eval("time")).ToString("MM/dd/yy")%></time>
 							</p>
@@ -41,14 +41,13 @@
 
 
 								<div runat="server" class="buttons" visible='<%# Eval("type").ToString().ToLower()=="wink" %>' >
-									<span class="cell"><a class="button js-popup" href="popup-offer.html">Make Offer</a></span>
-									<span class="cell"><a class="button button-black js-popup" href="popup-reject.html">Reject</a></span>
+									<!--span class="cell"><a class="button js-popup" href="popup-offer.aspx">Make Offer</a></span-->
 								</div>
 
 
 
 								<div runat="server" class="buttons" visible='<%# Eval("type").ToString().ToLower()=="rejected" %>' >
-									<div class="cell"><a class="button js-popup" href="popup-offer.html" data-counter="1" >Make New Offer</a></div>
+									<div class="cell"><a class="button js-popup" href="popup-offer.aspx" data-counter="1" >Make New Offer</a></div>
 									<div class="cell"><p class="text"><span class="h">Reason</span> <%#GetReason(Eval("rejected_reason"))%></p></div>
 								</div>
 
@@ -56,8 +55,8 @@
 
                                 <div runat="server" class="buttons show-new" visible='<%# Eval("type").ToString().ToLower()=="new" || Eval("type").ToString().ToLower()=="countered" %>'>
 									<div class="cell"><a class="button js-accept-offer" href="#">Accept</a></div>
-									<div class="cell"><a class="button button-blue js-popup" href="popup-offer.html" data-counter="1">Counter</a></div>
-									<span class="cell"><a class="button button-black js-popup" href="popup-reject.html">Reject</a></span>
+									<div class="cell"><a class="button button-blue js-popup" href="popup-offer.aspx" data-counter="1">Counter</a></div>
+									<span class="cell"><a class="button button-black js-popup" href="popup-reject.aspx">Reject</a></span>
 								</div>
 
 
@@ -68,8 +67,8 @@
 
                                <div runat="server" class="buttons show-accepted" visible='<%# Eval("type").ToString().ToLower()=="accepted" %>'>
 <div class="cell">
-<asp:Button ID="but"  class="button" Text='<%#"Unlock for "+ Eval("credits") +" credits"%>' CommandArgument='<%#Eval("id_offer") %>' runat="server" Visible='<%# Eval("locked").ToString()=="Locked" && MyUtils.IsMale %>' OnClick="but_Click"></asp:Button>
-<asp:Button ID="Button1"  class="button" Text='Send Message' runat="server" CommandArgument='<%#Eval("id_offer") %>' Visible='<%# Eval("locked").ToString()=="Unlocked" || MyUtils.IsFemale %>' OnClick="but_Click"></asp:Button>
+<asp:Button ID="but"  class="button button-green unlockbutton" Text='<%#"Unlock for "+ Eval("credits") +" credits"%>' CommandArgument='<%#Eval("id_offer") %>' runat="server" Visible='<%# Eval("locked").ToString()=="Locked" && MyUtils.IsMale %>' OnClick="but_Click"></asp:Button>
+<asp:Button ID="Button1" CssClass="button button-blue" Text='Send Message' runat="server" CommandArgument='<%#Eval("id_offer") %>' Visible='<%# Eval("locked").ToString()=="Unlocked" || MyUtils.IsFemale %>' OnClick="but_Click"></asp:Button>
 </div>
 								</div>
 

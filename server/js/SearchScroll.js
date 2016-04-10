@@ -81,10 +81,6 @@ function viewprofile(e)
     return false;
 }
 
-function SendMessage(e) {
-    id = $(e).parents('.item').attr("data-id");
-    window.location.href = '/Account/Messages?SendMessageTo=' + id;
-}
 function AcceptOffer(e) {
     id = $(e).parents('.item').attr("data-id");
     alert(e);
@@ -137,6 +133,8 @@ function OnSuccess(response) {
             }
         });
 
+//        HookupUnlockConfirmation(table);
+
         $("#usersdiv").append(table);
 
 
@@ -149,3 +147,4 @@ function OnSuccess(response) {
 
     locked = false;
 }
+

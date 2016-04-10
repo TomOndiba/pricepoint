@@ -31,7 +31,7 @@
                             CssClass="requiredValidator" ErrorMessage="Profile headline is required." ToolTip="Profile headline is required."  Display="Dynamic"
                             ValidationGroup="RegisterUserValidationGroup">Profile headline is required</asp:RequiredFieldValidator>
                     </label>
-                    <asp:TextBox runat="server" class="large" id="profileHeadline" placeholder="We’ll Just Lie and Say We Met at the Library…"></asp:TextBox>
+                    <asp:TextBox runat="server" class="large" id="profileHeadline" placeholder=""></asp:TextBox>
                 </div>
                 <div class="form-line">
                     <label class="form-label" for="describe">Describe yourself
@@ -210,7 +210,7 @@
                 </section>
 
                 <section>
-                    <h2 class="title">What Are You Loking For?</h2>
+                    <h2 class="title">What Are You Looking For?</h2>
                     <div class="form-line form-line-checkbox">
                         <asp:CheckBox runat="server" ID="cbxShortDating" class="css-checkbox" Text="Short Term Dating" ></asp:CheckBox>
                     </div>
@@ -218,7 +218,7 @@
                         <asp:CheckBox runat="server" ID ="cbxFriendship" class="css-checkbox" Text="Friendship - Activity Partner" ></asp:CheckBox>
                     </div>
                     <div class="form-line form-line-checkbox">
-                        <asp:CheckBox runat="server" ID ="cbxLongTerm" class="css-checkbox" Text ="Long Term Relationship - Posibly Marridge"></asp:CheckBox>
+                        <asp:CheckBox runat="server" ID ="cbxLongTerm" class="css-checkbox" Text ="Long Term - Possibly Marriage"></asp:CheckBox>
                     </div>
                     <div class="form-line form-line-checkbox">
                         <asp:CheckBox runat="server" ID ="cbxMutually" class="css-checkbox" Text ="Mutually Beneficial Arangement" ></asp:CheckBox>

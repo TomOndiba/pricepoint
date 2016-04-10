@@ -81,6 +81,11 @@ function initUI() {
 		}
 	});
 
+	$('.js-popup-inline').magnificPopup({
+	    type: 'inline'
+	});
+	
+
     /** Init wink */
 	$('.js-wink').on('click', function (event) {
 	    var self = $(this);
@@ -154,10 +159,11 @@ function initUI() {
 function initFormElements(scope, data) {
 	/** Custom selectbox */
 	$('select.select', scope).selectric({
-		maxHeight: 200,
+		maxHeight: 400,
 		disableOnMobile: false,
 		responsive: true
 	});
+
 
 	/** Multiselect selectbox */
 	$('select.multiselect', scope).each(function () {
@@ -233,6 +239,8 @@ function initFormElements(scope, data) {
 }
 
 
+
+
 /**
  * Init all forms
  **/
@@ -240,6 +248,8 @@ function initForms(scope, data) {
 	if (typeof scope === 'undefined') {
 		scope = document;
 	}
+
+	HookupUnlockConfirmation(scope);
 
 	initFormElements(scope, data);
 
@@ -279,6 +289,12 @@ function initForms(scope, data) {
 	$('[data-form="subscribe"]:not(.inited)', scope).each(function () {
 		initSubscribeForm.call(this, data);
 	});
+
+//	$('[data-form="subscribe"]:not(.inited)', scope).each(function () {
+	//    initSubscribeForm.call(this, data);
+	//});
+
+
 }
 
 
@@ -350,7 +366,7 @@ function initMessageForm() {
 
 		var result = {}, gifts = +$('.checkbox-gift :checkbox', this).filter(':checked').length;
 		if (gifts > 0) {
-			var r = confirm("A total of " + gifts * 5 + " credits will be deducted for the gifts.\nWould you like to send the message?");
+		    var r = CheckGiftCredits(gifts);
 			if (r === true) {
 				Submit.call(this);
 			}
@@ -446,6 +462,12 @@ function initRejectForm(data) {
  **/
 function initMembershipForm() {
 	var form = $(this);
+
+	$('.selectric').selectric({
+	    maxHeight: 400,
+	    disableOnMobile: false,
+	    responsive: true
+	});
 
 	$('.packages', form).each(function () {
 	    //var self = $(this), package = $('[name="package"]', form), total = $('.total .t', form);
@@ -543,7 +565,8 @@ function MakeOffer(offer, panel) {
 		$(panel).removeClass(function (index, css) {
 			return (css.match(/(^|\s)panel-\S+/g) || []).join(' ');
 		}).addClass('panel-pending').find('.type').html('$' + offer.amount);
-	}
+		RefreshMenuCounts();
+    }
 
 	function onDone(data, textStatus, jqXHR) {
 		if (data.d.indexOf('OK') >= 0) {
@@ -569,17 +592,45 @@ function AcceptOffer(id_offer, panel) {
 		$(panel).removeClass(function (index, css) {
 			return (css.match(/(^|\s)panel-\S+/g) || []).join(' ');
 		}).addClass('panel-accepted');
-	}
+    }
 
 	function onDone(data, textStatus, jqXHR) {
 	    if (data.d.indexOf('OK') >= 0) {
 		    onOK(data, textStatus, jqXHR);
-		} else {
+		    RefreshMenuCounts();
+        } else {
 			showError(data.d.replace('ERROR: ', ''));
 		}
 	}
 
 	sendRequest('AcceptOffer', {'id_offer': id_offer}).done(onDone).error(onError);
+}
+
+/**
+ * Send report
+ **/
+function SendReport() {
+    function onOK(data, textStatus, jqXHR) {
+        showAlert(data.d.replace('OK: ', ''));
+    };
+
+    function onDone(data, textStatus, jqXHR) {
+        if (data.d.indexOf('OK') >= 0) {
+            onOK(data, textStatus, jqXHR);
+        } else {
+            showError(data.d.replace('ERROR: ', ''));
+        }
+    }
+
+    var message = $('#tbReportText').val();
+    if (message == '') {
+        alert('Please fill in details about your report.');
+        return;
+    }
+    var id_user = $('#tbReportText')[0].getAttribute('data-id_user');
+
+    sendRequest('Report', { 'id_user': id_user, 'message': message }).done(onDone).error(onError);
+    $.magnificPopup.close();
 }
 
 
@@ -603,14 +654,15 @@ function RejectOfferV2(id_offer, reason, panel) {
 			showError(data.d.replace('ERROR: ', ''));
 		}
 		$.magnificPopup.close();
-	}
+		RefreshMenuCounts();
+    }
 
 	sendRequest('RejectOfferV2', {'id_offer': id_offer, 'reason': reason}).done(onDone).error(onError);
 }
 
 
 /**
- * Accept offer action
+ * Withdraw offer action
  **/
 function WithdrawOffer(id_offer, panel) {
 	function onOK(data, textStatus, jqXHR) {
@@ -624,10 +676,11 @@ function WithdrawOffer(id_offer, panel) {
 		if (jqXHR.statusText === 'OK') {
 			if (data.d.indexOf('OK') >= 0) {
 				onOK(data, textStatus, jqXHR);
-			} else {
+				RefreshMenuCounts();
+            } else {
 				showError(data.d.replace('ERROR: ', ''));
 			}
-		}
+        }
 	}
 
 	sendRequest('WithdrawOffer', {'id_offer': id_offer}).done(onDone).error(onError);
@@ -992,6 +1045,7 @@ function setCredits(Credits)
 }
 
 function CheckGiftCredits(gifts) {
+    if (typeof gifts == 'string') gifts = gifts.split(',');
     if (gifts.length > 0) {
         var cost = gifts.length * 5;
 
@@ -1006,3 +1060,72 @@ function CheckGiftCredits(gifts) {
     }
     return true;
 }
+
+function isNumberKey(evt) {
+    var charCode = (evt.which) ? evt.which : event.keyCode;
+    if (charCode != 46 && charCode > 31 && (charCode < 48 || charCode > 57)) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
+function SendMessage(e) {
+    var id = $(e).closest('.item').attr("data-id");
+    window.location.href = '/Account/Messages?Confirmed=1&SendMessageTo=' + id;
+    return false;
+}
+
+function ConfirmUnlock(id)
+{
+    $.magnificPopup.open({
+        items: {
+            src: '/Account/Popup-ConfirmUnlock.aspx?id=' + id,
+            type: 'ajax'
+
+        },
+        //add options here, 
+        closeOnBgClick: false,
+        closeOnContentClick: false
+
+    }, 0);
+}
+function HookupUnlockConfirmation(scope) {
+    $('.unlockbutton', scope).click(function (el) {
+        var id = $(el.toElement).closest('.item').attr("data-id");
+
+        ConfirmUnlock(id);
+        return false;
+    });
+}
+
+function SetMenuCount(name,cnt,red)
+{
+    var s = '';
+    if (cnt == 0) {
+        $(name).removeClass('newredcount');
+        $(name).html('');
+        return;
+    }
+
+    if (red) $(name).addClass('newredcount');
+    $(name).html(cnt);
+}
+function RefreshMenuCounts()
+{
+    function onDone(data, textStatus, jqXHR) {
+        SetMenuCount('#menu_Offers',data.d.Offers,true);
+        SetMenuCount('#menu_Dates', data.d.Dates, true);
+        SetMenuCount('#menu_Messages', data.d.Messages, true);
+
+        SetMenuCount('#menu_Winks', data.d.Winks);
+        SetMenuCount('#menu_NewOffers', data.d.NewOffers);
+        SetMenuCount('#menu_Accepted', data.d.Accepted);
+        SetMenuCount('#menu_Pending', data.d.Pending);
+        SetMenuCount('#menu_Rejected', data.d.Rejected);
+    }
+
+    sendRequest('GetMenuCounts', {}).done(onDone).error(onError);
+
+}
+

@@ -31,9 +31,16 @@ public partial class Account_Messages : System.Web.UI.Page
         if (!string.IsNullOrEmpty(SendMessageTo))
         {
             int id = Convert.ToInt32(SendMessageTo);
-            int id_offer = db.ExecuteScalarInt("select id_offer from offers where (id_user_from=" + id + " and id_user_to=" + MyUtils.ID_USER + ") or (id_user_from=" + MyUtils.ID_USER + " and id_user_to=" + id + ")");
-            Utils.GoToSendMessage(id_offer);
-            return;
+            int id_offer = GetIdOffer(id);
+
+            if (Request.QueryString["confirmed"] == "1" || MyUtils.IsFemale)
+            {
+                Utils.GoToSendMessage(id_offer);
+                return;
+            }
+            else ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "showconfirm", "<script type='text/javascript'>ConfirmUnlock(" + id + ");</script>", false);
+
+
         }
 
         DataSet d=db.GetDataSet("exec GET_MESSAGE_LIST "+MyUtils.ID_USER);
@@ -45,6 +52,11 @@ public partial class Account_Messages : System.Web.UI.Page
         }
         Repeater1.DataSource = d;
         Repeater1.DataBind();
+    }
+
+    private int GetIdOffer(int id)
+    {
+        return db.ExecuteScalarInt("select id_offer from offers where (id_user_from=" + id + " and id_user_to=" + MyUtils.ID_USER + ") or (id_user_from=" + MyUtils.ID_USER + " and id_user_to=" + id + ")");
     }
 
     protected void but_Click(object sender, EventArgs e)

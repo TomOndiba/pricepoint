@@ -30,18 +30,32 @@ public partial class _Default : System.Web.UI.Page
         return profile;
     }
 
+    List<DataRow> featured;
+
+    DataRow GetOneFeatured()
+    {
+        if (featured.Count == 0) return null;
+        DataRow x= featured[0];
+        featured.RemoveAt(0);
+        return x;
+    }
+
     protected void Page_Load(object sender, EventArgs e)
     {
+        rnd = new Random(DateTime.Now.DayOfYear * 24 + DateTime.Now.Hour); //changes every hour
+
+        featured = GetFeaturesMembers();
 
         Page.Form.Attributes["data-form"] = "subscribe";
         string sex = MyUtils.IsMale ? "F" : "M";
         string sql = "";
 
+
         photospromo.Visible = MyUtils.GetUserField("id_photo") is DBNull;
 
         sql = "exec GET_RECENT_ACTIVITY "+MyUtils.ID_USER;
         db.IgnoreDuplicateKeys = true; //getting multiple id_user in GET_RECENT_ACTIVITY
-        DataSet d1 = GetUsers(sql,MyUtils.ImageSize.TINY);
+        DataSet d1 = GetUsers(sql,MyUtils.ImageSize.TINY,false);
 
 
         db.IgnoreDuplicateKeys = false;
@@ -68,10 +82,13 @@ public partial class _Default : System.Web.UI.Page
     }
 
 
-    private DataSet GetUsers(string sql,MyUtils.ImageSize sz=MyUtils.ImageSize.SMALL)
+    private DataSet GetUsers(string sql,MyUtils.ImageSize sz=MyUtils.ImageSize.SMALL,bool deleterows=true)
     {
 
         DataSet d = db.GetDataSet(sql);
+
+        MixInFeatured(d, deleterows);
+
 
         d.Tables[0].Columns.Add("mainphoto_");
         d.Tables[0].Columns.Add("online");
@@ -93,11 +110,54 @@ public partial class _Default : System.Web.UI.Page
         return d;
 
     }
+    Random rnd;
+    private void MixInFeatured(DataSet d, bool deleterows)
+    {
+        HashSet<int> uniq = new HashSet<int>();
+
+        foreach (DataRow r in d.Tables[0].Rows) uniq.Add(Convert.ToInt32(r["id_user"]));
+
+        DataRowCollection rows = d.Tables[0].Rows;
+        int originalcount = rows.Count;
+        for (int i = 0; i < 3; i++)
+        {
+            DataRow r = GetOneFeatured();
+            if (r == null) break;
+            if (uniq.Contains(Convert.ToInt32(r["id_user"])))
+            {
+                featured.Add(r); //put it back!
+                continue;
+            }
+            DataRow n= d.Tables[0].NewRow();
+            foreach (DataColumn c in n.Table.Columns)
+                if (r.Table.Columns.IndexOf(c.ColumnName) >= 0) n[c] = r[c.ColumnName];
+                else if (c.ColumnName == "ActionType") n[c] = "Featured Member";
+            
+            rows.InsertAt(n, rnd.Next(rows.Count)); //insert at random location
+        }
+
+        int todelete = rows.Count - originalcount;
+        if (deleterows && todelete > 0)
+            for (int i = rows.Count - 1; i >= 0; i--)
+            {
+                if (rows[i]["vip"].ToString() != "Y") { rows.RemoveAt(i); i++; todelete--; }
+                if (todelete == 0) break;
+            }
+    }
 
     public string GetActivity(object id_user, object time)
     {
+        if (time == null || time == DBNull.Value) return "";
         string s=MyUtils.TimeAgo(Convert.ToDateTime(time));
         return s;
+    }
+
+    List<DataRow> GetFeaturesMembers()
+    {
+        List<DataRow> r = new List<DataRow>();
+        DataSet d = db.GetDataSetCache("exec SEARCH_USERS 1,10,0,15187,' (MEMBERSHIP=''VIP'' or (MEMBERSHIP is null and isnull(CREDITS,0)>0)) and isnull(Cast([dbo].[fnCalcDistanceMiles](@lat,@long,latitude,longitude) as Decimal(6,0)),0)<=100 and sex=''" + (MyUtils.IsFemale ? "M" : "F") + "''',2,'GUID, UsersTable.id_user, username as usr,place as plc,title as tit,distance as dis,age,lastlogin_time','NEWID()'", 60);
+        foreach (DataRow aa in d.Tables[0].Rows) r.Add(aa);
+        return r;
     }
 
     public string UpdateOffer(object dataItem)

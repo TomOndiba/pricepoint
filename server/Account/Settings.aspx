@@ -24,8 +24,6 @@
 								<label for="txtPassword2">Confirm Password
 <%--                                <asp:RequiredFieldValidator ID="rfvPassword2" runat="server" ControlToValidate="txtPassword2" 
                                             CssClass="requiredValidator" ErrorMessage="Password is required." ToolTip="Password is required.">*</asp:RequiredFieldValidator>--%>
-                                <asp:RegularExpressionValidator Display = "None" ControlToValidate = "txtPassword" ID="RegularExpressionValidator1" 
-                                    ValidationExpression = "^[\s\S]{6,}$" runat="server" ErrorMessage="Minimum 6 characters required for password."></asp:RegularExpressionValidator>
                                 <asp:CompareValidator ID="cvPassword2" runat="server" ControlToValidate="txtPassword2" ControlToCompare="txtPassword" ErrorMessage="Password must be the same" 
                                     ToolTip="Password must be the same" CssClass="requiredValidator">No match</asp:CompareValidator>
 								</label>
@@ -80,6 +78,8 @@
 
                         <h2 class="title" style="color:silver">Cancel Account</h2>
                         <div class="form-line form-line-checkbox">
+                        <asp:Button runat="server" ID="Button_CANCEL_SUB" CssClass="button button-gray" style="margin-bottom:15px"  width="195px" Text="Cancel Paid Subscription" OnClientClick="return confirm('Are you sure you want to cancel your subscription?')===true" OnClick="Button2_Click" />
+                            <asp:Label ID="PAID" runat="server" Visible="false"></asp:Label>
                         <asp:Button runat="server" ID="Button1" CssClass="button button-gray" width="195px" Text="Cancel My Account" OnClientClick="return confirm('Are you sure you want to cancel your account?')===true" OnClick="Button1_Click" />
                         </div>
 

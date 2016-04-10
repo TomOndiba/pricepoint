@@ -397,3 +397,117 @@
 </CustomerInfo>
 
 
+<?xml version="1.0" encoding="utf-16"?>
+<CustomerInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <id_user>10002</id_user>
+  <firstname>robert</firstname>
+  <lastname>vozdecky</lastname>
+  <bill_address>1114 broadway</bill_address>
+  <city>New York</city>
+  <state_code>NY</state_code>
+  <zip>10010</zip>
+  <country_code>US</country_code>
+  <CC_number>4111111111111111</CC_number>
+  <CC_exp_month>11</CC_exp_month>
+  <CC_exp_year>23</CC_exp_year>
+  <CC_csv>111</CC_csv>
+  <customer_profile_id>0</customer_profile_id>
+  <payment_profile_id>0</payment_profile_id>
+</CustomerInfo>
+
+
+<?xml version="1.0" encoding="utf-16"?>
+<CustomerInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <id_user>16445</id_user>
+  <firstname>robert</firstname>
+  <lastname>vozdecky</lastname>
+  <bill_address>1115 broadway ste 1234</bill_address>
+  <city>New York</city>
+  <state_code>NY</state_code>
+  <zip>10010</zip>
+  <country_code>US</country_code>
+  <CC_number>4111111111111111</CC_number>
+  <CC_exp_month>11</CC_exp_month>
+  <CC_exp_year>22</CC_exp_year>
+  <CC_csv>1111</CC_csv>
+  <customer_profile_id>225072935</customer_profile_id>
+  <payment_profile_id>0</payment_profile_id>
+</CustomerInfo>
+
+
+<?xml version="1.0" encoding="utf-16"?>
+<CustomerInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <id_user>16445</id_user>
+  <firstname>robert</firstname>
+  <lastname>vozdecky</lastname>
+  <bill_address>1115 broadway ste 1234</bill_address>
+  <city>New York</city>
+  <state_code>NY</state_code>
+  <zip>10010</zip>
+  <country_code>US</country_code>
+  <CC_number>4111111111111111</CC_number>
+  <CC_exp_month>11</CC_exp_month>
+  <CC_exp_year>22</CC_exp_year>
+  <CC_csv>111</CC_csv>
+  <customer_profile_id>225072935</customer_profile_id>
+  <payment_profile_id>0</payment_profile_id>
+</CustomerInfo>
+
+
+<?xml version="1.0" encoding="utf-16"?>
+<CustomerInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <id_user>16445</id_user>
+  <firstname>robert</firstname>
+  <lastname>vozdecky</lastname>
+  <bill_address>1115 broadway ste 1234</bill_address>
+  <city>New York</city>
+  <state_code>NY</state_code>
+  <zip>10010</zip>
+  <country_code>US</country_code>
+  <CC_number>4111111111111111</CC_number>
+  <CC_exp_month>11</CC_exp_month>
+  <CC_exp_year>22</CC_exp_year>
+  <CC_csv>111</CC_csv>
+  <customer_profile_id>225072935</customer_profile_id>
+  <payment_profile_id>0</payment_profile_id>
+</CustomerInfo>
+
+
+<?xml version="1.0" encoding="utf-16"?>
+<CustomerInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <id_user>16445</id_user>
+  <firstname>robert</firstname>
+  <lastname>vozdecky</lastname>
+  <bill_address>1115 broadway ste 1234</bill_address>
+  <city>New York</city>
+  <state_code>NY</state_code>
+  <zip>10010</zip>
+  <country_code>US</country_code>
+  <CC_number>5424000000000015</CC_number>
+  <CC_exp_month>11</CC_exp_month>
+  <CC_exp_year>22</CC_exp_year>
+  <CC_csv>111</CC_csv>
+  <customer_profile_id>225072935</customer_profile_id>
+  <payment_profile_id>0</payment_profile_id>
+</CustomerInfo>
+
+
+<?xml version="1.0" encoding="utf-16"?>
+<CustomerInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <id_user>16445</id_user>
+  <firstname>robert</firstname>
+  <lastname>vozdecky</lastname>
+  <bill_address>1115 broadway ste 1234</bill_address>
+  <city>New York</city>
+  <state_code>NY</state_code>
+  <zip>10010</zip>
+  <country_code>US</country_code>
+  <CC_number>5424000000000015</CC_number>
+  <CC_exp_month>11</CC_exp_month>
+  <CC_exp_year>22</CC_exp_year>
+  <CC_csv>111</CC_csv>
+  <customer_profile_id>225072935</customer_profile_id>
+  <payment_profile_id>0</payment_profile_id>
+</CustomerInfo>
+
+

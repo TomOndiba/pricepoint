@@ -46,17 +46,19 @@ public partial class Account_BirthdayCtrl : System.Web.UI.UserControl
 
     protected void Page_Init(object sender, EventArgs e)
     {
-        ddlMonth.Items.Add("Month");
+//        ddlMonth.Items.Add("Month");
         List<string> monthNames = DateTimeFormatInfo.CurrentInfo.MonthNames.Take(12).ToList();
         ddlMonth.Items.AddRange(monthNames.Select(m => new ListItem { Value = (monthNames.IndexOf(m) + 1).ToString(), Text = m }).ToArray());
 
-        ddlDay.Items.Add("DD");
+  //      ddlDay.Items.Add("DD");
         for (int i = 1; i <= 31; i++)
             ddlDay.Items.Add(new ListItem(i.ToString(), i.ToString()));
 
-        ddlYear.Items.Add("YYYY");
-        for (int i = DateTime.Now.Year; i >= 1920; i--)
+    //    ddlYear.Items.Add("YYYY");
+        for (int i = DateTime.Now.Year-17; i >= 1920; i--)
             ddlYear.Items.Add(new ListItem(i.ToString(), i.ToString()));
+
+        ddlYear.SelectedValue = (DateTime.Now.Year-25).ToString();
     }
 
     protected void Page_Load(object sender, EventArgs e)

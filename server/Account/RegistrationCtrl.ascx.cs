@@ -124,17 +124,17 @@ public partial class RegistrationCtrl : System.Web.UI.UserControl
         nGram g = new nGram();
         string s = title + ". " + desc + ". " + date;
         double q;
-        q = g.CalculateQuality(desc);
-
-        if (g.WordCount < 5)
-        {
-            MyUtils.DisplayCustomMessageInValidationSummary("Your description is too short. Please describe yourself in more detail.", RegisterUserValidationSummary, "RegisterUserValidationGroup");
-            return;
-        }
+        q = g.CalculateQuality(s);
 
         if (q < 0.11)
         {
             MyUtils.DisplayCustomMessageInValidationSummary("Your description is below our quality standards. Please use correct grammar and write in complete sentences.", RegisterUserValidationSummary, "RegisterUserValidationGroup");
+            return;
+        }
+
+        if (g.WordCount < 5)
+        {
+            MyUtils.DisplayCustomMessageInValidationSummary("Your description doesn't have enough details. Please describe yourself in detail using correct grammar and complete sentences.", RegisterUserValidationSummary, "RegisterUserValidationGroup");
             return;
         }
 
@@ -163,6 +163,15 @@ public partial class RegistrationCtrl : System.Web.UI.UserControl
         title = ReplaceEmail(title);
         date = ReplaceEmail(date);
 
+        zip = MyUtils.StripHTML(zipCode.Text);
+        otherZipData = MyUtils.GetZipCoordinates(zip.ToString());
+
+        if (otherZipData == null)
+        {
+            MyUtils.DisplayCustomMessageInValidationSummary("ZIP code does not exist. Please enter valid zip code.", RegisterUserValidationSummary, "RegisterUserValidationGroup");
+            return;
+        }
+
         SaveUserInDB();
         MyUtils.RefreshUserRow();
 
@@ -187,7 +196,8 @@ public partial class RegistrationCtrl : System.Web.UI.UserControl
         desc = emailReplace.Replace(desc, "**********.***");
         return desc;
     }
-
+    MyUtils.GeoInfo otherZipData;
+    string zip;
     private void SaveUserInDB()
     {
        try
@@ -195,18 +205,23 @@ public partial class RegistrationCtrl : System.Web.UI.UserControl
             DataSet ds = db.CommandBuilder_LoadDataSet(string.Format("select * from users where id_user={0}", ID_USER));
             DataRow userRow = ds.Tables[0].Rows[0];
 
-            string zip = zipCode.Text;
-            userRow["zip"] = MyUtils.StripHTML(zip);
 
-            var otherZipData = MyUtils.GetZipCoordinates(zip.ToString());
+            userRow["zip"] = zip;
             userRow["latitude"] = otherZipData.lat;
             userRow["longitude"] = otherZipData.lon;
             userRow["place"] = otherZipData.place;
 
+            string old_description = Convert.ToString(userRow["title"]) + Convert.ToString(userRow["description"]) + Convert.ToString(userRow["firstdate"]);
+
             userRow["title"] = title;
             userRow["description"] = desc;
             userRow["firstdate"] = date;
-            
+
+            string new_description = Convert.ToString(userRow["title"]) + Convert.ToString(userRow["description"]) + Convert.ToString(userRow["firstdate"]);
+
+            if (old_description.ToUpper() != new_description.ToUpper()) userRow["status"] = 0;
+
+
             //ddl
             Utils.SetDdlField(ddlEthnicity, userRow, "id_ethnicity");
             Utils.SetDdlField(ddlReligion, userRow, "id_religion");

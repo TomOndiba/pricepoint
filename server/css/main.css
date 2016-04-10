@@ -83,7 +83,7 @@ ol {
   outline: -webkit-focus-ring-color auto 0;
 }
 a {
-  color: #e74b90;
+  color: #e6005f;
   outline: none;
   text-decoration: none;
   transition: color 0.2s;
@@ -301,6 +301,9 @@ h6 {
     padding-bottom: 122px;
   }
 }
+.pure-g .pure-u-mobile-hidden {
+  display: inline-block;
+}
 @media (min-width: 750px) {
   .container {
     padding: 20px 0;
@@ -310,7 +313,7 @@ h6 {
     padding-right: 230px;
   }
   .conversation-page-female .container > .wrapper {
-    padding-bottom:185px;
+    padding-bottom: 185px;
   }
   .conversation-page .container > .wrapper .aside {
     width: 212px;
@@ -359,11 +362,6 @@ h6 {
 .pure-g .pure-u-mobile-hidden {
   display: none;
 }
-@media (min-width: 768px) {
-  .pure-g .pure-u-mobile-hidden {
-    display: inline-block;
-  }
-}
 /* ==========================================================================
    _FORMS
    ========================================================================== */
@@ -372,15 +370,14 @@ fieldset {
   margin: 0;
   border: none;
 }
-.expirydate 
-{
+.expirydate {
   border: 1px solid #e5e5e5;
   border-radius: 2px;
   color: #707a85;
 }
 /* INPUT & TEXTAREA */
 input,
-textarea{
+textarea {
   height: 46px;
   padding: 15px 10px;
   border: 1px solid #e5e5e5;
@@ -412,7 +409,7 @@ input:focus {
 .form-line input {
   width: 100%;
 }
-input.form-beige,.expirydate {
+input.form-beige, .expirydate {
   background: #f9f9f9;
   border-color: #ddd;
 }
@@ -420,6 +417,7 @@ textarea {
   height: 104px;
   display: block;
   resize: none;
+  width: 100%;
 }
 @media (min-width: 750px) {
   textarea.large {
@@ -469,16 +467,15 @@ input[type="submit"]:not(.mfp-arrow) {
   margin: 0 auto;
   display: block;
   padding: 15px 12px;
-  font: bold 12px/14px 'Roboto', Arial, sans-serif;
+  font: bold 14px/14px 'Roboto', Arial, sans-serif;
   color: #fff;
   text-align: center;
   text-decoration: none;
-  background: #e74b90;
-  border: 1px solid #e74b90;
+  background: #e6005f;
+  border: 1px solid #e6005f;
   border-radius: 2px;
   transition: background-color 0.2s, border-color 0.2s, color 0.2s;
 }
-
 @media (min-width: 750px) {
   .button:not(.mfp-arrow),
   button:not(.mfp-arrow),
@@ -503,7 +500,7 @@ input[type="submit"]:not(.mfp-arrow):hover,
 .button:not(.mfp-arrow):focus,
 button:not(.mfp-arrow):focus,
 input[type="submit"]:not(.mfp-arrow):focus {
-  color: #e74b90;
+  color: #e6005f;
   background-color: transparent;
   text-decoration: none;
 }
@@ -1190,7 +1187,7 @@ label.css-label {
   color: #707a85;
 }
 .btn-group .dropdown-menu li.active a {
-  color: #e74b90;
+  color: #e6005f;
 }
 .btn-group .dropdown-menu li:last-of-type {
   border-bottom: none;
@@ -1437,7 +1434,7 @@ body > form {
 .form .form-submit .button.button-sign:focus span:before,
 .form .form-submit .button.button-sign:hover span:after,
 .form .form-submit .button.button-sign:focus span:after {
-  background-color: #e74b90;
+  background-color: #e6005f;
 }
 @media (min-width: 568px) {
   .form .form-submit .button-inline {
@@ -1463,7 +1460,7 @@ body > form {
 .form .title {
   margin: 20px -10px 10px;
   padding: 0 10px 10px;
-  color: #e74b90;
+  color: #e6005f;
   letter-spacing: .054em;
   border-bottom: 1px solid #ddd;
 }
@@ -1570,8 +1567,8 @@ body > form {
   color: #fff;
   text-align: center;
   text-decoration: none;
-  background: #e74b90;
-  border: 1px solid #e74b90;
+  background: #e6005f;
+  border: 1px solid #e6005f;
   text-overflow: ellipsis;
   white-space: nowrap;
   cursor: pointer;
@@ -1591,7 +1588,7 @@ body > form {
 }
 .form.form-upload .filebox .inputlabel:hover,
 .form.form-upload .filebox .inputlabel:focus {
-  color: #e74b90;
+  color: #e6005f;
   background-color: transparent;
   text-decoration: none;
 }
@@ -1615,7 +1612,7 @@ body > form {
   padding: 4px 4px 4px 18px;
   display: block;
   position: relative;
-  color: #e74b90;
+  color: #e6005f;
 }
 @media (min-width: 750px) {
   .form.form-upload .photos .heading {
@@ -1876,7 +1873,7 @@ body > form {
 .header .username .switch:focus,
 .header .username .switch:active {
   text-decoration: none;
-  color: #e74b90;
+  color: #e6005f;
 }
 .header .username .switch:hover:before,
 .header .username .switch:focus:before,
@@ -1989,7 +1986,7 @@ body > form {
   color: #4c9eda;
 }
 .header .username .settings .image a:hover {
-  color: #e74b90;
+  color: #e6005f;
   text-decoration: none;
 }
 .header .username .settings .button {
@@ -2058,11 +2055,16 @@ body > form {
   }
 }
 .header .buttons .button {
-  min-width: 85px;
+  min-width: 60px;
   margin: 0 0 0 5px;
   display: inline-block;
   padding-top: 8px;
   padding-bottom: 8px;
+}
+@media (min-width: 375px) {
+  .header .buttons .button {
+    min-width: 85px;
+  }
 }
 @media (min-width: 750px) {
   .header .buttons .button {
@@ -2107,7 +2109,7 @@ body > form {
   text-align: center;
 }
 .footer .terms {
-  margin:10px 30px 5px 30px;
+  margin: 10px 30px 5px 30px;
   font-size: 11px;
   line-height: normal;
   text-align: center;
@@ -2121,7 +2123,7 @@ body > form {
   }
 }
 .footer .links {
-  margin: 0 0 5px;
+  margin: 0;
   padding: 0;
   list-style: none;
   text-align: center;
@@ -2149,10 +2151,10 @@ body > form {
     padding: 0 0 0 20px;
     display: inline-block;
   }
-  .footer .links li.b { margin:0; font-size: inherit; font-weight: inherit; }
+  .footer .links li.b { margin: 0; font-size: inherit; font-weight: inherit; }
   .footer .links li:after { display: none !important; }
   .footer .links li.s { margin: 0; }
-  .footer .links li.n { display: none;}
+  .footer .links li.n { display: none; }
   .footer .terms {
     margin: 0;
     font-size: 12px;
@@ -2406,7 +2408,7 @@ body > form {
   display: block;
   position: relative;
 }
-.profile .photo figure .vip {
+figure .vip {
   padding: 1px 4px;
   border-radius: 4px;
   display: block;
@@ -2449,7 +2451,7 @@ body > form {
   margin: 0 0 4px;
   font-size: 18px;
   line-height: 18px;
-  color: #e74b90;
+  color: #e6005f;
   font-weight: normal;
 }
 .profile .inform .name .small {
@@ -2742,7 +2744,7 @@ body > form {
   background-position: -125px -40px;
 }
 .tabs li.active a {
-  color: #e74b90;
+  color: #e6005f;
   background: #fff;
   border-bottom-color: #fff;
 }
@@ -2815,7 +2817,7 @@ body > form {
 .gallery .my-gallery {
   padding: 0;
   margin: 0 -6px;
-  width:100%;
+  width: 100%;
 }
 .gallery .my-gallery:after {
   display: table;
@@ -3057,7 +3059,7 @@ body > form {
   margin: 0;
   font-size: 18px;
   line-height: normal;
-  color: #e74b90;
+  color: #e6005f;
 }
 @media (min-width: 750px) {
   .catalog .info .name {
@@ -3110,7 +3112,7 @@ body > form {
   text-align: center;
   font-weight: 500;
   font-size: 13px;
-  color: #e74b90;
+  color: #e6005f;
 }
 .catalog .info .actions:after {
   display: table;
@@ -3304,7 +3306,7 @@ body > form {
   color: #707a85;
   background: #fff;
   border: 1px solid #e5e5e5;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 14px;
   font-weight: bold;
   position: relative;
@@ -3654,12 +3656,11 @@ body > form {
   border-radius: 6px;
 }
 .index .form-line .button.button-large:after {
-  display: block;
+  display: inline-block;
   content: '\0020';
   overflow: hidden;
   clear: both;
   margin: -2px 0 0 14px;
-  display: inline-block;
   vertical-align: middle;
   width: 0;
   height: 0;
@@ -3987,12 +3988,11 @@ body > form {
   position: relative;
 }
 .call-to-action .button.button-large:after {
-  display: block;
   content: '\0020';
   overflow: hidden;
   clear: both;
   margin: -2px 0 0 10px;
-  display: inline-block;
+  display: block;
   vertical-align: middle;
   width: 0;
   height: 0;
@@ -4004,7 +4004,7 @@ body > form {
 .call-to-action .button.button-large:hover:after,
 .call-to-action .button.button-large:focus:after,
 .call-to-action .button.button-large:active:after {
-  border-color: transparent transparent transparent #e74b90;
+  border-color: transparent transparent transparent #e6005f;
 }
 @media (min-width: 1000px) {
   .call-to-action .button.button-large {
@@ -4138,7 +4138,7 @@ body > form {
 .steps .area .step:before {
   width: 2px;
   height: 15px;
-  background: #e74b90;
+  background: #e6005f;
   bottom: 6px;
 }
 .steps .area .step:after {
@@ -4146,7 +4146,7 @@ body > form {
   height: 0;
   border-style: solid;
   border-width: 9px 6px 0 6px;
-  border-color: #e74b90 transparent transparent transparent;
+  border-color: #e6005f transparent transparent transparent;
   bottom: -2px;
 }
 @media (min-width: 750px) {
@@ -4169,7 +4169,7 @@ body > form {
   margin: 0;
   font-weight: 500;
   line-height: normal;
-  color: #e74b90;
+  color: #e6005f;
 }
 @media (min-width: 750px) {
   .steps .area .step .h {
@@ -4181,7 +4181,7 @@ body > form {
   height: 64px;
   margin: 0 auto;
   display: block;
-  background: #e74b90;
+  background: #e6005f;
   border-radius: 50%;
   position: relative;
 }
@@ -4489,11 +4489,10 @@ body > form {
 }
 .conversation .entry .author {
   width: 70px;
-  margin: 0;
   padding-top: 8px;
-  margin-right: 3px;
+  margin: 0 3px 0 0;
   float: right;
-  color: #e74b90;
+  color: #e6005f;
   text-align: right;
   font-size: 11px;
   line-height: 14px;
@@ -4611,7 +4610,7 @@ body > form {
     height: 160px;
   }
 }
-.form-message .photo .price,.agreedprice {
+.form-message .photo .price, .agreedprice {
   padding: 4px;
   display: block;
   font-size: 16px;
@@ -4624,13 +4623,13 @@ body > form {
   bottom: 5px;
 }
 @media (min-width: 750px) {
-  .form-message .photo .price,.agreedprice {
+  .form-message .photo .price, .agreedprice {
     padding: 6px;
     font-size: 20px;
   }
 }
 @media (min-width: 1000px) {
-  .form-message .photo .price,.agreedprice {
+  .form-message .photo .price, .agreedprice {
     padding: 9px;
     font-size: 28px;
   }
@@ -4658,7 +4657,7 @@ body > form {
     margin-bottom: 6px;
     font-size: 24px;
     display: inline-block;
-    color: #e74b90;
+    color: #e6005f;
   }
 }
 .form-message .text .name .small {
@@ -4965,7 +4964,7 @@ body > form {
   }
 }
 .popup .username {
-  color: #e74b90;
+  color: #e6005f;
 }
 .popup.popup-message {
   max-width: 400px;
@@ -5041,13 +5040,15 @@ body > form {
   vertical-align: middle;
 }
 .form-offer .total-area .total {
-  width: 50px;
+  width: 80px;
   padding-left: 4px;
   padding-right: 4px;
   font-weight: 500;
   display: inline-block;
   vertical-align: middle;
   text-align: center;
+  margin-left: 8px;
+  margin-right: 8px;
 }
 @media (min-width: 375px) {
   .form-offer .total-area {
@@ -5055,7 +5056,7 @@ body > form {
     margin-right: 5px;
   }
   .form-offer .total-area .total {
-    margin-left: 5px;
+    margin-left: 10px;
   }
 }
 @media (min-width: 750px) {
@@ -5375,7 +5376,7 @@ form.inited .form-filter {
   margin: 0;
   font-size: 24px;
   line-height: normal;
-  color: #e74b90;
+  color: #e6005f;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -5436,9 +5437,8 @@ form.inited .form-filter {
   .offers .panel .panel-space .buttons .cell .button {
     max-width: 226px;
   }
-  .form-filter
-  {
-      max-height:72px;
+  .form-filter {
+    max-height: 72px;
   }
 
 }
@@ -5596,11 +5596,11 @@ form.inited .form-filter {
 .packages .panel.active {
   background: #fff;
 }
-.packages .panel.active .price,.agreedprice {
-  border-bottom-color: #e74b90;
+.packages .panel.active .price, .agreedprice {
+  border-bottom-color: #e6005f;
 }
 .packages .panel.active .credits {
-  color: #e74b90;
+  color: #e6005f;
 }
 .packages .panel.active .button.selected {
   display: block;
@@ -5733,7 +5733,7 @@ form.inited .form-filter {
 .form-order .head .h {
   margin: 0 0 -20px 0;
   padding: 15px 15px 15px 45px;
-  color: #e74b90;
+  color: #e6005f;
   font-weight: 500;
   font-size: 15px;
   background: #fff;
@@ -5880,7 +5880,7 @@ form.inited .form-filter {
   min-height: 100px;
   margin-bottom: 14px;
   padding-left: 112px;
-  padding-top: 0px;
+  padding-top: 0;
   position: relative;
 }
 @media (min-width: 568px) {
@@ -5947,8 +5947,8 @@ form.inited .form-filter {
 }
 .recents ul li .time {
   margin: 0;
-  font-weight:normal;
-color:silver;
+  font-weight: normal;
+  color: silver;
 }
 .recents ul li .link {
   display: inline-block;
@@ -5959,7 +5959,7 @@ color:silver;
   border: 1px solid #e5e5e5;
   border-radius: 2px;
   text-transform: uppercase;
-  color: #e74b90;
+  color: #e6005f;
 }
 .recents ul li .link:hover,
 .recents ul li .link:focus,
@@ -5978,7 +5978,7 @@ color:silver;
    _FEATURED
    ========================================================================== */
 .featured {
- margin: 0 0 30px 0;
+  margin: 0 0 30px 0;
 }
 .featured .head {
   margin: 0;
@@ -6062,7 +6062,7 @@ color:silver;
    _ATTENTION
    ========================================================================== */
 .attention {
-  max-width:760px;
+  max-width: 760px;
   min-height: 100px;
   margin: 0 auto 30px;
   padding: 12px 22px;
@@ -6255,104 +6255,78 @@ color:silver;
 }
 /*--- ROB's ------*/
 span.sentwink {
-    display: none;
+  display: none;
 }
 span.sendwink {
-    display:inline-block;
+  display: inline-block;
 }
 .active span.sendwink {
-    display:none;
+  display: none;
 }
 .active span.sentwink {
-    display: inline-block;
+  display: inline-block;
 }
-a.button.button-gray.button-icon.js-wink.active
-{
-    cursor:default;
+a.button.button-gray.button-icon.js-wink.active {
+  cursor: default;
 }
-
-
-
-
-
-
-
-
 span.cell.sw-sentoffer {
-    display: none
+  display: none
 }
 .sw-sendoffer {
-    display: none !important
+  display: none !important
 }
-.sw-message {display:none !important}
-
-
+.sw-message { display: none !important }
 .sentoffer span.cell.sw-sentoffer {
-    display:inline-block  !important;
+  display: inline-block !important;
 }
 .sendoffer .sw-sendoffer {
-    display:inline-block  !important;
+  display: inline-block !important;
 }
 .sendmessage .sw-message {
-    display:inline-block  !important;
+  display: inline-block !important;
 }
-
-
-
-
-
-
 .rib-wrapper .rib span {
-    display: block;
-    line-height: 29px;
+  display: block;
+  line-height: 29px;
 }
 .rib-wrapper .rib {
-    line-height: 18px;
-    font-size: 1em;
-    font-weight: bold;
-    text-align: center;
-    -webkit-transform: rotate(315deg);
-    -moz-transform: rotate(315deg);
-    -ms-transform: rotate(315deg);
-    -o-transform: rotate(315deg);
-    transform: rotate(315deg);
-    position: relative;
-    padding: 2px;
-    padding-left: 10px;
-    left: -33px;
-    top: 14px;
-    width: 100px;
-    background-color: #00cb50;
-    color: white;
-    z-index: 10;
+  line-height: 18px;
+  font-size: 1em;
+  font-weight: bold;
+  text-align: center;
+  -webkit-transform: rotate(315deg);
+  -moz-transform: rotate(315deg);
+  -ms-transform: rotate(315deg);
+  -o-transform: rotate(315deg);
+  transform: rotate(315deg);
+  position: relative;
+  padding: 2px;
+  padding-left: 10px;
+  left: -33px;
+  top: 14px;
+  width: 100px;
+  background-color: #00cb50;
+  color: white;
+  z-index: 10;
 }
 .rib-wrapper {
-    height: 70px;
-    width: 70px;
-    overflow: hidden;
-    position: absolute;
-    top: -1px;
-    left: -1px;
+  height: 70px;
+  width: 70px;
+  overflow: hidden;
+  position: absolute;
+  top: -1px;
+  left: -1px;
 }
 @media (min-width: 750px) {
   .rib-wrapper .rib { width: 120px; padding: 2px 7px; line-height: 25px; }
   .rib-wrapper { width: 125px; height: 125px; }
 }
-
-
-.newredcount {font-weight:bold;color:white;background-color:red;padding:0px 3px 0px 3px}
-
-
-
-
-
+.newredcount { font-weight: bold; color: white; background-color: red; padding: 0 3px; }
 .catalog .info .name, .catalog .info .status {
-        text-overflow: ellipsis;
-        overflow: hidden;
-        white-space: nowrap;
-    }
-
-
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
 .button:not(.mfp-arrow).favactive,
 button:not(.mfp-arrow).favactive,
 input[type="submit"]:not(.mfp-arrow).favactive {
@@ -6373,29 +6347,26 @@ input[type="submit"]:not(.mfp-arrow).button-orange:active {
   background-color: transparent;
   text-decoration: none;
 }
-
 .error ul li {
-    color: red;
-    border: solid 2px red;
-    padding: 6px;
+  color: red;
+  border: solid 2px red;
+  padding: 6px;
 }
-
-.error {color:red}
-
+.error { color: red }
 .popup-offer h2.h2.heading {
-    display: none;
+  display: none;
 }
 h2.h2.heading.counter {
-    display: none;
+  display: none;
 }
-.popup-offer  h2.h2.heading.counter {
-    display: block !important;
+.popup-offer h2.h2.heading.counter {
+  display: block !important;
 }
 .notclickable {
-cursor:default;text-decoration:none !important;
+  cursor: default; text-decoration: none !important;
 }
-.button{  
-    cursor:pointer;
+.button {
+  cursor: pointer;
 }
 /* ==========================================================================
    _FORM-REJECT
@@ -6409,6 +6380,63 @@ cursor:default;text-decoration:none !important;
 }
 .form-reject .button {
   width: 170px;
-  margin:0 auto;
+  margin: 0 auto;
   display: block;
+}
+@media (max-width: 750px) {
+  label {
+    font-size: 14px;
+    font-weight: bold;
+  }
+  .expirydate_MMYY { font-size: 10px }
+  .form-line input {
+    font-size: 20px;
+    color: black;
+  }
+}
+.button-green:not(.mfp-arrow), .button-green:not(.mfp-arrow):focus {
+  background-color: #00cb50 !important;
+  border: 1px solid #00ab30 !important;
+  color: white !important;
+}
+.button-green:not(.mfp-arrow):hover {
+  background-color: transparent !important;
+  border: 1px solid #00ab30 !important;
+  color: #00ab30 !important;
+}
+.SW a { display: none }
+a.button.SW_OFFERSENT, a.button.SW_OFFERSENT:hover, a.button.SW_OFFERSENT:active, a.button.SW_OFFERSENT:focus,
+a.button.SW_OFFERREJECTED, a.button.SW_OFFERREJECTED:hover, a.button.SW_OFFERREJECTED:active, a.button.SW_OFFERREJECTED:focus {
+  cursor: default;
+  background-color: silver;
+  color: white;
+  border: 1px solid silver;
+}
+a.SW_OFFERSENT, a.SW_OFFERREJECTED { cursor: pointer }
+.SW a {
+  display: none !important;
+}
+.SW_OFFERREJECTED a.SW_OFFERREJECTED {
+  display: block !important;
+}
+.SW_SENDOFFER a.SW_SENDOFFER {
+  display: block !important;
+}
+.SW_OFFERSENT a.SW_OFFERSENT {
+  display: block !important;
+}
+.SW_ACCEPT a.SW_ACCEPT {
+  display: block !important;
+}
+.SW_WINK a.SW_WINK {
+  display: block !important;
+}
+.SW_MESSAGE a.SW_MESSAGE {
+  display: block !important;
+}
+.SW_MESSAGE_UNLOCK a.SW_MESSAGE_UNLOCK {
+  display: block !important;
+}
+.area span.vip {
+  margin-bottom: 19px;
 }

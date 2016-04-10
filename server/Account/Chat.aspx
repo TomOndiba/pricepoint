@@ -237,7 +237,7 @@
     <div class="form-message">
 
         <figure class="photo">
-            <img src='<%=MyUtils.GetImageUrl(R,MyUtils.ImageSize.SMALL)%>' width="160" height="160" alt=""/>
+<a href='<%=Utils.GetProfileLink(R,"id_user")%>' style="display: inline-block"><img src='<%=MyUtils.GetImageUrl(R,MyUtils.ImageSize.SMALL)%>' width="160" height="160" alt=""/></a>
             <div <%=MyUtils.IsOnline(ID_USER_CHATWITH) ? "":"style='display:none'"%> class="rib-wrapper onlineflag"><div class="rib">Online</div></div>
             <span class="price">&#36;<%=Convert.ToInt32(Offer["Amount"]) %></span>
         </figure>

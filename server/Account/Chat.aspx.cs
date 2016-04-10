@@ -18,6 +18,18 @@ public partial class Messages_Chat : System.Web.UI.Page
     {
 
         DB_Helper db = new DB_Helper();
+        string s = "";
+        if (MyUtils.IsFemale)
+        {
+            s = "select female_sent_msg from offers where id_offer=" + id_offer;
+            int female_sent_msg = db.ExecuteScalarIntCache(s,0,5);
+            if (female_sent_msg == 0)
+            {
+                db.Execute("update offers set female_sent_msg=1 where isnull(female_sent_msg,0)=0 and id_offer=" + id_offer + "; ");
+                DB_Helper.InvalidateCache("SQL_" + s);
+            }
+
+        }
         return db.GetDataSet("insert into messages (id_user_from,id_user_to,text,gift_list,id_offer) OUTPUT inserted.* values (" + id_user_from + "," + id_user_to + "," + MyUtils.safe(message) + "," + MyUtils.safe(gift_list) + "," + id_offer + ");").Tables[0];
     }
 
@@ -36,6 +48,7 @@ public partial class Messages_Chat : System.Web.UI.Page
         return db.GetDataSet(sql).Tables[0];
     }
     public DataRow Offer;
+
     protected void Page_Load(object sender, EventArgs e)
     {
         Page.Form.Attributes["data-form"] = "message";
@@ -50,6 +63,15 @@ public partial class Messages_Chat : System.Web.UI.Page
         int id_offer = db.ExecuteScalarInt("exec CAN_MESSAGE_WITH " + ID_USER + "," + ID_USER_CHATWITH, 0);
         if (id_offer == 0)
         {
+
+            id_offer = db.ExecuteScalarInt("select id_offer from offers where id_offer_state=404 and (id_user_from=" + ID_USER_CHATWITH + " and id_user_to=" + MyUtils.ID_USER + ") or (id_user_from=" + MyUtils.ID_USER + " and id_user_to=" + ID_USER_CHATWITH + ")", 0);
+
+            if (id_offer > 0)
+            {
+                Response.Redirect("/Account/Messages#" + id_offer, true);
+                return;
+            }
+
             Response.Clear();
             Response.Write("You don't have permission to send messages to this user.");
             Response.End();

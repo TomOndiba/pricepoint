@@ -762,3 +762,353 @@ Parameter name: oldValue
 3/30/2016 12:15:45 AM Message: Successful.
 3/30/2016 12:15:45 AM DIRECT: 1,1,1,This transaction has been approved.,5GF9SM,Y,2253963928,Invoice 635948937442,,49.00,CC,auth_capture,15673,Robert,Vozdecky,,515 east 74nd st,New York,NY,10021,US,,,,,,,,,,,,,,,,,DE7B225CC36FAFAF067E7B4DF1729691,P,2,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
 3/30/2016 12:15:45 AM ===============================
+4/8/2016 12:21:31 AM ===============================
+4/8/2016 12:21:31 AM Pay 10002
+4/8/2016 12:21:31 AM CreateTransaction
+4/8/2016 12:21:33 AM Response Code: Error
+4/8/2016 12:21:33 AM Message: The payment gateway account is in Test Mode. The request cannot be processed.
+4/8/2016 12:21:33 AM DIRECT: 
+4/8/2016 12:21:33 AM ===============================
+4/8/2016 12:22:38 AM ===============================
+4/8/2016 12:22:38 AM Pay 10002
+4/8/2016 12:22:38 AM CreateTransaction
+4/8/2016 12:22:40 AM Response Code: Error
+4/8/2016 12:22:40 AM Message: User authentication failed due to invalid authentication values.
+4/8/2016 12:22:40 AM DIRECT: 
+4/8/2016 12:22:40 AM ===============================
+4/8/2016 12:23:03 AM ===============================
+4/8/2016 12:23:03 AM Pay 10002
+4/8/2016 12:23:03 AM CreateTransaction
+4/8/2016 12:23:03 AM Response Code: Error
+4/8/2016 12:23:03 AM Message: User authentication failed due to invalid authentication values.
+4/8/2016 12:23:03 AM DIRECT: 
+4/8/2016 12:23:03 AM ===============================
+4/8/2016 12:25:06 AM ===============================
+4/8/2016 12:25:06 AM Pay 10002
+4/8/2016 12:25:06 AM CreateTransaction
+4/8/2016 12:25:07 AM Response Code: Error
+4/8/2016 12:25:07 AM Message: User authentication failed due to invalid authentication values.
+4/8/2016 12:25:07 AM DIRECT: 
+4/8/2016 12:25:07 AM ===============================
+4/8/2016 12:26:01 AM ===============================
+4/8/2016 12:26:01 AM Pay 10002
+4/8/2016 12:26:01 AM GetOrCreateCustomerProfile
+4/8/2016 12:26:03 AM Message: User authentication failed due to invalid authentication values.
+4/8/2016 12:26:03 AM Response Code: Error
+4/8/2016 12:26:03 AM SetCustomerPaymentProfile
+4/8/2016 12:26:03 AM profile_id:0 Error
+4/8/2016 12:26:04 AM Response Code: Error
+4/8/2016 12:26:04 AM Message: User authentication failed due to invalid authentication values.
+4/8/2016 12:26:04 AM DIRECT: 
+4/8/2016 12:26:04 AM ===============================
+4/8/2016 12:28:52 AM ===============================
+4/8/2016 12:28:52 AM Pay 10002
+4/8/2016 12:28:52 AM GetOrCreateCustomerProfile
+4/8/2016 12:28:54 AM Message: A duplicate record with ID 39889377 already exists.
+4/8/2016 12:28:54 AM SetCustomerPaymentProfile
+4/8/2016 12:28:55 AM profile_id:39889377 Ok
+4/8/2016 12:28:55 AM profiles: 1
+4/8/2016 12:28:55 AM customerPaymentProfileId: 36190402
+4/8/2016 12:28:56 AM Response Code: Ok
+4/8/2016 12:28:56 AM Message: Successful.
+4/8/2016 12:28:56 AM DIRECT: 1,1,1,This transaction has been approved.,CKW1KK,Y,2254609923,none,Test transaction for ValidateCustomerPaymentProfile.,0.00,CC,auth_only,10002,robert,vozdecky,,1114 broadway,New York,NY,10010,US,,,,,,,,,,,,0.00,0.00,0.00,FALSE,none,C8F6218C81059A0EA11732F3DBE0C667,P,2,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+4/8/2016 12:28:56 AM CreateTransaction
+4/8/2016 12:28:57 AM Response Code: Ok
+4/8/2016 12:28:57 AM Message: Successful.
+4/8/2016 12:28:57 AM DIRECT: 1,1,1,This transaction has been approved.,BWKDVL,Y,2254609924,Invoice 635956721367,,49.00,CC,auth_capture,10002,robert,vozdecky,,1114 broadway,New York,NY,10010,US,,,,,,,,,,,,,,,,,89D63B8268F4C39703FDE6339F9A5C08,P,2,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+4/8/2016 12:28:57 AM ===============================
+4/8/2016 12:30:45 AM ===============================
+4/8/2016 12:30:45 AM Pay 10002
+4/8/2016 12:30:45 AM CreateTransaction
+4/8/2016 12:30:47 AM Response Code: Ok
+4/8/2016 12:30:47 AM Message: Successful.
+4/8/2016 12:30:47 AM DIRECT: 1,1,1,This transaction has been approved.,0F8GIH,Y,2254609986,Invoice 635956722450,,49.00,CC,auth_capture,10002,robert,vozdecky,,1114 broadway,New York,NY,10010,US,,,,,,,,,,,,,,,,,E6C41F3853E96CA7C16393E6313E9C72,P,2,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+4/8/2016 12:30:47 AM ===============================
+4/8/2016 1:41:16 PM ===============================
+4/8/2016 1:41:16 PM Pay 16449
+4/8/2016 1:41:16 PM GetOrCreateCustomerProfile
+4/8/2016 1:41:18 PM Message: Successful.
+4/8/2016 1:41:18 PM Response Code: Ok
+4/8/2016 1:41:18 PM New ID = 40314688
+4/8/2016 1:41:18 PM SetCustomerPaymentProfile
+4/8/2016 1:41:19 PM profile_id:40314688 Ok
+4/8/2016 1:42:19 PM Exception: The request channel timed out while waiting for a reply after 00:00:59.9909995. Increase the timeout value passed to the call to Request or increase the SendTimeout value on the Binding. The time allotted to this operation may have been a portion of a longer timeout.
+4/8/2016 1:42:34 PM ===============================
+4/8/2016 1:42:34 PM Pay 16449
+4/8/2016 1:42:34 PM GetOrCreateCustomerProfile
+4/8/2016 1:42:35 PM Message: A duplicate record with ID 40314688 already exists.
+4/8/2016 1:42:35 PM SetCustomerPaymentProfile
+4/8/2016 1:42:35 PM profile_id:40314688 Ok
+4/8/2016 1:43:35 PM Exception: The request channel timed out while waiting for a reply after 00:01:00. Increase the timeout value passed to the call to Request or increase the SendTimeout value on the Binding. The time allotted to this operation may have been a portion of a longer timeout.
+4/8/2016 1:43:41 PM ===============================
+4/8/2016 1:43:41 PM Pay 16449
+4/8/2016 1:43:41 PM GetOrCreateCustomerProfile
+4/8/2016 1:43:41 PM Message: A duplicate record with ID 40314688 already exists.
+4/8/2016 1:43:41 PM SetCustomerPaymentProfile
+4/8/2016 1:43:42 PM profile_id:40314688 Ok
+4/8/2016 1:44:42 PM Exception: The request channel timed out while waiting for a reply after 00:01:00. Increase the timeout value passed to the call to Request or increase the SendTimeout value on the Binding. The time allotted to this operation may have been a portion of a longer timeout.
+4/8/2016 1:45:35 PM ===============================
+4/8/2016 1:45:35 PM Pay 16449
+4/8/2016 1:45:35 PM GetOrCreateCustomerProfile
+4/8/2016 1:45:36 PM Message: A duplicate record with ID 40314688 already exists.
+4/8/2016 1:45:36 PM SetCustomerPaymentProfile
+4/8/2016 1:45:36 PM profile_id:40314688 Ok
+4/8/2016 1:45:36 PM Response Code: Ok
+4/8/2016 1:45:36 PM Message: Successful.
+4/8/2016 1:45:36 PM DIRECT: 1,1,1,This transaction has been approved.,ZVNM22,Y,2254658037,none,Test transaction for ValidateCustomerPaymentProfile.,0.00,CC,auth_only,none,robert,vozdecky,,1115 broadway ste 1234,New York,NY,10010,US,,,email@example.com,,,,,,,,,0.00,0.00,0.00,FALSE,none,96E150AAE395A93F9D2ADFFACB45A406,P,2,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+4/8/2016 1:45:37 PM CreateTransaction
+4/8/2016 1:45:37 PM Response Code: Ok
+4/8/2016 1:45:37 PM Message: Successful.
+4/8/2016 1:45:37 PM DIRECT: 1,1,1,This transaction has been approved.,HRWD71,Y,2254658041,Invoice 635957199370,,39.95,CC,auth_capture,16449,robert,vozdecky,,1115 broadway ste 1234,New York,NY,10010,US,,,,,,,,,,,,,,,,,5649117FCE71AEBBDB2737A74634655C,P,2,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+4/8/2016 1:45:37 PM ===============================
+4/8/2016 2:23:34 PM ===============================
+4/8/2016 2:23:34 PM Pay 16435
+4/8/2016 2:23:34 PM GetOrCreateCustomerProfile
+4/8/2016 2:23:37 PM Message: Successful.
+4/8/2016 2:23:37 PM Response Code: Ok
+4/8/2016 2:23:37 PM New ID = 40317484
+4/8/2016 2:23:37 PM SetCustomerPaymentProfile
+4/8/2016 2:23:37 PM profile_id:40317484 Ok
+4/8/2016 2:24:37 PM Exception: The request channel timed out while waiting for a reply after 00:00:59.9779987. Increase the timeout value passed to the call to Request or increase the SendTimeout value on the Binding. The time allotted to this operation may have been a portion of a longer timeout.
+4/8/2016 2:24:45 PM ===============================
+4/8/2016 2:24:45 PM Pay 16435
+4/8/2016 2:24:45 PM GetOrCreateCustomerProfile
+4/8/2016 2:24:45 PM Message: A duplicate record with ID 40317484 already exists.
+4/8/2016 2:24:45 PM SetCustomerPaymentProfile
+4/8/2016 2:24:45 PM profile_id:40317484 Ok
+4/8/2016 2:25:45 PM Exception: The request channel timed out while waiting for a reply after 00:01:00. Increase the timeout value passed to the call to Request or increase the SendTimeout value on the Binding. The time allotted to this operation may have been a portion of a longer timeout.
+4/8/2016 2:26:23 PM ===============================
+4/8/2016 2:26:23 PM Pay 16435
+4/8/2016 2:26:23 PM GetOrCreateCustomerProfile
+4/8/2016 2:26:24 PM Message: A duplicate record with ID 40317484 already exists.
+4/8/2016 2:26:24 PM SetCustomerPaymentProfile
+4/8/2016 2:26:25 PM profile_id:40317484 Ok
+4/8/2016 2:27:25 PM Exception: The request channel timed out while waiting for a reply after 00:00:59.9989999. Increase the timeout value passed to the call to Request or increase the SendTimeout value on the Binding. The time allotted to this operation may have been a portion of a longer timeout.
+4/8/2016 3:59:27 PM ===============================
+4/8/2016 3:59:27 PM Pay 16435
+4/8/2016 3:59:27 PM GetOrCreateCustomerProfile
+4/8/2016 3:59:29 PM Message: A duplicate record with ID 40317484 already exists.
+4/8/2016 3:59:29 PM SetCustomerPaymentProfile
+4/8/2016 3:59:29 PM profile_id:40317484 Ok
+4/8/2016 4:00:29 PM Exception: The request channel timed out while waiting for a reply after 00:00:59.9779988. Increase the timeout value passed to the call to Request or increase the SendTimeout value on the Binding. The time allotted to this operation may have been a portion of a longer timeout.
+4/8/2016 4:16:13 PM ===============================
+4/8/2016 4:16:13 PM Pay 16435
+4/8/2016 4:16:13 PM GetOrCreateCustomerProfile
+4/8/2016 4:16:15 PM Message: A duplicate record with ID 40317484 already exists.
+4/8/2016 4:16:15 PM SetCustomerPaymentProfile
+4/8/2016 4:16:15 PM profile_id:40317484 Ok
+4/8/2016 4:17:15 PM Exception: The request channel timed out while waiting for a reply after 00:00:59.9929996. Increase the timeout value passed to the call to Request or increase the SendTimeout value on the Binding. The time allotted to this operation may have been a portion of a longer timeout.
+4/8/2016 4:22:03 PM ===============================
+4/8/2016 4:22:03 PM Pay 16435
+4/8/2016 4:22:03 PM GetOrCreateCustomerProfile
+4/8/2016 4:22:04 PM Message: A duplicate record with ID 40317484 already exists.
+4/8/2016 4:22:04 PM SetCustomerPaymentProfile
+4/8/2016 4:22:04 PM profile_id:40317484 Ok
+4/8/2016 4:23:04 PM Exception: The request channel timed out while waiting for a reply after 00:01:00. Increase the timeout value passed to the call to Request or increase the SendTimeout value on the Binding. The time allotted to this operation may have been a portion of a longer timeout.
+4/8/2016 4:25:51 PM ===============================
+4/8/2016 4:25:51 PM Pay 16435
+4/8/2016 4:25:51 PM GetOrCreateCustomerProfile
+4/8/2016 4:25:51 PM Message: A duplicate record with ID 40317484 already exists.
+4/8/2016 4:25:51 PM SetCustomerPaymentProfile
+4/8/2016 4:25:51 PM profile_id:40317484 Ok
+4/8/2016 4:26:51 PM Exception: The request channel timed out while waiting for a reply after 00:00:59.9989999. Increase the timeout value passed to the call to Request or increase the SendTimeout value on the Binding. The time allotted to this operation may have been a portion of a longer timeout.
+4/8/2016 4:51:10 PM ===============================
+4/8/2016 4:51:10 PM Pay 16435
+4/8/2016 4:51:10 PM GetOrCreateCustomerProfile
+4/8/2016 4:51:11 PM Message: A duplicate record with ID 40317484 already exists.
+4/8/2016 4:51:11 PM SetCustomerPaymentProfile
+4/8/2016 4:51:11 PM profile_id:40317484 Ok
+4/8/2016 4:52:11 PM Exception: The request channel timed out while waiting for a reply after 00:00:59.9990000. Increase the timeout value passed to the call to Request or increase the SendTimeout value on the Binding. The time allotted to this operation may have been a portion of a longer timeout.
+4/8/2016 4:52:25 PM ===============================
+4/8/2016 4:52:25 PM Pay 16435
+4/8/2016 4:52:25 PM GetOrCreateCustomerProfile
+4/8/2016 4:52:26 PM Message: A duplicate record with ID 40317484 already exists.
+4/8/2016 4:52:26 PM SetCustomerPaymentProfile
+4/8/2016 4:52:26 PM profile_id:40317484 Ok
+4/8/2016 4:53:26 PM Exception: The request channel timed out while waiting for a reply after 00:01:00. Increase the timeout value passed to the call to Request or increase the SendTimeout value on the Binding. The time allotted to this operation may have been a portion of a longer timeout.
+4/8/2016 5:20:45 PM SetCustomerPaymentProfile
+4/8/2016 5:20:46 PM profile_id:40314688 Ok
+4/8/2016 5:20:46 PM profiles: 1
+4/8/2016 5:20:46 PM customerPaymentProfileId: 36592252
+4/8/2016 5:24:12 PM SetCustomerPaymentProfile
+4/8/2016 5:24:22 PM profile_id:40314688 Ok
+4/8/2016 5:24:28 PM profiles: 1
+4/8/2016 5:24:34 PM customerPaymentProfileId: 36592252
+4/8/2016 5:27:20 PM SetCustomerPaymentProfile
+4/8/2016 5:27:20 PM profile_id:40314688 Ok
+4/8/2016 5:27:20 PM profiles: 1
+4/8/2016 5:27:20 PM customerPaymentProfileId: 36592252
+4/8/2016 5:31:37 PM SetCustomerPaymentProfile
+4/8/2016 5:31:38 PM profile_id:40314688 Ok
+4/8/2016 5:31:38 PM profiles: 1
+4/8/2016 5:31:38 PM customerPaymentProfileId: 36592252
+4/8/2016 5:41:56 PM SetCustomerPaymentProfile
+4/8/2016 5:41:56 PM profile_id:39889377 Ok
+4/8/2016 5:41:56 PM profiles: 1
+4/8/2016 5:41:56 PM customerPaymentProfileId: 36190402
+4/8/2016 5:56:02 PM ===============================
+4/8/2016 5:56:02 PM Pay 10002
+4/8/2016 5:56:02 PM CreateTransaction
+4/8/2016 5:57:02 PM Exception: The request channel timed out while waiting for a reply after 00:00:59.9559975. Increase the timeout value passed to the call to Request or increase the SendTimeout value on the Binding. The time allotted to this operation may have been a portion of a longer timeout.
+4/8/2016 10:29:56 PM ===============================
+4/8/2016 10:29:56 PM Pay 16445
+4/8/2016 10:29:56 PM GetOrCreateCustomerProfile
+4/8/2016 10:29:56 PM Message: Successful.
+4/8/2016 10:29:56 PM Response Code: Ok
+4/8/2016 10:29:56 PM New ID = 40324962
+4/8/2016 10:29:56 PM SetCustomerPaymentProfile
+4/8/2016 10:29:57 PM profile_id:40324962 Ok
+4/8/2016 10:30:57 PM Exception: The request channel timed out while waiting for a reply after 00:00:59.9689982. Increase the timeout value passed to the call to Request or increase the SendTimeout value on the Binding. The time allotted to this operation may have been a portion of a longer timeout.
+4/8/2016 11:03:54 PM ===============================
+4/8/2016 11:03:54 PM Pay 16445
+4/8/2016 11:03:54 PM GetOrCreateCustomerProfile
+4/8/2016 11:03:57 PM Message: Successful.
+4/8/2016 11:03:57 PM Response Code: Ok
+4/8/2016 11:03:57 PM New ID = 225072935
+4/8/2016 11:03:57 PM SetCustomerPaymentProfile
+4/8/2016 11:03:58 PM profile_id:225072935 Ok
+4/8/2016 11:03:58 PM Response Code: Error
+4/8/2016 11:03:58 PM Message: The card code is invalid.
+4/8/2016 11:03:58 PM DIRECT: 3,1,78,The card code is invalid.,,P,8147660750,none,Test transaction for ValidateCustomerPaymentProfile.,0.01,CC,auth_only,none,robert,vozdecky,,1115 broadway ste 1234,New York,NY,10010,US,,,email@example.com,,,,,,,,,0.00,0.00,0.00,FALSE,none,5EAC0E6A8C99EE34F1431DC5E9FA4831,,,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+4/8/2016 11:03:58 PM ===============================
+4/8/2016 11:04:55 PM ===============================
+4/8/2016 11:04:55 PM Pay 16445
+4/8/2016 11:04:55 PM GetOrCreateCustomerProfile
+4/8/2016 11:04:56 PM Message: A duplicate record with ID 225072935 already exists.
+4/8/2016 11:04:56 PM SetCustomerPaymentProfile
+4/8/2016 11:04:56 PM profile_id:225072935 Ok
+4/8/2016 11:04:57 PM Response Code: Error
+4/8/2016 11:04:57 PM Message: This transaction has been declined
+4/8/2016 11:04:57 PM DIRECT: 2,2,210,This transaction has been declined,,P,8147662003,none,Test transaction for ValidateCustomerPaymentProfile.,0.01,CC,auth_only,none,robert,vozdecky,,1115 broadway ste 1234,New York,NY,10010,US,,,email@example.com,,,,,,,,,0.00,0.00,0.00,FALSE,none,4CB06BFEE55FF305C30AB878054E1923,,,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+4/8/2016 11:04:57 PM ===============================
+4/8/2016 11:05:18 PM ===============================
+4/8/2016 11:05:18 PM Pay 16445
+4/8/2016 11:05:18 PM GetOrCreateCustomerProfile
+4/8/2016 11:05:18 PM Message: A duplicate record with ID 225072935 already exists.
+4/8/2016 11:05:18 PM SetCustomerPaymentProfile
+4/8/2016 11:05:19 PM profile_id:225072935 Ok
+4/8/2016 11:05:19 PM Response Code: Error
+4/8/2016 11:05:19 PM Message: The payment gateway account is in Test Mode. The request cannot be processed.
+4/8/2016 11:05:19 PM DIRECT: 
+4/8/2016 11:05:19 PM ===============================
+4/8/2016 11:08:13 PM ===============================
+4/8/2016 11:08:13 PM Pay 16445
+4/8/2016 11:08:13 PM GetOrCreateCustomerProfile
+4/8/2016 11:08:14 PM Message: A duplicate record with ID 225072935 already exists.
+4/8/2016 11:08:14 PM SetCustomerPaymentProfile
+4/8/2016 11:08:14 PM profile_id:225072935 Ok
+4/8/2016 11:08:14 PM Response Code: Error
+4/8/2016 11:08:14 PM Message: The payment gateway account is in Test Mode. The request cannot be processed.
+4/8/2016 11:08:14 PM DIRECT: 
+4/8/2016 11:08:14 PM ===============================
+4/8/2016 11:08:26 PM ===============================
+4/8/2016 11:08:26 PM Pay 16445
+4/8/2016 11:08:26 PM GetOrCreateCustomerProfile
+4/8/2016 11:08:27 PM Message: A duplicate record with ID 225072935 already exists.
+4/8/2016 11:08:27 PM SetCustomerPaymentProfile
+4/8/2016 11:08:27 PM profile_id:225072935 Ok
+4/8/2016 11:08:28 PM Response Code: Error
+4/8/2016 11:08:28 PM Message: This transaction has been declined
+4/8/2016 11:08:28 PM DIRECT: 2,2,200,This transaction has been declined,,P,8147665988,none,Test transaction for ValidateCustomerPaymentProfile.,0.01,CC,auth_only,none,robert,vozdecky,,1115 broadway ste 1234,New York,NY,10010,US,,,email@example.com,,,,,,,,,0.00,0.00,0.00,FALSE,none,EC102A9A281C64F3322CBA2484167762,,,,,,,,,,,,,XXXX0015,MasterCard,,,,,,,,,,,,,,,,
+4/8/2016 11:08:28 PM ===============================
+4/8/2016 11:08:56 PM ===============================
+4/8/2016 11:08:56 PM Pay 16445
+4/8/2016 11:08:56 PM GetOrCreateCustomerProfile
+4/8/2016 11:08:57 PM Message: A duplicate record with ID 40324962 already exists.
+4/8/2016 11:08:57 PM SetCustomerPaymentProfile
+4/8/2016 11:08:57 PM profile_id:40324962 Ok
+4/8/2016 11:09:58 PM Exception: The request channel timed out while waiting for a reply after 00:00:59.9789988. Increase the timeout value passed to the call to Request or increase the SendTimeout value on the Binding. The time allotted to this operation may have been a portion of a longer timeout.
+4/8/2016 11:22:20 PM ===============================
+4/8/2016 11:22:20 PM Pay 16445
+4/8/2016 11:22:20 PM GetOrCreateCustomerProfile
+4/8/2016 11:22:23 PM Message: Successful.
+4/8/2016 11:22:23 PM Response Code: Ok
+4/8/2016 11:22:23 PM New ID = 40325131
+4/8/2016 11:22:23 PM SetCustomerPaymentProfile
+4/8/2016 11:22:24 PM profile_id:40325131 Ok
+4/8/2016 11:22:26 PM Response Code: Ok
+4/8/2016 11:22:26 PM Message: Successful.
+4/8/2016 11:22:26 PM DIRECT: 1,1,1,This transaction has been approved.,6OAMV0,Y,2254684369,none,Test transaction for ValidateCustomerPaymentProfile.,0.00,CC,auth_only,none,Clayton,Vereen,,5485 Juniper Bay,Conway,SC,29527,US,,,email@example.com,,,,,,,,,0.00,0.00,0.00,FALSE,none,405B82DBC9B63CCA627EAC3D31C7EC14,P,2,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+4/8/2016 11:22:27 PM CreateTransaction
+4/8/2016 11:22:28 PM Response Code: Ok
+4/8/2016 11:22:28 PM Message: Successful.
+4/8/2016 11:22:28 PM DIRECT: 1,1,1,This transaction has been approved.,4KGBIL,Y,2254684370,Invoice 635957545470,,39.95,CC,auth_capture,16445,Clayton,Vereen,,5485 Juniper Bay,Conway,SC,29527,US,,,,,,,,,,,,,,,,,58A9BC140EBDC2423C9EA6514EB7C931,P,2,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+4/8/2016 11:22:28 PM ===============================
+4/8/2016 11:24:36 PM SetCustomerPaymentProfile
+4/8/2016 11:24:37 PM profile_id:40325131 Ok
+4/8/2016 11:24:37 PM profiles: 1
+4/8/2016 11:24:37 PM customerPaymentProfileId: 36601177
+4/8/2016 11:24:39 PM Response Code: Ok
+4/8/2016 11:24:39 PM Message: Successful.
+4/8/2016 11:24:40 PM DIRECT: 1,1,1,This transaction has been approved.,PH7XGB,Y,2254684426,none,Test transaction for ValidateCustomerPaymentProfile.,0.00,CC,auth_only,16445,rob,reins,,5485 Juniper Bay,Conway,SC,10021,US,,,,,,,,,,,,0.00,0.00,0.00,FALSE,none,5C6FEBCC2B6826B78AAF95FEA447D5C9,P,2,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+4/8/2016 11:41:44 PM SetCustomerPaymentProfile
+4/8/2016 11:41:45 PM profile_id:40325131 Ok
+4/8/2016 11:41:45 PM profiles: 1
+4/8/2016 11:41:45 PM customerPaymentProfileId: 36601177
+4/8/2016 11:41:47 PM Response Code: Ok
+4/8/2016 11:41:47 PM Message: Successful.
+4/8/2016 11:41:47 PM DIRECT: 1,1,1,This transaction has been approved.,54A6XD,Y,2254684776,none,Test transaction for ValidateCustomerPaymentProfile.,0.00,CC,auth_only,16445,rob,reins,,5485 Juniper Bay,Conway,SC,10021,US,,,,,,,,,,,,0.00,0.00,0.00,FALSE,none,312CC2E1BC9AF2C679A2FDE3F99139BD,P,2,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+4/8/2016 11:44:20 PM ===============================
+4/8/2016 11:44:20 PM Pay 15981
+4/8/2016 11:44:20 PM GetOrCreateCustomerProfile
+4/8/2016 11:44:21 PM Message: Successful.
+4/8/2016 11:44:21 PM Response Code: Ok
+4/8/2016 11:44:21 PM New ID = 40325169
+4/8/2016 11:44:21 PM SetCustomerPaymentProfile
+4/8/2016 11:44:22 PM profile_id:40325169 Ok
+4/8/2016 11:44:24 PM Response Code: Ok
+4/8/2016 11:44:24 PM Message: Successful.
+4/8/2016 11:44:24 PM DIRECT: 1,1,1,This transaction has been approved.,38WZEO,Y,2254684818,none,Test transaction for ValidateCustomerPaymentProfile.,0.00,CC,auth_only,none,robert,vozdecky,,1115 broadway ste 1234,New York,NY,10010,US,,,email@example.com,,,,,,,,,0.00,0.00,0.00,FALSE,none,FBEC7DA989373C52FA09832136EA790B,P,2,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+4/8/2016 11:44:24 PM CreateTransaction
+4/8/2016 11:44:26 PM Response Code: Ok
+4/8/2016 11:44:26 PM Message: Successful.
+4/8/2016 11:44:26 PM DIRECT: 1,1,1,This transaction has been approved.,P0XZ0B,Y,2254684819,Invoice 635957558646,,39.95,CC,auth_capture,15981,robert,vozdecky,,1115 broadway ste 1234,New York,NY,10010,US,,,,,,,,,,,,,,,,,9482F89195EF23F7418F393C7B34FDEE,P,2,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+4/8/2016 11:44:26 PM ===============================
+4/8/2016 11:48:37 PM ===============================
+4/8/2016 11:48:37 PM Pay 15061
+4/8/2016 11:48:37 PM GetOrCreateCustomerProfile
+4/8/2016 11:48:38 PM Message: Successful.
+4/8/2016 11:48:38 PM Response Code: Ok
+4/8/2016 11:48:38 PM New ID = 40325174
+4/8/2016 11:48:38 PM SetCustomerPaymentProfile
+4/8/2016 11:48:39 PM profile_id:40325174 Ok
+4/8/2016 11:48:41 PM Response Code: Ok
+4/8/2016 11:48:41 PM Message: Successful.
+4/8/2016 11:48:41 PM DIRECT: 1,1,1,This transaction has been approved.,R9NQ3R,Y,2254684872,none,Test transaction for ValidateCustomerPaymentProfile.,0.00,CC,auth_only,none,robert,vozdecky,,1115 broadway ste 1234,New York,NY,10021,US,,,email@example.com,,,,,,,,,0.00,0.00,0.00,FALSE,none,45E4B2A28642056E98BB7FBB1C96AB64,P,2,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+4/8/2016 11:48:41 PM CreateTransaction
+4/8/2016 11:48:44 PM Response Code: Ok
+4/8/2016 11:48:44 PM Message: Successful.
+4/8/2016 11:48:44 PM DIRECT: 1,1,1,This transaction has been approved.,6MVYGV,Y,2254684874,Invoice 635957561217,,39.95,CC,auth_capture,15061,robert,vozdecky,,1115 broadway ste 1234,New York,NY,10021,US,,,,,,,,,,,,,,,,,CEF5B4592CF0B4CB405FA02BB08F6AD3,P,2,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+4/8/2016 11:48:44 PM ===============================
+4/8/2016 11:49:58 PM ===============================
+4/8/2016 11:49:58 PM Pay 16435
+4/8/2016 11:49:58 PM GetOrCreateCustomerProfile
+4/8/2016 11:49:59 PM Message: Successful.
+4/8/2016 11:49:59 PM Response Code: Ok
+4/8/2016 11:49:59 PM New ID = 40325176
+4/8/2016 11:49:59 PM SetCustomerPaymentProfile
+4/8/2016 11:49:59 PM profile_id:40325176 Ok
+4/8/2016 11:50:02 PM Response Code: Ok
+4/8/2016 11:50:02 PM Message: Successful.
+4/8/2016 11:50:02 PM DIRECT: 1,1,1,This transaction has been approved.,LSO3LY,Y,2254684900,none,Test transaction for ValidateCustomerPaymentProfile.,0.00,CC,auth_only,none,Robert,Vozdecky,,1115 broadway ste 1234,New York,NY,10010,US,,,email@example.com,,,,,,,,,0.00,0.00,0.00,FALSE,none,B7BE3EFE6BEC3756A7AE29915F5328D7,P,2,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+4/8/2016 11:50:02 PM CreateTransaction
+4/8/2016 11:50:04 PM Response Code: Ok
+4/8/2016 11:50:04 PM Message: Successful.
+4/8/2016 11:50:04 PM DIRECT: 1,1,1,This transaction has been approved.,3M4SXI,Y,2254684901,Invoice 635957562021,,39.95,CC,auth_capture,16435,Robert,Vozdecky,,1115 broadway ste 1234,New York,NY,10010,US,,,,,,,,,,,,,,,,,84C8C513FD0D1A6B373801DB1AF9C3AE,P,2,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+4/8/2016 11:50:04 PM ===============================
+4/8/2016 11:52:33 PM ===============================
+4/8/2016 11:52:33 PM Pay 15187
+4/8/2016 11:52:33 PM GetOrCreateCustomerProfile
+4/8/2016 11:52:34 PM Message: Successful.
+4/8/2016 11:52:34 PM Response Code: Ok
+4/8/2016 11:52:34 PM New ID = 40325178
+4/8/2016 11:52:34 PM SetCustomerPaymentProfile
+4/8/2016 11:52:34 PM profile_id:40325178 Ok
+4/8/2016 11:52:37 PM Response Code: Ok
+4/8/2016 11:52:37 PM Message: Successful.
+4/8/2016 11:52:37 PM DIRECT: 1,1,1,This transaction has been approved.,TKLS8L,Y,2254684978,none,Test transaction for ValidateCustomerPaymentProfile.,0.00,CC,auth_only,none,robert,vozdecky,,110 river drive,new jersey,NJ,07310,US,,,email@example.com,,,,,,,,,0.00,0.00,0.00,FALSE,none,975E4A7508EBB82078A4A480BC3FD975,P,2,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+4/8/2016 11:52:37 PM CreateTransaction
+4/8/2016 11:52:39 PM Response Code: Ok
+4/8/2016 11:52:39 PM Message: Successful.
+4/8/2016 11:52:39 PM DIRECT: 1,1,1,This transaction has been approved.,53VDVM,Y,2254684980,Invoice 635957563576,,199.00,CC,auth_capture,15187,robert,vozdecky,,110 river drive,new jersey,NJ,07310,US,,,,,,,,,,,,,,,,,7627E9964C9AF9F50A9BAB5E8F5162DB,P,2,,,,,,,,,,,XXXX1111,Visa,,,,,,,,,,,,,,,,
+4/8/2016 11:52:39 PM ===============================

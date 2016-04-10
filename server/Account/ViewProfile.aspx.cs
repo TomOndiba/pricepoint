@@ -11,7 +11,7 @@ public partial class Account_ViewProfile : System.Web.UI.Page
 {
     DB_Helper db = new DB_Helper();
 
-    private int currentUser
+    public int currentUser
     {
         get
         {
@@ -59,7 +59,7 @@ public partial class Account_ViewProfile : System.Web.UI.Page
         if (userRow["sex"].ToString() == "F") return she;
         return he;
     }
-
+    public string SendOfferText;
     public string accepttext = "";
     void UpdateOffer()
     {
@@ -90,7 +90,12 @@ public partial class Account_ViewProfile : System.Web.UI.Page
         //rejected
         if (mystate == null && thierstate == 405) OfferText.InnerText = "You've rejected " + SheHe("her", "his") + " " + Convert.ToDouble(userRow["TheyOfferedMe"]).ToString("C0") + " offer";
         if (mystate == 405 && thierstate == null) OfferText.InnerText = SheHe("She", "He") + " rejected your " + Convert.ToDouble(userRow["IOfferedThem"]).ToString("C0") + " offer";
-
+        bool rejected = (mystate == null && thierstate == 405) || (mystate == 405 && thierstate == null);
+        if (rejected)
+        {
+            BUT_SENDOFFER.Visible = true;
+            SendOfferText = "Send New Offer";
+        }
 
         if (mystate == 404 || thierstate == 404)
         {
@@ -103,6 +108,7 @@ public partial class Account_ViewProfile : System.Web.UI.Page
         if (MyUtils.IsFemale || IsUnlocked) BUT_SENDMESSAGE.InnerHtml = BUT_SENDMESSAGE.InnerHtml.Replace("[SEND MESSAGE]", "Send Message");
         else
         {
+            BUT_SENDMESSAGE.Attributes["class"] = "button button-green button-icon unlockbutton";
             BUT_SENDMESSAGE.InnerHtml = BUT_SENDMESSAGE.InnerHtml.Replace("[SEND MESSAGE]", "Unlock Messaging for " + Convert.ToInt32(userRow["UnlockCredits"]) + " credits");
         }
 
@@ -154,7 +160,11 @@ public partial class Account_ViewProfile : System.Web.UI.Page
         if (status<0 && MyUtils.IsUserAdminOrStaff())
         {
             h2deleted.Visible = true;
-            h2deleted.InnerHtml = "STATUS: " + status;
+            string s = "";
+            if (status == -1) s = "REJECTED";
+            if (status == -2) s = "BANNED";
+            if (status == -10) s = "CANCELED";
+            h2deleted.InnerHtml = "STATUS: " +s+" "+ status;
         }
 
         if (Convert.ToInt32(userRow["id_user"]) != MyUtils.ID_USER && userRow["sex"].ToString().ToUpper() == MyUtils.GetUserField("sex").ToString().ToUpper() && !MyUtils.IsUserAdminOrStaff() )
@@ -206,11 +216,11 @@ public partial class Account_ViewProfile : System.Web.UI.Page
         #endregion
 
         #region About Me
-        ltAbout.Text = userRow["description"].ToString();
+        ltAbout.Text = fixtext(userRow["description"].ToString());
         #endregion
 
         #region First Date
-        ltFirstDate.Text = userRow["firstdate"].ToString();
+        ltFirstDate.Text = fixtext(userRow["firstdate"].ToString());
         #endregion
 
         #region GetUserPersonalData
@@ -226,6 +236,13 @@ public partial class Account_ViewProfile : System.Web.UI.Page
 
     }
 
+    private string fixtext(string v)
+    {
+        v=HttpUtility.HtmlEncode(v);
+        v=v.Replace("\n", "<br>");
+        return v;
+    }
+
     private void DoesntExist()
     {
         maincontainer.Visible = false;
@@ -235,12 +252,12 @@ public partial class Account_ViewProfile : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        SendOfferText = MyUtils.IsFemale ? "Name Your Price" : "Send Offer";
 
         this.btnBan.Visible = btEdit.Visible= MyUtils.IsUserAdmin();
         this.btEdit.OnClientClick = "window.location.href='" + "/Account/EditProfile?id=" + Convert.ToInt32(Request.QueryString["id"]) + "';return false;";
 
-        if (!IsPostBack)
+        //if (!IsPostBack)
         {
             Repeater1.DataSource = userPhotos;
             Repeater1.DataBind();
@@ -308,7 +325,11 @@ public partial class Account_ViewProfile : System.Web.UI.Page
             btnBlock.Text = isBlocked.Value ? "Unblock" : "Block";
             if (isBlocked.Value) btnBlock.Style.Value = "background-color:red;color:white";
             else btnBlock.Style.Value = "";
-            btnBlock.Attributes["onclick"] = string.Format("javascript: return confirm('Are you sure you want to {0}block this user?');", isBlocked.Value ? "un" : "");
+            btnBlock.Attributes["onclick"] = string.Format("javascript: return confirm('Are you sure you want to {0}block {1}?');", isBlocked.Value ? "un" : "",userRow["username"]);
+
+            btnMobileBlock.Text = btnBlock.Text;
+            btnMobileBlock.Style.Value = btnBlock.Style.Value;
+            btnMobileBlock.Attributes["onclick"] = btnBlock.Attributes["onclick"];
         }
     }
 
@@ -376,7 +397,7 @@ public partial class Account_ViewProfile : System.Web.UI.Page
     {
         var userData = new List<Tuple<string, string>>();
 
-        userData.Add(new Tuple<string, string>("Occupation", userD["occupation"].ToString()));
+        userData.Add(new Tuple<string, string>("Occupation", fixtext(userD["occupation"].ToString())));
         userData.Add(new Tuple<string, string>("Income Level", GetFromLookups(userD["id_income"].ToString())));
         userData.Add(new Tuple<string, string>("Net Worth", GetFromLookups(userD["id_networth"].ToString())));
         userData.Add(new Tuple<string, string>("Relationship Status", GetFromLookups(userD["id_relationship"].ToString())));
@@ -445,7 +466,7 @@ public partial class Account_ViewProfile : System.Web.UI.Page
     /// <returns>user's personal data</returns>
     private DataRow GetUserData(out DataTable userPhotos)
     {
-        sql = string.Format("exec Get_User_Profile {0}, {1}", (int)MyUtils.GetUserField("id_user"), currentUser);
+        sql = string.Format("exec Get_User_Profile {0},{1},1", (int)MyUtils.GetUserField("id_user"), currentUser);
         DataSet ds = db.GetDataSet(sql);
         DataRow userRow = null;
         userPhotos = null;
@@ -589,30 +610,6 @@ public partial class Account_ViewProfile : System.Web.UI.Page
     }
 
 
-    protected void btnReportSubmit_Click(object sender, EventArgs e)
-    {
-        int newComplaintId = 0;
-        //Insert a new complaint to complaints table
-        try
-        {
-            DataSet ds = db.CommandBuilder_LoadDataSet("select * from Сomplaints where id_complaint =-1"); //get the columns schema
-            DataRow newComplaint = ds.Tables[0].NewRow();
-            newComplaint["id_user_from"] = (int)MyUtils.GetUserField("id_user");
-            newComplaint["id_user_to"] = currentUser;
-            newComplaint["text"] = tbReportText.Text.Trim();
-            newComplaint["time"] = DateTime.Now;
-            newComplaint["resolved"] = false;
-           
-            ds.Tables[0].Rows.Add(newComplaint);
-
-            newComplaintId = db.CommandBuilder_SaveDataset();
-            tbReportText.Text = "";
-        }
-        finally
-        {
-            db.CommandBuilder_Disconnect();
-        }
-    }
 
     #region ViewHistory
 
@@ -677,7 +674,7 @@ public partial class Account_ViewProfile : System.Web.UI.Page
             foreach (DataRow r in ds.Tables[0].Rows)
             {
                 isMyLike = (int)r["id_user"] == (int)MyUtils.GetUserField("id_user");
-                history.Add(new Tuple<DateTime, string>((DateTime)r["time"], string.Format("{0} liked {1}", isMyLike ? "You" : curUserName, isMyLike ? curUserName : "You")));
+                history.Add(new Tuple<DateTime, string>((DateTime)r["time"], string.Format("{0} winked at {1}", isMyLike ? "You" : curUserName, isMyLike ? curUserName : "You")));
             }
 
             isAnyHistory = true;
@@ -782,7 +779,7 @@ public partial class Account_ViewProfile : System.Web.UI.Page
             }
             else
             {
-                userRow["status"] = -1;
+                userRow["status"] = 1;
 
                 db.CommandBuilder_SaveDataset();
 

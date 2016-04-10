@@ -143,7 +143,7 @@ a.SW_OFFERSENT,a.SW_OFFERREJECTED{cursor:pointer}
 							<div class="actions">
 							<span class="cell SW <%# Eval("button_switch")%>">
     
-    <a class='button button-icon js-popup SW_SENDOFFER' href="popup-offer.html"><span class='icon icon-offer'></span> Send Offer</a>
+    <a class='button button-icon js-popup SW_SENDOFFER' href="popup-offer.aspx"><span class='icon icon-offer'></span> Send Offer</a>
     <a class='button SW_OFFERSENT' href='#' onclick="return false;"> Offer Sent</a>
     <a class='button SW_OFFERREJECTED' href='#' onclick="return false;"> Rejected</a>
     <a class='button SW_ACCEPT' href='#' onclick="AcceptOffer(this)"><span class='icon icon-offer'></span> Accept Offer</a>

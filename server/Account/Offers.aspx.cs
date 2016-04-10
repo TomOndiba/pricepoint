@@ -8,11 +8,6 @@ using System.Web.UI.WebControls;
 
 public partial class Account_Offers : System.Web.UI.Page
 {
-    public int Winks = 0;
-    public int NewOffers = 0;
-    public int Accepted = 0;
-    public int Pending = 0;
-    public int Rejected = 0;
 
     public string Gifts(string s)
     {
@@ -41,6 +36,7 @@ public partial class Account_Offers : System.Web.UI.Page
         Utils.GoToSendMessage(id);
     }
 
+    public Utils u = new Utils();
 
     DB_Helper db = new DB_Helper();
     protected void Page_Load(object sender, EventArgs e)
@@ -50,33 +46,31 @@ public partial class Account_Offers : System.Web.UI.Page
         offermenu.Visible = Request.QueryString["dates"] != "1";
         winksmenu.Visible = MyUtils.GetUserField("sex").ToString() == "M";
         string otype = Request.QueryString["type"];
-
+        if (otype == null) otype = "New";
         string type = otype;
         if (type == "Dates") type = "Accepted";
         if (MyUtils.GetOriginalURL().ToLower().Contains("/dates")) otype = "Dates";
 
-        DataSet d = db.GetDataSet("exec GET_OFFER_LIST " + MyUtils.ID_USER);
-        DataView v = new DataView(d.Tables[0]);
-        v.RowFilter = "type='"+type+"'";
+
+        DataTable T = u.GetOffersAndWinks();
+
+        DataView v = new DataView(T);
+        v.RowFilter = "type='" + type + "'";
         if (type == "New") v.RowFilter += " or type='Countered'";
         Repeater1.DataSource = v;
         Repeater1.DataBind();
 
-        foreach (DataRow r in d.Tables[0].Rows)
-        {
-            string s = r["type"].ToString();
-            if (s == "Wink") Winks++;
-            if (s == "New" || s== "Countered") NewOffers++;
-            if (s == "Accepted") Accepted++;
-            if (s == "Pending") Pending++;
-            if (s == "Rejected") Rejected++;
-        }
 
-        QuickStart.Visible = v.Count == 0;
+        if (type == "New" && v.Count == 0 && Request.QueryString["type"] == null) Response.Redirect("/Account/Offers?type=Wink", true);
+        ShowEmptyRecords(otype, type, v.Count);
+
+    }
+
+    private void ShowEmptyRecords(string otype, string type, int vCount)
+    {
+        QuickStart.Visible = vCount == 0;
         if (QuickStart.Visible)
         {
-//            string howtostart = (MyUtils.GetUserField("sex").ToString() == "M" ? "Start with a search then send offers to the ladies you like." : "Start with a search then send winks to the men you like.");
-
             string x = "Quick Start";
             if (type == "New") x = "<h2>You have no new offers yet</h2>";
             if (type == "Wink") x = "<h2>You have no winks yet </h2>";
@@ -84,11 +78,22 @@ public partial class Account_Offers : System.Web.UI.Page
             if (otype == "Dates") x = "<h2>You have no dates yet </h2>";
             if (type == "Pending") x = "<h2>You have no pending offers </h2>";
             if (type == "Rejected") x = "<h2>You have no rejected offers </h2>";
-
             QuickStart.Title = x;
         }
+    }
 
 
-
+    protected void Repeater1_ItemDataBound(object sender, RepeaterItemEventArgs e)
+    {
+        DataRowView r= e.Item.DataItem as DataRowView;
+        if (r != null)
+        {
+            if (MyUtils.IsFemale && (r["female_sent_msg"]==DBNull.Value || Convert.ToInt32(r["female_sent_msg"]) == 0))
+            {
+                Button t = (Button)e.Item.FindControl("Button1");
+                t.Text = "Send First Message";
+                t.CssClass = t.CssClass.Replace("button-blue", "button-green");
+            }
+        }
     }
 }

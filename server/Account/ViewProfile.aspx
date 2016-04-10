@@ -16,7 +16,7 @@
 
             <section>
                 <!-- Profile -->
-				<div class="profile" data-id="<%=userRow["id_user"].ToString()%>" data-id_offer="<%=userRow["ID_OFFER_REAL"].ToString()%>" data-user="<%=userRow["username"].ToString()%>">
+				<div class="profile item" data-id="<%=userRow["id_user"].ToString()%>" data-id_offer="<%=userRow["ID_OFFER_REAL"].ToString()%>" data-user="<%=userRow["username"].ToString()%>">
                     <div class="photo my-gallery" data-gallery="1" itemscope itemtype="http://schema.org/ImageGallery">
                         <figure itemprop="associatedMedia" style="position:relative" itemscope itemtype="http://schema.org/ImageObject">
                             <a href='<%=MyUtils.GetImageUrl(userRow, MyUtils.ImageSize.ORIGINAL_SIZE)%>' itemprop="contentUrl" data-size='<%=GetImageSize(userRow) %>'>
@@ -48,7 +48,6 @@
                         <div class="actions" data-id="<%=userRow["id_user"].ToString()%>"  data-id_offer="<%=userRow["ID_OFFER_REAL"].ToString()%>"  data-user="<%=userRow["username"].ToString()%>">
                             <ul class="list" runat="server" id="lActions">
 
-<!--"<a "+Utils.Hide("offer",userRow["id_offer_state"])+" class='button button-icon js-popup' href='popup-offer.html'><span class='icon icon-offer'></span> Send Offer</a><span  "+Utils.Hide("offersent",userRow["id_offer_state"])+" class='cell'>Offer Sent</span><a "+Utils.Hide("message",userRow["id_offer_state"])+" class='button button-blue button-icon js-popup' href='#popup-message'><span class='icon icon-message'></span> Send Message</a>"-->
 <style type="text/css">
 .view_offer
 {    min-width: 150px;
@@ -69,11 +68,11 @@
 <li>
 <div id="DIV_ACCEPTCOUNTERREJECT" visible="false" runat="server" class="buttons show-new">
 <span class="cell"><a class="button js-accept-offer" href="#">Accept <%=accepttext%></a></span>
-<span class="cell"><a class="button button-blue js-popup" href="popup-offer.html" data-counter="1">Counter</a></span>
-<span class="cell"><a class="button button-black js-popup" href="popup-reject.html">Reject</a></span>
+<span class="cell"><a class="button button-blue js-popup" href="popup-offer.aspx" data-counter="1">Counter</a></span>
+<span class="cell"><a class="button button-black js-popup" href="popup-reject.aspx">Reject</a></span>
 </div>
-<a id="BUT_SENDOFFER" visible="false" runat="server" class='button button-icon js-popup sendofferbutton' href='popup-offer.html'><span class='icon icon-offer'></span> <%=MyUtils.IsFemale ? "Name Your Price":"Send Offer" %></a>
-<a id="OfferText" runat="server" class='button button-icon sendofferbuttonDONE' style="display:none;background-color:#00cb50;color:white;cursor:default;border:1px solid #00ab30" href='#'>Offer was sent</a>
+<a id="OfferText" runat="server" class='button button-icon sendofferbuttonDONE SW_OFFERSENT' style="display:none" href='#'>Offer was sent</a>
+<a id="BUT_SENDOFFER" visible="false" runat="server" class='button button-icon js-popup sendofferbutton' href="popup-offer.aspx"><span class='icon icon-offer'></span> <%=SendOfferText %></a>
 <a id="BUT_SENDMESSAGE" visible="false" runat="server"  class='button button-blue button-icon' href=''><span class='icon icon-message'></span> [SEND MESSAGE]</a>
 </li>
 <script>
@@ -96,7 +95,7 @@ function MakeOfferDone(panel,amount)
                                 <asp:LinkButton runat="server" ID="btEdit" CssClass="button button-white" Text="Edit" Visible="false"/>
                                 <asp:LinkButton runat="server" ID="btnBan" CssClass="button button-white" OnClick="btnBan_Click" Text="Ban" Visible="false"/>
                                 <asp:LinkButton runat="server" ID="btnBlock" CssClass="button button-white" OnClick="btnBlock_Click" Text="Block" />
-                                <a class="button js-popup button-white" href="#report-message">Report </a>
+                                <a class="button js-popup-inline button-white" href="#report-message">Report </a>
                             </div>
                         </div>
                     </div>
@@ -182,10 +181,10 @@ function MakeOfferDone(panel,amount)
                             <asp:LinkButton runat="server" ID="btnBanMobile" CssClass="button button-white" OnClick="btnBan_Click" Text="Ban" Visible="false"/>
                         </p>
                         <p class="cell">
-                            <asp:LinkButton runat="server" ID="btnMobileBlock" CssClass="button button-white" OnClientClick="javascript: return confirm('Are you sure you want to block this user?');" OnClick="btnBlock_Click" Text="Block" />
+                            <asp:LinkButton runat="server" ID="btnMobileBlock" CssClass="button button-white" OnClick="btnBlock_Click" Text="Block" />
                         </p>
                         <p class="cell">
-                            <a class="button js-popup button-white" href="#report-message">Report</a>
+                            <a class="button js-popup-inline button-white" href="#report-message">Report</a>
                         </p>
                     </div>
 
@@ -199,138 +198,13 @@ function MakeOfferDone(panel,amount)
 
 
 
-    <!-- Message popup -->
-    <div id="popup-message" class="popup popup-message mfp-hide">
-        <h2 class="h2 heading">Send a First Date Offer to <span class="color">Jemma21</span></h2>
 
-        <div class="form-line form-line-radiobox">
-            <label class="radiobox radiobox-price">
-                <input name="sum" type="radio" value="50">
-                &#36;50</label>
-            <label class="radiobox radiobox-price">
-                <input name="sum" type="radio" value="100">
-                &#36;100</label>
-            <label class="radiobox radiobox-price">
-                <input name="sum" type="radio" value="150">
-                &#36;150</label>
-            <label class="radiobox radiobox-price">
-                <input name="sum" type="radio" value="200">
-                &#36;200</label>
-            <label class="radiobox radiobox-price">
-                <input name="sum" type="radio" value="300">
-                &#36;300</label>
-        </div>
-        <div class="presents">
-            <p class="head">Impress Her by Sending a Virtual Gift for Only 5 Credits</p>
-            <div class="list">
-                <div class="cell">
-                    <label class="checkbox checkbox-gift">
-                        <input type="checkbox" value="flowers">
-                        <img src="../img/gifts/1-(90x90).png" width="90" alt="">
-                    </label>
-                    &nbsp;
-                </div>
-                <div class="cell">
-                    <label class="checkbox checkbox-gift">
-                        <input type="checkbox" value="box">
-                        <img src="../img/gifts/2-(90x90).png" width="90" alt="">
-                    </label>
-                    &nbsp;
-                </div>
-                <div class="cell">
-                    <label class="checkbox checkbox-gift">
-                        <input type="checkbox" value="toy">
-                        <img src="../img/gifts/3-(90x90).png" width="90" alt="">
-                    </label>
-                    &nbsp;
-                </div>
-                <div class="cell">
-                    <label class="checkbox checkbox-gift">
-                        <input type="checkbox" value="bag">
-                        <img src="../img/gifts/4-(90x90).png" width="90" alt="">
-                    </label>
-                    &nbsp;
-                </div>
-                <div class="cell">
-                    <label class="checkbox checkbox-gift">
-                        <input type="checkbox" value="shoes">
-                        <img src="../img/gifts/5-(90x90).png" width="90" alt="">
-                    </label>
-                    &nbsp;
-                </div>
-                <div class="cell">
-                    <label class="checkbox checkbox-gift">
-                        <input type="checkbox" value="drink">
-                        <img src="../img/gifts/6-(90x90).png" width="90" alt="">
-                    </label>
-                    &nbsp;
-                </div>
-            </div>
-        </div>
-        <div class="form-submit">
-            <label>
-                or Type a Custom Amount
-                    <input class="total" type="text" value=""></label>
-            <input class="button" type="submit" value="Send Offer">
-        </div>
+<div id="report-message" class="popup mfp-hide"><h2 class="h2 heading">Please describe in detail the issue you have with this user.</h2>
+<div class="form-submit"><textarea id="tbReportText" data-id_user="<%=this.currentUser%>" class="total" cols="70" rows="10" ></textarea><br />
+<button id="btnReportSubmit" class="button" onclick="SendReport()">Send Report</button>
+</div>
+</div>
 
-    </div>
-    <!-- /Message popup -->
-
-    <div id="report-message" class="popup mfp-hide">
-        <h2 class="h2 heading">Please describe in detail the issue you have with this user.</h2>
-        <div class="form-submit">
-            <asp:TextBox TextMode="MultiLine" runat="server" ID="tbReportText" CssClass="total" Columns="70" Rows="10" />
-            <br />
-            <asp:Button runat="server" ID="btnReportSubmit" CssClass="button" Text="Send Report" OnClick="btnReportSubmit_Click" />
-        </div>
-    </div>
-
-    <!-- Photoswipe popup -->
-    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-        <!-- Background of PhotoSwipe.
-			 It's a separate element, as animating opacity is faster than rgba(). -->
-        <div class="pswp__bg"></div>
-        <!-- Slides wrapper with overflow:hidden. -->
-        <div class="pswp__scroll-wrap">
-            <!-- Container that holds slides. PhotoSwipe keeps only 3 slides in DOM to save memory. -->
-            <!-- don't modify these 3 pswp__item elements, data is added later on. -->
-            <div class="pswp__container">
-                <div class="pswp__item"></div>
-                <div class="pswp__item"></div>
-                <div class="pswp__item"></div>
-            </div>
-            <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
-            <div class="pswp__ui pswp__ui--hidden">
-                <div class="pswp__top-bar">
-                    <!--  Controls are self-explanatory. Order can be changed. -->
-                    <div class="pswp__counter"></div>
-                    <span class="pswp__button pswp__button--close" title="Close (Esc)"></span>
-                    <span class="pswp__button pswp__button--zoom" title="Zoom in/out"></span>
-                    <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
-                    <!-- element will get class pswp__preloader--active when preloader is running -->
-                    <div class="pswp__preloader">
-                        <div class="pswp__preloader__icn">
-                            <div class="pswp__preloader__cut">
-                                <div class="pswp__preloader__donut"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                    <div class="pswp__share-tooltip"></div>
-                </div>
-                <span class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-                </span>
-                <span class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-                </span>
-                <div class="pswp__caption">
-                    <div class="pswp__caption__center"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- /Photoswipe popup -->
 
 <script type="text/javascript">
     Sys.WebForms.PageRequestManager.getInstance().add_endRequest(function () { $("img[src='/img/loading.gif']").remove(); });
