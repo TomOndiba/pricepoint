@@ -301,11 +301,9 @@ h6 {
     padding-bottom: 122px;
   }
 }
-
-  .pure-g .pure-u-mobile-hidden {
-    display: inline-block;
-  }
-
+.pure-g .pure-u-mobile-hidden {
+  display: inline-block;
+}
 @media (min-width: 750px) {
   .container {
     padding: 20px 0;
@@ -315,7 +313,7 @@ h6 {
     padding-right: 230px;
   }
   .conversation-page-female .container > .wrapper {
-    padding-bottom:185px;
+    padding-bottom: 185px;
   }
   .conversation-page .container > .wrapper .aside {
     width: 212px;
@@ -372,15 +370,14 @@ fieldset {
   margin: 0;
   border: none;
 }
-.expirydate 
-{
+.expirydate {
   border: 1px solid #e5e5e5;
   border-radius: 2px;
   color: #707a85;
 }
 /* INPUT & TEXTAREA */
 input,
-textarea{
+textarea {
   height: 46px;
   padding: 15px 10px;
   border: 1px solid #e5e5e5;
@@ -412,7 +409,7 @@ input:focus {
 .form-line input {
   width: 100%;
 }
-input.form-beige,.expirydate {
+input.form-beige, .expirydate {
   background: #f9f9f9;
   border-color: #ddd;
 }
@@ -420,7 +417,7 @@ textarea {
   height: 104px;
   display: block;
   resize: none;
-  width:100%;
+  width: 100%;
 }
 @media (min-width: 750px) {
   textarea.large {
@@ -479,7 +476,6 @@ input[type="submit"]:not(.mfp-arrow) {
   border-radius: 2px;
   transition: background-color 0.2s, border-color 0.2s, color 0.2s;
 }
-
 @media (min-width: 750px) {
   .button:not(.mfp-arrow),
   button:not(.mfp-arrow),
@@ -597,8 +593,6 @@ button:not(.mfp-arrow).button-gray .icon:after,
 input[type="submit"]:not(.mfp-arrow).button-gray .icon:after {
   display: none !important;
 }
-
-
 .button:not(.mfp-arrow).button-gray.active,
 button:not(.mfp-arrow).button-gray.active,
 input[type="submit"]:not(.mfp-arrow).button-gray.active {
@@ -2110,7 +2104,7 @@ body > form {
   text-align: center;
 }
 .footer .terms {
-  margin:10px 30px 5px 30px;
+  margin: 10px 30px 5px 30px;
   font-size: 11px;
   line-height: normal;
   text-align: center;
@@ -2124,12 +2118,12 @@ body > form {
   }
 }
 .footer .links {
-  margin: 0 0 0px;
+  margin: 0;
   padding: 0;
   list-style: none;
   text-align: center;
 }
-  .footer .links li {
+.footer .links li {
   display: inline-block;
 }
 .footer .links li.b { margin: 0 4px; font-size: 15px; font-weight: bold; }
@@ -2152,10 +2146,10 @@ body > form {
     padding: 0 0 0 20px;
     display: inline-block;
   }
-  .footer .links li.b { margin:0; font-size: inherit; font-weight: inherit; }
+  .footer .links li.b { margin: 0; font-size: inherit; font-weight: inherit; }
   .footer .links li:after { display: none !important; }
   .footer .links li.s { margin: 0; }
-  .footer .links li.n { display: none;}
+  .footer .links li.n { display: none; }
   .footer .terms {
     margin: 0;
     font-size: 12px;
@@ -2818,7 +2812,7 @@ figure .vip {
 .gallery .my-gallery {
   padding: 0;
   margin: 0 -6px;
-  width:100%;
+  width: 100%;
 }
 .gallery .my-gallery:after {
   display: table;
@@ -3657,12 +3651,11 @@ figure .vip {
   border-radius: 6px;
 }
 .index .form-line .button.button-large:after {
-  display: block;
+  display: inline-block;
   content: '\0020';
   overflow: hidden;
   clear: both;
   margin: -2px 0 0 14px;
-  display: inline-block;
   vertical-align: middle;
   width: 0;
   height: 0;
@@ -3990,12 +3983,11 @@ figure .vip {
   position: relative;
 }
 .call-to-action .button.button-large:after {
-  display: block;
   content: '\0020';
   overflow: hidden;
   clear: both;
   margin: -2px 0 0 10px;
-  display: inline-block;
+  display: block;
   vertical-align: middle;
   width: 0;
   height: 0;
@@ -4492,9 +4484,8 @@ figure .vip {
 }
 .conversation .entry .author {
   width: 70px;
-  margin: 0;
   padding-top: 8px;
-  margin-right: 3px;
+  margin: 0 3px 0 0;
   float: right;
   color: #e6005f;
   text-align: right;
@@ -4614,7 +4605,7 @@ figure .vip {
     height: 160px;
   }
 }
-.form-message .photo .price,.agreedprice {
+.form-message .photo .price, .agreedprice {
   padding: 4px;
   display: block;
   font-size: 16px;
@@ -4627,13 +4618,13 @@ figure .vip {
   bottom: 5px;
 }
 @media (min-width: 750px) {
-  .form-message .photo .price,.agreedprice {
+  .form-message .photo .price, .agreedprice {
     padding: 6px;
     font-size: 20px;
   }
 }
 @media (min-width: 1000px) {
-  .form-message .photo .price,.agreedprice {
+  .form-message .photo .price, .agreedprice {
     padding: 9px;
     font-size: 28px;
   }
@@ -5044,15 +5035,15 @@ figure .vip {
   vertical-align: middle;
 }
 .form-offer .total-area .total {
-    width: 80px;
-    padding-left: 4px;
-    padding-right: 4px;
-    font-weight: 500;
-    display: inline-block;
-    vertical-align: middle;
-    text-align: center;
-    margin-left: 8px;
-    margin-right: 8px;
+  width: 80px;
+  padding-left: 4px;
+  padding-right: 4px;
+  font-weight: 500;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  margin-left: 8px;
+  margin-right: 8px;
 }
 @media (min-width: 375px) {
   .form-offer .total-area {
@@ -5441,9 +5432,8 @@ form.inited .form-filter {
   .offers .panel .panel-space .buttons .cell .button {
     max-width: 226px;
   }
-  .form-filter
-  {
-      max-height:72px;
+  .form-filter {
+    max-height: 72px;
   }
 
 }
@@ -5601,7 +5591,7 @@ form.inited .form-filter {
 .packages .panel.active {
   background: #fff;
 }
-.packages .panel.active .price,.agreedprice {
+.packages .panel.active .price, .agreedprice {
   border-bottom-color: #e6005f;
 }
 .packages .panel.active .credits {
@@ -5885,7 +5875,7 @@ form.inited .form-filter {
   min-height: 100px;
   margin-bottom: 14px;
   padding-left: 112px;
-  padding-top: 0px;
+  padding-top: 0;
   position: relative;
 }
 @media (min-width: 568px) {
@@ -5952,8 +5942,8 @@ form.inited .form-filter {
 }
 .recents ul li .time {
   margin: 0;
-  font-weight:normal;
-color:silver;
+  font-weight: normal;
+  color: silver;
 }
 .recents ul li .link {
   display: inline-block;
@@ -5983,7 +5973,7 @@ color:silver;
    _FEATURED
    ========================================================================== */
 .featured {
- margin: 0 0 30px 0;
+  margin: 0 0 30px 0;
 }
 .featured .head {
   margin: 0;
@@ -6067,7 +6057,7 @@ color:silver;
    _ATTENTION
    ========================================================================== */
 .attention {
-  max-width:760px;
+  max-width: 760px;
   min-height: 100px;
   margin: 0 auto 30px;
   padding: 12px 22px;
@@ -6260,104 +6250,78 @@ color:silver;
 }
 /*--- ROB's ------*/
 span.sentwink {
-    display: none;
+  display: none;
 }
 span.sendwink {
-    display:inline-block;
+  display: inline-block;
 }
 .active span.sendwink {
-    display:none;
+  display: none;
 }
 .active span.sentwink {
-    display: inline-block;
+  display: inline-block;
 }
-a.button.button-gray.button-icon.js-wink.active
-{
-    cursor:default;
+a.button.button-gray.button-icon.js-wink.active {
+  cursor: default;
 }
-
-
-
-
-
-
-
-
 span.cell.sw-sentoffer {
-    display: none
+  display: none
 }
 .sw-sendoffer {
-    display: none !important
+  display: none !important
 }
-.sw-message {display:none !important}
-
-
+.sw-message { display: none !important }
 .sentoffer span.cell.sw-sentoffer {
-    display:inline-block  !important;
+  display: inline-block !important;
 }
 .sendoffer .sw-sendoffer {
-    display:inline-block  !important;
+  display: inline-block !important;
 }
 .sendmessage .sw-message {
-    display:inline-block  !important;
+  display: inline-block !important;
 }
-
-
-
-
-
-
 .rib-wrapper .rib span {
-    display: block;
-    line-height: 29px;
+  display: block;
+  line-height: 29px;
 }
 .rib-wrapper .rib {
-    line-height: 18px;
-    font-size: 1em;
-    font-weight: bold;
-    text-align: center;
-    -webkit-transform: rotate(315deg);
-    -moz-transform: rotate(315deg);
-    -ms-transform: rotate(315deg);
-    -o-transform: rotate(315deg);
-    transform: rotate(315deg);
-    position: relative;
-    padding: 2px;
-    padding-left: 10px;
-    left: -33px;
-    top: 14px;
-    width: 100px;
-    background-color: #00cb50;
-    color: white;
-    z-index: 10;
+  line-height: 18px;
+  font-size: 1em;
+  font-weight: bold;
+  text-align: center;
+  -webkit-transform: rotate(315deg);
+  -moz-transform: rotate(315deg);
+  -ms-transform: rotate(315deg);
+  -o-transform: rotate(315deg);
+  transform: rotate(315deg);
+  position: relative;
+  padding: 2px;
+  padding-left: 10px;
+  left: -33px;
+  top: 14px;
+  width: 100px;
+  background-color: #00cb50;
+  color: white;
+  z-index: 10;
 }
 .rib-wrapper {
-    height: 70px;
-    width: 70px;
-    overflow: hidden;
-    position: absolute;
-    top: -1px;
-    left: -1px;
+  height: 70px;
+  width: 70px;
+  overflow: hidden;
+  position: absolute;
+  top: -1px;
+  left: -1px;
 }
 @media (min-width: 750px) {
   .rib-wrapper .rib { width: 120px; padding: 2px 7px; line-height: 25px; }
   .rib-wrapper { width: 125px; height: 125px; }
 }
-
-
-.newredcount {font-weight:bold;color:white;background-color:red;padding:0px 3px 0px 3px}
-
-
-
-
-
+.newredcount { font-weight: bold; color: white; background-color: red; padding: 0 3px; }
 .catalog .info .name, .catalog .info .status {
-        text-overflow: ellipsis;
-        overflow: hidden;
-        white-space: nowrap;
-    }
-
-
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
 .button:not(.mfp-arrow).favactive,
 button:not(.mfp-arrow).favactive,
 input[type="submit"]:not(.mfp-arrow).favactive {
@@ -6378,29 +6342,26 @@ input[type="submit"]:not(.mfp-arrow).button-orange:active {
   background-color: transparent;
   text-decoration: none;
 }
-
 .error ul li {
-    color: red;
-    border: solid 2px red;
-    padding: 6px;
+  color: red;
+  border: solid 2px red;
+  padding: 6px;
 }
-
-.error {color:red}
-
+.error { color: red }
 .popup-offer h2.h2.heading {
-    display: none;
+  display: none;
 }
 h2.h2.heading.counter {
-    display: none;
+  display: none;
 }
-.popup-offer  h2.h2.heading.counter {
-    display: block !important;
+.popup-offer h2.h2.heading.counter {
+  display: block !important;
 }
 .notclickable {
-cursor:default;text-decoration:none !important;
+  cursor: default; text-decoration: none !important;
 }
-.button{  
-    cursor:pointer;
+.button {
+  cursor: pointer;
 }
 /* ==========================================================================
    _FORM-REJECT
@@ -6414,80 +6375,63 @@ cursor:default;text-decoration:none !important;
 }
 .form-reject .button {
   width: 170px;
-  margin:0 auto;
+  margin: 0 auto;
   display: block;
 }
-
-@media (max-width:750px)
-{
-label {
+@media (max-width: 750px) {
+  label {
     font-size: 14px;
     font-weight: bold;
-}
-.expirydate_MMYY {font-size:10px}
-
-
-.form-line input {
+  }
+  .expirydate_MMYY { font-size: 10px }
+  .form-line input {
     font-size: 20px;
-    color:black;
+    color: black;
+  }
 }
-}
-
-.button-green:not(.mfp-arrow),.button-green:not(.mfp-arrow):focus {
-    background-color: #00cb50 !important;
-    border: 1px solid #00ab30 !important;
-    color:white !important;
+.button-green:not(.mfp-arrow), .button-green:not(.mfp-arrow):focus {
+  background-color: #00cb50 !important;
+  border: 1px solid #00ab30 !important;
+  color: white !important;
 }
 .button-green:not(.mfp-arrow):hover {
-    background-color:transparent  !important;
-    border: 1px solid #00ab30 !important;
-    color:#00ab30 !important;
+  background-color: transparent !important;
+  border: 1px solid #00ab30 !important;
+  color: #00ab30 !important;
 }
-
-
-
-
-
-
-
-
-.SW a {display:none}
-
-a.button.SW_OFFERSENT, a.button.SW_OFFERSENT:hover, a.button.SW_OFFERSENT:active,a.button.SW_OFFERSENT:focus,
+.SW a { display: none }
+a.button.SW_OFFERSENT, a.button.SW_OFFERSENT:hover, a.button.SW_OFFERSENT:active, a.button.SW_OFFERSENT:focus,
 a.button.SW_OFFERREJECTED, a.button.SW_OFFERREJECTED:hover, a.button.SW_OFFERREJECTED:active, a.button.SW_OFFERREJECTED:focus {
-    cursor: default;
-    background-color: silver;
-    color: white;
-    border: 1px solid silver;
+  cursor: default;
+  background-color: silver;
+  color: white;
+  border: 1px solid silver;
 }
-    
-a.SW_OFFERSENT,a.SW_OFFERREJECTED{cursor:pointer}
-
+a.SW_OFFERSENT, a.SW_OFFERREJECTED { cursor: pointer }
 .SW a {
-    display:none !important;
+  display: none !important;
 }
 .SW_OFFERREJECTED a.SW_OFFERREJECTED {
-  display:block !important;
+  display: block !important;
 }
 .SW_SENDOFFER a.SW_SENDOFFER {
-  display:block !important;
+  display: block !important;
 }
 .SW_OFFERSENT a.SW_OFFERSENT {
-  display:block !important;
+  display: block !important;
 }
 .SW_ACCEPT a.SW_ACCEPT {
-  display:block !important;
+  display: block !important;
 }
 .SW_WINK a.SW_WINK {
-  display:block !important;
+  display: block !important;
 }
 .SW_MESSAGE a.SW_MESSAGE {
-  display:block !important;
+  display: block !important;
 }
 .SW_MESSAGE_UNLOCK a.SW_MESSAGE_UNLOCK {
-  display:block !important;
+  display: block !important;
 }
-
 .area span.vip {
-    margin-bottom: 19px;
+  margin-bottom: 19px;
 }
