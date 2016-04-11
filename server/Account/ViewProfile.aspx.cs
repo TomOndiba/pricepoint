@@ -112,7 +112,7 @@ public partial class Account_ViewProfile : System.Web.UI.Page
             BUT_SENDMESSAGE.InnerHtml = BUT_SENDMESSAGE.InnerHtml.Replace("[SEND MESSAGE]", "Unlock Messaging for " + Convert.ToInt32(userRow["UnlockCredits"]) + " credits");
         }
 
-        if (OfferText.InnerText != "") OfferText.Style["display"] = "block";
+        if (OfferText.InnerText != "") OfferText.Style["display"] = "inline-block";
 
         BUT_SENDMESSAGE.ServerClick += BUT_SENDMESSAGE_ServerClick;
 

@@ -76,7 +76,7 @@
 function MakeOfferDone(panel,amount) {
     $('.sendofferbutton').hide();
     $('.sendofferbuttonDONE').html('You sent $'+amount+' offer');
-    $('.sendofferbuttonDONE').show();
+    $('.sendofferbuttonDONE').css('display','inline-block');
 }
 </script>
 
