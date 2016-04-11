@@ -12,8 +12,8 @@
 
 
         	<!-- Container -->
-		<main class="container">
-			<div class="wrapper">
+		<!-- main class="container">
+			<div class="wrapper" -->
 
 				<!-- Sidebar -->
 				<section class="sidebar" >
@@ -106,8 +106,8 @@
 				</div>
 				<!-- /Content -->
 
-			</div>
-		</main>
+			<!-- /div>
+		</main -->
 		<!-- /Container -->
 
 
