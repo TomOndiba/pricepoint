@@ -82,17 +82,17 @@ function initUI() {
 	});
 
 	$('.js-popup-inline').magnificPopup({
-	    type: 'inline'
+		type: 'inline'
 	});
-	
 
-    /** Init wink */
+
+	/** Init wink */
 	$('.js-wink').on('click', function (event) {
-	    var self = $(this);
-	    $(this).blur().closest('[data-id]').each(function () {
-	        if (!self.hasClass('active')) sendWink($(this).data('id'), $(this));
-	    });
-	    event.preventDefault();
+		var self = $(this);
+		$(this).blur().closest('[data-id]').each(function () {
+			if (!self.hasClass('active')) sendWink($(this).data('id'), $(this));
+		});
+		event.preventDefault();
 	});
 
 	/** Init favorite */
@@ -130,25 +130,25 @@ function initUI() {
 		})
 	});
 
-    //	initPhotoSwipe('.my-gallery');
+	//	initPhotoSwipe('.my-gallery');
 
 
 	$('.my-gallery').magnificPopup({
-	    delegate: 'a',
-	    type: 'image',
-	    tLoading: 'Loading image #%curr%...',
-	    mainClass: 'mfp-img-mobile',
-	    gallery: {
-	        enabled: true,
-	        navigateByImgClick: true,
-	        preload: [0, 1] // Will preload 0 - before current, and 1 after the current image
-	    },
-	    image: {
-	        tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
-	        titleSrc: function (item) {
-	            return '';
-	        }
-	    }
+		delegate: 'a',
+		type: 'image',
+		tLoading: 'Loading image #%curr%...',
+		mainClass: 'mfp-img-mobile',
+		gallery: {
+			enabled: true,
+			navigateByImgClick: true,
+			preload: [0, 1] // Will preload 0 - before current, and 1 after the current image
+		},
+		image: {
+			tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
+			titleSrc: function (item) {
+				return '';
+			}
+		}
 	});
 }
 
@@ -172,6 +172,23 @@ function initFormElements(scope, data) {
 			allSelectedText: $(this).data('all'),
 			numberDisplayed: 10
 		})
+	});
+
+	/** Select age dropdown */
+	$('.select-age:not(.inited)').each(function () {
+		var self = $(this), min = $(this).data('min'), max = $(this).data('max');
+		$('input:text', self).on('keypress', function (event) {
+			return event.charCode >= 48 && event.charCode <= 57;
+		}).on('blur', function (event) {
+			if (+$(this).val() < min) {
+				$(this).val(min).trigger('change');
+			}
+			if (+$(this).val() > max) {
+				$(this).val(max).trigger('change');
+			}
+		}).on('change', function () {
+			$('.' + $(this).attr('name'), self).text($(this).val());
+		});
 	});
 
 	/** Multiselect dropdown */
@@ -225,20 +242,7 @@ function initFormElements(scope, data) {
 		}
 		$(this).addClass('inited');
 	});
-
-	/** Select age dropdown */
-	$('.select-age:not(.inited)', scope).each(function () {
-		var self = $(this);
-		$('input:text', self).on('keypress', function (event) {
-			return event.charCode >= 48 && event.charCode <= 57;
-		}).on('change', function () {
-			$('.' + $(this).attr('name'), self).text($(this).val());
-		});
-		self.addClass('inited');
-	});
 }
-
-
 
 
 /**
@@ -366,7 +370,7 @@ function initMessageForm() {
 
 		var result = {}, gifts = +$('.checkbox-gift :checkbox', this).filter(':checked').length;
 		if (gifts > 0) {
-		    var r = CheckGiftCredits(gifts);
+			var r = CheckGiftCredits(gifts);
 			if (r === true) {
 				Submit.call(this);
 			}
@@ -464,15 +468,15 @@ function initMembershipForm() {
 	var form = $(this);
 
 	$('.selectric').selectric({
-	    maxHeight: 400,
-	    disableOnMobile: false,
-	    responsive: true
+		maxHeight: 400,
+		disableOnMobile: false,
+		responsive: true
 	});
 
 	$('.packages', form).each(function () {
-	    //var self = $(this), package = $('[name="package"]', form), total = $('.total .t', form);
-	    var self = $(this), package = $('[id="ContentPlaceHolder1_hiddenPackage"]', form), total = $('.total .t', form);
-	    
+		//var self = $(this), package = $('[name="package"]', form), total = $('.total .t', form);
+		var self = $(this), package = $('[id="ContentPlaceHolder1_hiddenPackage"]', form), total = $('.total .t', form);
+
 		$('.button-select', this).on('click', function (event) {
 			var panel = $(this).closest('.panel');
 			self.find('.panel.active').removeClass('active');
@@ -504,9 +508,9 @@ function initSubscribeForm() {
  * Toggle favorite action
  **/
 function toggleFavorite(id_user, on_off, panel) {
-    function onOK(data, textStatus, jqXHR) {
-        if (on_off) $('.js-favorite', panel).addClass("active"); else $('.js-favorite', panel).removeClass("active");
-        showAlert(data.d.replace('OK: ', ''));
+	function onOK(data, textStatus, jqXHR) {
+		if (on_off) $('.js-favorite', panel).addClass("active"); else $('.js-favorite', panel).removeClass("active");
+		showAlert(data.d.replace('OK: ', ''));
 	}
 
 	function onDone(data, textStatus, jqXHR) {
@@ -527,22 +531,22 @@ function toggleFavorite(id_user, on_off, panel) {
  * Send wink action
  **/
 function sendWink(id_user, panel) {
-    function onOK(data, textStatus, jqXHR) {
-        $('.js-wink', panel).addClass("active"); 
-        showAlert(data.d.replace('OK: ', ''));
-    }
+	function onOK(data, textStatus, jqXHR) {
+		$('.js-wink', panel).addClass("active");
+		showAlert(data.d.replace('OK: ', ''));
+	}
 
-    function onDone(data, textStatus, jqXHR) {
-        if (data.d.indexOf('OK') >= 0) {
-            onOK(data, textStatus, jqXHR);
-        } else {
-            showError(data.d.replace('ERROR: ', ''));
-        }
-    }
+	function onDone(data, textStatus, jqXHR) {
+		if (data.d.indexOf('OK') >= 0) {
+			onOK(data, textStatus, jqXHR);
+		} else {
+			showError(data.d.replace('ERROR: ', ''));
+		}
+	}
 
-    sendRequest('SendWink', {
-        'id_user': id_user
-    }).done(onDone).error(onError);
+	sendRequest('SendWink', {
+		'id_user': id_user
+	}).done(onDone).error(onError);
 }
 
 function MakeOfferDone(panel, amount) {
@@ -553,10 +557,10 @@ function MakeOfferDone(panel, amount) {
  * Offer should contain id_offer=20001, panel is the div element
  **/
 function MakeOffer(offer, panel) {
-    function onOK(data, textStatus, jqXHR) {
+	function onOK(data, textStatus, jqXHR) {
 
-        var txt=data.d.split('|');
-        if (txt.length > 1) setCredits(txt[1]);
+		var txt = data.d.split('|');
+		if (txt.length > 1) setCredits(txt[1]);
 		showAlert(txt[0].replace('OK: ', ''));
 		$.magnificPopup.close();
 
@@ -566,11 +570,11 @@ function MakeOffer(offer, panel) {
 			return (css.match(/(^|\s)panel-\S+/g) || []).join(' ');
 		}).addClass('panel-pending').find('.type').html('$' + offer.amount);
 		RefreshMenuCounts();
-    }
+	}
 
 	function onDone(data, textStatus, jqXHR) {
 		if (data.d.indexOf('OK') >= 0) {
-		    onOK(data, textStatus, jqXHR);
+			onOK(data, textStatus, jqXHR);
 		} else {
 			showError(data.d.replace('ERROR: ', ''));
 		}
@@ -587,18 +591,18 @@ function MakeOffer(offer, panel) {
  * Accept offer action
  **/
 function AcceptOffer(id_offer, panel) {
-    function onOK(data, textStatus, jqXHR) {
-            showAlert(data.d.replace('OK: ', ''));
+	function onOK(data, textStatus, jqXHR) {
+		showAlert(data.d.replace('OK: ', ''));
 		$(panel).removeClass(function (index, css) {
 			return (css.match(/(^|\s)panel-\S+/g) || []).join(' ');
 		}).addClass('panel-accepted');
-    }
+	}
 
 	function onDone(data, textStatus, jqXHR) {
-	    if (data.d.indexOf('OK') >= 0) {
-		    onOK(data, textStatus, jqXHR);
-		    RefreshMenuCounts();
-        } else {
+		if (data.d.indexOf('OK') >= 0) {
+			onOK(data, textStatus, jqXHR);
+			RefreshMenuCounts();
+		} else {
 			showError(data.d.replace('ERROR: ', ''));
 		}
 	}
@@ -610,30 +614,28 @@ function AcceptOffer(id_offer, panel) {
  * Send report
  **/
 function SendReport() {
-    function onOK(data, textStatus, jqXHR) {
-        showAlert(data.d.replace('OK: ', ''));
-    };
+	function onOK(data, textStatus, jqXHR) {
+		showAlert(data.d.replace('OK: ', ''));
+	};
 
-    function onDone(data, textStatus, jqXHR) {
-        if (data.d.indexOf('OK') >= 0) {
-            onOK(data, textStatus, jqXHR);
-        } else {
-            showError(data.d.replace('ERROR: ', ''));
-        }
-    }
+	function onDone(data, textStatus, jqXHR) {
+		if (data.d.indexOf('OK') >= 0) {
+			onOK(data, textStatus, jqXHR);
+		} else {
+			showError(data.d.replace('ERROR: ', ''));
+		}
+	}
 
-    var message = $('#tbReportText').val();
-    if (message == '') {
-        alert('Please fill in details about your report.');
-        return;
-    }
-    var id_user = $('#tbReportText')[0].getAttribute('data-id_user');
+	var message = $('#tbReportText').val();
+	if (message == '') {
+		alert('Please fill in details about your report.');
+		return;
+	}
+	var id_user = $('#tbReportText')[0].getAttribute('data-id_user');
 
-    sendRequest('Report', { 'id_user': id_user, 'message': message }).done(onDone).error(onError);
-    $.magnificPopup.close();
+	sendRequest('Report', {'id_user': id_user, 'message': message}).done(onDone).error(onError);
+	$.magnificPopup.close();
 }
-
-
 
 
 /**
@@ -655,7 +657,7 @@ function RejectOfferV2(id_offer, reason, panel) {
 		}
 		$.magnificPopup.close();
 		RefreshMenuCounts();
-    }
+	}
 
 	sendRequest('RejectOfferV2', {'id_offer': id_offer, 'reason': reason}).done(onDone).error(onError);
 }
@@ -677,24 +679,24 @@ function WithdrawOffer(id_offer, panel) {
 			if (data.d.indexOf('OK') >= 0) {
 				onOK(data, textStatus, jqXHR);
 				RefreshMenuCounts();
-            } else {
+			} else {
 				showError(data.d.replace('ERROR: ', ''));
 			}
-        }
+		}
 	}
 
 	sendRequest('WithdrawOffer', {'id_offer': id_offer}).done(onDone).error(onError);
 }
 
 function ShowLoading(e) {
-    var div = document.createElement('div');
-    var img = document.createElement('img');
-    img.src = '/img/loading.gif';
-    //div.innerHTML = "Loading...<br />";
-    div.style.cssText = 'position: fixed; top: 20%; left: 50%; z-index: 5000;';
-    div.appendChild(img);
-    document.body.appendChild(div);
-    return true;
+	var div = document.createElement('div');
+	var img = document.createElement('img');
+	img.src = '/img/loading.gif';
+	//div.innerHTML = "Loading...<br />";
+	div.style.cssText = 'position: fixed; top: 20%; left: 50%; z-index: 5000;';
+	div.appendChild(img);
+	document.body.appendChild(div);
+	return true;
 }
 
 
@@ -715,12 +717,14 @@ function sendRequest(method, data) {
  * Shows alert window
  **/
 function showAlert(text) {
-    if (text.indexOf('REDIR:') == 0) {
-        window.location.href = text.replace('REDIR:', ''); return;
-    }
-    if (text.indexOf('REFRESH') == 0) {
-        window.location.reload(true); return;
-    }
+	if (text.indexOf('REDIR:') == 0) {
+		window.location.href = text.replace('REDIR:', '');
+		return;
+	}
+	if (text.indexOf('REFRESH') == 0) {
+		window.location.reload(true);
+		return;
+	}
 
 	ohSnap(text, {color: 'green'});
 }
@@ -949,13 +953,10 @@ function initPhotoSwipe(gallerySelector) {
 
 
 function NotEnoughCredits() {
-    var s = 'You don\'t have enough credits. Please use our secure checkout to buy credits.';
-    alert(s);
-    window.location.href = '/Account/Upgrade';
+	var s = 'You don\'t have enough credits. Please use our secure checkout to buy credits.';
+	alert(s);
+	window.location.href = '/Account/Upgrade';
 }
-
-
-
 
 
 /**
@@ -1036,96 +1037,92 @@ function ohSnapX(element, options) {
 	}
 }
 
-function setCredits(Credits)
-{
-    if (Credits != -1) {
-        $('.credits').html(Credits + ' credits');
-        ppd_credits = Credits;
-    }
+function setCredits(Credits) {
+	if (Credits != -1) {
+		$('.credits').html(Credits + ' credits');
+		ppd_credits = Credits;
+	}
 }
 
 function CheckGiftCredits(gifts) {
-    if (typeof gifts == 'string') gifts = gifts.split(',');
-    if (gifts.length > 0) {
-        var cost = gifts.length * 5;
+	if (typeof gifts == 'string') gifts = gifts.split(',');
+	if (gifts.length > 0) {
+		var cost = gifts.length * 5;
 
-        if (cost > ppd_credits) {
-            alert('You don\'t have enough credits (' + cost + ') to send the virtual gifts');
-            return false;
-        }
-        var r = confirm("A total of " + cost + " credits will be deducted for the virtual gifts.\nWould you like to send the offer?");
-        if (r === false) {
-            return false;
-        }
-    }
-    return true;
+		if (cost > ppd_credits) {
+			alert('You don\'t have enough credits (' + cost + ') to send the virtual gifts');
+			return false;
+		}
+		var r = confirm("A total of " + cost + " credits will be deducted for the virtual gifts.\nWould you like to send the offer?");
+		if (r === false) {
+			return false;
+		}
+	}
+	return true;
 }
 
 function isNumberKey(evt) {
-    var charCode = (evt.which) ? evt.which : event.keyCode;
-    if (charCode != 46 && charCode > 31 && (charCode < 48 || charCode > 57)) {
-        return false;
-    } else {
-        return true;
-    }
+	var charCode = (evt.which) ? evt.which : event.keyCode;
+	if (charCode != 46 && charCode > 31 && (charCode < 48 || charCode > 57)) {
+		return false;
+	} else {
+		return true;
+	}
 }
 
 function SendMessage(e) {
-    var id = $(e).closest('.item').attr("data-id");
-    window.location.href = '/Account/Messages?Confirmed=1&SendMessageTo=' + id;
-    return false;
+	var id = $(e).closest('.item').attr("data-id");
+	window.location.href = '/Account/Messages?Confirmed=1&SendMessageTo=' + id;
+	return false;
 }
 
-function ConfirmUnlock(id)
-{
-    $.magnificPopup.open({
-        items: {
-            src: '/Account/Popup-ConfirmUnlock.aspx?id=' + id,
-            type: 'ajax'
+function ConfirmUnlock(id) {
+	$.magnificPopup.open({
+		items: {
+			src: '/Account/Popup-ConfirmUnlock.aspx?id=' + id,
+			type: 'ajax'
 
-        },
-        //add options here, 
-        closeOnBgClick: false,
-        closeOnContentClick: false
+		},
+		//add options here,
+		closeOnBgClick: false,
+		closeOnContentClick: false
 
-    }, 0);
+	}, 0);
 }
 function HookupUnlockConfirmation(scope) {
-    $('.unlockbutton', scope).click(function (el) {
-        var id = $(el.toElement).closest('.item').attr("data-id");
+	$('.unlockbutton', scope).click(function (el) {
+		var id = $(el.toElement).closest('.item').attr("data-id");
 
-        ConfirmUnlock(id);
-        return false;
-    });
+		ConfirmUnlock(id);
+		return false;
+	});
 }
 
-function SetMenuCount(name,cnt,red)
-{
-    var s = '';
-    if (cnt == 0) {
-        $(name).removeClass('newredcount');
-        $(name).html('');
-        return;
-    }
+function SetMenuCount(name, cnt, red) {
+	var s = '';
+	if (cnt == 0) {
+		$(name).removeClass('newredcount');
+		$(name).html('');
+		return;
+	}
 
-    if (red) $(name).addClass('newredcount');
-    $(name).html(cnt);
+	if (red) $(name).addClass('newredcount');
+	$(name).html(cnt);
 }
-function RefreshMenuCounts()
-{
-    function onDone(data, textStatus, jqXHR) {
-        SetMenuCount('#menu_Offers',data.d.Offers,true);
-        SetMenuCount('#menu_Dates', data.d.Dates, true);
-        SetMenuCount('#menu_Messages', data.d.Messages, true);
+function RefreshMenuCounts() {
+	function onDone(data, textStatus, jqXHR) {
+		SetMenuCount('#menu_Offers', data.d.Offers, true);
+		SetMenuCount('#menu_Dates', data.d.Dates, true);
+		SetMenuCount('#menu_Messages', data.d.Messages, true);
 
-        SetMenuCount('#menu_Winks', data.d.Winks);
-        SetMenuCount('#menu_NewOffers', data.d.NewOffers);
-        SetMenuCount('#menu_Accepted', data.d.Accepted);
-        SetMenuCount('#menu_Pending', data.d.Pending);
-        SetMenuCount('#menu_Rejected', data.d.Rejected);
-    }
+		SetMenuCount('#menu_Winks', data.d.Winks);
+		SetMenuCount('#menu_NewOffers', data.d.NewOffers);
+		SetMenuCount('#menu_Accepted', data.d.Accepted);
+		SetMenuCount('#menu_Pending', data.d.Pending);
+		SetMenuCount('#menu_Rejected', data.d.Rejected);
+	}
 
-    sendRequest('GetMenuCounts', {}).done(onDone).error(onError);
+	sendRequest('GetMenuCounts', {}).done(onDone).error(onError);
 
 }
 

@@ -10,7 +10,7 @@
 
 			<!-- Sort -->
 			<div class="sort">
-                <div class="form-filter">
+				<div class="form-filter">
 					<div class="buttons-group">
 						<div class="cell">
 							<label for="sort"></label>
@@ -43,11 +43,11 @@
 							</select>
 						</div>
 						<div class="form-line form-line-age">
-							<div class="btn-group select-age" data-min="16" data-max="70">
-								<a class="toggle" href="#">Age <span class="agemin">18</span> to <span class="agemax">35</span> <span class="arrow"></span></a>
+							<div class="btn-group select-age" data-min="<%=f.agemin %>" data-max="<%=f.agemax %>">
+								<a class="toggle" href="#">Age <span class="agemin"><%=f.agemin %></span> to <span class="agemax"><%=f.agemax %></span> <span class="arrow"></span></a>
 								<ul>
-									<li><input class="from" onkeypress="return isNumberKey(event)" id="agemin" name="agemin" type="text" maxlength="2" value='<%=f.agemin %>' required> <label for="agemin">From Age</label></li>
-									<li><input class="to" onkeypress="return isNumberKey(event)" id="agemax" name="agemax" type="text" maxlength="2" value='<%=f.agemax %>' required> <label for="agemax">To Age</label></li>
+									<li><input class="from" id="agemin" name="agemin" type="text" maxlength="2" value="<%=f.agemin %>" required> <label for="agemin">From Age</label></li>
+									<li><input class="to" id="agemax" name="agemax" type="text" maxlength="2" value="<%=f.agemax %>" required> <label for="agemax">To Age</label></li>
 								</ul>
 							</div>
 						</div>
@@ -77,7 +77,7 @@
 							</select>
 						</div>
 					</div>
-                    </div>
+				</div>
 			</div>
 			<!-- /Sort -->
 
@@ -92,9 +92,9 @@
 			<!-- Catalog -->
 			<section class="catalog">
 				<div id="usersdiv">
-                <asp:Repeater ID="UserList" runat="server">
-                <ItemTemplate>
-                <div class="item" data-id='<%# Eval("id_user") %>' data-user='<%# Eval("usr") %>'>
+				<asp:Repeater ID="UserList" runat="server">
+				<ItemTemplate>
+				<div class="item" data-id='<%# Eval("id_user") %>' data-user='<%# Eval("usr") %>'>
 					<div class="space">
 						<figure class="photo">
 							<a class="alink" onclick="return viewprofile(this)" href="#">
@@ -105,45 +105,41 @@
 						</figure>
 						<div class="info">
 							<a class="alink name" onclick="return viewprofile(this)" href="#"><%# Eval("usr") %></a>
-                            <p class="location"><span class="age"><%# Eval("age") %></span> / <span class="loc"><%# Eval("plc") %></span><span class="range"><span class='dist'><%# Convert.ToInt32(Eval("dis"))%></span> miles</span></p>
+							<p class="location"><span class="age"><%# Eval("age") %></span> / <span class="loc"><%# Eval("plc") %></span><span class="range"><span class='dist'><%# Convert.ToInt32(Eval("dis"))%></span> miles</span></p>
 							<p class="status"><%# Eval("tit") %></p>
 							<div class="actions">
-							<span class="cell SW <%# Eval("button_switch")%>">
-    
-    <a class='button button-icon js-popup SW_SENDOFFER' href="popup-offer.aspx"><span class='icon icon-offer'></span> Send Offer</a>
-    <a class='button SW_OFFERSENT' href='#' onclick="return false;"> Offer Sent</a>
-    <a class='button SW_OFFERREJECTED' href='#' onclick="return false;"> Rejected</a>
-    <a class='button SW_ACCEPT' href='#' onclick="AcceptOffer(this)"><span class='icon icon-offer'></span> Accept Offer</a>
-    <a class='button button-gray button-icon js-wink <%# Eval("wink").ToString()=="1" ? "active":""%> SW_WINK' href='#wink'> <span class='icon icon-wink'></span> <span class='sendwink'>Send Wink</span><span class='sentwink'>Wink Sent</span></a>
-    <a class='button button-blue button-icon SW_MESSAGE' onclick="SendMessage(this)"><span class='icon icon-message'></span> Send Message</a>
-    <a class='button button-green button-icon SW_MESSAGE_UNLOCK unlockbutton'><span class='icon icon-message'></span> Unlock </a>
-
+								<span class="cell SW <%# Eval("button_switch")%>">
+									<a class='button button-icon js-popup SW_SENDOFFER' href="popup-offer.aspx"><span class='icon icon-offer'></span> Send Offer</a>
+									<a class='button SW_OFFERSENT' href='#' onclick="return false;"> Offer Sent</a>
+									<a class='button SW_OFFERREJECTED' href='#' onclick="return false;"> Rejected</a>
+									<a class='button SW_ACCEPT' href='#' onclick="AcceptOffer(this)"><span class='icon icon-offer'></span> Accept Offer</a>
+									<a class='button button-gray button-icon js-wink <%# Eval("wink").ToString()=="1" ? "active":""%> SW_WINK' href='#wink'> <span class='icon icon-wink'></span> <span class='sendwink'>Send Wink</span><span class='sentwink'>Wink Sent</span></a>
+									<a class='button button-blue button-icon SW_MESSAGE' onclick="SendMessage(this)"><span class='icon icon-message'></span> Send Message</a>
+									<a class='button button-green button-icon SW_MESSAGE_UNLOCK unlockbutton'><span class='icon icon-message'></span> Unlock </a>
 								</span>
 								<span class="cell"><a class="button button-gray button-icon js-favorite <%# Eval("favorite").ToString()=="1" ? "active" : "" %>" href="#favorite"><span class="icon icon-fav"></span> Favorite</a></span>
 							</div>
 						</div>
 					</div>
 				</div>
-                </ItemTemplate>
-                </asp:Repeater>
-                </div>
+				</ItemTemplate>
+				</asp:Repeater>
+				</div>
 			</section>
 			<!-- /Catalog -->
 
 <div style="width:100%;text-align:center">
-        <img id="loader" alt="" src="/img/loading.gif" style="display: none" />
+	<img id="loader" alt="" src="/img/loading.gif" style="display: none" />
 </div>
 
-    <script type="text/javascript">
-        filterjson = '<%=filterjson%>';
-        $('.agemin', document).text(<%=f.agemin%>);
-        $('.agemax', document).text(<%=f.agemax%>);
-    </script>
+<script type="text/javascript">
+	filterjson = '<%=filterjson%>';
+</script>
 
 
-				<uc1:OfferPopup ID="OfferPopup1" runat="server" />
+<uc1:OfferPopup ID="OfferPopup1" runat="server" />
 
-   <!-- <%=sql %> -->
+<!-- <%=sql %> -->
 
 </asp:Content>
 

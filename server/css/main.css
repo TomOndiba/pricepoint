@@ -575,15 +575,9 @@ input[type="submit"]:not(.mfp-arrow).button-gray {
   border-color: #707a85;
   background: #707a85;
 }
-.button:not(.mfp-arrow).button-gray:not(.js-favorite,.js-wink):hover,
-button:not(.mfp-arrow).button-gray:not(.js-favorite):hover,
-input[type="submit"]:not(.mfp-arrow).button-gray:not(.js-favorite,.js-wink):hover,
-.button:not(.mfp-arrow).button-gray:not(.js-favorite,.js-wink):focus,
-button:not(.mfp-arrow).button-gray:not(.js-favorite,.js-wink):focus,
-input[type="submit"]:not(.mfp-arrow).button-gray:not(.js-favorite,.js-wink):focus,
-.button:not(.mfp-arrow).button-gray:not(.js-favorite,.js-wink):active,
-button:not(.mfp-arrow).button-gray:not(.js-favorite,.js-wink):active,
-input[type="submit"]:not(.mfp-arrow).button-gray:not(.js-favorite,.js-wink):active {
+.button:not(.mfp-arrow).button-gray:hover, button:not(.mfp-arrow).button-gray:hover, input[type="submit"]:not(.mfp-arrow).button-gray:hover,
+.button:not(.mfp-arrow).button-gray:focus, button:not(.mfp-arrow).button-gray:focus, input[type="submit"]:not(.mfp-arrow).button-gray:focus,
+.button:not(.mfp-arrow).button-gray:active, button:not(.mfp-arrow).button-gray:active, input[type="submit"]:not(.mfp-arrow).button-gray:active {
   color: #707a85;
   text-decoration: none;
   background-color: transparent;
@@ -593,9 +587,9 @@ button:not(.mfp-arrow).button-gray .icon:before,
 input[type="submit"]:not(.mfp-arrow).button-gray .icon:before {
   opacity: 1 !important;
 }
-.button:not(.mfp-arrow).button-gray .icon:after,
-button:not(.mfp-arrow).button-gray .icon:after,
-input[type="submit"]:not(.mfp-arrow).button-gray .icon:after {
+.button:not(.mfp-arrow).button-gray:not(.js-favorite) .icon:after,
+button:not(.mfp-arrow).button-gray:not(.js-favorite) .icon:after,
+input[type="submit"]:not(.mfp-arrow).button-gray:not(.js-favorite) .icon:after {
   display: none !important;
 }
 .button:not(.mfp-arrow).button-gray.active,
@@ -1449,8 +1443,13 @@ body > form {
 }
 .form .select-date .selectric-wrapper {
   width: auto;
-  margin: 0 6px 0 0;
+  margin: 0 1px 0 0;
   display: inline-block;
+}
+@media (min-width: 568px) {
+  .form .select-date .selectric-wrapper {
+    margin: 0 6px 0 0;
+  }
 }
 .form .select-date .selectric-wrapper:last-of-type {
   margin: 0;
