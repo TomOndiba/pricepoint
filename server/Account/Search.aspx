@@ -43,7 +43,7 @@
 							</select>
 						</div>
 						<div class="form-line form-line-age">
-							<div class="btn-group select-age" data-min="<%=f.agemin %>" data-max="<%=f.agemax %>">
+							<div class="btn-group select-age" data-min="18" data-max="65">
 								<a class="toggle" href="#">Age <span class="agemin"><%=f.agemin %></span> to <span class="agemax"><%=f.agemax %></span> <span class="arrow"></span></a>
 								<ul>
 									<li><input class="from" id="agemin" name="agemin" type="text" maxlength="2" value="<%=f.agemin %>" required> <label for="agemin">From Age</label></li>
