@@ -22,7 +22,7 @@ html {
   height: 100%;
   padding: 0;
   margin: 0;
-  font: 12px/16px 'Roboto', Arial, sans-serif;
+  font: 15px 'Roboto', Arial, sans-serif;
   color: #707a85;
   background: #f4f4f4;
   -webkit-font-smoothing: antialiased;
@@ -2206,6 +2206,7 @@ body > form {
   border: 1px solid #a5ceec;
   border-radius: 2px;
   transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+  font-size: 12px;
 }
 .links-group li a:hover,
 .links-group li a:focus,
@@ -2327,7 +2328,6 @@ body > form {
   .links-group li a.active .icon:after {
     opacity: 1;
   }
-
   .links-group li a .icon.icon-sandglass, .links-group li a .icon.icon-close {
     display: none;
   }
@@ -3640,7 +3640,7 @@ figure .vip {
   }
 }
 .index .form-line {
-  max-width: 394px;
+  max-width: 400px;
   margin: 0 auto;
   text-align: left;
 }
@@ -4018,21 +4018,26 @@ figure .vip {
   }
 }
 .call-to-action .button.button-large {
-  margin-top: 18px;
-  font: 600 13px/14px 'Open Sans', Arial, sans-serif;
+  max-width: 400px;
+  padding-top: 12px;
+  padding-bottom: 13px;
+  border-radius: 6px;
+  margin: 18px auto 0;
+  font: 600 15px/18px 'Open Sans', Arial, sans-serif;
   position: relative;
+  display: block;
 }
 .call-to-action .button.button-large:after {
+  display: inline-block;
   content: '\0020';
   overflow: hidden;
   clear: both;
-  margin: -2px 0 0 10px;
-  display: block;
+  margin: -2px 0 0 14px;
   vertical-align: middle;
   width: 0;
   height: 0;
   border-style: solid;
-  border-width: 5px 0 5px 5px;
+  border-width: 9px 0 9px 9px;
   border-color: transparent transparent transparent #fff;
   transition: border-color 0.2s;
 }
