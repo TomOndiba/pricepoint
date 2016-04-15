@@ -4941,20 +4941,24 @@ figure .vip {
     padding-top: 54px;
   }
 }
-.popup .mfp-close {
+.mfp-wrap .mfp-close {
   width: 24px;
   height: 24px;
   padding: 0;
   display: block;
+  top: 0;
+  right: -15px;
+  opacity: 1;
+  cursor: pointer;
+}
+.popup .mfp-close {
   background: #707a85;
   border-radius: 4px;
   top: 10px;
   right: 10px;
-  opacity: 1;
-  cursor: pointer;
 }
-.popup .mfp-close:before,
-.popup .mfp-close:after {
+.mfp-wrap .mfp-close:before,
+.mfp-wrap .mfp-close:after {
   width: 14px;
   height: 2px;
   margin: auto;
@@ -4968,7 +4972,7 @@ figure .vip {
   left: 0;
   background: #e9e9e9;
 }
-.popup .mfp-close:before {
+.mfp-wrap .mfp-close:before {
   -webkit-transform: rotate(45deg);
   -moz-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
@@ -4976,7 +4980,7 @@ figure .vip {
   transform: rotate(45deg);
   -webkit-backface-visibility: hidden;
 }
-.popup .mfp-close:after {
+.mfp-wrap .mfp-close:after {
   -webkit-transform: rotate(-45deg);
   -moz-transform: rotate(-45deg);
   -ms-transform: rotate(-45deg);
@@ -4985,10 +4989,14 @@ figure .vip {
   -webkit-backface-visibility: hidden;
 }
 @media (min-width: 750px) {
+  .mfp-wrap .mfp-close {
+    right: -40px;
+  }
   .popup .mfp-close {
     width: 34px;
     height: 34px;
     border-radius: 8px;
+    right: 10px;
   }
   .popup .mfp-close:before,
   .popup .mfp-close:after {

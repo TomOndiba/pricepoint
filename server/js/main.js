@@ -144,10 +144,7 @@ function initUI() {
 			preload: [0, 1] // Will preload 0 - before current, and 1 after the current image
 		},
 		image: {
-			tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
-			titleSrc: function (item) {
-				return '';
-			}
+			tError: '<a href="%url%">The image #%curr%</a> could not be loaded.'
 		}
 	});
 }
@@ -332,23 +329,32 @@ function initRegistrationForm() {
 }
 
 
+var result = {};
+function perform_search() {
+	$('[required]').each(function () {
+		if ($(this).is('[multiple]') && $(this).val() === null) {
+			result[$(this).attr('name')] = [];
+		} else {
+			result[$(this).attr('name')] = $(this).val();
+		}
+	});
+	SubmitSearch(result);
+	//		alert(JSON.stringify(result, null, 4));
+	return false;
+}
+
 /**
  * Initialize filter form
  **/
 function initFilterForm() {
-	var result = {};
-	$(this).on('submit', function () {
-		$('[required]', this).each(function () {
-			if ($(this).is('[multiple]') && $(this).val() === null) {
-				result[$(this).attr('name')] = [];
-			} else {
-				result[$(this).attr('name')] = $(this).val();
-			}
+	$(this).on('submit', perform_search).addClass('inited');
+
+	$(this).ready(function () {
+		$('#sort').change(function () {
+			perform_search();
 		});
-		SubmitSearch(result);
-//		alert(JSON.stringify(result, null, 4));
-		return false;
-	}).addClass('inited');
+	});
+
 }
 
 
